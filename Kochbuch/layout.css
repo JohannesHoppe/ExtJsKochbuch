@@ -1,0 +1,8 @@
+/* ------- fix styles ------- */
+
+body.x-body {
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin: 0 auto;
+}
