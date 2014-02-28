@@ -271,16 +271,23 @@ img {
   max-width: 100%
 }
 </style>
+<link rel="stylesheet" type="text/css" href="included/markdown-github.css">
+<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="included/examples.css">
+
+<script src="../extjs/ext-all-debug.js"></script>
 </head>
 <body>
-<p><img src="images/logo.png" alt="Logo"></p>
 <h1 id="ext-js-kochbuch-kapitel-2-modularer-code">Ext JS Kochbuch - Kapitel 2: Modularer Code</h1>
+<p><a name="toc"></a></p>
 <h5 id="inhalt">Inhalt</h5>
 <ol>
 <li>Introduction</li>
 <li>Preparing a simple model</li>
 <li>Saving the model to MongoDB</li>
 </ol>
+<hr>
+
 <h2 id="1-introduction">1. Introduction</h2>
 <p>Viele Programmiersprachen geben direkt in ihrer Syntax Konstrukte wie Namespaces, Vererbung, Polymorphie oder Klassen zur Struckturierung des Quelltextes fest vor. JavaScript bietet an vielen bekannten Stellen keine Vorgaben. Die Flexibilitiät der Sprache ermöglicht es jedoch, die bekannten Konstrukte durch selbst durch erprobte Patterns (siehe z.B. XXX) oder durch bestehende Bibliotheken zu nachzubilden.</p>
 <p>Diese Flexibilität ist Fluch und Segen von JavaScript zugleich. Es gibt zum einen den Ausweg, durch einen Prepräzessor wie CoffeScript und TypeScript eine erweiterte Syntax zu verwenden. Ebenso kann man bestehende Bibliotheken nutzen, welche die Syntax von JavaScript nicht verändern und daher lediglich neue Funktionen zur Verfügung stellen. Ext JS, bzw. der &quot;Ext JS Core&quot; ist eine diese Bibliotheken.</p>

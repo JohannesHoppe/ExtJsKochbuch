@@ -1,5 +1,3 @@
-![Logo](images/logo.png)
-
 # Ext JS Kochbuch
 
 * [Kapitel 1: Quickstart](01. Quickstart.html)

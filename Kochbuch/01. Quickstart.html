@@ -271,19 +271,20 @@ img {
   max-width: 100%
 }
 </style>
+<link rel="stylesheet" type="text/css" href="included/markdown-github.css">
+<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="included/examples.css">
+
+<script src="../extjs/ext-all-debug.js"></script>
 </head>
 <body>
-<p><img src="images/logo.png" alt="Logo"></p>
-<p><link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css"></p>
-<p><link rel="stylesheet" type="text/css" href="layout.css"></p>
-<script src="../extjs/ext-all-debug.js"></script>
-
 <h1 id="ext-js-kochbuch-kapitel-1-quickstart">Ext JS Kochbuch - Kapitel 1: Quickstart</h1>
+<p><a name="toc"></a></p>
 <h5 id="inhalt">Inhalt</h5>
 <ol>
 <li><a href="#willkommen">Willkommen</a></li>
-<li>Preparing a simple model</li>
-<li>Saving the model to MongoDB</li>
+<li><a href="#frameworks">Frameworks</a></li>
+<li><a href="#hello">Hello World</a></li>
 </ol>
 <hr>
 
@@ -295,6 +296,7 @@ img {
 <li>Das Buch &quot;<a href="http://www.packtpub.com/sencha-ext-js-4-web-application-development-cookbook/book">Ext JS 4 Web Application Development Cookbook</a>&quot; von Stuart Ashworth &amp; Andrew Duncan</li>
 <li>Das Buch &quot;<a href="http://www.packtpub.com/extnet-web-application-development/book">Ext.NET Web Application Development</a>&quot; von Anup Shah</li>
 </ol>
+<p><a name="frameworks"></a></p>
 <h1 id="2-frameworks">2. Frameworks</h1>
 <h3 id="ext-js">Ext JS</h3>
 <p><strong>Ext JS</strong> ist ein &quot;alles in einem&quot; Framework von Senscha. Bis zur (mitlerweile historischen) Version 1 war Ext JS als Erweiterung von YUI, jQuery oder Prototype/Script.aculo.us konzipiert. Seit Version1.1 hat Ext JS keine externen Abhängigkeiten zu anderen Standardbibliotheken mehr, sondern bringt Funktionalitäten wie DOM-Manipulaton, AJAX oder ein Klassen-System bereits mit. Eine friedliche Koexistenz mit anderen Standardbibliotheken ist weiterhin problemlos möglich.</p>
@@ -307,6 +309,7 @@ img {
 <h3 id="ext-net">Ext.NET</h3>
 <p><strong>Ext.NET</strong> ist ein Framework, welches Ext JS speziell für ASP.NET Entwickler erweitert. Es liefert streng typisierte Wrapper-Controls sowohl für ASP.NET als auch für ASP.NET MVC (hier jeweils für klassische Views als auch für Razor-Views). Wie bei allen .NET-Klassen stehen durch die Wrapper-Controls automatische Vervollständigung von Quelltext (&quot;IntelliSense&quot;) sowie eine Validierung durch den Compiler zur Verfügung. Weiterhin wird Ext.NET als Nuget-Paket angeboten, was die Einbindung in ein ASP.NET Projekt sehr vereinfacht    .</p>
 <p>Die zum Zeitpunkt des Schreibens dieses Dokumentes aktuelles Version ist Ext.NET 2.4.0, welches auf Ext JS 4.2.1 basiert.</p>
+<p><a name="hello"></a></p>
 <h1 id="3-hello-world">3. Hello World</h1>
 <p>Ohne auf die Details einzugehen, sollte ein Kochbuch mit einem &quot;Hello World&quot;-Beispiel beginnen. Folgendes Beispiel instanziert eine Klasse vom Typ &#39;Ext.window.Window&#39;.</p>
 <pre><code class="lang-javascript">Ext.onReady(function () {
@@ -318,7 +321,7 @@ img {
     }).show();
 });</code></pre>
 <p>Das Ergebnis ist ein einfaches Fenster:</p>
-<p><div id="sample1" style="height: 210px; width: 410px;"></div></p>
+<p><div id="example1"></div></p>
 <script>
 Ext.onReady(function () {
     Ext.create('Ext.window.Window', {
@@ -326,7 +329,7 @@ Ext.onReady(function () {
         height: 200,
         width: 400,
         html: "Hello World",
-        renderTo: 'sample1'
+        renderTo: 'example1'
     }).show();
 });
 </script>
