@@ -273,7 +273,7 @@ html {
     background-image: url(../images/logo_header.png);
     background-repeat: no-repeat;
     background-position: center 10px;
-    background-color: #dddddd;
+    background-color: #ddd;
     padding-bottom: 0;
     margin-bottom: 0;
 }
@@ -297,19 +297,27 @@ body.x-body {
     margin-right: auto !important;
 }
 
-
 strong {
     font-weight: 700;
 }
 
 a[href="index.html"],
-copy{
+copy {
     display: block;
-    border-top: 5px solid #dddddd;
+    border-top: 5px solid #ddd;
     color: #333;
     font-weight: bold;
     padding: 5px;
     text-align: center;
     margin-left: -25px;
     margin-right: -25px;
+}
+
+a[href="index.html"]:hover  {
+    background-color: #eee;
+    text-decoration: none;
+}
+
+pre, code, tt {
+    font-size: 16px !important;
 }
