@@ -274,6 +274,8 @@ html {
     background-repeat: no-repeat;
     background-position: center 10px;
     background-color: #dddddd;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 body {
@@ -281,12 +283,9 @@ body {
     border-top: 30px solid #585959;
     background-color: white;
     padding: 25px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
-
-strong {
-    font-weight: 700;
-}
-
 
 /* fix styles which are changed by ext.js */
 body.x-body {
@@ -296,4 +295,21 @@ body.x-body {
     color: #333 !important;
     margin-left: auto !important;
     margin-right: auto !important;
+}
+
+
+strong {
+    font-weight: 700;
+}
+
+a[href="index.html"],
+copy{
+    display: block;
+    border-top: 5px solid #dddddd;
+    color: #333;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    margin-left: -25px;
+    margin-right: -25px;
 }
