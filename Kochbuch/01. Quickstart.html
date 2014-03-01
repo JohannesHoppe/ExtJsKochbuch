@@ -9,10 +9,12 @@
 <link rel="stylesheet" type="text/css" href="included/markdown-github.css">
 <link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
 <link rel="stylesheet" type="text/css" href="included/highlight-styles/github.css">
+<link rel="stylesheet" type="text/css" href="included/lightbox.css">
 <link rel="stylesheet" type="text/css" href="included/examples.css">
 
 <script src="../extjs/ext-all-debug.js"></script>
 <script src="included/highlight.pack.js"></script>
+<script src="included/Ext.ux.Lightbox.js"></script>
 <script src="included/extra.js"></script>
 </head>
 <body>
@@ -28,7 +30,7 @@
 
 <p><a name="willkommen"></a></p>
 <h1 id="1-willkommen">1. Willkommen</h1>
-<p>Willkommen zum kleinen Ext JS (und Ext.NET) Kochbuch.<br>Dieses Dokument soll als detailiertere Erläuterung zum Ext JS Workshop von Johannes Hoppe dienen. Bitte beachten Sie, dass es nicht als ausführliches Nachschlagewerk gedacht ist. Die hier vorgestellten Themen sind selektiv ausgewählt. Ziel ist es, einen schnellen, aber fundierten, Einstieg in Ext JS bzw. Ext.NET zu bieten. Folgende Resourcen und Bücher werden eine gute Ergänzung sein:</p>
+<p>Willkommen zum kleinen Ext JS (und Ext.NET) Kochbuch.<br>Dieses Dokument soll als detailliertere Erläuterung zum Ext JS Workshop von Johannes Hoppe dienen. Bitte beachten Sie, dass es nicht als ausführliches Nachschlagewerk gedacht ist. Die hier vorgestellten Themen sind selektiv ausgewählt. Ziel ist es, einen schnellen, aber fundierten, Einstieg in Ext JS bzw. Ext.NET zu bieten. Folgende Ressourcen und Bücher werden eine gute Ergänzung sein:</p>
 <ol>
 <li>Die sehr ausführliche <a href="../extjs/docs/index.html">Ext JS Dokumentation</a> <em>(wird im gesamten Kochbuch als Mirror verlinkt)</em></li>
 <li>Das Buch &quot;<a href="http://www.packtpub.com/sencha-ext-js-4-web-application-development-cookbook/book">Ext JS 4 Web Application Development Cookbook</a>&quot; von Stuart Ashworth &amp; Andrew Duncan</li>
@@ -37,19 +39,19 @@
 <p><a name="frameworks"></a></p>
 <h1 id="2-frameworks">2. Frameworks</h1>
 <h2 id="ext-js">Ext JS</h2>
-<p><strong>Ext JS</strong> ist ein &quot;alles in einem&quot; Framework von Senscha. Bis zur (mitlerweile historischen) Version 1 war Ext JS als Erweiterung von YUI, jQuery oder Prototype/Script.aculo.us konzipiert. Seit Version1.1 hat Ext JS keine externen Abhängigkeiten zu anderen Standardbibliotheken mehr, sondern bringt Funktionalitäten wie DOM-Manipulaton, AJAX oder ein Klassen-System bereits mit. Eine friedliche Koexistenz mit anderen Standardbibliotheken ist weiterhin problemlos möglich.</p>
+<p><strong>Ext JS</strong> ist ein &quot;alles in einem&quot; Framework von Senscha. Bis zur (mittlerweile historischen) Version 1 war Ext JS als Erweiterung von YUI, jQuery oder Prototype/Script.aculo.us konzipiert. Seit Version1.1 hat Ext JS keine externen Abhängigkeiten zu anderen Standardbibliotheken mehr, sondern bringt Funktionalitäten wie DOM-Manipulaton, AJAX oder ein Klassen-System bereits mit. Eine friedliche Koexistenz mit anderen Standardbibliotheken ist weiterhin problemlos möglich.</p>
 <p>&quot;Leichtgewichtige Frameworks&quot; haben Ihren Fokus darauf, möglichst wenig Dinge besonders gut zu lösen und andere Aspekte nicht zu berücksichtigen. Hier ist es in der Aufgabe der Entwickler, weitere Frameworks zu kombinieren. jQuery konzentriert sich etwa stark auf die DOM-Manipulation sowie AJAX und macht keine Vorgaben zur Gestaltung vom verwendeten HTML oder CSS. Viele jQuery-Entwickler rüsten in diesem Sinne fehlende Funktionalität mit Plugins nach, verwenden den Modul-Loader <a href="http://requirejs.org/">require.js</a> und/oder ergänzen dies mit dem CSS-Framework wie <a href="http://getbootstrap.com/">Bootstrap</a>. </p>
 <p>Ext JS hingegen konzentriert sich auf komplexe Web-Anwendungen und ist definitiv nicht &quot;leichtgewichtig&quot;. Das Ext JS Framework deckt viele Funktionalitäten intern ab, so dass kaum weitere Frameworks notwendig sein werden. Der Abstraktionsgrad ist extrem hoch, das Arbeiten am Browser-DOM ist nur für spezielle Fälle notwendig. Statt auf der Basis von HTML zu entwickeln, wird Ext JS mit einer enormen Anzahl an so genannten &quot;Widgets&quot; ausgeliefert. Hierzu zählen unter anderem <a href="../extjs/docs/index.html#!/api/Ext.window.Window">modale Fenster</a>, <a href="../extjs/docs/index.html#!/api/Ext.chart.Chart">Charts</a> oder <a href="../extjs/docs/index.html#!/api/Ext.grid.Panel">Grids</a>. Durch die konsistent gehaltene Usablitity der Widgets haben alle Ext JS Anwendungen ein Verhalten, welches an Desktop-Anwendungen angelehnt ist. Trotz der Möglichkeit von Themes, ist bei allen Ext JS Anwendungen das zu Grunde liegende Framework leicht am Aussehen und Verhalten zu erkennen.</p>
 <p>Das starre Gerüst, welches Ext JS vorgibt, kann als sehr einengend angesehen werden. Gerade in geschäftlichem Umfeld oder großen oder verteilten Teams, kann dieses starre Gerüst hingegen gerade der entscheidende Vorteil sein. So ist Ext JS besonders stark im Umfeld in Intranet-Anwendungen (z.B. in der Administrations-Oberfläche der Network Attached Storages (NAS) von Synology) bzw. in geschäftlichen Web-Anwendungen (z.B. im Backend von <a href="http://www.shopware.de/">Shopware</a>) zu finden.</p>
-<p><img src="images/01_screenshot_shopware.png" alt="Screenshot: Shopware Backend"></p>
+<p><a href="images/01_screenshot_shopware.png"><img src="images/01_screenshot_shopware.png" alt="Screenshot: Shopware Backend"></a></p>
 <p><img src="images/01_screenshot_diskstation.png" alt="Screenshot: Shopware Backend"></p>
 <p>Die zum Zeitpunkt des Schreibens dieses Dokumentes aktuelle Version ist Ext JS 4.2.1. </p>
 <h2 id="ext-net">Ext.NET</h2>
 <p><strong>Ext.NET</strong> ist ein Framework, welches Ext JS speziell für ASP.NET Entwickler erweitert. Es liefert streng typisierte Wrapper-Controls sowohl für ASP.NET als auch für ASP.NET MVC (hier jeweils für klassische Views als auch für Razor-Views). Wie bei allen .NET-Klassen stehen durch die Wrapper-Controls automatische Vervollständigung von Quelltext (&quot;IntelliSense&quot;) sowie eine Validierung durch den Compiler zur Verfügung. Weiterhin wird Ext.NET als Nuget-Paket angeboten, was die Einbindung in ein ASP.NET Projekt sehr vereinfacht    .</p>
-<p>Die zum Zeitpunkt des Schreibens dieses Dokumentes aktuelles Version ist Ext.NET 2.4.0, welches auf Ext JS 4.2.1 basiert.</p>
+<p>Die zum Zeitpunkt des Schreibens dieses Dokumentes aktuelle Version ist Ext.NET 2.4.0, welches auf Ext JS 4.2.1 basiert.</p>
 <p><a name="hello"></a></p>
 <h1 id="3-hello-world">3. Hello World</h1>
-<p>Ohne auf die Details einzugehen, sollte ein Kochbuch mit einem &quot;Hello World&quot;-Beispiel beginnen. Folgendes Beispiel instanziert eine Klasse vom Typ &#39;Ext.window.Window&#39;.</p>
+<p>Ohne auf die Details einzugehen, sollte ein Kochbuch mit einem &quot;Hello World&quot;-Beispiel beginnen. Folgendes Beispiel instanziiert eine Klasse vom Typ &#39;Ext.window.Window&#39;.</p>
 <pre><code class="lang-javascript">Ext.onReady(function () {
     Ext.create(&#39;Ext.window.Window&#39;, {
         title: &#39;Test&#39;,
