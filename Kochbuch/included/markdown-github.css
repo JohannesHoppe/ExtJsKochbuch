@@ -321,3 +321,15 @@ a[href="index.html"]:hover  {
 pre, code, tt {
     font-size: 16px !important;
 }
+
+figure {
+    padding: 5px;
+    background-color: #eee;
+}
+
+figcaption {
+    padding: 1px 8px 5px 8px;
+    background-color: #eee;
+    font-style: italic;
+    color: #537078;
+}
