@@ -1,10 +1,18 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Kochbuch.App_Start;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(RouteConfig), "Start")]
 
 namespace Kochbuch.App_Start
 {
     public class RouteConfig
     {
+        public static void Start()
+        {
+            RegisterRoutes(RouteTable.Routes);
+        }
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
