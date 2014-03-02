@@ -42,5 +42,5 @@ Ext.onReady(registerLightbox);
 Ext.onReady(function() {
     window.setTimeout(function() {
         window.scrollTo(0,0);
-    }, 100);
+    }, 200);
 });
