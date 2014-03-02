@@ -1,0 +1,65 @@
+<h1>CompositeElement</h1>
+
+<div id="composite-element" class="sect">
+	<h2>What is a Composite?</h2>
+	<p>
+	"<i>The Composite (Design pattern) allows a group of objects to be treated in the same way as a single instance of an object.</i>" (<a href="http://en.wikipedia.org/wiki/Composite_pattern" target="_blank">Wikipedia</a>)
+	Ext.CompositeElement allows you to work with a collection of zero to many elements as a single entity. CompositeElement uses the same interface as Ext.Element simplifying your job as a developer and eliminating the need for common run-time checks when dealing with a collection. CompositeElement's are typically retrieved by using the static method <a href="http://extjs.com/deploy/dev/docs/?class=Ext&member=select">Ext.select</a>. Ext.select uses DomQuery to search the entire document for any element which matches a particular selector.
+	</p>
+	<p>For example given the following markup:</p>
+	<pre>
+&lt;html&gt;
+   &lt;body&gt;
+      &lt;div id=<span class="string">"first"</span> class=<span class="string">"title"</span>&gt;Sample A&lt;/div&gt;
+      &lt;div id=<span class="string">"second"</span> class=<span class="string">"doesNotMatch"</span>&gt;Lorem Ipsum&lt;/div&gt;
+      &lt;div id=<span class="string">"third"</span> class=<span class="string">"title secondCSSCls"</span>&gt;Some additional content&lt;/div&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+	<p>We could use the CSS selector '.title' to search the entire page and retrieve a CompositeElement that contains references to the div's first and third. </p>
+	<pre>var els = Ext.select(<span class="string">'.title'</span>);</pre>
+	<p><strong>Note:</strong> The element third also has an additional CSS class of secondCSSCls. HtmlElement's can have multiple CSS classes by separating them with a space. This selector does not require that <strong>only</strong> title is applied and therefore both 'first' and 'third' will be returned.</p>
+	
+	<p>After obtained a CompositeElement we can now work with this collection of Elements as a single element. For Example, we could then add a CSS class of error to the collection.</p>
+	<pre>
+var els = Ext.select(<span class="string">'.title'</span>);
+els.addClass(<span class="string">'error'</span>);</pre>	
+
+	<p>When you are aware of the location of the elements you want to retrieve relative to another element on the page you should first obtain a reference to that element and then search from there. This will make your search perform faster because it is searching a smaller subset of the entire document. Let's see what happens when we add an additional div with an id of 'accordion' wrapping around our first, second and third elements. </p>
+	<pre>
+&lt;html&gt;
+   &lt;body&gt;
+      &lt;div id=<span class="string">"accordion"</span>&gt;
+         &lt;div id=<span class="string">"first"</span> class=<span class="string">"title"</span>&gt;Sample A&lt;/div&gt;
+         &lt;div id=<span class="string">"second"</span> class=<span class="string">"doesNotMatch"</span>&gt;Lorem Ipsum&lt;/div&gt;
+         &lt;div id=<span class="string">"third"</span> class=<span class="string">"title secondCSSCls"</span>&gt;
+            Some additional content
+         &lt;/div&gt;
+      &lt;/div&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</pre>	
+
+	<p>Since we know that the elements will be within a div with an id of accordion we can scope our search to only the accordion element.</p> 
+	<pre>
+var accordion = Ext.get(<span class="string">'accordion'</span>);
+accordion.select(<span class="string">'title'</span>);</pre>
+	<p>Any time that you are aware of the location of the elements within your markup you should make sure that you scope your search like this to optimize performance. </p>
+<p>Other useful methods of CompositeElement are displayed in this code sample:</p>
+<pre>
+var accordion = Ext.get(<span class="string">'accordion'</span>);
+accordion.select(<span class="string">'title'</span>);
+<span class="comment">// firstItem now has an Ext.Element pointing to the first div</span>
+var firstItem = accordion.item(0);
+ <span class="comment">// alerts 1 or the second position</span>
+alert(accordion.indexOf(<span class="string">'third'</span>));
+<span class="comment">// alerts 2</span>
+alert(accordion.getCount()); 
+<span class="comment">// Removes the element from the collection and from the DOM</span>
+accordion.removeElement(<span class="string">'one'</span>, <span class="keyword">true</span>); </pre>
+	
+
+	<p class="excluded"><strong>Note:</strong> Methods which have been removed from CompositeElement which users of Ext JS may be familiar with: each, first, last, fill, contains, filter.</p>
+	
+
+</div>
+

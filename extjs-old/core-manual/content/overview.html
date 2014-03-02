@@ -1,0 +1,61 @@
+<h1>Ext Core Overview</h1>
+
+<div id="intro" class="sect">
+	<h2>Introduction</h2>
+	<p>Ext Core is a lightweight and feature rich core JavaScript library available under an MIT license. Ext Core is packed full of exciting features intended to allow for rapid web development while encouraging well designed and scalable code. This library provides abstractions for DOM manipulation/traversal, Ajax, Events and custom events, animations, templating, OO mechanisms and more. Ext Core is released under an MIT license and is perfect for inclusion in a dynamic webpage or even a small application.
+	</p>
+</div>
+
+<div id="download" class="sect">
+	<h2>Download</h2>
+	<p>
+	Ext Core can be downloaded <a href="/products/extcore/download.php">here</a> and the latest information can be found on the <a href="/products/extcore/">Ext Core Project Page</a>.
+	</p>
+</div>
+
+<div id="include-ext-core" class="sect">
+	<h2>Including Ext Core</h2>
+	<p>Ext Core ships with both a debug version as well as a production version.  The production version has been minified (whitespace, carriage returns and comments removed) and obfuscated (all local variables have been renamed to shorter versions) using YUI Compressor.  You should always use the -debug version when developing since you'll receive more informative (ie: unobfuscated) error messages.
+	</p>
+
+	<p>
+	To include the Ext Core library's development version, simply include the following JavaScript file:
+	</p>
+	<pre>&lt;script src=<span class="string">"ext-core-debug.js"</span>&gt&lt/script&gt</pre>
+
+	<p>
+	And for the production version (25k compressed and gzipped), simply remove "-debug":
+	</p>
+	<pre>&lt;script src=<span class="string">"ext-core.js"</span>&gt&lt/script&gt</pre>	
+
+	<p>
+	That's it.  There is no css file to include with Ext Core.
+	</p>
+</div>
+
+<div id="hello-world" class="sect">
+	<h2>Simple Example</h2>
+    <p>After you have included Ext Core to your web page, try out the following code to check if everything working correctly</p>
+    <pre>Ext.onReady(function() {
+    Ext.DomHelper.append(document.body, {tag: 'p', cls: 'some-class'});
+    Ext.select('p.some-class').update('Ext Core successfully injected');
+});</pre><br/>
+</div>
+
+
+<div id="about" class="sect">
+	<h2>About</h2>
+	<p>The Ext Core Manual was authored by Tommy Maintz, Aaron Conran, James Donaghue, Jamie Avins &amp; Evan Trimboli. Thank you to all reviewers who reviewed the manual prior to its release. We are currently looking for translations to all other languages.</p>
+	<p>The Ext Core Manual is licensed under the GNU FDL, <a href="http://www.gnu.org/copyleft/fdl.html" target="_blank">GNU Free Documentation License</a>.<p>
+<pre>
+    Copyright (C)  2009  Ext JS, LLC.
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.3
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in the section entitled "GNU
+    Free Documentation License".
+</pre>	
+	
+</div>
+

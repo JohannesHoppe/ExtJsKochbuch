@@ -1,0 +1,224 @@
+#manual {
+    margin: auto;
+    background-color: #c0c0c0;
+    text-align: left;
+    width: 880px;
+    background: transparent url(../images/bd-bg2.gif) repeat scroll 0 0;
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#manual-top, #manual-bottom {
+  height: 6px;
+}
+
+#manual-top {
+  background: transparent url(../images/bd-bg2-top.gif) no-repeat center bottom;
+}
+
+#manual-bottom {
+  background: transparent url(../images/bd-bg2-bottom.gif) no-repeat center bottom;
+}
+
+.ext-ie .ux-manual-clearfix {
+    zoom: 1;
+}
+
+.ux-manual-clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#manual-nav {
+    width: 230px;
+    float: left;
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* main group styling */
+#manual-nav li.group {
+    padding: 6px 0;
+    position: relative;
+    line-height: 0;
+    float: left;
+    clear: left;
+    width: 100%;
+}
+
+#manual-nav li.group.group-active {
+    background: #fff;
+}
+
+/* navigation subitems styling */
+#manual-nav ul.group-sections {
+    display: none;
+}
+
+#manual-nav li.group-expanded ul.group-sections {
+    display: block;
+}
+
+#manual-nav ul.group-sections li {
+    height: 14px;
+    margin: 0 0 5px 0;
+}
+
+/* navigation link styling */
+#manual-nav a {
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    color: #fffff0;
+    font-family: tahoma, arial, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#manual-nav a.group-title {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 5px;
+    margin-left: 24px;    
+    font-weight: bold;
+}
+
+#manual-nav a.section-title {
+    font-size: 12px;
+    font-weight: normal;   
+    padding: 2px 0 2px 30px;
+    line-height: 14px;
+}
+
+#manual-nav li.group-active a {
+    color: #4a4a4a;
+}
+
+#manual-nav li.section-active a{
+    background: transparent url(../images/section-title-active.gif) no-repeat scroll left center;
+    color: #4870a5;
+    font-weight: bold;
+}
+/* the group expand button styling */
+#manual-nav a.group-expand-btn {
+    background: url('../images/elbow-plus-nl.gif') no-repeat;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    text-indent: -5000px;
+    overflow: hidden;
+}
+
+#manual-nav li.group-expanded a.group-expand-btn {
+	background-image: url('../images/elbow-minus-nl.gif');
+}
+
+/* Tab corners */
+.box-corner {
+    background-image: url('../images/box-corners.gif');
+    display: none;
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    font-size: 1px;
+    line-height: 6px;
+    overflow: hidden;
+    zoom:1;
+}
+
+li.group-active .box-corner,
+#content-wrap .box-corner {
+    display: block;
+}
+
+.box-corner-top-left {
+    background-position: top left;
+    top: 0; left: 0;
+}
+.box-corner-bottom-left {
+    background-position: bottom left;
+    bottom: 0; left: 0;
+}
+.box-corner-top-right {
+    background-position: top right;
+    top: 0; right: 0;
+}
+.box-corner-bottom-right {
+    background-position: bottom right;
+    bottom: 0; right: 0;
+}
+
+/* content area styling */
+#content-wrap {
+    width: 630px;
+    float: right;
+    position: relative;
+    padding: 10px;
+    background-color: #fff;
+}
+
+#content {
+    overflow: auto;
+    height: 200px;
+    padding: 0 10px;
+}
+/* primary headings */
+#content h1 {
+	color: #bbb;
+	font-weight: bolder;
+	float: right;
+	font-size: 18px;
+}
+
+/* subheaders for sections */
+#content .sect h2 {
+	color: #789030;
+	font-weight: bolder;
+	border-bottom: 1px solid #b7b09a;
+	padding-top: 5px;
+	font-size: 14px;	
+}
+
+/* sub sub headings */
+#content .sect h3 {
+	color: #3E5C05;
+}
+
+/* typical paragraph markup */
+#content .sect p {
+    padding: 5px 0;
+}
+
+/* for pasting source code */
+#content .sect pre {
+	background-color: #f7f6e9;
+	border: solid 1px #bfb9a6;
+	padding: 5px;
+}
+
+#content .sect pre .keyword {
+	color: #234567;
+}
+
+#content .sect pre .string {
+	color: #882288;
+}
+
+#content .sect pre .comment {
+	color: #cc2233;
+}
+
+/* some utility classes */
+.clear-fix {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}

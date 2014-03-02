@@ -1,0 +1,1498 @@
+<h1>Ext.Element</h1>
+
+<div id="get-el" class="sect">
+	<h2>Getting Ext.Elements</h2>
+	
+	<p>An HTML Document typically consists of a lot of html markup. When the browser loads your html document, each tag in your markup get translated into an HTMLElement and the browser builds a <a href="https://developer.mozilla.org/En/DOM" target="_blank">Document Object Model</a> (DOM) tree of the markup. This DOM tree is saved in the browser's global scope in a variable called <i>document</i>. This document variable holds a reference to every piece of markup which has been loaded on the page.</p>
+	
+	<p>The <i>document</i> object provides an important method named <i><a href="https://developer.mozilla.org/en/DOM/document.getElementById" target="_blank">getElementById</a></i>. This method allows you to retrieve the underlying <a href="https://developer.mozilla.org/en/DOM/element" target="_blank">HTMLElement</a> in any browser. However, you should be mindful that there are many differences among browsers when directly manipulating the DOM. Ext Core implements a class named Ext.Element which <i>wraps</i> around typical HTMLElement's providing you cross-browser support.</p>
+
+<p>
+Ext.Element has the most methods out of any class in the Ext Core library. These methods can be categorized as follows: </p>
+<dl>
+	<dt>CSS & Styling</dt>
+	<dd>(eg: setStyle, addClass)</dd>
+	<dt>Dom Querying or Traversal</dt>
+	<dd>(eg: query, select, findParent)</dd>
+	<dt>Dom Manipulation</dt>
+	<dd>(eg: createChild, remove)</dd>
+	<dt>Dimensions</dt>
+	<dd>(eg: getHeight, getWidth)</dd>
+</dl>
+
+	
+	<p>You can use the method Ext.get to create an instance of an Ext.Element which wraps around any HTMLElement. For example, if your markup had an element with an id of 'myElementId' you could retrieve it like this.</p>
+	<pre>
+var el = Ext.get(<span class="string">'myElementId'</span>);</pre>
+
+<p>
+Using <a href="http://www.getfirebug.com" target="_blank">Firebug</a>, try executing the following code.  Observe the methods exposed by Ext.Element.  Remember that because you are looking at the raw JS Object, both public as well as private methods are visible.  When in doubt, consult the API documentation. 
+</p>
+<pre>
+var el = Ext.get(<span class="string">'myElementId'</span>);
+console.dir(el);</pre>
+<img src="content-images/element-firebug-dir-sm.png" style="padding-bottom: 10px;"/>
+
+<p id="myElementId"><a href="http://getfirebug.com/console.html" target="_blank">console.dir</a> is a method provided by Firebug which will dump out the contents of an object in an easily viewable format. It also allows you to expand and collapse sub-objects which have additional properties. Properties are shown in the color black. Methods/Functions are green; constructors or classes in red.</p>
+
+	
+
+<p>Now let's try interacting with the paragraph above which has an id of <i>myElementId</i>. </p>
+
+	<pre>
+var el = Ext.get(<span class="string">'myElementId'</span>);
+el.addClass(<span class="string">'error'</span>);</pre>
+
+<p>After executing this code, the font color in the paragraph above will change to red. This page has a CSS rule which changes all elements with a class of error to the color red. The CSS rule looks like this:</p>
+<pre>.error {
+	<span class="string">color</span>: <span class="keyword">red</span>;
+}</pre>
+
+
+<p>The next section on Ext.Element (CSS Classes &amp; Styling) will cover many ways to interact with with your elements' CSS classes and styling. <p>
+
+</div>
+
+<div id="flyweight" class="sect">
+	<h2>Introducing the Flyweight</h2>
+<p>
+The <a href="http://en.wikipedia.org/wiki/Flyweight_pattern">Flyweight Design Pattern</a> is a pattern used to minimize memory usage by creating a single global object and then re-using that object over and over again. Ext creates a global Ext.Element to use as the Flyweight when it starts up. This global flyweight instance can then be used to target any node in the Dom. To access this flyweight object you can use the Ext.fly method. Those new to Ext often express confusion about whether to use Ext.get or Ext.fly:</p>
+
+<blockquote>
+Whenever a reference to an Ext.Element is required to be saved for later use, use the Ext.get method. For times when you don't need to store a reference to the element, you can use the shared flyweight Ext.Element across the library.  To access this flyweight object, use the method Ext.fly(elementId).
+</blockquote>
+
+<p>Let's remove the error class from the paragraph above.</p>
+
+<pre>Ext.fly(<span class="string">'myElementId'</span>).removeClass(<span class="string">'error'</span>);</pre>
+
+<p>When this code was executed, Ext was able to re-use the existing shared flyweight object and did not have to instantiate a brand new instance of an Ext.Element. The fly method is appropriate in situations executing a single, one-lined, atomic operation. You never want to try to store a reference to the flyweight object, since it  is subject to change by some other snippet of code.  For an example, let's take a look at the following example.</p>
+
+<pre>
+var el = Ext.fly(<span class="string">'foo'</span>);
+Ext.fly(<span class="string">'bar'</span>).frame();
+el.addClass(<span class="string">'error'</span>);</pre>
+
+<p>frame is a highlighting effect that is included in the animation package of Ext.Element. What do you think the results would be? </p>
+
+<p>The answer is that the element with an id of bar will have the frame effect applied to it and then immediately after it will also have the CSS class of error applied to it. Nothing will happen to the element with an id of foo, because the reference <i>el</i> points to the global flyweight which was overwritten when we used the frame effect on bar. If you did not expect this, re-read the section about flyweights as it is an important concept if you wish to use the Ext.fly method.</p>
+	
+	<ul>
+		<li><b>Ext.get</b>
+		<div>
+			Ext.get takes an HTMLElement, Ext.Element, String id as a parameter and returns a new instance of an Ext.Element.
+			<br/>
+			All three of the following return an Ext.Element:
+			<pre>
+<span class="keyword">var</span> el1 = Ext.get(<span class="string">'elId'</span>); <span class="comment">// takes an element id</span>
+<span class="keyword">var</span> el2 = Ext.get(<span class="string">el1</span>); <span class="comment">// takes an Ext.Element</span>
+<span class="keyword">var</span> el3 = Ext.get(el1.dom); <span class="comment">// takes an HTMLElement</span></pre>
+		</div>
+		</li>
+		<li><b>Ext.fly</b>
+		<div>
+			Ext.fly takes the same argument as Ext.get but it returns a reference to an internally managed flyweight instance of an Ext.Element. <b>Never</b> store a reference to
+			the flyweight object as it will change per invocation of this method. It is intended purely as a mechanism to enhance performance by circumventing
+			the need to instantiate a new Ext.Element when a reference in not needed (eg: if you just want to perform an action).
+			<br/>
+			<br/>
+			Here is an example of using Ext.fly:
+			<pre>
+ <span class="comment">// We want to perform only one discrete action on this element.</span>
+Ext.fly(<span class="string">'elId'</span>).hide();</pre>		
+		</div>			
+		</li>
+		<li><b>Ext.getDom</b>
+		<div>
+			Ext.getDom returns a dom node for the passed in String (id), dom node, or Ext.Element.
+			<br/>
+			Here are some examples:
+			<pre>
+<span class="comment">// gets dom node based on id</span>
+<span class="keyword">var</span> elDom = Ext.getDom(<span class="string">'elId'</span>); 
+<span class="comment">// gets dom node based on the dom node</span>
+<span class="keyword">var</span> elDom1 = Ext.getDom(elDom); 
+
+<span class="comment">// If we don't know if we are working with an</span>
+<span class="comment">// Ext.Element or a dom node use Ext.getDom</span>
+<span class="keyword">function</span>(el){
+	<span class="keyword">var</span> dom = Ext.getDom(el);
+	<span class="comment"> // do something with the dom node</span>
+}</pre>
+		</div>
+		</li>
+	</ul>
+</div>
+
+<div id="css-styling" class="sect">
+	<h2>CSS Clases &amp; Styling</h2>
+	<p>We have learned about markup, how that relates to the document and the methods that Ext Core provides making it easy to retrieve that data.
+	What about the layout of the document though?  How do we manipulate the layout and styling of the document? The answer is to use
+	<a href="http://www.w3.org/Style/CSS/">Cascading Style Sheets (CSS)</a> styling.  CSS is the language by which we can control layout
+	and visual information about our page.  Ext Core makes it really easy to manipulate the style of elements in the document through classes or
+	by modifying styles directly.
+	</p>
+	<p>
+	<pre>
+&lt;<span class="keyword">style</span> type=<span class="string">"text/css"</span>&gt;
+myCls {
+	color: #F00;
+}
+&lt;/<span class="keyword">style</span>&gt;
+
+...
+
+&lt;<span class="keyword">div</span> type=<span class="string">"myCls"</span>&gt;Hello&lt;/<span class="keyword">div</span>&gt;</pre>
+	In the example above the class 'myCls' is applied to the div giving the text 'Hello' a visual color of red (#F00).
+	</p>
+	<p>
+	Now that we have already learned about firebug, take a look some more of the wonderful tools that it has to offer us. Right click on any element in the page
+	and choose "Inspect Element".  Now in firebug we can see the dom tree and where that element is located.  If you look to the right of that
+	tree you will see a panel with all of the styles applied to that element.
+	
+	<img src="content-images/firebug-style-sm.png" />
+	<br/>
+If you're not yet familiar with using FireBug, pause now and learn all about it -- it's the oscilloscope of web-development.  Inspect-element comes in handy for changing styles on an existing site or creating and debugging styles on a new site.
+	So lets explore the methods that Ext Core provides to make css modifications easier for you.	
+	</p>
+	
+	<ul>
+		<li><b>addClass</b>
+			<div>
+To easily add a class to an element:
+<pre>
+Ext.fly(<span class="string">'elId'</span>).addClass(<span class="string">'myCls'); <span class="comment">// adds the class 'myCls' to the element</pre>
+			</div>
+		</li>
+		<li><b>radioClass</b>
+			<div>
+Add class in one element and remove that same class if it exists from all of its siblings in one call.
+<pre>
+<span class="comment">// add the class 'myCls' to the element and remove that same class from</span>
+<span class="comment">// all sibilings.</span>
+Ext.fly(<span class="string">'elId'</span>).radioClass(<span class="string">'myCls'</span>);</pre>
+			</div>
+			
+		</li>
+		<li><b>removeClass</b>
+			<div>
+Remove one or more classes from an element.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).removeClass(<span class="string">'myCls'</span>); <span class="comment">//  remove the class from the element</span></pre>
+			</div>
+		</li>
+		<li><b>toggleClass</b>
+			<div>
+Toggle a class on/off.  If it isn't applied to the element it will be, it is is then it will be removed.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).toggleClass(<span class="string">'myCls'</span>); <span class="comment">//  the class is added</span>
+Ext.fly(<span class="string">'elId'</span>).toggleClass(<span class="string">'myCls'</span>); <span class="comment">//  the class is removed</span>
+Ext.fly(<span class="string">'elId'</span>).toggleClass(<span class="string">'myCls'</span>); <span class="comment">//  the class is added again</span></pre>
+			</div>	
+		</li>
+		<li><b>hasClass</b>
+			<div>
+Check to see if the element has the class applied.
+<pre>
+if (Ext.fly(<span class="string">'elId'</span>).hasClass(<span class="string">'myCls'</span>)) {
+	<span class="comment">//  it has the class </span>
+}</pre>
+			</div>
+		</li>
+		<li><b>replaceClass</b>
+			<div>
+Replace the class a with class b.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).replaceClass(<span class="string">'myClsA'</span>, <span class="string">'myClsB'</span>);</pre>
+			</div>	
+		</li>
+		<li><b>getStyle</b>
+			<div>
+Gets a normalized (currentStyle and computed style) property from the element.
+<pre>
+<span class="keyword">var</span> color = Ext.fly(<span class="string">'elId'</span>).getStyle(<span class="string">'color'</span>);
+<span class="keyword">var</span> zIndx = Ext.fly(<span class="string">'elId'</span>).getStyle(<span class="string">'z-index'</span>);
+<span class="keyword">var</span> fntFmly = Ext.fly(<span class="string">'elId'</span>).getStyle(<span class="string">'font-family'</span>);
+<span class="comment">// ... etc.</span></pre>
+			</div>
+		</li>
+		<li><b>setStyle</b>
+			<div>
+Set style properties on an element.  Takes a string or an object literal.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).setStyle(<span class="string">'color'</span>, <span class="string">'#FFFFFF'</span>);
+Ext.fly(<span class="string">'elId'</span>).setStyle(<span class="string">'z-index'</span>, 10);
+Ext.fly(<span class="string">'elId'</span>).setStyle({
+	display : <span class="string">'block'</span>,
+	overflow : <span class="string">'hidden'</span>,
+	cursor : <span class="string">'pointer'</span>
+});
+<span class="comment">// animate the transition of color</span>
+Ext.fly(<span class="string">'elId'</span>).setStyle(<span class="string">'color'</span>, <span class="string">'#FFFFFF'</span>, true);
+<span class="comment">// animate the transition of color with a duration of .75 seconds</span>
+Ext.fly(<span class="string">'elId'</span>).setStyle(<span class="string">'color'</span>, <span class="string">'#FFFFFF'</span>, {duration: .75}); 
+<span class="comment">// ... etc.</span></pre>
+			</div>
+		</li>
+		<li><b>getColor</b>
+			<div>
+Gets a normalized (6 digit hex) color value for the passed in property, accepts a default value if the property is not set and a prefix (# is the default).
+<pre>
+Ext.fly(<span class="string">'elId'</span>).getColor(<span class="string">'background-color'</span>);
+Ext.fly(<span class="string">'elId'</span>).getColor(<span class="string">'color'</span>);
+Ext.fly(<span class="string">'elId'</span>).getColor(<span class="string">'border-color'</span>);
+<span class="comment">// ... etc.</span></pre>
+			</div>
+		</li>
+		<li><b>setOpacity</b>
+			<div>
+Sets the opacity of the element.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).setOpacity(.5);
+Ext.fly(<span class="string">'elId'</span>).setOpacity(.45, true); <span class="comment">// animates</span>
+<span class="comment">// animates with a duration of half a second</span>
+Ext.fly(<span class="string">'elId'</span>).setOpacity(.45, {duration: .5});</pre>
+			</div>
+		</li>
+		<li><b>clearOpacity</b>
+			<div>
+Clears any opacity settings of the element.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).clearOpacity();</pre>
+			</div>
+		</li>
+	</ul>
+
+</div>
+
+<div id="dom-traversal" class="sect">
+	<h2>Dom Traversal</h2>
+	<p>
+Frequently we want to navigate around the dom tree from any given position that we are working in.  Ext Core provides many useful cross browser
+methods that give you trememndous power in traversing up, down and all around the dom.  Again CSS comes to the rescue when we want to perform complex
+navigations rather easily. The use of CSS3 selectors has a powerful application in this domain.  
+
+Take the following markup:
+
+<pre>
+&lt;<span class="keyword">style</span> type=<span class="string">"text/css"</span>&gt;
+    .red {
+        color: #F00;
+    }
+&lt;<span class="keyword">/style</span>&gt;	
+...
+&lt;<span class="keyword">div</span> id=<span class="string">'elId'</span>&gt;
+    &lt;<span class="keyword">ul</span>&gt;
+        &lt;<span class="keyword">li</span>&gt;a-one&lt;/<span class="keyword">li</span>&gt;
+        &lt;<span class="keyword">li</span>&gt;a-two&lt;/<span class="keyword">li</span>&gt;
+        &lt;<span class="keyword">li</span>&gt;a-three&lt;/<span class="keyword">li</span>&gt;
+        &lt;<span class="keyword">li</span>&gt;a-four&lt;/<span class="keyword">li</span>&gt;
+    &lt;/<span class="keyword">ul</span>&gt;
+    &lt;<span class="keyword">ul</span>&gt;
+        &lt;<span class="keyword">li</span>&gt;b-one&lt;/<span class="keyword">li</span>&gt;
+        &lt;<span class="keyword">li</span>&gt;b-two&lt;/<span class="keyword">li</span>&gt;
+        &lt;<span class="keyword">li</span>&gt;b-three&lt;/<span class="keyword">li</span>&gt;                
+    &lt;/<span class="keyword">ul</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;</pre>
+	
+Now say you have a requirement to make every other list item have red text. Ext Core allows you to solve this elegantly with the following one-liner.
+
+<pre>
+Ext.fly(<span class="string">'elId'</span>).select(<span class="string">'li:nth-child(2n)'</span>).addClass(<span class="string">'red'</span>);</pre>
+
+Here is the result:
+<br/>
+<img src="content-images/traversal.png" />
+<br/>
+Now that we've seen some of the power in Ext Core's Dom Traversal API, lets explore more: 
+	</p>
+	<ul>
+		<li><b>is</b>
+			<div>
+Tests the current element to see if it matches the selector.
+<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId'</span>);
+if (el.is(<span class='string'>'p.myCls'</span>)) {
+	<span class="comment">// do something</span>
+}</pre>
+			</div>
+		</li>
+		<li><b>findParent</b>
+			<div>
+Finds a parent node that matches the selector, starts at the current node.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).findParent(<span class="string">'div'</span>); <span class="comment">// returns a dom node</span>
+Ext.fly(<span class="string">'elId'</span>).findParent(<span class="string">'div'</span>, 4); <span class="comment">// looks up 4 parent nodes</span>
+Ext.fly(<span class="string">'elId'</span>).findParent(<span class="string">'div'</span>, null, true); <span class="comment">// returns an Ext.Element</span></pre>
+			</div>
+		</li>
+		<li><b>findParentNode</b>
+			<div>
+Finds a parent node that matches the selector, starts at the parent node.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).findParentNode(<span class="string">'div'</span>);</pre>
+			</div>			
+		</li>
+		<li><b>up</b>
+			<div>
+Finds a parent node that matches the selector, starts at the parent node. This returns an Ext.Element
+<pre>
+Ext.fly(<span class="string">'elId'</span>).up(<span class="string">'div'</span>);
+Ext.fly(<span class="string">'elId'</span>).up(<span class="string">'div'</span>, 5); <span class="comment">// only looks up 5 parents</span></pre>
+			</div>
+		</li>
+		<li><b>select</b>
+			<div>
+Select takes a query and returns an Ext.CompositeElement or an array of Ext.Elements.  Also if you
+call this from an element it is used as the root to start the query, if it is called from Ext.select the
+entire document is searched.
+<pre>
+<span class="comment">// CompositeElement of results is returned</span>
+Ext.fly(<span class="string">'elId'</span>).select(<span class="string">'div:nth-child(2)'</span>);
+<span class="comment">// Array of elements is returned</span>
+Ext.fly(<span class="string">'elId'</span>).select(<span class="string">'div:nth-child(2)', true</span>);
+<span class="comment">// Entire document is searched</span>
+Ext.select(<span class="string">'div:nth-child(2)'</span>);</pre>  
+			</div>
+		</li>
+		<li><b>query</b>
+			<div>
+Select takes a query and returns an array of dom nodes. Takes an optional root element as a second argument, if this
+is not present it defaults to document root.
+<pre>
+Ext.query(<span class="string">'div:nth-child(2)'</span>);  <span class="comment">// Array of dom nodes that matched the selector</span></pre>
+			</div>
+		</li>
+		<li><b>child</b>
+			<div>
+Child selects a single child at any given depth below the current element based on the passed in selector.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).child(<span class="string">'p.highlight'</span>);  <span class="comment">// returns an Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).child(<span class="string">'p.highlight'</span>, <span class="keyword">true</span>);  <span class="comment">// returns a dom node</span></pre>
+			</div>
+		</li>
+		<li><b>down</b>
+			<div>
+Selects a single direct child based on the passed in selector.
+<pre>
+Ext.fly(<span class="string">'elId'</span>).down(<span class="string">'span'</span>);  <span class="comment">// returns an Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).down(<span class="string">'span'</span>, true);  <span class="comment">// returns a dom node</span></pre>
+			</div>
+		</li>
+		<li><b>parent</b>
+			<div>
+Gets the parent node for this element.  If a selector is passed in it will go up the chain looking for a match.
+<pre>
+<span class="comment">// grabs the parent node as and Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).parent();  
+<span class="comment">// grabs the parent node as a dom node</span>
+Ext.fly(<span class="string">'elId'</span>).parent("", true);
+<span class="comment">// grabs the first parent that is a div, returns Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).parent("div");</pre>
+			</div>
+		</li>
+		<li><b>next</b>
+			<div>
+Gets the next sibling skipping text nodes. If a selector is passed in it will filter for that selector.
+<pre>
+<span class="comment">// grabs the next sibling node as and Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).next();
+<span class="comment">// grabs the next sibling node as a dom node</span>
+Ext.fly(<span class="string">'elId'</span>).next("", true);
+<span class="comment">// grabs the next sibling node that is a div, returns Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).next("div");</pre>
+			</div>
+		</li>
+		<li><b>prev</b>
+			<div>
+Gets the previous sibling skipping text nodes. If a selector is passed in it will filter for that selector.
+<pre>
+<span class="comment">// grabs the previous sibling node as and Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).prev();
+<span class="comment">// grabs the previous sibling node as a dom node</span>
+Ext.fly(<span class="string">'elId'</span>).prev("", true);
+<span class="comment">// grabs the previous sibling node that is a div, returns Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).prev("div");</pre>
+			</div>
+		</li>
+		<li><b>first</b>
+			<div>
+Gets the first sibling skipping text nodes. If a selector is passed in it will filter for that selector.
+<pre>
+<span class="comment">// grabs the first sibling node as and Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).first();
+<span class="comment">// grabs the first sibling node as a dom node</span>
+Ext.fly(<span class="string">'elId'</span>).first("", true);
+<span class="comment">// grabs the first sibling node that is a div, returns Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).first("div");</pre>
+			</div>
+		</li>
+		<li><b>last</b>
+			<div>
+Gets the last sibling skipping text nodes. If a selector is passed in it will filter for that selector.
+<pre>
+<span class="comment">// grabs the last sibling node as and Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).last();
+<span class="comment">// grabs the last sibling node as a dom node</span>
+Ext.fly(<span class="string">'elId'</span>).last("", true);
+<span class="comment">// grabs the last sibling node that is a div, returns Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).last("div");</pre>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<div id="manipulation" class="sect">
+	<h2>Manipulation</h2>
+	<p>
+<h3>Elements</h3>
+<p>
+	In a dynamic page one of the most frequent tasks is to create or remove elements in the DOM. Due to inconsistencies between browsers this can prove to be a challenging task. Ext Core provides a stong API that abstracts these cross browser inconsistencies and is internally optimized for efficiency. We can easily add, remove or replace nodes in the Dom tree at any position we want relative to siblings and parents using Ext Core's Dom Manipulation API. Let's take a look for ourselves -- observe the following markup:
+		
+	<pre>
+&lt;<span class="keyword">div</span> id=<span class="string">'elId'</span>&gt;
+	&lt;<span class="keyword">p</span>&gt;paragraph one&lt;/<span class="keyword">p</span>&gt;
+	&lt;<span class="keyword">p</span>&gt;paragraph two&lt;/<span class="keyword">p</span>&gt;
+	&lt;<span class="keyword">p</span>&gt;paragraph three&lt;/<span class="keyword">p</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;</pre>
+	
+	Here is a screenshot of the markup:
+	<br/>
+	<img src="content-images/manip-before.png" />
+	<br/>
+	
+	Lets create a new node and insert this as a first child of 'elId':
+	
+	<pre>
+Ext.fly(<span class="string">'elId'</span>).insertFirst({
+	tag: <span class="string">'p'</span>,
+	html: <span class="string">'Hi I am the new first child'</span>
+});</pre>
+	
+	Now we can see that our node was inserted:
+	<br/>
+	<img src="content-images/manip-after.png" />
+	<br/>
+	
+	Easy enough! -- lets explore some of the more powerful mainuplation API's provided by Ext Core:
+</p>
+
+<ul>
+	<li><b>appendChild</b>
+		<div>
+			Appends the passed element(s) to this element.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId1'</span>);
+<span class="comment">// append the dom node with this id.</span>
+Ext.fly(<span class="string">'elId'</span>).appendChild(<span class="string">'elId2'</span>);
+<span class="comment">// append an Ext.Element</span>
+Ext.fly(<span class="string">'elId'</span>).appendChild(el);
+<span class="comment">// append the result of an array of selectors</span>
+Ext.fly(<span class="string">'elId'</span>).appendChild([<span class="string">'elId2'</span>,<span class="string">'elId3'</span>]);
+<span class="comment">// append a straight dom node</span>
+Ext.fly(<span class="string">'elId'</span>).appendChild(el.dom);
+<span class="comment">// append a CompositeElement of all divs</span>
+Ext.fly(<span class="string">'elId'</span>).appendChild(Ext.select(<span class="string">'div'</span>));  </pre>
+		</div>
+	</li>
+	<li><b>appendTo</b>
+		<div>
+			Appends this element to the passed in element.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId1'</span>);	
+	
+Ext.fly(<span class="string">'elId'</span>).appendTo(<span class="string">'elId2'</span>);  <span class="comment">// append to the dom node with this id.</span>
+Ext.fly(<span class="string">'elId'</span>).appendTo(el);  <span class="comment">// append to the Ext.Element el</span></pre>
+		</div>
+	</li>
+	<li><b>insertBefore</b>
+		<div>
+			Inserts this element before the passed in element.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId1'</span>);	
+
+<span class="comment">// inserts before the dom node with this id.</span>
+Ext.fly(<span class="string">'elId'</span>).insertBefore(<span class="string">'elId2'</span>);
+<span class="comment">// inserts before the Ext.Element el</span>
+Ext.fly(<span class="string">'elId'</span>).insertBefore(el);</pre>
+		</div>
+	</li>
+	<li><b>insertAfter</b>
+		<div>
+			Inserts this element after the passed in element.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId1'</span>);	
+
+<span class="comment">// inserts after the dom node with this id.</span>
+Ext.fly(<span class="string">'elId'</span>).insertAfter(<span class="string">'elId2'</span>);
+<span class="comment">// inserts after the Ext.Element el</span>
+Ext.fly(<span class="string">'elId'</span>).insertAfter(el);</pre>
+		</div>
+	</li>
+	<li><b>insertFirst</b>
+		<div>
+			Takes an element, id, or DomHelper config and inserts the existing node or creates a new element from the
+			DomHelper config as the first child of this element.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId1'</span>);	
+
+<span class="comment">// inserts the dom node with this id as the first child.</span>
+Ext.fly(<span class="string">'elId'</span>).insertFirst(<span class="string">'elId2'</span>);  
+<span class="comment">// inserts the Ext.Element el as the first child</span>
+Ext.fly(<span class="string">'elId'</span>).insertFirst(el);
+		
+<span class="comment">// creates a new node with the DomHelper config and inserts</span>
+<span class="comment">// the result as the first child.</span>
+Ext.fly(<span class="string">'elId'</span>).insertFirst({
+	tag: <span class="string">'p'</span>,
+	cls: <span class="string">'myCls'</span>,
+	html: <span class="string">'Hi I am the new first child'</span>
+});</pre>
+		</div>
+	</li>
+	<li><b>replace</b>
+		<div>
+			Replace the passed in element with this element.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId1'</span>);	
+
+ <span class="comment">// replaces the element with id 'elId2' with 'elId'.</span>
+Ext.fly(<span class="string">'elId'</span>).replace(<span class="string">'elId2'</span>); 
+<span class="comment">// replaces the element with id 'elId1' with 'elId'</span>
+Ext.fly(<span class="string">'elId'</span>).replace(el);</pre>
+		</div>
+	</li>
+	<li><b>replaceWith</b>
+		<div>
+			Takes an element, id, or DomHelper config and replaces this element with the existing node or the newly created element from the
+			DomHelper config.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId1'</span>);	
+
+Ext.fly(<span class="string">'elId'</span>).replaceWith(<span class="string">'elId2'</span>);  <span class="comment">// replaces 'elId' with 'elId2'.</span>
+Ext.fly(<span class="string">'elId'</span>).replaceWith(el);  <span class="comment">// replaces 'elId' with 'elId1'</span>
+		
+<span class="comment">// creates a new node with the DomHelper config
+// and replaces 'elId' with this node.</span>
+Ext.fly(<span class="string">'elId'</span>).replaceWith({
+	tag: <span class="string">'p'</span>,
+	cls: <span class="string">'myCls'</span>,		
+	html: <span class="string">'Hi I have replaced elId'</span>
+});</pre>
+		</div>
+	</li>	
+</ul>
+
+
+<h3>DomHelper configs</h3>
+In the examples above, perhaps you notice the following:
+<pre>
+.insertFirst({
+	tag: <span class="string">'p'</span>,
+	html: <span class="string">'Hi I am the new first child'</span>
+});</pre>
+
+<p>You may have wondered what the 1st argument to insertFirst is. This is a DomHelper config which represents the markup to be created. DomHelper configs support many properties for specifying child nodes, such as  html fragments and DomNode attributes (css classes, url, src, id, etc). Here are some of the API's available on Ext.Element that allow you to interact directly with Ext.DomHelper: 
+<ul>
+	<li><b>createChild</b>
+		<div>Creates the passed DomHelper config and appends it to this element or optionally inserts it before the passed child element.
+			<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId'</span>);
+<span class="keyword">var</span> dhConfig = {
+	tag: <span class="string">'p'</span>,
+	cls: <span class="string">'myCls'</span>,
+	html: <span class="string">'Hi I have replaced elId'</span>
+};
+
+<span class="comment">// creates a new node and appends it to 'elId'.</span>
+el.createChild(dhConfig); 
+<span class="comment">// creates a new node and inserts before el's first child.</span>
+el.createChild(dhConfig, el.first());</pre>
+		</div>
+	</li>
+	<li><b>wrap</b>
+		<div>Wraps this element with a newly created element
+			<pre>
+Ext.fly(<span class="string">'elId'</span>).wrap(); <span class="comment">// wraps elId with a div</span>
+		
+<span class="comment">// wraps elId with the newly create element</span>
+Ext.fly(<span class="string">'elId'</span>).wrap({
+	tag: <span class="string">'p'</span>,
+	cls: <span class="string">'myCls'</span>,		
+	html: <span class="string">'Hi I have replaced elId'</span>
+});</pre>
+		</div>		
+	</li>
+</ul>
+
+<h3>Html Fragments</h3>
+<p>
+Html fragments are just what they sound like, fragments of html markup.  Ext Core provides the ability to modify the dom with
+html fragments, allowing you to focus upon just those fragments of markup that you intend to modify the dom with, freeing you from browser implementation and performance worries. Ext Core does all of that for you -- all you need to do is provide the markup.  For example, given the following markup:</p>
+
+<pre>
+&lt;<span class="keyword">div</span> id=<span class="string">'elId'</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;one&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;two&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;three&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;four&lt;/<span class="keyword">li</span>&gt;    
+&lt;/<span class="keyword">div</span>&gt;</pre>
+
+<p>What do you think the following Ext Core code will do?</p>
+<pre>	
+Ext.fly(<span class="string">'elId'</span>).insertHtml(<span class="string">'beforeBegin'</span>, <span class="string">'&lt;p&gt;Hi&lt;/p&gt;'</span>)</pre>
+
+<p>Lets take a look at the markup afterward:</p>
+
+<pre>
+&lt;<span class="keyword">p</span>&gt;Hi&lt;/<span class="keyword">p</span>&gt;	
+&lt;<span class="keyword">div</span> id=<span class="string">'elId'</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;one&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;two&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;three&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;four&lt;/<span class="keyword">li</span>&gt;    
+&lt;/<span class="keyword">div</span>&gt;</pre>
+	
+Suprised?  That's because we are able to specify the relative position where we want this markup applied. We specified 'beforeBegin'.
+What about this:
+
+<pre>Ext.fly(<span class="string">'elId'</span>).insertHtml(<span class="string">'afterBegin'</span>, <span class="string">'&lt;p&gt;Hi&lt;/p&gt;'</span>)</pre>
+
+Lets take a look:
+
+<pre>
+&lt;<span class="keyword">div</span> id=<span class="string">'elId'</span>&gt;
+    &lt;<span class="keyword">p</span>&gt;Hi&lt;/<span class="keyword">p</span>&gt;	
+    &lt;<span class="keyword">li</span>&gt;one&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;two&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;three&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;four&lt;/<span class="keyword">li</span>&gt;    
+&lt;/<span class="keyword">div</span>&gt;</pre>
+
+Now we will use 'beforeEnd'.
+
+<pre>Ext.fly(<span class="string">'elId'</span>).insertHtml(<span class="string">'beforeEnd'</span>, <span class="string">'&lt;p&gt;Hi&lt;/p&gt;'</span>)</pre>
+
+Lets take a look:
+
+<pre>
+&lt;<span class="keyword">div</span> id=<span class="string">'elId'</span>&gt;    
+    &lt;<span class="keyword">li</span>&gt;one&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;two&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;three&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;four&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">p</span>&gt;Hi&lt;/<span class="keyword">p</span>&gt;	
+&lt;/<span class="keyword">div</span>&gt;</pre>
+
+And finally lets look at 'afterEnd'.
+
+<pre>Ext.fly(<span class="string">'elId'</span>).insertHtml(<span class="string">'beforeEnd'</span>, <span class="string">'&lt;p&gt;Hi&lt;/p&gt;'</span>)</pre>
+
+Lets take a look:
+
+<pre>
+&lt;<span class="keyword">div</span> id=<span class="string">'elId'</span>&gt;    
+    &lt;<span class="keyword">li</span>&gt;one&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;two&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;three&lt;/<span class="keyword">li</span>&gt;
+    &lt;<span class="keyword">li</span>&gt;four&lt;/<span class="keyword">li</span>&gt;    
+&lt;/<span class="keyword">div</span>&gt;
+&lt;<span class="keyword">p</span>&gt;Hi&lt;/<span class="keyword">p</span>&gt;</pre>
+
+The following API is yeaprovided for you to work with html fragments.
+
+
+<ul>
+	<li><b>insertHtml</b>
+		<div>	Inserts an html fragment into this element. You need to specify where (beforeBegin, beforeEnd, afterBegin, afterEnd)
+			the fragment and can optionally specify if you want an Ext.Element returned instead of the dom node.
+			<pre>
+Ext.fly(<span class="string">'elId'</span>).insertHtml(
+	<span class="string">'beforeBegin'</span>,
+	<span class="string">'&lt;p&gt;&lt;a href="anotherpage.html'&gt;click me&lt;/a&gt;&lt;/p&gt;'</span>
+); <span class="comment">// returns dom node</span>
+Ext.fly(<span class="string">'elId'</span>).insertHtml(
+	<span class="string">'beforeBegin'</span>,
+	<span class="string">'&lt;p&gt;&lt;a href="anotherpage.html'&gt;click me&lt;/a&gt;&lt;/p&gt;'</span>,
+	<span class="keyword">true</span>
+); <span class="comment">// returns Ext.Element</span></pre>
+		</div>
+	</li>
+	<li><b>remove</b>
+		<div> Removes this element from the DOM and deletes it from the cache.
+			<pre>Ext.fly(<span class="string">'elId'</span>).remove(); <span class="comment">// elId is removed from the dom and from cache</span></pre>
+		</div>
+	</li>
+	<li><b>removeNode</b>
+		<div> Removes a DOM node from the document. The body node will be ignored if passed in.
+			<pre>Ext.removeNode(node); <span class="comment">// node (HTMLElement) is removed from the dom</span></pre>
+		</div>
+	</li>
+</ul>
+
+<h3>Ajax</h3>
+<p>
+Ext Core  includes a powerful Ajax API.  Ajax will be covered in greater detail in later sections but here's a brief overview of the present API in Ext Core:
+</p>
+
+<ul>
+	<li><b>load</b>
+		<div> Direct access to the Updater Ext.Updater.update method. The method takes the same object parameter as Ext.Updater.update
+		<pre>
+Ext.fly(<span class="string">'elId'</span>).load({url: <span class="string">'serverSide.php'</span>})</pre>
+		</div>
+	</li>
+	<li><b>getUpdater</b>
+		<div> Gets this element's Ext.Updater
+		<pre>
+<span class="keyword">var</span> updr = Ext.fly(<span class="string">'elId'</span>).getUpdater();
+updr.update({
+        url: <span class="string">'http://myserver.com/index.php'</span>,
+        params: {
+            param1: <span class="string">"foo"</span>,
+            param2: <span class="string">"bar"</span>
+        }
+});</pre>
+		</div>
+	</li>
+</ul>
+
+</p>
+</div>
+
+
+<div id="event-handling" class="sect">
+	<h2>Event Handling</h2>
+	<p>
+Event handling poses one of the most troublesome differences among the browsers. Ext Core abstracts the differences you would encounter to achieve cross-browser event handling. If you were to use each browser's native event handling mechanism you need to use different methods to register and unregister events in addition to a myriad of other frustrating inconsistencies.</p>
+
+<p>
+Ext Core provides a rich event model which frees one from these differences by using a single clean, consistent interface.  Just as Ext.Element wraps around a native Dom node, Ext Core will also wrap the browser's native event-object with an instance of Ext.EventObject. Ext.EventObject normalizes cross-browser differences, such as which mouse button is clicked, keys pressed, mechanisms to stop event-propagation along with a method to prevent default actions from taking place.
+	</p>
+	
+<p>
+To tie an event handler to an element on the page we will use the <i>on</i> method of Ext.Element.
+The on method is a preferred shorthand for addListener. The first argument specifies which event to subscribe to and the second argument specifies the function to run when that event occurs.
+
+<pre>Ext.fly('myEl').on('click', function(e, t) {
+	// perform an action on click of myEl
+	// e is an Ext.EventObject describing what occured
+	// t is the target HTMLElement
+});
+</pre>
+
+Ext Core normalizes the arguments of all Dom events. The event handler which is tied to the event will always receive a normalized event object (Ext.EventObject) and the target HTMLElement.
+</p>
+	
+<p> Let's take a look at the API provided for Event Handling: </p>
+	<ul>
+		<li><b>addListener/on</b>
+			<div> Appends an event handler to this element. The shorthand version on is equivalent and preferred for concise code.
+<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId'</span>);
+el.on(<span class="string">'click'</span>, <span class="keyword">function</span>(e,t) {
+	<span class="comment">// e is a normalized event object (Ext.EventObject)</span>
+	<span class="comment">// t the target that was clicked, this is an Ext.Element.</span>
+	<span class="comment">// this also points to t.</span>			
+});</pre>
+			</div>
+		</li>
+		<li><b>removeListener/un</b>
+			<div>Removes an event handler from this element. The shorthand version un is equivalent. 
+<pre>
+<span class="keyword">var</span> el = Ext.get(<span class="string">'elId'</span>);
+el.un(<span class="string">'click'</span>, <span class="keyword">this</span>.handlerFn);
+<span class="comment">// or</span>
+el.removeListener(<span class="string">'click'</span>, <span class="keyword">this</span>.handlerFn);</pre>
+			</div>
+		</li>
+		<li><b>Ext.EventObject</b>
+			<div>EventObject exposes a cross-browser consistent event model mimicking the standard W3C methods if necessary.
+<pre>
+<span class="comment">// e is not a standard event object, it is a Ext.EventObject</span>
+<span class="keyword">function</span> handleClick(e){ 
+    e.preventDefault();
+    <span class="keyword">var</span> target = e.getTarget();
+    ...
+}
+<span class="keyword">var</span> myDiv = Ext.get(<span class="string">'myDiv'</span>);
+myDiv.on(<span class="string">"click"</span>, handleClick);
+<span class="comment">//or</span>
+Ext.EventManager.on(<span class="string">'myDiv'</span>, <span class="string">'click'</span>, handleClick);
+Ext.EventManager.addListener(<span class="string">'myDiv'</span>, <span class="string">'click'</span>, handleClick);</pre>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<div id="adv-event-handling" class="sect">
+	<h2>Advanced Event Handling</h2>
+	<p>
+Ext Core has several convenience configurations for more advanced event handling techniques such as event delegation, buffering, and delays.
+
+	<ul>
+		<li><b>delegation</b>
+			<div>Event delegation is a technique that is used to reduce memory consumption and prevent exposure to memory-leaks. The basic idea is this:			
+			<blockquote>Rather than registering an event handler for each element in a group of elements, register it once in a container element
+			taking advantage of the bubbling phase in the event life-cycle and centralize the event-handling at the container level.</blockquote>
+			
+This doesn't mean that you want to register one global handler on the body element, as any action on the page that fired an event would bubble up to that handler and probably have the reverse effect, actually degrading performance.  This technique is extremely useful in situations like a drop-down, a calendar, etc.  Anywhere you have a group of elements that can be directly or almost directly contained by a container element. Lets take a look: 
+			<br/>
+			<br/>
+			Take the following markup:
+<pre>
+&lt;<span class=keyword>ul</span> id=<span class=string>'actions'&gt;
+    &lt;<span class=keyword>li</span> id=<span class=string>'btn-edit'&gt;&lt;/<span class=keyword>li</span>&gt;
+    &lt;<span class=keyword>li</span> id=<span class=string>'btn-delete'&gt;&lt;/<span class=keyword>li</span>&gt;
+    &lt;<span class=keyword>li</span> id=<span class=string>'btn-cancel'&gt;&lt;/<span class=keyword>li</span>&gt;
+&lt;/<span class=keyword>ul</span>&gt;</pre>
+Instead of registering a handler directly upon <b>each</b> list item as follows: 
+<pre>
+Ext.fly(<span class=string>'btn-edit'</span>).on(<span class=string>'click</span>, <span class=keyword>function</span>(e,t) {
+	<span class=comment>// handle the event</span>
+});
+Ext.fly(<span class=string>'btn-delete'</span>).on(<span class=string>'click</span>, <span class=keyword>function</span>(e,t) {
+	<span class=comment>// handle the event</span>
+});
+Ext.fly(<span class=string>'btn-cancel'</span>).on(<span class=string>'click</span>, <span class=keyword>function</span>(e,t) {
+	<span class=comment>// handle the event</span>
+});</pre>
+To use the event delegation technique instead, registering just one handler on the container along with accompanying logic:
+<pre>
+Ext.fly(<span class=string>'actions'</span>).on(<span class=string>'click</span>, function(e,t) {
+	switch(t.id) {
+		case <span class=string>''btn-edit'</span>:
+		// handle the event
+		break;
+		case <span class=string>'btn-delete'</span>:
+		// handle the event
+		break;
+		case <span class=string>'btn-cancel'</span>:
+		// handle the event
+		break;
+	}
+});</pre>
+
+Because events bubble up the dom hierarchy, they will reach the handler that we registered on the 'actions' div. We then use a simple switch to execute the required code. This approach scales well because we can add many different child elements and still maintain a single event handler.
+			</div>
+			<br/>
+		</li>
+		<li><b>delegate</b>
+			<div>This is a configuration option that you can pass along when registering a handler for an event to assist with event delegation.  By setting this configuration option to a simple selector, Ext Core will filter the target or look for a descendant of the target.
+<pre>el.on(<span class=string>'click'</span>, <span class=keyword>function</span>(e,t) {
+    <span class=comment>// handle click</span>
+}, <span class=keyword>this</span>, {
+    <span class=comment>// will filter target to be a descendant with the class 'clickable'</span>
+    delegate: <span class=string>'.clickable'</span> 
+});</pre>
+			</div>
+		</li>		
+		<li><b>hover</b>
+			<div>Ext Core has a cross browser solution for creating a hover effect. The hover method will ensure that a function is run when the mouse enters an element and when the mouse leaves an element. mouseenter and mouseleave are native Internet Explorer events which will filter mouseout and mouseover events when you are when working with child elements. Ext Core implements these events for W3C compliant browsers so that you can use them in any browser.
+<pre>
+<span class=comment>// handles when the mouse enters the element</span>	
+<span class=keyword>function</span> enter(e,t){
+    t.toggleClass(<span class=string>'red'</span>);
+}
+<span class=comment>// handles when the mouse leaves the element</span>
+<span class=keyword>function</span> leave(e,t){
+    t.toggleClass(<span class=string>'red'</span>);
+}
+<span class=comment>// subscribe to the hover</span>
+el.hover(over, out);</pre>
+			</div>
+		</li>
+		<li><b>removeAllListeners</b>
+			<div>Removes all previous added listeners from this element
+<pre>el.removeAllListeners();</pre>
+			</div>
+		</li>
+
+		<li><b>single</b>
+			<div> This is a configuration option that you can pass along when registering a handler for the event.  When set to true, the handler will fire just once then automatically remove itself.
+<pre>el.on(<span class=string>'click'</span>, <span class=keyword>function</span>(e,t) {
+    <span class=comment>// handle click</span>
+}, <span class=keyword>this</span>, {
+    single: <span class=keyword>true</span> <span class=comment>// will remove the event after its first firing.</span>
+});</pre>
+			</div>
+		</li>
+		<li><b>buffer</b>
+			<div>This is a configuration option that you can pass along when registering a hanlder for the event. This causes the handler to be scheduled to run in an Ext.util.DelayedTask delayed by the specified number of milliseconds. If the event fires again within that time, the original handler is not invoked, but the new handler is scheduled in its place. 
+<pre>el.on(<span class=string>'click'</span>, <span class=keyword>function</span>(e,t) {
+    <span class=comment>// handle click</span>
+}, <span class=keyword>this</span>, {
+    buffer: 1000 <span class=comment>// will delay and buffer the firing of 
+    //this event after its initial fire 1000 miliseconds (or 1 second).</span>
+});</pre>
+			</div>
+		</li>
+		<li><b>delay</b>
+			<div>This is a configuration option that you can pass along when registering a hanlder for the event.
+			The number of milliseconds to delay the invocation of the handler after te event fires.
+<pre>el.on(<span class=string>'click'</span>, <span class=keyword>function</span>(e,t) {
+    <span class=comment>// handle click</span>
+}, <span class=keyword>this</span>, {
+    <span class=comment>// will delay the firing of this event after its initial</span>
+    <span class=comment>// fire 1000 miliseconds (or 1 second).</span>
+    delay: 1000 
+    
+});</pre>
+			</div>
+		</li>
+		<li><b>target</b>
+			<div>This is a configuration option that you can pass along when registering a hanlder for the event.
+			If you have a specific target that you want to handle for only, you can assign a reference of it to
+			this config option and Ext Core will make sure that your handler gets only calls the handler when it has reached that
+			node in its bubbling phase.
+<pre>el.on(<span class=string>'click'</span>, <span class=keyword>function</span>(e,t) {
+    <span class=comment>// handle click</span>
+}, <span class=keyword>this</span>, {
+    <span class=comment>// only handles the event when it has bubbled up to the first 'div'.</span>
+    target: el.up(<span class=string>'div'</span>) 
+});</pre>
+			</div>
+		</li>
+	</ul>
+	</p>
+</div>
+
+
+<div id="dim-sizing" class="sect">
+	<h2>Dimensions &amp; Sizing</h2>
+	<p>
+Often we need to retrieve or change the dimensions of some particular element on a page.  Once again, Ext Core abstracts dimensioning through a clean API.  Most of the setter-methods accept animation configurations or a straight boolean true to animate the action. 
+
+Let's take a look:
+
+<pre>
+<span class="comment">// changes the height to 200px and animates with default configuration</span>
+Ext.fly(<span class="string">'elId'</span>).setHeight(200, true);
+
+<span class="comment">// changes the height to 150px and animates with a custom configuration</span>
+Ext.fly(<span class="string">'elId'</span>).setHeight(150, {
+    duration : .5, <span class="comment">// animation will have a duration of .5 seconds</span>
+    <span class="comment">// will change the content to "finished"</span>
+    callback: <span class="keyword">function</span>(){ <span class="keyword">this</span>.update(<span class="string">"finished"</span>); } 
+});</pre>
+
+Pull up firebug, inspect and element (right click and then click on 'Inspect Element') and take a look at the right panel and click on "layout".
+You should see something like this:
+<br/>
+<img src="content-images/firebug-layout-sm.png" />
+<br/>
+
+
+This information is extremely useful since it provides all the dimensions of the inspected-element.  Notice the element has a width of 895px, a height of 1669px, 0px padding all around, 0px border all around and 0px margin.  All this information is available to you through Ext Core's Dimensioning API of Ext.Element!
+
+<pre>
+<span class=keyword>var</span> dimSz = Ext.get(<span class=string>'dim-sizing'</span>);
+<span class=keyword>var</span> padding = dimSz.getPadding(<span class=string>'lrtb'</span>); <span class=comment>// has value of 0px</span>
+<span class=keyword>var</span> border = dimSz.getBorderWidth(<span class=string>'lrtb'</span>); <span class=comment>// has value of 0px</span>
+<span class=keyword>var</span> height = dimSz.getHeight(); <span class=comment>// has value of 1691px</span>
+<span class=keyword>var</span> width = dimSz.getWidth(); <span class=comment>// has value of 895px</span></pre>
+
+Grab this code and run it in firebug to see for yourself. In fact go a step further and try using the setters to modify the height
+and width and see what happens to the box in the firebug layout panel. (<b>NOTE</b>: if your height and width are different from the image, that is because of
+the dimensions of your browser.  If you navigate of inspect that element in you actual browser the outputs should match.)
+<br/><br/>
+
+Lets explore the rest of the API:
+	<ul>
+		<li><b>getHeight</b>
+			<div>Returns the offset height of the element
+<pre><span class="keyword">var</span> ht = Ext.fly(<span class="string">'elId'</span>).getHeight();</pre>
+			</div>
+		</li>
+		<li><b>getWidth</b>
+			<div>Returns the offset width of the element
+<pre><span class="keyword">var</span> wd = Ext.fly(<span class="string">'elId'</span>).getWidth();</pre>
+			</div>
+		</li>
+		<li><b>setHeight</b>
+			<div>Set the height of the element
+<pre>Ext.fly(<span class="string">'elId'</span>).setHeight();</pre>
+			</div>
+		</li>
+		<li><b>setWidth</b>
+			<div>Set the width of the element
+<pre>Ext.fly(<span class="string">'elId'</span>).setWidth();</pre>
+			</div>
+		</li>
+		<li><b>getBorderWidth</b>
+			<div>Gets the width of the border(s) for the specified side(s).  Side can be t, l, r, b or any combination of those to
+			add multiple values. For example, passing lr would get the border (l)eft width + the border (r)ight width.
+<pre><span class="keyword">var</span> bdr_wd = Ext.fly(<span class="string">'elId'</span>).getBorderWidth(<span class="string">'lr'</span>);</pre>
+			</div>
+		</li>
+		<li><b>getPadding</b>
+			<div>Gets the width of the padding(s) for the specified side(s). Side can be t, l, r, b or any combination of those to
+			add multiple values. For example, passing lr would get the padding (l)eft + the padding (r)ight
+<pre><span class="keyword">var</span> padding = Ext.fly(<span class="string">'elId'</span>).getPadding(<span class="string">'lr'</span>);</pre>
+			</div>
+		</li>
+		<li><b>clip</b>
+			<div>Store the current overflow setting and clip overflow on the element - use unclip to remove
+<pre>Ext.fly(<span class="string">'elId'</span>).clip();</pre>
+			</div>
+		</li>
+		<li><b>unclip</b>
+			<div>Return clipping (overflow) to original clipping before clip() was called
+<pre>Ext.fly(<span class="string">'elId'</span>).unclip();</pre>
+			</div>
+		</li>
+		<li><b>isBorderBox</b>
+			<div>True if the detected browser is Internet Explorer running in non-strict mode.
+<pre>if (Ext.isBorderBox) {
+    <span class="comment">// do something</span>
+}</pre>
+			</div>
+		</li>
+	</ul>
+	</p>
+</div>
+
+
+<div id="positioning" class="sect">
+	<h2>Positioning</h2>
+	<p>
+Through Ext Core's positioning API it's a snap to get and set all aspects of an element's position across all browsers.  Similar to the dimension API, most of the setters support animations, either through a boolean true (for defaults) or by passing an object-literal configuration object as the second argument. Lets see an example of what this looks like: 
+Lets see an example of what this looks like:
+
+<pre>
+<span class="comment">// changes the x-coord to 75px and animates with a custom configuration</span>
+Ext.fly(<span class="string">'elId'</span>).setX(75, {
+    duration : .5, <span class="comment">// animation will have a duration of .5 seconds</span>
+    <span class="comment">// will change the content to "finished"</span>
+    callback: <span class="keyword">function</span>(){ <span class="keyword">this</span>.update(<span class="string">"finished"</span>); }
+});</pre>
+	<ul>
+		<li><b>getX</b>
+			<div>Gets the current X position of the element based on page coordinates. Element must be part of the
+			DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre><span class=keyword>var</span> elX = Ext.fly(<span class="string">'elId'</span>).getX()</pre>
+			</div>
+		</li>
+		<li><b>getY</b>
+			<div>Gets the current Y position of the element based on page coordinates. Element must be part of the
+			DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre><span class=keyword>var</span> elY = Ext.fly(<span class="string">'elId'</span>).getY()</pre>
+			</div>
+		</li>
+		<li><b>getXY</b>
+			<div>Gets the current position of the element based on page coordinates. Element must be part of the
+			DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre><span class=keyword>var</span> elXY = Ext.fly(<span class="string">'elId'</span>).getXY() <span class=comment>// elXY is an array</span></pre>
+			</div>
+		</li>
+		<li><b>setX</b>
+			<div>Sets the X position of the element based on page coordinates. Element must be part of the
+			DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre>Ext.fly(<span class="string">'elId'</span>).setX(10)</pre>
+			</div>
+		</li>
+		<li><b>setY</b>
+			<div>Sets the Y position of the element based on page coordinates. Element must be part of the
+			DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre>Ext.fly(<span class="string">'elId'</span>).setY(10)</pre>
+			</div>
+		</li>
+		<li><b>setXY</b>
+			<div>Sets the position of the element in page coordinates, regardless of how the element is positioned. The element must be part of the
+			DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre>Ext.fly(<span class="string">'elId'</span>).setXY([20,10])</pre>
+			</div>
+		</li>
+		<li><b>getOffsetsTo</b>
+			<div>Returns the offsets of this element from the passed element. Both element must be part of the
+			DOM tree and not have display:none to have page coordinates.
+<pre><span class=keyword>var</span> elOffsets = Ext.fly(<span class="string">'elId'</span>).getOffsetsTo(anotherEl);</pre>
+			</div>
+		</li>
+		<li><b>getLeft</b>
+			<div>Gets the left X coordinate
+<pre><span class=keyword>var</span> elLeft = Ext.fly(<span class="string">'elId'</span>).getLeft();</pre>
+			</div>
+		</li>
+		<li><b>getRight</b>
+			<div>Gets the right X coordinate of the element (element X position + element width)
+<pre><span class=keyword>var</span> elRight = Ext.fly(<span class="string">'elId'</span>).getRight();</pre>
+			</div>
+		</li>
+		<li><b>getTop</b>
+			<div>Gets the top Y coordinate
+<pre><span class=keyword>var</span> elTop = Ext.fly(<span class="string">'elId'</span>).getTop();</pre>
+			</div>
+		</li>
+		<li><b>getBottom</b>
+			<div>Gets the bottom Y coordinate of the element (element Y position + element height)
+<pre><span class=keyword>var</span> elBottom = Ext.fly(<span class="string">'elId'</span>).getBottom();</pre>
+			</div>
+		</li>
+		<li><b>setLeft</b>
+			<div>Sets the element's left position directly using CSS style (instead of setX).
+<pre>Ext.fly(<span class="string">'elId'</span>).setLeft(25)</pre>
+			</div>
+		</li>
+		<li><b>setRight</b>
+			<div>Sets the element's CSS right style.
+<pre>Ext.fly(<span class="string">'elId'</span>).setRight(15)</pre>
+			</div>
+		</li>
+		<li><b>setTop</b>
+			<div>Sets the element's top position directly using CSS style (instead of setY).
+<pre>Ext.fly(<span class="string">'elId'</span>).setTop(12)</pre>
+			</div>
+		</li>
+		<li><b>setBottom</b>
+			<div>Sets the element's CSS bottom style.
+<pre>Ext.fly(<span class="string">'elId'</span>).setBottom(15)</pre>
+			</div>
+		</li>
+		<li><b>setLocation</b>
+			<div>Sets the position of the element in page coordinates, regardless of how the element is positioned.
+			The element must be part of the	DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre>Ext.fly(<span class="string">'elId'</span>).setLocation(15,32)</pre>
+			</div>
+		</li>
+		<li><b>moveTo</b>
+			<div>Sets the position of the element in page coordinates, regardless of how the element is positioned. The element
+			must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
+<pre>Ext.fly(<span class="string">'elId'</span>).moveTo(12,17)</pre>
+			</div>
+		</li>
+		<li><b>position</b>
+			<div>Initializes positioning on this element. If a desired position is not passed, it will make the the element
+			positioned relative IF it is not already positioned.
+<pre>Ext.fly(<span class="string">'elId'</span>).position(<span class=string>"relative"</span>)</pre>
+			</div>
+		</li>
+		<li><b>clearPositioning</b>
+			<div>Clear positioning back to the default when the document was loaded
+<pre>
+Ext.fly(<span class="string">'elId'</span>).clearPositioning()	
+Ext.fly(<span class="string">'elId'</span>).clearPositioning(<span class=string>"top"</span>)</pre>
+			</div>
+		</li>
+		<li><b>getPositioning</b>
+			<div>Gets an object with all CSS positioning properties. Useful along with setPostioning to
+			get snapshot before performing an update and then restoring the element.
+<pre><span class=keyword>var</span> pos = Ext.fly(<span class="string">'elId'</span>).getPositioning()</pre>
+			</div>
+		</li>
+		<li><b>setPositioning</b>
+			<div>Set positioning with an object returned by getPositioning().
+<pre>Ext.fly(<span class="string">'elId'</span>).setPositioning({
+    left: <span class=string>'static'</span>,
+    right: <span class=string>'auto'</span>
+})</pre>
+			</div>
+		</li>
+		<li><b>translatePoints</b>
+			<div>Translates the passed page coordinates into left/top css values for this element
+<pre>
+<span class=comment>// {left:translX, top: translY}</span>
+<span class=keyword>var</span> points = Ext.fly(<span class="string">'elId'</span>).translatePoints(15,18); </pre>
+			</div>
+		</li>
+	</ul>
+	</p>
+</div>
+
+
+<div id="animations" class="sect">
+	<h2>Animations</h2>
+	<p>Ext Core has animation plugins available that give you a robust set of preconfigured animations that are alredy applied as methods
+	to Ext.Element so you can do cool things like this:
+	<div id="slideEl" style="background-color:#F00; width:100px; height: 100px;"></div>
+	<pre>
+Ext.fly(<span class=string>'slideEl'</span>).slideOut(<span class=string>'r'</span>);</pre>
+	Copy the above code, run it in FireBug and see what happens. You will see below that Ext has a full set of animations already
+	built for you.  Each animation takes a configuration object literal making it very customizable if you need more than the default
+	behavior. Perhaps you want to add your own callback function to fire upon completion of the animation:
+	<pre>
+Ext.fly(<span class=string>'slideEl'</span>).slideOut(<span class=string>'r'</span>, {
+	callback : <span class=keyword>function</span>(){
+		alert(<span class=string>'Finished sliding the element out');
+	}
+});</pre>
+	
+	So you can see there are some really powerful animations here.
+	<br/>
+	<br/>Animations support 8-way anchoring, so you can choose from 8 different anchor
+	points to either start or end your animation.
+
+<table>
+<thead>
+	<tr>
+		<th>Value</th>
+		<th>Description</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>tl</td>
+		<td>The top left corner</td>
+	</tr>
+	<tr>
+		<td>t</td>
+		<td>The center of the top edge</td>
+	</tr>
+	<tr>
+		<td>tr</td>
+		<td>The top right corner</td>
+	</tr>
+	<tr>
+		<td>l</td>
+		<td>The center of the left edge</td>
+	</tr>
+	<tr>
+		<td>r</td>
+		<td>The center of the right edge</td>
+	</tr>
+	<tr>
+		<td>bl</td>
+		<td>The bottom left corner</td>
+	</tr>
+	<tr>
+		<td>b</td>
+		<td>The center of the bottom edge</td>
+	</tr>
+	<tr>
+		<td>br</td>
+		<td>The bottom right corner</td>
+	</tr>			
+</tbody>
+</table>
+	
+	
+	
+	Lets explore the API further:
+	<ul>
+		<li><b>slideIn/slideOut</b>
+			<div>Slides the element into or out of view. An anchor point can be optionally passed to set the point of origin
+			for the slide effect. This function automatically handles wrapping the element with a fixed-size
+			container if needed. See the Fx class overview for valid anchor point options. Usage:
+<pre>
+<span class=comment>// default: slide the element in from the top</span>
+el.slideIn();
+<span class=comment>// default: slide the element out from the bottom</span>
+el.slideOut();
+
+<span class=comment>// common config options shown with default values</span>
+el.slideIn(<span class=string>'t'</span>, {
+    easing: <span class=string>'easeOut'</span>,
+    duration: .5
+});
+el.slideOut(<span class=string>'t'</span>, {
+    easing: <span class=string>'easeOut'</span>,
+    duration: .5,
+    remove: <span class=keyword>false</span>,
+    useDisplay: <span class=keyword>false</span>
+});</pre>
+			</div>
+		</li>
+		<li><b>puff</b>
+			<div>Fades the element out while slowly expanding it in all directions. When the effect is completed,
+			the element will be hidden (visibility = 'hidden') but block elements will still take up space in the
+			document. The element must be removed from the DOM using the 'remove' config option if desired. Usage:
+<pre>// default
+el.puff();
+
+<span class=comment>// common config options shown with default value</span>
+el.puff({
+    easing: <span class=string>'easeOut'</span>,
+    duration: .5,
+    remove: <span class=keyword>false</span>,
+    useDisplay: <span class=keyword>false</span>
+});</pre>	
+			</div>
+		</li>
+		<li><b>switchOff</b>
+			<div>Blinks the element as if it was clicked and then collapses on its center (similar to switching off
+			a television). When the effect is completed, the element will be hidden (visibility = 'hidden') but block
+			elements will still take up space in the document. The element must be removed from the DOM using the 'remove'
+			config option if desired. Usage:
+<pre>// default
+el.switchOff();
+
+<span class=comment>// all config options shown with default values</span>
+el.switchOff({
+    easing: <span class=string>'easeIn'</span>,
+    duration: .3,
+    remove: <span class=keyword>false</span>,
+    useDisplay: <span class=keyword>false</span>
+});</pre>			
+			</div>
+		</li>
+		<li><b>highlight</b>
+			<div>Highlights the Element by setting a color (applies to the background-color by default, but can
+			be changed using the "attr" config option) and then fading back to the original color. If no original
+			color is available, you should provide the "endColor" config option which will be cleared after the animation.
+			Usage:
+<pre>
+<span class=comment>// default: highlight background to yellow</span>
+el.highlight();
+
+<span class=comment>// common config options shown with default values</span>
+el.highlight(<span class=string>"ffff9c"</span>, {
+    <span class=comment>//can be any valid CSS property (attribute) that supports a color value</span>
+    attr: <span class=string>"background-color"</span>, 
+    endColor: (current color) or <span class=string>"ffffff"</span>,
+    easing: <span class=string>'easeIn'</span>,
+    duration: 1
+});</pre>
+			</div>
+		</li>
+		<li><b>frame</b>
+			<div>Shows a ripple of exploding, attenuating borders to draw attention to an Element. Usage:
+<pre>
+<span class=comment>// default: a single light blue ripple</span>
+el.frame();
+
+<span class=comment>// common config options shown with default values</span>
+el.frame(<span class=string>"C3DAF9"</span>, 1, {
+    duration: 1 <span class=comment>//duration of each individual ripple.</span>
+    <span class=comment>// Note: Easing is not configurable and will be ignored if included</span>
+});</pre>			
+			</div>
+		</li>
+		<li><b>pause</b>
+			<div>Creates a pause before any subsequent queued effects begin. If there are no effects
+			queued after the pause it will have no effect. Usage:
+<pre>el.pause(1);</pre>
+			</div>
+		</li>
+		<li><b>fadeIn/fadeOut</b>
+			<div>Fade an element in (from transparent to opaque). The ending opacity can be specified using the "endOpacity"
+			config option. Or fade an element out (from opaque to transparent). The ending opacity can be specified using the
+			"endOpacity" config option. Note that IE may require useDisplay:true in order to redisplay correctly. Usage:
+<pre>
+<span class=comment>// default: fade in from opacity 0 to 100%</span>
+el.fadeIn();
+el.fadeOut();
+
+<span class=comment>// common config options shown with default values</span>
+el.fadeIn({
+    endOpacity: 1, <span class=comment>//can be any value between 0 and 1 (e.g. .5)</span>	
+    easing: <span class=string>'easeOut'</span>,
+    duration: .5
+});
+el.fadeOut({
+    endOpacity: 0, <span class=comment>//can be any value between 0 and 1 (e.g. .5)</span>
+    easing: <span class=string>'easeOut'</span>,
+    duration: .5,
+    remove: <span class=keyword>false</span>,
+    useDisplay: <span class=keyword>false</span>
+});</pre>
+			</div>
+		</li>
+		<li><b>scale</b>
+			<div>Animates the transition of an element's dimensions from a starting height/width to an ending height/width. Usage:
+<pre>
+<span class=comment>// change height and width to 100x100 pixels</span>
+el.scale(100, 100);
+
+<span class=comment>// common config options shown with default values.  The height and width will
+// default to the element's existing values if passed as null.</span>
+el.scale(
+    [element's width],
+    [element's height], {
+	    easing: <span class=string>'easeOut'</span>,
+	    duration: .35
+	}
+);</pre>			
+			</div>
+		</li>
+		<li><b>shift</b>
+			<div>Animates the transition of any combination of an element's dimensions, xy position and/or opacity.
+			Any of these properties not specified in the config object will not be changed. This effect requires
+			that at least one new dimension, position or opacity setting must be passed in on the config object in
+			order for the function to have any effect. Usage:
+<pre>
+<span class=comment>// slide the element horizontally to x position 200 while changing
+// the height and opacity</span>
+el.shift({ x: 200, height: 50, opacity: .8 });
+
+<span class=comment>// common config options shown with default values.</span>
+el.shift({
+    width: [element's width],
+    height: [element's height],
+    x: [element's x position],
+    y: [element's y position],
+    opacity: [element's opacity],
+    easing: <span class=string>'easeOut'</span>,
+    duration: .35
+});</pre>
+			</div>
+		</li>
+		<li><b>ghost</b>
+			<div>Slides the element while fading it out of view. An anchor point can be optionally passed to set the
+			ending point of the effect. Usage:
+<pre>
+<span class=comment>// default: slide the element downward while fading out</span>
+el.ghost();
+
+<span class=comment>// common config options shown with default values</span>
+el.ghost(<span class=string>'b'</span>, {
+    easing: <span class=string>'easeOut'</span>,
+    duration: .5,
+    remove: <span class=keyword>false</span>,
+    useDisplay: <span class=keyword>false</span>
+});</pre>
+			</div>
+		</li>
+		<li><b>Complex animations</b>	
+			<div><div id="complexEl" style="background-color:#F00; border: 0px solid #000000; width:100px; height: 100px;"></div>
+			We can also use the Ext Core animation system to build our own complex custom animations.
+			Copy the following code into FireBug and see what it does:
+
+<pre><span class=keyword>var</span> el = Ext.get(<span class=string>'complexEl'</span>)
+el.animate({
+	borderWidth: {to: 3, from: 0},
+	opacity: {to: .3, from: 1},
+	height: {to: 50, from: el.getHeight()},
+	width: {to: 300, from: el.getWidth()}	
+});</pre>
+			</div>
+		</li>
+	</ul>
+	</p>
+</div>
+
+<div id="misc" class="sect">
+	<h2>Miscellaneous</h2>
+	<p>
+The following are useful Ext.Element methods which don't fit in the previous sections but bear mentioning.
+	<ul>
+		<li><b>focus</b>
+			<div>Tries to focus the element. Any exceptions are caught and ignored.
+<pre>el.focus();</pre>
+			</div>
+		</li>
+		<li><b>blur</b>
+			<div>Tries to blur the element. Any exceptions are caught and ignored
+<pre>el.blur();</pre>
+			</div>
+		</li>
+		<li><b>getValue</b>
+			<div>Returns the value of the "value" attribute
+<pre>el.getValue();
+el.getValue(<span class=keyword>true</span>); <span class=comment>// parses the value as a number</span>
+</pre>
+			</div>
+		</li>
+		<li><b>isBorderBox</b>
+			<div>True if the detected browser is Internet Explorer running in non-strict mode
+<pre>if (Ext.isBorderBox) { }</pre>
+			</div>
+		</li>
+		<li><b>getAttributeNS</b>
+			<div>Returns the value of a namespaced attribute from the element's underlying DOM node.
+<pre>el.getAttributeNS("","name");</pre>
+			</div>
+		</li>
+	</ul>
+	</p>
+</div>
+

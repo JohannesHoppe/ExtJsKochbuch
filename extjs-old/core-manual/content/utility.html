@@ -1,0 +1,320 @@
+<h1>Utilities</h1>
+
+<div id="js-augmentation" class="sect">
+	<h2>About Utilities</h2>
+	<p>
+	    Ext provides a series of general utility functions for working with Javascript and JSON. They vary in their functionality,
+        but all of them aim to make your life as the developer easier.
+	</p>
+</div>
+
+<div id="util-apply" class="sect">
+	<h2>apply and applyIf</h2>
+	<p>	
+    <ul>
+        <!-- Begin apply -->
+        <li>
+            <b>apply</b>
+            <div>
+                The apply function is used to copy the properties of one object literal to another. The first argument is the destination object.
+                The second argument is the source to copy from. Note that all properties in the source will be copied over, even if they exists in the destination.
+                Also, the destination object will be modified as a result of calling the method.
+                <br /><br />
+<pre>
+var person = {
+    name: <span class="string">'John Smith'</span>,
+    age: 30
+};
+
+Ext.apply(person, {
+    hobby: <span class="string">'Coding'</span>,
+    city: <span class="string">'London'</span>
+}); <span class="comment">// person literal now contains hobby and city as well</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End apply -->
+        
+        <!-- Begin applyIf -->
+        <li>
+            <b>applyIf</b>
+            <div>
+                This function is very similar to apply. The only difference is that applyIf only copies properties that don't exist in the
+                destination object. If they already exist in both, the destination object takes precedence and the property is not copied.
+                <br /><br />
+<pre>
+var person = {
+    name: <span class="string">'John Smith'</span>,
+    age: 30,
+    hobby: <span class="string">'Rock Band'</span>
+};
+
+Ext.applyIf(person, {
+    hobby: <span class="string">'Coding'</span>,
+    city: <span class="string">'London'</span>
+}); <span class="comment">// hobby is not copied over</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End applyIf -->
+    </ul>
+	</p>
+</div>
+
+<div id="util-urlencode" class="sect">
+	<h2>Url Encoding/Decoding</h2>
+	<p>
+	These methods are useful for transforming JSON data to a format that can be transmitted as part of a GET string and vice versa.
+	<ul>
+        <!-- Begin urlEncode -->
+        <li>
+            <b>urlEncode</b>
+            <div>
+                 Converts an object-literal into a string that can be passed as a parameter using a GET request. The string will be in the format key1=value1&key2=value2....
+                <br /><br />
+<pre>
+var params = {
+    foo: <span class="string">'value1'</span>,
+    bar: 100
+};
+
+var s = Ext.encode(params); <span class="comment">// s is now foo=value1&bar=100</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End urlEncode -->
+        
+        <!-- Begin urlDecode -->
+        <li>
+            <b>urlDecode</b>
+            <div>
+                This method is the opposite of urlEncode. It takes a string in the form of key1=value1&key2=value and converts it into a JavaScript object.
+                <br /><br />
+<pre>
+var s = <span class="string">'foo=value1&bar=100'</span>;
+var o = Ext.decode(s); <span class="comment">// o now contains 2 properties, foo and bar.</span>
+alert(o.bar);
+</pre>	
+            </div>
+        </li>
+        <!-- End urlDecode -->
+    </ul>
+	</p>
+</div>
+
+<div id="util-array" class="sect">
+	<h2>Array Handling</h2>
+	<p>
+	The core provides methods for working with arrays and other collections within Javascript.
+    <ul>
+        <!-- Begin each -->
+        <li>
+            <b>each</b>
+            <div>
+                The each method allows you to iterate over an array or other collections (including Nodelists or CompositeElements). eac takes a function as the first
+                argument. This function is called for each member in the collection. Returning false at any point stops iteration.
+                <br /><br />
+<pre>
+Ext.each([1, 2, 3, 4, 5], function(num){
+    alert(num);
+});
+</pre>	
+            </div>
+        </li>
+        <!-- End each -->
+        
+        <!-- Begin toArray -->
+        <li>
+            <b>toArray</b>
+            <div>
+                This method converts an iterable collection (or single element) into an proper javascript array.
+                <br /><br />
+<pre>
+var arr1 = Ext.toArray(1); <span class="comment">// arr1 = [1];</span>
+<span class="comment">// arr2 now contains an array of Ext elements.</span>
+var arr2 = Ext.toArray(Ext.select('div)); 
+</pre>	
+            </div>
+        </li>
+        <!-- End toArray -->
+    </ul>
+	</p>
+</div>
+
+<div id="util-json" class="sect">
+	<h2>JSON</h2>
+	<p>
+	JSON stands for Javascript Object Notation. It is used as a data exchange format, where the data looks very similar to javascript object literals.
+    When sending and retrieving data from the server, it is necessary to convert data to and from it's native javascript form. These helper functions
+    assist you to do this. More information about JSON can be found at <a href="http://json.org">json.org</a>.
+	<ul>
+        <!-- Begin encode -->
+        <li>
+            <b>encode</b>
+            <div>
+                Takes a javascript object or array and encodes it as the string representation of the JSON that can be passed to an external source.
+                <br /><br />
+<pre>
+var s = Ext.encode({
+    foo: 1,
+    bar: 2
+}); <span class="comment">//s now contains <span class="string">'{foo=1,bar=2}'</span></span>
+</pre>	
+            </div>
+        </li>
+        <!-- End encode -->
+        
+        <!-- Begin decode -->
+        <li>
+            <b>decode</b>
+            <div>
+                The opposite of encode, this is used to convert the string representation of JSON into a javascript object. This method is
+                often called when reading the response from an Ajax callback.
+                <br /><br />
+<pre>
+var s = <span class="string">'{foo=1,bar=2}'</span>;
+var o = Ext.decode(s); <span class="comment">o is now an object with 2 properties, foo and bar.</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End decode -->
+    </ul>
+	</p>
+</div>
+
+<style type="text/css">
+    li.list{
+         list-style: disc outside;
+         margin-left: 20px;
+    }
+</style>
+<div id="util-detection" class="sect">
+	<h2>Browser &amp; OS Detection</h2>
+
+	<h3>JavaScript</h3>
+	<p>
+	Ext offers a number of browser-detection features allowing developers to work around implementation issues due to differences between the major browsers. Ext provides detection in both javascript and css, to allow for greater functionality in both these areas.<br /><br />
+    
+    The following browser detection is available for javascript:
+	<ul>
+<li class="list"><span class="string">Internet Explorer - Ext.isIE, Ext.isIE6, Ext.isIE7, Ext.isIE8</span></li>
+<li class="list">Firefox - Ext.isGecko, Ext.isGecko2, Ext.isGecko3</li>
+<li class="list">Opera - Ext.isOpera</li>
+<li class="list">Chrome - Ext.isChrome</li>
+<li class="list">Safari - Ext.isSafari, Ext.isSafari2, Ext.isSafari3</li>
+<li class="list">WebKit - Ext.isWebKit</li>
+<li class="list">Operating Systems - Ext.isLinux, Ext.isWindows, Ext.isMac</li>
+	</ul>
+    <pre>
+if(Ext.isIE){
+    <span class="comment">// Do browser specific code here</span>
+}
+</pre>	
+	</p>
+	<h3>CSS</h3>
+	<p>
+	    A similar mechanism is applied in the CSS, various class names are added to the root element and the body depending on the current operating environment.
+        This allows for easier style rules to get around browser quirks. If in strict mode, ext-strict is added to the root. The rest of these are added
+        to the body when appropriate:
+        <ul>
+            <li>.ext-ie, .ext-ie6, .ext-ie7, .ext-ie8</li>
+            <li>.ext-gecko, .ext-gecko2, .ext-gecko3</li>
+            <li>.ext-opera</li>
+            <li>.ext-safari</li>
+            <li>.ext-chrome</li>
+            <li>.ext-mac, .ext-linux</li>
+        </ul>
+    <pre>
+<span class="comment">/* When in strict mode and using safari, change the font-size. */</span>
+.ext-strict .ext-safari .sample-item{
+    font-size: 20px; 
+}
+</pre>	
+	</p>
+</div>
+
+<div id="util-type" class="sect">
+	<h2>Type Detection</h2>
+	<p>
+	Since JavaScript is a loosely typed language, it is often necessary to interrogate variables to retrieve their type. Ext provides a series of methods for help in this regard:
+    <ul>
+        <!-- Begin isEmpty -->
+        <li>
+            <b>isEmpty</b>
+            <div>
+                Checks whether the passed value is empty, which includes undefined, null or an empty string.
+                <br /><br />
+<pre>
+alert(Ext.isEmpty(<span class="string">''</span>));
+</pre>	
+            </div>
+        </li>
+        <!-- End isEmpty -->
+        
+        <!-- Begin isArray -->
+        <li>
+            <b>isArray</b>
+            <div>
+                Checks whether the passed value is an array.
+                <br /><br />
+<pre>
+alert(Ext.isArray([1, 2, 3]));
+</pre>	
+            </div>
+        </li>
+        <!-- End isArray -->
+        
+        <!-- Begin isObject -->
+        <li>
+            <b>isObject</b>
+            <div>
+                Checks whether the passed value is an object.
+                <br /><br />
+<pre>
+alert(Ext.isObject({}));
+</pre>	
+            </div>
+        </li>
+        <!-- End isObject -->
+        
+        <!-- Begin isFunction -->
+        <li>
+            <b>isFunction</b>
+            <div>
+                Checks whether the passed value is a function.
+                <br /><br />
+<pre>
+alert(Ext.isFunction(function(){
+}));
+</pre>	
+            </div>
+        </li>
+        <!-- End isFunction -->
+    </ul>
+	</p>
+</div>
+
+<div id="util-misc" class="sect">
+	<h2>Miscellaneous</h2>
+	<p>
+	<ul>
+        <!-- Begin id -->
+        <li>
+            <b>id</b>
+            <div>
+                Returns a string that contains a unique identifier. Any call to Ext.id() is guaranteed to return a new id that hasn't been used.
+                The first parameter is an optional element, which the id is to be assigned to. The second optional parameter is a prefix for the id.
+                <br /><br />
+<pre>
+var s = Ext.id(null, <span class="string">'prefix'</span>); <span class="comment">// No element specified here</span>
+var s = Ext.id(Ext.get(document.body)); <span class="comment">// Assign the id to an element</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End id -->
+    </ul>
+	</p>
+</div>
+
+
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<title>Sencha - Ext Core - Ext Core Manual</title>
+
+<!--<link rel="stylesheet" href="/deploy/dev/resources/css/core.css" />-->
+<!--<link rel="stylesheet" href="/assets/css/extjs.css" />-->
+<link rel="stylesheet" href="css/overview.css" />
+<style type="text/css">
+body {
+    margin: 0 auto;
+    width: 920px;
+}
+
+#bd {
+    color: #333;
+    font: 14px/1.3 HelveticaNeue, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a#logo {
+    background: transparent url(images/logo-sencha-sm.png) no-repeat scroll 0px 100%;
+    display: block;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    width: 120px;
+    overflow: hidden;
+    text-indent: 150%;
+    white-space: nowrap;
+}
+</style>
+<script src="js/ext-base.js"></script>
+<script src="js/extjs.js"></script>
+<script src="js/overview.js"></script>	
+<!--<script type="text/javascript" src="/assets/js/site.js?v=4"></script>-->
+<script>
+Ext.Element.addMethods({
+    addClassOnOver : function(className){
+	    var me = this;	    
+	    var INTERNAL = '_internal';	
+        me.hover(
+            function(){
+                Ext.fly(me, INTERNAL).addClass(className);
+            },
+            function(){
+                Ext.fly(me, INTERNAL).removeClass(className);
+            }			   
+        );
+        return me;
+    }		
+});
+</script>
+</head>
+<body>
+<div id="viewport">
+<div id="hd">
+    <a href="/" id="logo">Sencha - Mobile JavaScript - Ext JS, Ext GWT and Sencha Touch</a>
+</div>
+<div id="bd">
+<style>
+.ext-ie #manual-top, .ext-ie #manual-bottom {	
+	display: none;
+}
+</style>
+<h1>Ext Core Manual</h1>
+	<div id="manual-top"></div>
+        <div id="manual">
+            <ul id="manual-nav">
+                <li class="group group-expanded group-active">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/overview.html">Overview of Ext Core</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/overview.html#intro">Introduction</a></li>
+                        <li><a class="section-title" href="content/overview.html#download">Download</a></li>
+                        <li><a class="section-title" href="content/overview.html#include-ext-core">Including Ext Core</a></li>                        
+                        <li><a class="section-title" href="content/overview.html#hello-world">Simple Example</a></li>
+                        <li><a class="section-title" href="content/overview.html#about">About</a></li>                        
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/element.html">Element</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/element.html#get-el">Getting Elements</a></li>
+                        <li><a class="section-title" href="content/element.html#flyweight">Introducing the Flyweight</a></li>                        
+                        <li><a class="section-title" href="content/element.html#css-styling">CSS & Styling</a></li>
+                        <li><a class="section-title" href="content/element.html#dom-traversal">Dom Traversal</a></li>
+                        <li><a class="section-title" href="content/element.html#manipulation">Manipulation</a></li>
+                        <li><a class="section-title" href="content/element.html#event-handling">Event Handling</a></li>
+                        <li><a class="section-title" href="content/element.html#adv-event-handling">Advanced Event Handling</a></li>
+                        <li><a class="section-title" href="content/element.html#dim-sizing">Dimensions & Sizing</a></li>
+                        <li><a class="section-title" href="content/element.html#positioning">Positioning</a></li>
+                        <li><a class="section-title" href="content/element.html#animations">Animations</a></li>
+<!--                        <li><a class="section-title" href="content/element.html#animations">Scrolling</a></li> -->                      
+                        <li><a class="section-title" href="content/element.html#misc">Miscellaneous</a></li>
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/compositeelement.html">CompositeElement</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/compositeelement.html#composite-element">What is a CompositElement</a></li>
+                   </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/ajax.html">Ajax</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/ajax.html#ajax">Ajax Defined</a></li>
+                        <li><a class="section-title" href="content/ajax.html#ajax-ext">Ext.Ajax</a></li>
+                        <li><a class="section-title" href="content/ajax.html#ajax-events">Ext.Ajax Events</a></li>
+                        <li><a class="section-title" href="content/ajax.html#ajax-properties">Ext.Ajax Properties</a></li>
+                        <li><a class="section-title" href="content/ajax.html#ajax-request">Making a Request</a></li>                        
+                        <li><a class="section-title" href="content/ajax.html#ajax-updater">Updating Elements</a></li>                        
+                        <li><a class="section-title" href="content/ajax.html#ajax-form">Posting a Form</a></li>
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/domquery.html">DomQuery</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/domquery.html#dq-about">What is DomQuery</a></li>
+                        <li><a class="section-title" href="content/domquery.html#multiple-selectors">Multiple Selectors</a></li>
+                        <li><a class="section-title" href="content/domquery.html#root-selectors">Selection Root</a></li>
+                        <li><a class="section-title" href="content/domquery.html#chain-selectors">Selection Chaining</a></li>
+                        <li><a class="section-title" href="content/domquery.html#element-selectors">Element Selectors</a></li>
+                        <li><a class="section-title" href="content/domquery.html#attribute-selectors">Attribute Selectors</a></li>
+                        <li><a class="section-title" href="content/domquery.html#pseudo-selectors">Pseudo Selectors</a></li>
+                        <li><a class="section-title" href="content/domquery.html#css-selectors">CSS Value Selectors</a></li>
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/domhelper.html">Generating Markup</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/domhelper.html#dh-about">DomHelper</a></li>
+                        <li><a class="section-title" href="content/domhelper.html#dh-configs">DomHelper configs</a></li>
+                        <li><a class="section-title" href="content/domhelper.html#templates">Template</a></li>
+                        <li><a class="section-title" href="content/domhelper.html#tpl-addl">Template Features</a></li>
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/augmentations.html">Javascript Augmentations</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/augmentations.html#js-augmentation">Augmentations</a></li>
+                        <li><a class="section-title" href="content/augmentations.html#function-augmentation">Function</a></li>
+                        <li><a class="section-title" href="content/augmentations.html#array-augmentation">Array</a></li>
+                        <li><a class="section-title" href="content/augmentations.html#string-augmentation">String</a></li>
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/utility.html">Utility</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/utility.html#util-apply">apply and applyIf</a></li>
+                        <li><a class="section-title" href="content/utility.html#util-urlencode">URL Encoding</a></li>
+                        <li><a class="section-title" href="content/utility.html#util-array">Array Handling</a></li>
+                        <li><a class="section-title" href="content/utility.html#util-json">JSON</a></li>
+                        <li><a class="section-title" href="content/utility.html#util-detection">Browser Detection</a></li>
+                        <li><a class="section-title" href="content/utility.html#util-type">Type Detection</a></li>
+                        <li><a class="section-title" href="content/utility.html#util-misc">Miscellaneous</a></li>
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/timers.html">Timed Code Execution</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/timers.html#timed-code">TaskMgr & TaskRunner</a></li>
+                        <li><a class="section-title" href="content/timers.html#delayed-task">DelayedTask</a></li>
+                    </ul>
+                </li>
+
+                <li class="group">
+                    <a class="group-expand-btn">Expand Group</a>
+                    <a class="group-title" href="content/classsystem.html">Class System</a>
+                    <ul class="group-sections">
+                        <li><a class="section-title" href="content/classsystem.html#oo-classes">JavaScript Classes</a></li>
+                        <li><a class="section-title" href="content/classsystem.html#oo-extend">extend and override</a></li>
+                        <li><a class="section-title" href="content/classsystem.html#oo-complex">Complex Objects in Prototype</a></li>
+                        <li><a class="section-title" href="content/classsystem.html#oo-singletons">Singletons</a></li>                        
+                        <li><a class="section-title" href="content/classsystem.html#oo-observable">Observable</a></li>
+                        <li><a class="section-title" href="content/classsystem.html#oo-namespaces">Namespaces</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="content-wrap"><div id="content"></div></div>
+            <div class="clear-fix"></div>
+        </div>
+        <div id="manual-bottom"></div>
+        
+</body>
+</html>

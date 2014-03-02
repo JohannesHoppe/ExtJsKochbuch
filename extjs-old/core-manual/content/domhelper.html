@@ -1,0 +1,107 @@
+<h1>Generating Dynamic Markup</h1>
+
+<div id="dh-about" class="sect">
+	<h2>DomHelper</h2>
+	<p>
+	DomHelper (abbreviated DH) is a utility class used to dynamically generate markup and works around many cross-browser issues encountered when creating markup using raw DOM scripting. DH is intelligent enough to use HTML Fragments and innerHTML where appropriate to optimize speed without sacrificing compatibility.  Since Ext.DomHelper is a singleton, all its methods can be accessed statically without instantiating a new instance of the class.
+	</p>	
+	
+	<p>Ext.DomHelper is a singleton. Therefore you can access all of its methods statically without instantiating a new instance of the class.
+	</p>
+	
+	<dl>
+		<dt>markup</dt>
+		<dd>Same as the deprecated createHtml</dd>
+		<dt>insertHtml</dt>
+		<dd></dd>
+		<dt>insertBefore</dt>
+		<dd></dd>
+		<dt>insertAfter</dt>
+		<dd></dd>
+		<dt>insertFirst</dt>
+		<dd></dd>
+		<dt>append</dt>
+		<dd></dd>
+		<dt>overwrite</dt>
+		<dd></dd>						
+	</dl>
+	
+	<table style="width: 740px;">
+		<thead>
+			<th width="50%">DOM Scripting</th>
+			<th width="50%">Ext.DomHelper</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+<pre>var myEl = document.createElement(<span class="string">'a'</span>);
+myEl.href = <span class="string">'http://www.yahoo.com/'</span>;
+myEl.innerHTML = <span class="string">'My Link'</span>;
+myEl.setAttribute(<span class="string">'target'</span>, <span class="string">'_blank'</span>);
+
+var myDiv = document.createElement(<span class="string">'div'</span>);
+myDiv.id = <span class="string">'my-div'</span>;
+
+myDiv.appendChild(myEl);
+document.body.appendChild(myDiv);	
+</pre>
+				</td>
+				<td>
+<pre>Ext.DomHelper.append(document.body, {
+    id: <span class="string">'my-div'</span>,
+    cn: [{
+    	tag: <span class="string">'a'</span>, 
+    	href: <span class="string">'http://www.yahoo.com/'</span>, 
+    	html: <span class="string">'My Link'</span>, 
+    	target: <span class="string">'_blank'</span>
+    }]
+});
+</pre>				
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+
+</div>
+
+<div id="dh-configs" class="sect">
+	<h2>DomHelper Configurations</h2>
+	<p>
+	When dynamically generating markup with Ext.DomHelper, a DomHelper configuration is used to specify what markup to create and place in the page. A DomHelper configuration is a representation of any arbitrary HTMLElement to be created on the page. 
+	</p>	
+	<table style="width: 740px;">
+		<thead>
+			<th width="50%">Markup</th>
+			<th width="50%">DomHelper Configuration</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><pre>&lt;a href=<span class="string">"http://www.extjs.com"</span>&gt;Ext JS&lt;/a&gt;</pre></td>
+				<td><pre>{
+    tag: <span class="string">'a'</span>,
+    href: <span class="string">'http://www.extjs.com'</span>,
+    html: <span class="string">'Ext JS'</span>
+}</pre>
+			</tr>
+		</tbody>
+	</table>
+
+	<p></p>
+	
+</div>
+
+
+<div id="templates" class="sect">
+	<h2>Template</h2>
+	<p>
+	Tpl, formatting functions, static method from (importance of textarea)
+	</p>	
+</div>
+
+<div id="tpl-addl" class="sect">
+	<h2>Template member methods</h2>
+	<p>
+	Adding & executing member formatting functions
+	</p>	
+</div>
+

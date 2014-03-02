@@ -1,0 +1,147 @@
+<h1>Ext.DomQuery</h1>
+
+<div id="dq-about" class="sect">
+	<h2>What is DomQuery?</h2>
+	<p>
+	DomQuery provides high performance selector/xpath processing. It works on HTML and XML documents (if a content node is passed in).
+    DomQuery supports most of the CSS3 selectors spec, along with some custom selectors and basic XPath.
+    A list of the full CSS3 selector spec can be found <a href="http://www.w3.org/TR/css3-selectors/">here</a>.
+	</p>	
+</div>
+
+
+<style type="text/css">
+    li.list{
+         list-style: disc outside;
+         margin-left: 20px;
+    }
+</style>
+<div id="multiple-selectors" class="sect">
+	<h2>Multiple Selections</h2>
+    <p>
+        You can select multiple sets of at elements with different criteria into a single result set.
+    </p>
+<pre>
+<span class="comment">// Matches all divs with class foo and all spans with class bar</span>
+Ext.select('div.foo, span.bar');
+</pre>
+</div>
+
+<div id="root-selectors" class="sect">
+	<h2>Selection Root</h2>
+    <p>
+        When using a selector, it is possible to specify an optional root node, if it is not specified it will default to the document body.
+        This can be useful to increase performance, since specifying a root means there will be possibly less nodes to check.
+    </p>
+<pre>
+Ext.get('myEl').select('div.foo');<span class="comment">// These are equivalent</span>
+Ext.select('div.foo', true, 'myEl');<span class="comment">// These are equivalent</span>
+</pre>
+</div>
+
+<div id="chain-selectors" class="sect">
+	<h2>Selection Chaining</h2>
+    <p>
+        Selectors can be chained to match multiple criteria, which is useful if you need to execute a complex query. Chained attributes are processed in order
+    </p>
+<pre>
+<span class="comment">// Matches a div with a class of foo, that has a title attribute bar, that is
+// the first child of its immediate parent.</span>
+Ext.select('div.foo[title=bar]:first');
+</pre>
+</div>
+    
+<div id="element-selectors" class="sect">
+	<h2>Element selectors</h2>
+    <p>
+        <ul>
+            <li class="list"><b>*</b> any element</li>
+            <li class="list"><b>E</b> an element with the tag E</li>
+            <li class="list"><b>E F</b> All descendent elements of E that have the tag F</li>
+            <li class="list"><b>E > F or E/F</b> all direct children elements of E that have the tag F</li>
+            <li class="list"><b>E + F</b> all elements with the tag F that are immediately preceded by an element with the tag E</li>
+            <li class="list"><b>E ~ F</b> all elements with the tag F that are preceded by a sibling element with the tag E</li>
+        </ul>
+    </p>
+<pre>
+<span class="comment">// Matches all div elements</span>
+Ext.select('div'); 
+<span class="comment">// Matches all span elements contained inside a div at any level</span>
+Ext.select('div span');
+<span class="comment">// Matches all li elements with a ul as their immediate parent</span>
+Ext.select('ul > li'); 
+</pre>
+</div>
+    
+<div id="attribute-selectors" class="sect">
+	<h2>Attribute selectors</h2>
+    <p>
+        <ul>
+            <li class="list"><b>E.foo</b> has a class "foo"</li>
+            <li class="list"><b>E[foo]</b> has an attribute "foo"</li>
+            <li class="list"><b>E[foo=bar]</b> has an attribute "foo" that equals "bar"</li>
+            <li class="list"><b>E[foo^=bar]</b> has an attribute "foo" that starts with "bar"</li>
+            <li class="list"><b>E[foo$=bar]</b> has an attribute "foo" that ends with "bar"</li>
+            <li class="list"><b>E[foo*=bar]</b> has an attribute "foo" that contains the substring "bar"</li>
+            <li class="list"><b>E[foo%=2]</b> has an attribute "foo" that is evenly divisible by 2</li>
+            <li class="list"><b>E[foo!=bar]</b> has an attribute "foo" that does not equal "bar"</li>
+        </ul>
+    </p>
+<pre>
+<span class="comment">// Matches all div elements with the class news</span>
+Ext.select('div.news'); 
+<span class="comment">// Matches all a elements with an href that is http://extjs.com</span>
+Ext.select('a[href=http://extjs.com]'); 
+<span class="comment">// Matches all img elements that have an alt tag</span>
+Ext.select('img[alt]'); 
+</pre>
+</div>
+    
+<div id="pseudo-selectors" class="sect">
+	<h2>Pseudo selectors</h2>
+    <p>
+        <ul>
+            <li class="list"><b>E:first-child</b> E is the first child of its parent</li>
+            <li class="list"><b>E:last-child</b> E is the last child of its parent</li>
+            <li class="list"><b>E:nth-child(n)</b> E is the nth child of its parent (1 based as per the spec)</li>
+            <li class="list"><b>E:nth-child(odd)</b> E is an odd child of its parent</li>
+            <li class="list"><b>E:nth-child(even)</b> E is an even child of its parent</li>
+            <li class="list"><b>E:only-child</b> E is the only child of its parent</li>
+            <li class="list"><b>E:checked</b> E is an element that is has a checked attribute that is true (e.g. a radio or checkbox)</li>
+            <li class="list"><b>E:first</b> the first E in the resultset</li>
+            <li class="list"><b>E:last</b> the last E in the resultset</li>
+            <li class="list"><b>E:nth(n)</b> the nth E in the resultset (1 based)</li>
+            <li class="list"><b>E:odd</b> shortcut for :nth-child(odd)</li>
+            <li class="list"><b>E:even</b> shortcut for :nth-child(even)</li>
+            <li class="list"><b>E:contains(foo)</b> E's innerHTML contains the substring "foo"</li>
+            <li class="list"><b>E:nodeValue(foo)</b> E contains a textNode with a nodeValue that equals "foo"</li>
+            <li class="list"><b>E:not(S)</b> an E element that does not match simple selector S</li>
+            <li class="list"><b>E:has(S)</b> an E element that has a descendent that matches simple selector S</li>
+            <li class="list"><b>E:next(S)</b> an E element whose next sibling matches simple selector S</li>
+            <li class="list"><b>E:prev(S)</b> an E element whose previous sibling matches simple selector S</li>
+        </ul>
+    </p>
+<pre>
+<span class="comment">// Matches the first div with a class of code</span>
+Ext.select('div.code:first'); 
+<span class="comment">// Matches spans that fall on an even index.</span>
+Ext.select('span:even'); 
+<span class="comment">// Matches all divs whos next sibling is a span with class header.</span>
+Ext.select('div:next(span.header)); 
+</pre>
+</div>
+    
+<div id="css-selectors" class="sect">
+	<h2>CSS value selectors</h2>
+    <p>
+        <ul>
+            <li class="list"><b>E{display=none}</b> css value "display" that equals "none"</li>
+            <li class="list"><b>E{display^=none}</b> css value "display" that starts with "none"</li>
+            <li class="list"><b>E{display$=none}</b> css value "display" that ends with "none"</li>
+            <li class="list"><b>E{display*=none}</b> css value "display" that contains the substring "none"</li>
+            <li class="list"><b>E{display%=2}</b> css value "display" that is evenly divisible by 2</li>
+            <li class="list"><b>E{display!=none}</b> css value "display" that does not equal "none"</li>
+
+        </ul>
+    </p>
+</div>

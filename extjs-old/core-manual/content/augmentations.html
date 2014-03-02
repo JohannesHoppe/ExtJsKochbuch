@@ -1,0 +1,149 @@
+<h1>JavaScript Augmentations</h1>
+
+
+<div id="js-augmentation" class="sect">
+	<h2>About JS Augmentation</h2>
+	<p>
+	    Javascript is a flexible lanaguage and it allows the programmer to add functions to existing base objects within Javascript.
+        The reason for doing this is because there are a number of functions that are extremely useful to use on the base object, 
+        however they are either not implemented at all, or only implemented in certain browsers. When using multiple libraries, 
+        they may both implement functions on the base javascript objects. This overlap has the potential to cause conflicts when using
+        these libraries together. For this reason, Ext adds only a few necessary functions onto the base objects. Here is an interesting
+        comparison about different libraries and their javascript augmentation usage: 
+        <a href="http://mankz.com/code/GlobalCheck.htm" target="_blank">Framework Scanner</a>
+	</p>
+</div>
+
+<div id="function-augmentation" class="sect">
+	<h2>Function Augmentation</h2>
+	<p>
+	The following functions have been added to the Function prototype (note that createSequence and createInterceptor have <b>not</b> been included):    
+    <ul>
+        <!-- Begin createCallback -->
+        <li>
+            <b>createCallback</b>
+            <div>
+                Creates a callback function that can pass a series of arguments. These arguments can be dynamic and defined at runtime.
+                This function ignores scope, if it's required you should use createDelegate. createCallback passes all the arguments passed to
+                itself to the callback function.
+                <br /><br />
+<pre>
+var sayHello = function(firstName, lastName){
+    alert('Hello ' + firstName + ' ' + lastName);
+};
+Ext.get(<span class="string">'myButton'</span>).on(<span class="string">'click'</span>, sayHello.createCallback(<span class="string">'John'</span>, <span class="string">'Smith'</span>);
+</pre>	
+            </div>
+        </li>
+        <!-- End createCallback -->
+        
+        <!-- Begin createDelegate -->
+        <li>
+            <b>createDelegate</b>
+            <div>
+                This is similar to createCallback, however is slightly more powerful. It allows you to specify the scope that the function executes in.
+                It also gives more control about the arguments that are passed to the callback function, especially if there are existing arguments for the event.
+                The first parameter is the scope. The second parameter is an array of arguments to pass. The third parameter allows you to control how the arguments are passed.
+                If true, it means append the arguments to the end of any arguments passed already (say in the case of an event object). If false, it means just pass the argument array,
+                nothing else. If it's an integer, the arguments will be inserted at that specific index.
+                <br /><br />
+<pre>
+var sayHello = function(firstName, lastName, e){
+    alert('Hello ' + firstName + ' ' + lastName);
+};
+Ext.get(<span class="string">'myButton'</span>).on(
+   <span class="string">'click'</span>, 
+   sayHello.createDelegate(this, [<span class="string">'John'</span>, <span class="string">'Smith'</span>], 
+   <string class="comment">//0 indicates we want to insert our arguments before any others.</string>
+   0
+); 
+</pre>	
+            </div>
+        </li>
+        <!-- End createDelegate -->
+        
+        <!-- Begin defer -->
+        <li>
+            <b>defer</b>
+            <div>
+                defer allows you to specify a time period to wait before executing a function. The first argument is the amount of time, in milliseconds to wait. The
+                second argument is the scope in which to execute the function.
+                <br /><br />
+<pre>
+var whatsTheTime = function(){
+    alert(new Date());
+};
+whatsTheTime.defer(3000); <span class="comment">//Wait 3 seconds before executing.</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End defer -->
+        
+    </ul>
+	</p>
+</div>
+
+<div id="array-augmentation" class="sect">
+	<h2>Array Augmentation</h2>
+	<p>
+	The following methods are added to the Array prototype, if and only if they are not already implemented by the browser:
+    <ul>
+        <!-- Begin indexOf -->
+        <li>
+            <b>indexOf</b>
+            <div>
+                Finds the first index in the array that matches the passed in parameter. If not found in the array, -1 is returned.
+                <br /><br />
+<pre>
+var idx = [1, 2, 3, 4, 5].indexOf(3); <span class="comment">//Returns 2.</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End indexOf -->
+        
+        <!-- Begin remove -->
+        <li>
+            <b>remove</b>
+            <div>
+                Removes the first instance of the passed argument from the array, if found. Note that this modifies the array.
+                <br /><br />
+<pre>
+var arr = [1, 2, 3, 4];
+arr.remove(2);
+var len = arr.length; <span class="comment">// len is now 3.</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End remove -->
+        
+    </ul>
+	</p>
+</div>
+
+<div id="string-augmentation" class="sect">
+	<h2>String Augmentation</h2>
+	<p>
+	The String class has a single format method added. Note that it may conflict when using Ajax.NET.    
+        <ul>
+        <!-- Begin format -->
+        <li>
+            <b>format</b>
+            <div>
+                Allows you to define a tokenized string and pass an arbitrary number of arguments to replace the tokens. Each token must be unique, and must increment in the format {0}, {1}.
+                <br /><br />
+<pre>
+var s = String.format(
+   <span class="string">'Hey {0} {1}'</span>, how are you?', 
+   <span class="string">'John'</span>, 
+   <span class="string">'Smith'</span>
+);
+<span class="comment">//{0} is substituted with John, {1} is substituted with Smith.</span>
+</pre>	
+            </div>
+        </li>
+        <!-- End format -->
+        
+    </ul>
+    
+	</p>
+</div>

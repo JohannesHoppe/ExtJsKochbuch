@@ -1,0 +1,115 @@
+<h1>Ajax Implementation</h1>
+<div id="ajax" class="sect">
+<h2>Ajax Defined</h2>
+<p>
+Asynchronous JavaScript and XML (<a href="http://www.adaptivepath.com/ideas/essays/archives/000385.php" TARGET="_NEW">coined AJAX in 2005</a>), is a group of interrelated web development techniques used to create interactive web applications or rich Internet applications. With Ajax, web applications can retrieve data from the server asynchronously in the background without interfering with the display and behavior of the existing page. Data is retrieved using the XHR (<a href="http://www.w3.org/TR/XMLHttpRequest/" TARGET="_NEW">XMLHttpRequest</a>) object. Because of the complexity of handling cross-browser distinctions between XHR implementations, Ajax frameworks have emerged to abstract these differences into a set of reusable programming constructs. Within Ext, performing these functions is done within the Ext.Ajax <a href="http://extjs.com/learn/Manual:Intro:Patterns:Singleton" TARGET="_NEW">singleton</a> object.
+</p>
+</div>
+<div id="ajax-ext" class="sect">
+<h2>Ext.Ajax</h2>
+<p>
+Ext.Ajax extends the Ext.data.Connection class into a singleton and provides a centralized area to make Ajax requests with maximum flexibility. By using this singleton, all Ajax requests can be routed through one class and provide access to all functions, events, and parameters.
+</p>
+</div>
+
+<div id="ajax-events" class="sect">
+<h2>Ext.Ajax Events</h2>
+<p>Ext.Ajax exposes global Ajax events that can be handled on every request.
+	<ul>
+		<li><b>beforerequest (conn, opts)</b>
+		<div>
+			Fires before any Ajax request is sent.
+		</div>
+		</li>
+		<li><b>requestcomplete (conn, response, opts)</b>
+		<div>
+			Fires after any Ajax request is completed successfully.
+		</div>
+		</li>
+		<li><b>requestexception (conn, response, opts)</b>
+		<div>
+			Fires if an error HTTP status was returned from the server.
+		</div>
+		</li>
+    </ul>
+</p>
+<pre>
+// Example: show a spinner during all Ajax requests
+Ext.Ajax.on(<span class="string">'beforerequest'</span>, this.showSpinner, this);
+Ext.Ajax.on(<span class="string">'requestcomplete'</span>, this.hideSpinner, this);
+Ext.Ajax.on(<span class="string">'requestexception'</span>, this.hideSpinner, this);
+</pre>
+</div>
+
+<div id="ajax-properties" class="sect">
+<h2>Ext.Ajax Properties</h2>
+<p>Since Ext.Ajax is a <a href="http://extjs.com/learn/Manual:Intro:Patterns:Singleton" TARGET="_NEW">singleton</a>, you can set properties for it once and override them at the request function level only if necessary. Common properties you may want to set are:
+	<ul>
+		<li><b>method:</b> The default HTTP method to be used for requests. Note that this is case-sensitive and should be all caps (defaults to undefined; if not set but parms are present will use "POST," otherwise "GET.")
+        </li>
+		<li><b>extraParams:</b> An object containing properties which are used as extra parameters to each request made by this object (defaults to undefined). Session information and other data that you need to pass with each request are commonly put here.
+        </li>
+		<li><b>url:</b> The default URL to be used for requests to the server (defaults to undefined). If the server receives all requests through one URL, setting this once is easier entering it on every request.
+        </li>
+		<li><b>defaultHeaders:</b> An object containing request headers which are added to each request made by this object (defaults to undefined).
+        </li>
+    </ul>
+</p>
+<pre>
+// Default headers to pass in every request
+Ext.Ajax.defaultHeaders = {
+    'Powered-By': 'Ext Core'
+};
+</pre>
+</div>
+
+<div id="ajax-request" class="sect">
+<h2>Ext.Ajax.request</h2>
+	<p>
+	Ext.Ajax.request is the function called to send and receive data to the server via Ajax. Success and failure functions can also be set up to handle the <a href="http://www.w3.org/TR/XMLHttpRequest/#response-entity-body" TARGET="_NEW">response</a> returned by the server. Note that these success/failure functions are asynchronous and will be called back when the server responds, while this is happening they webpage will continue to operate.
+	</p>
+<pre>
+Ext.Ajax.request({
+   url: <span class="string">'ajax_demo/sample.json'</span>,
+   success: <span class="keyword">function</span>(response, opts) {
+      var obj = Ext.decode(response.responseText);
+      console.dir(obj);
+   },
+   failure: <span class="keyword">function</span>(response, opts) {
+      console.log(<span class="string">'server-side failure with status code '</span> + response.status);
+   }
+});
+</pre>
+</div>
+
+<div id="ajax-updater" class="sect">
+	<h2>Ext.Updater</h2>
+	<p>
+    Another common use for Ajax is updating elements dynamically on a page without refreshing everything. The request method exposes an el configuration which will take the response from a request and set it to the innerHTML of an element.
+    
+    Developers can also use the Ext.TaskMgr to setup a recurring task to update the element periodically.
+	</p>	
+</div>
+
+<div id="ajax-form" class="sect">
+	<h2>Posting a form with Ajax</h2>
+	<p>
+	Use the form configuration to post a form with Ext.Ajax.request
+		
+	</p>
+	
+<pre>
+Ext.Ajax.request({
+   url: <span class="string">'ajax_demo/sample.json'</span>,
+   form: <span class="string">'myForm'</span>,
+   success: <span class="keyword">function</span>(response, opts) {
+      var obj = Ext.decode(response.responseText);
+      console.dir(obj);
+   },
+   failure: <span class="keyword">function</span>(response, opts) {
+      console.log('server-side failure with status code ' + response.status);
+   }
+});
+</pre>
+</div>
+

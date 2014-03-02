@@ -1,0 +1,180 @@
+<h1>Class System</h1>
+
+<div id="oo-classes" class="sect">
+	<h2>JavaScript Classes</h2>
+	<p>	
+	Javascript is prototype based, meaning that it differs from typical class based programming languages. In javascript, creating new classes
+    is done by modifying the prototype of an object. Ext provides a number of functions that make it simple to create and work with classes. There is
+    a good discussion on various javascript-based inheritance functions <a href="http://ajaxian.com/archives/comparison-of-javascript-inheritance-mechanisms-proposal">here</a>.
+	</p>
+</div>
+
+<div id="oo-extend" class="sect">
+	<h2>Ext.extend</h2>
+	<p>	
+	Ext provides a series of functions to extend or override existing javascript classes. This means you can add behaviours and create your own classes, or override the behaviour
+    of a select few functions to suit your needs.
+    <ul>
+        <!-- Begin extend -->
+        <li>
+            <b>extend</b>
+            <div>
+                Creates a new class definition. The first argument is the class to extend. The second parameter is a list of properties/functions to add to the
+                prototype of the object. When using extend, Ext keeps a reference to the superclass, as shown in the second example.
+                <br /><br />
+<pre>
+Person = Ext.extend(Object, {
+    constructor: function(first, last){
+        this.firstName = first;
+        this.lastName = last;
+    }
+
+    getName: function(){
+        return this.firstName + ' ' + this.lastName;
+    }
+});
+
+Developer = Ext.extend(Person, {
+    getName: function(){
+        if(this.isCoding){
+            return 'Go Away!';
+        }else{
+            <span class="comment">// Access the superclass getName method</span>
+            return Developer.superclass.getName.call(this); 
+        }
+    }
+});
+
+var p = new Person(<span class="string">'John'</span>, <span class="string">'Smith'</span>);
+alert(p.getName());
+</pre>	
+            </div>
+        </li>
+        <!-- End extend -->
+        
+        <!-- Begin override -->
+        <li>
+            <b>override</b>
+            <div>
+                Similar to extend, however override doesn't create a new class definition. Instead it just changes the behaviour of the existing class.
+                The first parameter is the class to override, the second parameter is the list of properties/functions to add t othe prototype of the object.
+                <br /><br />
+<pre>
+<span class="comment">// Assumes we've declared our Person class above.</span>
+Ext.override(Person, {
+    getName: function(){
+        <span class="comment">// Override the behaviour, return the last name first.</span>
+        return this.lastName + ' ' + this.firstName; 
+    }
+});
+</pre>	
+            </div>
+        </li>
+        <!-- End override -->
+    </ul>
+	</p>
+</div>
+
+<div id="oo-complex" class="sect">
+	<h2>Things that go in the prototype are shared</h2>
+	<p>	
+    When placing items in the prototype of the prototype, they will be shared across all instances of the class. Unless you specifically want to do this, you should
+    only put "primitive" types inside the prototype definition.
+<pre>
+MyClass = Ext.extend(Object, {
+    <span class="comment">// This object literal is now shared between all instances of MyClass.</span>
+    baseParams: {}, 
+    
+    foo: function(){
+        this.baseParams.bar = 'baz';
+    }
+});
+
+Ext.onReady(function(){
+
+    var a = new MyClass();
+    var b = new MyClass();
+    
+    a.foo();
+    <span class="comment">// Modifying baseParams in a affects baseParams in b.</span>
+    console.log(b.baseParams); 
+});
+</pre>
+	</p>
+</div>
+
+<div id="oo-singletons" class="sect">
+	<h2>Singletons</h2>
+	<p>	
+	Otherwise known as the module design pattern this pattern allows you to create private JS Variables or methods through the clever use of closures. The singleton
+    is a good pattern to use when you you have a class of static methods, or you have a class that will only be used once. A good candidate for a singleton is the entry
+    point into your application.
+	</p>
+<pre>
+MyApp = function(){
+    var data; <span class="comment">data is private and can't be accessed from outside.</span>
+    return {
+        init: function(){
+            <span class="comment">// Initialize application here</span>
+        },
+        
+        getData: function(){
+            return data;
+        }
+    };
+}();
+Ext.onReady(MyApp.init, MyApp);
+</pre>
+</div>
+
+<div id="oo-observable" class="sect">
+	<h2>Ext.util.Observable</h2>
+	<p>	
+    The <a href="http://en.wikipedia.org/wiki/Observer_pattern">Observable (or subscriber)</a> pattern is used to decouple objects that need to know details about the state of
+    other objects. It does this by using events. When the state of the subject changes, the subject will fire an event. Subscribers to that particular event on the subject will
+    then be notified that the state change has occurred. Many Ext classes extend Observable to allow for a flexible, decoupled programming model. You can easily create classes that fire
+    custom events:
+	</p>
+<pre>
+var MyClass = Ext.extend(Ext.util.Observable, {
+    constructor: function(config){
+        this.addEvents(<span class="string">'datachanged'</span>); <span class="comment">// specify the events we're going to fire</span>
+        MyClass.constructor.call(this, config);
+    },
+    
+    update: function(){
+        <span class="comment">// do some data transformation here</span>
+        <span class="comment">// When firing an event, we can specify what parameters are 
+        // passed to the subscribers.</span>
+        this.fireEvent(<span class="string">'datachanged'</span>, this, this.data.length); 
+    }
+});
+
+<span class="comment">// To subscribe to an event</span>
+var c = new MyClass();
+c.on(<span class="string">'datachanged'</span>, function(obj, num){
+    <span class="comment">// react to the data changed event.</span>
+});
+</pre>
+</div>
+
+
+<div id="oo-namespaces" class="sect">
+	<h2>Namespaces</h2>
+	<p>	
+    Namespaces are useful for organizing your code, they provide 2 main benefits. The first is that you can use them to prevent polluting the global namespace with
+    objects, which is generally considered to be undesireable. Ext, for example has just a single global object (the Ext object). It's good practice to put any classes 
+    inside a namespace, a common one is the name of your company or the name of your application. The other advantage is that assists in keeping your code organized, you
+    can group together similar or co-dependent classes in the same namespace, which helps to specify your intent to other developers.
+	</p>
+<pre>
+<span class="comment">// The following are equivalent, the latter is preferred.</span>
+Ext.namespace(
+   <span class="string">'MyCompany'</span>, 
+   <span class="string">'MyCompany.Application'</span>, 
+   <span class="string">'MyCompany.Application.Reports'</span>
+);
+Ext.namespace(<span class="string">'MyCompany.Application.Reports'</span>);
+</pre>
+</div>
+
