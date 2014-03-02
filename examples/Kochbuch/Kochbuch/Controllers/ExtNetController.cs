@@ -15,7 +15,7 @@ namespace Kochbuch.Controllers
                 TextAreaEmptyText = ">> Enter a Message Here <<"
             };
 
-            return this.View(model);
+            return View(model);
         }
 
         public ActionResult SampleAction(string message)

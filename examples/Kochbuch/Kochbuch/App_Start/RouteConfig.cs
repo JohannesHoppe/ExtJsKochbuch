@@ -17,6 +17,9 @@ namespace Kochbuch.App_Start
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Ignore all ext.axd embedded resource paths
+            routes.IgnoreRoute("{extnet-root}/{extnet-file}/ext.axd");
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
