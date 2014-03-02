@@ -270,8 +270,8 @@ img {
 
 /* own logo on every page */
 html {
-    background-image: url(../images/logo_header.png);
-    background-repeat: no-repeat;
+    background-image: url(images/logo.svg), url(images/background-pattern.svg);
+    background-repeat: no-repeat, repeat;
     background-position: center 10px;
     background-color: #ddd;
     padding-bottom: 0;
@@ -279,8 +279,8 @@ html {
 }
 
 body {
-    margin-top: 410px !important;
-    border-top: 30px solid #585959;
+    margin-top: 405px !important;
+    /*border-top: 45px solid #346268;*/
     background-color: white;
     padding: 25px;
     padding-bottom: 0;
@@ -297,6 +297,19 @@ body.x-body {
     margin-right: auto !important;
 }
 
+h1, h2, h3, h4 {
+  color: #346268;
+}
+
+a {
+  color: #346268;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 strong {
     font-weight: 700;
 }
@@ -304,18 +317,19 @@ strong {
 a[href="index.html"],
 copy {
     display: block;
-    border-top: 5px solid #ddd;
+    border-top: 5px solid #346268;
     color: #333;
     font-weight: bold;
     padding: 5px;
     text-align: center;
     margin-left: -25px;
     margin-right: -25px;
+    text-decoration: none;    
 }
 
 a[href="index.html"]:hover  {
-    background-color: #eee;
-    text-decoration: none;
+    background-color: #346268;
+    color: white;
 }
 
 pre, code, tt {

@@ -1,4 +1,4 @@
-![Logo](Kochbuch/images/logo.png)
+![Logo](Kochbuch/included/images/logo.svg)
 # Ext JS Workshop
 
 In diesem Repository finden Sie alle Unterlagen, welche den Ext JS / EXT.NET Workshop von Johannes Hoppe begleiten.

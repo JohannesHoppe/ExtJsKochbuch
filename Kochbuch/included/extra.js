@@ -6,6 +6,7 @@ var setTargets = function() {
         }
     }
 }
+Ext.onReady(setTargets);
 
 var addCaption = function() {
        
@@ -24,21 +25,15 @@ var addCaption = function() {
         }        
     });
 }
+Ext.onReady(addCaption);
 
+/*
 var registerLightbox = function() {
-
-    // Ext.ux.Lightbox.register('a[href^=images]');
-
     var box = new Ext.ux.Lightbox({
         renderTo: Ext.getBody()
     });
     //box.register('a[href^=images]');
     box.register('a');
 }
-
-Ext.onReady(setTargets);
-Ext.onReady(addCaption);
 Ext.onReady(registerLightbox);
-
-
-
+*/
