@@ -37,3 +37,10 @@ var registerLightbox = function() {
 }
 Ext.onReady(registerLightbox);
 */
+
+// Ext.js components sometimes want to much attention
+Ext.onReady(function() {
+    window.setTimeout(function() {
+        window.scrollTo(0,0);
+    }, 100);
+});
