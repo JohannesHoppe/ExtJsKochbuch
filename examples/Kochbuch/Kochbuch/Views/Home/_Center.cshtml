@@ -1,0 +1,9 @@
+﻿@(
+ Html.X().TabPanel()
+    .ID("ExampleTabs")        
+    .Region(Region.Center)
+    .Margins("0 4 4 0")
+    .Cls("tabs")
+    .MinTabWidth(115)
+    .Plugins(plugins => plugins.Add(new TabCloseMenu()))
+)

@@ -1,4 +1,19 @@
-﻿Hello World!
-            
-<br />
-<a href="~/ExtNet">Ext Net Demo Page</a>
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>EXT JS Kochbuch</title> 
+    @Html.X().ResourceManager()
+</head>
+<body>
+
+    @(
+    Html.X().Viewport().Layout(LayoutType.Border)
+        .ItemsFromPage(this, "~/Views/Home/_North.cshtml")
+        .ItemsFromPage(this, "~/Views/Home/_West.cshtml")
+        .ItemsFromPage(this, "~/Views/Home/_Center.cshtml")
+    )
+    
+
+</body>
+</html>

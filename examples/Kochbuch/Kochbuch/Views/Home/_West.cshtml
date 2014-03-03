@@ -1,0 +1,66 @@
+﻿@{
+
+    var proxy = new AjaxProxy 
+    {
+        API = { Read = Url.Action("GetExamplesNodes") },
+        ActionMethods = { Read = HttpMethod.GET }
+    };
+
+    var store = new TreeStore 
+    {
+        Root = {
+            new Node 
+            {
+                NodeID = "Root",
+                Expanded = true
+            }
+        },
+        Proxy = { proxy },
+        Fields = { new ModelField("isNew"),
+                   new ModelField("tags") }
+    };
+
+    var tree = new TreePanel
+    {
+        ID = "exampleTree",
+        AutoScroll = true,
+        Lines = false,
+        UseArrows = true,
+        CollapseFirst = false,
+        RootVisible = false,
+        HideHeaders = true,
+        Animate = false,
+        Store = { store },
+
+        ColumnModel =
+        {
+            Columns =
+            {
+                new TreeColumn
+                    {
+                    DataIndex = "text",
+                    Flex = 1   
+                }
+            }
+        },
+
+        Listeners =
+        {
+            ItemClick = { Handler = "exampleTree.onTreeItemClick(record, e);" },
+            AfterRender = { Fn = "exampleTree.onTreeAfterRender" }
+        }
+    };
+}
+
+@(Html.X().Panel()
+    .Region(Region.West)
+    .Layout(LayoutType.Fit)
+    .Width(240)
+    .Header(false)
+    .Collapsible(true)
+    .Split(true)
+    .CollapseMode(CollapseMode.Mini)
+    .Margins("0 0 4 4")
+    .Border(false)
+    .Items(items =>items.Add(tree))
+)
