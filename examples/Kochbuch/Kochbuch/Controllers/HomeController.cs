@@ -22,7 +22,8 @@ namespace Kochbuch.Controllers
             var example1 = new Node
             {
                 NodeID = BaseControl.GenerateID(),
-                Text = "Hello World"
+                Text = "Hello World",
+                Leaf = true
             };
 
             var chapter1 = new Node

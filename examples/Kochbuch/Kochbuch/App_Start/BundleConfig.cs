@@ -17,7 +17,9 @@ namespace Kochbuch.App_Start
             bundles.Add(new ScriptBundle("~/Scripts/scripts").Include(
                         "~/Scripts/*.js"));
 
-            bundles.Add(new StyleBundle("~/Content/styles"));
+            bundles.Add(new StyleBundle("~/Content/styles").Include(
+                        "~/Content/fonts.css",
+                        "~/Content/main.css"));
         }
     }
 }

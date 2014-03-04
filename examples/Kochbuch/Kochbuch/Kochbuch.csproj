@@ -129,6 +129,12 @@
     <Content Include="App_Readme\Ext.NET.Utilities.README.txt" />
     <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
     <Content Include="App_Readme\Transformer.NET\README.txt" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\fonts\OpenSans-Italic-webfont.svg" />
+    <Content Include="Content\fonts\OpenSans-Light-webfont.svg" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.svg" />
+    <Content Include="Content\fonts\OpenSans-Semibold-webfont.svg" />
+    <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\exampleTree.js" />
     <Content Include="Web.config" />
@@ -160,6 +166,18 @@
     <Content Include="Views\Home\_North.cshtml" />
     <Content Include="Views\Home\_Center.cshtml" />
     <Content Include="Views\Home\_West.cshtml" />
+    <Content Include="Content\fonts\OpenSans-Italic-webfont.eot" />
+    <Content Include="Content\fonts\OpenSans-Italic-webfont.ttf" />
+    <Content Include="Content\fonts\OpenSans-Italic-webfont.woff" />
+    <Content Include="Content\fonts\OpenSans-Light-webfont.eot" />
+    <Content Include="Content\fonts\OpenSans-Light-webfont.ttf" />
+    <Content Include="Content\fonts\OpenSans-Light-webfont.woff" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.eot" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.ttf" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.woff" />
+    <Content Include="Content\fonts\OpenSans-Semibold-webfont.eot" />
+    <Content Include="Content\fonts\OpenSans-Semibold-webfont.ttf" />
+    <Content Include="Content\fonts\OpenSans-Semibold-webfont.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -167,9 +185,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
