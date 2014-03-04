@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AE0B9F
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5AC381D3-A557-4518-8246-7DAB2E84391B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5150B6BF-7891-4F48-A456-1F80301CFA9D}"
 	ProjectSection(SolutionItems) = preProject
 		JSLintOptions.xml = JSLintOptions.xml
 	EndProjectSection

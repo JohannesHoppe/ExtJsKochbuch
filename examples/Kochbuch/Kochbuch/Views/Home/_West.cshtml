@@ -1,10 +1,6 @@
 ﻿@{
 
-    var proxy = new AjaxProxy 
-    {
-        API = { Read = Url.Action("GetExamplesNodes") },
-        ActionMethods = { Read = HttpMethod.GET }
-    };
+    var proxy = new AjaxProxy { Url = "/Home/GetChapters" };
 
     var store = new TreeStore 
     {
@@ -12,12 +8,11 @@
             new Node 
             {
                 NodeID = "Root",
+                Text = "Root",
                 Expanded = true
             }
         },
-        Proxy = { proxy },
-        Fields = { new ModelField("isNew"),
-                   new ModelField("tags") }
+        Proxy = { proxy }
     };
 
     var tree = new TreePanel
@@ -31,23 +26,10 @@
         HideHeaders = true,
         Animate = false,
         Store = { store },
-
-        ColumnModel =
-        {
-            Columns =
-            {
-                new TreeColumn
-                    {
-                    DataIndex = "text",
-                    Flex = 1   
-                }
-            }
-        },
-
         Listeners =
         {
-            ItemClick = { Handler = "exampleTree.onTreeItemClick(record, e);" },
-            AfterRender = { Fn = "exampleTree.onTreeAfterRender" }
+            @*ItemClick = { Handler = "exampleTree.onTreeItemClick(record, e);" },*@
+            @*AfterRender = { Fn = "exampleTree.onTreeAfterRender" }*@
         }
     };
 }

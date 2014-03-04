@@ -1,4 +1,4 @@
-﻿var exampleTree = (function (Ext, App) {
+﻿var exampleTree = (function (Ext) {
   
     var loadExample = function (href, id, title) {
         
@@ -31,4 +31,4 @@
         onTreeItemClick: onTreeItemClick
     };
 
-})(window.Ext, window.App);
+})(window.Ext);

@@ -14,7 +14,9 @@ namespace Kochbuch.App_Start
 
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/Scripts/scripts"));
+            bundles.Add(new ScriptBundle("~/Scripts/scripts").Include(
+                        "~/Scripts/*.js"));
+
             bundles.Add(new StyleBundle("~/Content/styles"));
         }
     }
