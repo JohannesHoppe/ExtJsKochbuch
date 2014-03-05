@@ -137,6 +137,7 @@
     <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\exampleTree.js" />
+    <Content Include="Scripts\tabManager.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

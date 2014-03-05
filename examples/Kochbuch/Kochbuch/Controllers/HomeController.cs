@@ -23,6 +23,7 @@ namespace Kochbuch.Controllers
             {
                 NodeID = BaseControl.GenerateID(),
                 Text = "Hello World",
+                Href = "/Chapter1/HelloWorld",
                 Leaf = true
             };
 

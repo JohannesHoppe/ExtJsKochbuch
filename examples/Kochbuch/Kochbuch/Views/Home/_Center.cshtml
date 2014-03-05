@@ -5,5 +5,10 @@
     .Margins("0 4 4 0")
     .Cls("tabs")
     .MinTabWidth(115)
-    .Plugins(plugins => plugins.Add(new TabCloseMenu()))
+    .Plugins(plugins =>
+                 {
+                    plugins.Add(new TabCloseMenu());
+                    plugins.Add(new BoxReorderer());
+                 }
+    )
 )

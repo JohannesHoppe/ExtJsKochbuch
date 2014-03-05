@@ -1,18 +1,26 @@
-﻿var exampleTree = (function (Ext) {
+﻿var exampleTree = (function (Ext, tabManager) {
   
     var loadExample = function (href, id, title) {
-        
-    };
 
+        tabManager.addTab({
+            url: href,
+            id: id,
+            title: title
+        });
+    };
+       
     var onTreeItemClick = function (record, e) {
         if (record.isLeaf()) {
             e.stopEvent();
-            loadExample(record.get('href'), record.getId(), record.get('text'));
+            loadExample(record.get('href'),
+                        record.getId(),
+                        record.get('text'));
         } else {
             record[record.isExpanded() ? 'collapse' : 'expand']();
         }
     };
 
+    // enables navigation via keyboard
     var onTreeAfterRender = function (tree) {
         var sm = tree.getSelectionModel();
 
@@ -25,10 +33,9 @@
         });
     };
 
-
     return {
         onTreeAfterRender: onTreeAfterRender,
         onTreeItemClick: onTreeItemClick
     };
 
-})(window.Ext);
+})(window.Ext, window.tabManager);

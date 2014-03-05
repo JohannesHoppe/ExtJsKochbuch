@@ -28,7 +28,7 @@
         Store = { store },
         Listeners =
         {
-            @*ItemClick = { Handler = "exampleTree.onTreeItemClick(record, e);" },*@
+            ItemClick = { Handler = "exampleTree.onTreeItemClick(record, e);" },
             AfterRender = { Fn = "exampleTree.onTreeAfterRender" }
         }
     };
