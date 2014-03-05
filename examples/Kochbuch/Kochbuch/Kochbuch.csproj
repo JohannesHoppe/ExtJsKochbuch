@@ -129,12 +129,25 @@
     <Content Include="App_Readme\Ext.NET.Utilities.README.txt" />
     <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
     <Content Include="App_Readme\Transformer.NET\README.txt" />
-    <Content Include="Content\fonts.css" />
+    <None Include="Content\fonts.less" />
+    <Content Include="Content\fonts.css">
+      <DependentUpon>fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts.min.css">
+      <DependentUpon>fonts.less</DependentUpon>
+    </Content>
     <Content Include="Content\fonts\OpenSans-Italic-webfont.svg" />
     <Content Include="Content\fonts\OpenSans-Light-webfont.svg" />
     <Content Include="Content\fonts\OpenSans-Regular-webfont.svg" />
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.svg" />
-    <Content Include="Content\main.css" />
+    <None Include="Content\main.less" />
+    <Content Include="Content\images\logo.svg" />
+    <Content Include="Content\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="Content\main.min.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Scripts\exampleTree.js" />
     <Content Include="Scripts\tabManager.js" />
@@ -179,6 +192,9 @@
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.eot" />
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.ttf" />
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.woff" />
+    <Content Include="Views\Home\Start.cshtml" />
+    <Content Include="Views\Shared\_BaseLayout.cshtml" />
+    <Content Include="Views\Chapter1\HelloWorldNet.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

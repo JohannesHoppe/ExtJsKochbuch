@@ -1,4 +1,13 @@
-﻿Hello World!
-            
-<br />
-<a href="~/ExtNet">Ext Net Demo Page</a>
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+    var X = Html.X();
+} 
+
+
+@(X.Window()
+    .ID("Window1")
+    .Title("Test")
+    .Height(200)
+    .Width(400)
+    .Html("Hello World").Show()) 
+

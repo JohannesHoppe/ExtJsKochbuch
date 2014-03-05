@@ -1,0 +1,20 @@
+﻿/*  Fonts
+    -----------------------------------------------------------------------------------------------*/
+
+.include-custom-font(@family, @filename, @weight: normal, @style: normal){
+    @font-face{
+        font-family: @family;
+        src:url('/Content/fonts/@{filename}.eot');
+        src:url('/Content/fonts/@{filename}.eot?#iefix') format('embedded-opentype'),
+            url('/Content/fonts/@{filename}.woff') format('woff'),
+            url('/Content/fonts/@{filename}.ttf') format('truetype'),
+            url('/Content/fonts/@{filename}.svg#@{family}') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+.include-custom-font('OpenSansRegular', 'OpenSans-Regular-webfont');
+.include-custom-font('OpenSansLight', 'OpenSans-Light-webfont');
+.include-custom-font('OpenSansSemibold', 'OpenSans-Semibold-webfont');
+.include-custom-font('OpenSansItalic', 'OpenSans-Italic-webfont');

@@ -1,14 +1,25 @@
-﻿@(
- Html.X().TabPanel()
+﻿@(Html.X().TabPanel()
     .ID("ExampleTabs")        
     .Region(Region.Center)
     .Margins("0 4 4 0")
     .Cls("tabs")
-    .MinTabWidth(115)
+    .MinTabWidth(80)
     .Plugins(plugins =>
-                 {
+                {
                     plugins.Add(new TabCloseMenu());
                     plugins.Add(new BoxReorderer());
-                 }
+                }
+    )
+    .Items(items => items.Add(new Panel
+        {
+            Title = "Start",
+            Icon = Icon.ApplicationHome,
+            Reorderable = false,
+            Loader = new ComponentLoader
+                {
+                    Url = "/Home/Start",
+                    Mode = LoadMode.Frame
+                }
+        })
     )
 )

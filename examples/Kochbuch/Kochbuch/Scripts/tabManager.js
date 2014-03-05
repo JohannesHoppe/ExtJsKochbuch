@@ -26,8 +26,9 @@ var tabManager = (function (Ext) {
             
             exampleTabs.addTab({
                 id: id.toString(),
+                tooltip: config.url,
                 title: config.title,
-                iconCls: config.icon || 'icon-applicationdouble',
+                iconCls: config.iconCls || 'icon-applicationdouble',
                 closable: true,
                 loader: {
                     url: config.url,
@@ -39,7 +40,6 @@ var tabManager = (function (Ext) {
 
         } else {
             exampleTabs.setActiveTab(tab);
-            // Shows a ripple of exploding, attenuating borders to draw attention to an Element
             tab.getEl().frame();
         }
     };

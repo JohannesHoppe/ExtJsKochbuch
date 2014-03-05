@@ -11,7 +11,11 @@ namespace Kochbuch.Controllers
             return View();
         }
 
-        
+        public ActionResult Start()
+        {
+            return View();
+        }
+
         public StoreResult GetChapters(string node)
         {
             if (node != "Root")
@@ -21,25 +25,25 @@ namespace Kochbuch.Controllers
 
             var example1 = new Node
             {
-                NodeID = BaseControl.GenerateID(),
-                Text = "Hello World",
+                Text = "Hello World (Ext JS)",
                 Href = "/Chapter1/HelloWorld",
+                Icon = Icon.World,
                 Leaf = true
             };
 
-            var chapter1 = new Node
+            var example2 = new Node
             {
-                NodeID = BaseControl.GenerateID(),
-                Text = "Kapitel 1"
+                Text = "Hello World (Ext.NET)",
+                Href = "/Chapter1/HelloWorldNet",
+                Icon = Icon.World,
+                Leaf = true
             };
 
-            chapter1.Children.Add(example1);
+            var chapter1 = new Node { Text = "Kapitel 1" };
 
-            var chapter2 = new Node
-            {
-                NodeID = BaseControl.GenerateID(),
-                Text = "Kapitel 2"
-            };
+            chapter1.Children.AddRange(new[] { example1, example2 });
+
+            var chapter2 = new Node { Text = "Kapitel 2" };
 
             var nodes = new NodeCollection
                             {
