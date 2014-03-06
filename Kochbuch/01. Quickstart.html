@@ -43,7 +43,7 @@
 <p>&quot;Leichtgewichtige Frameworks&quot; haben Ihren Fokus darauf, möglichst wenig Dinge besonders gut zu lösen und andere Aspekte nicht zu berücksichtigen. Hier ist es in der Aufgabe der Entwickler, weitere Frameworks zu kombinieren. jQuery konzentriert sich etwa stark auf die DOM-Manipulation sowie AJAX und macht keine Vorgaben zur Gestaltung vom verwendeten HTML oder CSS. Viele jQuery-Entwickler rüsten in diesem Sinne fehlende Funktionalität mit Plugins nach, verwenden den Modul-Loader <a href="http://requirejs.org/">require.js</a> und/oder ergänzen dies mit dem CSS-Framework wie <a href="http://getbootstrap.com/">Bootstrap</a>. </p>
 <p>Ext JS hingegen konzentriert sich auf komplexe Web-Anwendungen und ist definitiv nicht &quot;leichtgewichtig&quot;. Das Ext JS Framework deckt viele Funktionalitäten intern ab, so dass kaum weitere Frameworks notwendig sein werden. Der Abstraktionsgrad ist extrem hoch, das Arbeiten am Browser-DOM ist nur für spezielle Fälle notwendig. Statt auf der Basis von HTML zu entwickeln, wird Ext JS mit einer enormen Anzahl an so genannten &quot;Widgets&quot; ausgeliefert. Hierzu zählen unter anderem <a href="../extjs/docs/index.html#!/api/Ext.window.Window">modale Fenster</a>, <a href="../extjs/docs/index.html#!/api/Ext.chart.Chart">Charts</a> oder <a href="../extjs/docs/index.html#!/api/Ext.grid.Panel">Grids</a>. Durch die konsistent gehaltene Usablitity der Widgets haben alle Ext JS Anwendungen ein Verhalten, welches an Desktop-Anwendungen angelehnt ist. Trotz der Möglichkeit von Themes, ist bei allen Ext JS Anwendungen das zu Grunde liegende Framework leicht am Aussehen und Verhalten zu erkennen.</p>
 <p>Das starre Gerüst, welches Ext JS vorgibt, kann als sehr einengend angesehen werden. Gerade in geschäftlichem Umfeld oder großen oder verteilten Teams, kann dieses starre Gerüst hingegen gerade der entscheidende Vorteil sein. So ist Ext JS besonders stark im Umfeld in Intranet-Anwendungen (z.B. in der Administrations-Oberfläche der Network Attached Storages (NAS) von Synology) bzw. in geschäftlichen Web-Anwendungen (z.B. im Backend von <a href="http://www.shopware.de/">Shopware</a>) zu finden.</p>
-<p><a href="images/01_screenshot_shopware.png"><img src="images/01_screenshot_shopware.png" alt="Screenshot: Shopware Backend"></a></p>
+<p><img src="images/01_screenshot_shopware.png" alt="Screenshot: Shopware Backend"></p>
 <p><img src="images/01_screenshot_diskstation.png" alt="Screenshot: Shopware Backend"></p>
 <p>Die zum Zeitpunkt des Schreibens dieses Dokumentes aktuelle Version ist Ext JS 4.2.1. </p>
 <h2 id="ext-net">Ext.NET</h2>
@@ -52,14 +52,22 @@
 <p><a name="hello"></a></p>
 <h1 id="3-hello-world">3. Hello World</h1>
 <p>Ohne auf die Details einzugehen, sollte ein Kochbuch mit einem &quot;Hello World&quot;-Beispiel beginnen. Folgendes Beispiel instanziiert eine Klasse vom Typ &#39;Ext.window.Window&#39;.</p>
-<pre><code class="lang-javascript">Ext.onReady(function () {
+<pre><code class="lang-javascript">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;extjs/resources/css/ext-all.css&quot;&gt;
+&lt;script src=&quot;extjs/ext-all-debug.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+Ext.onReady(function () {
     Ext.create(&#39;Ext.window.Window&#39;, {
         title: &#39;Test&#39;,
         height: 200,
         width: 400,
         html: &quot;Hello World&quot;
     }).show();
-});</code></pre>
+});
+&lt;/script&gt;</code></pre>
+<blockquote>
+<p>Beispiel: <a href="http://localhost:7777/Kapitel1/HelloWorld">HelloWorld</a></p>
+</blockquote>
 <p>Das Ergebnis ist ein einfaches Fenster:</p>
 <p><div id="example1"></div></p>
 <script>
@@ -74,6 +82,15 @@ Ext.onReady(function () {
 });
 </script>
 
+<p>Ähnlich schaut die Verwendung von Ext.NET aus. Um ein Window-Widget anzuzeigen, kann man folgende Razor-Syntax verwenden:</p>
+<pre><code class="lang-csharp">@Html.X().ResourceManager()
+
+@(X.Window()
+    .ID(&quot;Window1&quot;)
+    .Title(&quot;Test&quot;)
+    .Height(200)
+    .Width(400)
+    .Html(&quot;Hello World&quot;).Show())</code></pre>
 <p><a href="index.html">&laquo; zurück</a></p>
 
 </body>

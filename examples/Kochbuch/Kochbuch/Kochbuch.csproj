@@ -158,9 +158,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Chapters.cs">
+      <DependentUpon>HomeController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ExtNetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Chapter1Controller.cs" />
+    <Compile Include="Controllers\Kapitel1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,7 +178,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\ExtNet\Index.cshtml" />
     <Content Include="App_Readme\Ext.NET.MVC\Sample.Web.config" />
-    <Content Include="Views\Chapter1\HelloWorld.cshtml" />
+    <Content Include="Views\Kapitel1\HelloWorldNet.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_North.cshtml" />
     <Content Include="Views\Home\_Center.cshtml" />
@@ -194,7 +197,7 @@
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.woff" />
     <Content Include="Views\Home\Start.cshtml" />
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
-    <Content Include="Views\Chapter1\HelloWorldNet.cshtml" />
+    <Content Include="Views\Kapitel1\HelloWorld.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

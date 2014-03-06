@@ -2,7 +2,7 @@
 
 namespace Kochbuch.Controllers
 {
-    public class Chapter1Controller: Controller
+    public class Kapitel1Controller: Controller
     {
         public ActionResult HelloWorld()
         {

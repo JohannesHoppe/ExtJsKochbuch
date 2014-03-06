@@ -341,9 +341,18 @@ figure {
     background-color: #eee;
 }
 
-figcaption {
-    padding: 1px 8px 5px 8px;
+figcaption,
+blockquote {
     background-color: #eee;
     font-style: italic;
     color: #537078;
+}
+
+figcaption  {
+    padding: 1px 8px 5px 8px;
+}
+
+blockquote p {
+    padding: 5px 8px 5px 8px;
+    margin-top: -25px;
 }
