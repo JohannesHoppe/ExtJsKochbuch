@@ -39,6 +39,9 @@
 
 var hello = new Hello();
 hello.saySomething();</code></pre>
+<blockquote>
+<p>Hello World in <a href="http://www.typescriptlang.org/Playground/">TypeScript</a></p>
+</blockquote>
 <p>Wiederrum möglich ist es, eine Konvention einzuführen bei der eines der vielen bekannten Patterns verwendet wird, um den Code mit objektorientierten Prinzipien zu strukturieren. Folgender Quelltext demonstriert die Verwendung des <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript">Revealing Module Patterns</a>:</p>
 <pre><code class="lang-javascript">var hello = (function() {
 
@@ -55,6 +58,9 @@ hello.saySomething();</code></pre>
 })();
 
 hello.saySomething();</code></pre>
+<blockquote>
+<p>Hello World mit purem JavaScript</p>
+</blockquote>
 <p>Ebenso kann man bestehende Bibliotheken nutzen, welche weder die Syntax von JavaScript verändern noch die Einhaltung von Patterns per Konvention verlangen. Jene Bibliotheken stellen lediglich neue JavaScript-Funktionen zur Verfügung und geben die Art ihrer Verwendung fest vor. Ext JS, bzw. der &quot;Ext JS Core&quot; ist eine diese Bibliotheken.</p>
 <!--
 Der Ext JS Core deckt eine großen Funktionsumfang ab. Dies hat den Vorteil, dass alle Bausteine gut zueinander passen. Jedoch wird damit auch die Möglichkeit eingeschränkt, sich aus vielen spezialisierten Bibliotheken (z.B. AMD-Module mit require.js oder MVVM mit Knockout) d
@@ -74,6 +80,9 @@ Der Ext JS Core deckt eine großen Funktionsumfang ab. Dies hat den Vorteil, das
 
 var hello = Ext.create(&#39;MyNamespace.Hello&#39;); 
 hello.saySomething();</code></pre>
+<blockquote>
+<p>Hello World mit dem Ext JS Klassensystem<br>Beispiel: <a href="http://localhost:7777/Kapitel2/Class">Class</a></p>
+</blockquote>
 <p>Es wäre ebenso möglich statt <code>Ext.create</code> einfach</p>
 <pre><code class="lang-javascript">var hello = new MyNamespace.Hello();</code></pre>
 <p>zu verwenden. Dies sollte vermieden werden, da es zu einem JavaScript-&quot;Reference Error&quot; kommen kann, wenn die Klasse im Moment der Verwendung noch nicht durch den Browser geladen wurde. <code>Ext.create</code> ist hingegen in der Lage, fehlende Abhängigkeiten per <a href="../extjs/docs/index.html#!/api/Ext.Loader">Ext.Loader</a> <strong>synchron</strong> nachzuladen. Das synchrone Nachladen von Abhängigkeiten sollte zwar generell vermieden werden, aber etwas Wartezeit ist in der Regel dennoch vertretbarer als eine JavaScript-Exception.  </p>

@@ -161,6 +161,7 @@
     <Compile Include="Controllers\Chapters.cs">
       <DependentUpon>HomeController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Kapitel2Controller.cs" />
     <Compile Include="Controllers\ExtNetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Kapitel1Controller.cs" />
@@ -198,6 +199,7 @@
     <Content Include="Views\Home\Start.cshtml" />
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
     <Content Include="Views\Kapitel1\HelloWorld.cshtml" />
+    <Content Include="Views\Kapitel2\Class.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

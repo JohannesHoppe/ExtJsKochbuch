@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+} 
+
+<script>
+
+    Ext.define('MyNamespace.Hello', {
+
+        whatToSay: 'Hello World',
+
+        saySomething: function () {
+            alert(this.whatToSay);
+        }
+    });
+
+    var hello = Ext.create('MyNamespace.Hello');
+    hello.saySomething();
+
+</script>
