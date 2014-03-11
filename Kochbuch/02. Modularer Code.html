@@ -26,9 +26,32 @@
 
 <p><a name="js"></a></p>
 <h2 id="1-javascript">1. JavaScript</h2>
-<p>Viele Programmiersprachen geben direkt in ihrer Syntax Konstrukte wie Namespaces, Vererbung, Polymorphie oder Klassen zur Strukturierung des Quelltextes fest vor. JavaScript bietet an vielen bekannten Stellen keine Vorgaben. Die Flexibilität der Sprache ermöglicht es jedoch, die bekannten Konstrukte durch selbst durch erprobte Patterns (siehe z.B. XXX) oder durch bestehende Bibliotheken zu nachzubilden.</p>
-<p>Diese Flexibilität ist Fluch und Segen von JavaScript zugleich. Es gibt zum einen den Ausweg, durch einen Präprozessor wie CoffeScript und TypeScript eine erweiterte Syntax zu verwenden. Ebenso kann man bestehende Bibliotheken nutzen, welche die Syntax von JavaScript nicht verändern und daher lediglich neue Funktionen zur Verfügung stellen. Ext JS, bzw. der &quot;Ext JS Core&quot; ist eine diese Bibliotheken.</p>
-<p>Der Ext JS Core deckt eine großen Funktionsumfang ab. Dies hat den Vorteil, dass alle Bausteine gut zueinander passen. Jedoch wird damit auch die Möglichkeit eingeschränkt, sich aus vielen spezialisierten Bibliotheken (z.B. AMD-Module mit require.js oder MVVM mit Knockout) d</p>
+<p>Viele Programmiersprachen geben direkt in ihrer Syntax Bausteine wie Namespaces, Klassen oder Vererbung zur Strukturierung des Quelltextes fest vor. JavaScript macht hier kaum Vorgaben. Die Flexibilität der Sprache ermöglicht es allerdings, die bekannten Konstrukte durch erprobte Patterns (siehe z.B. XXX) oder durch bestehende Bibliotheken zu nachzubilden.</p>
+<p>Diese Flexibilität ist Fluch und Segen von JavaScript zugleich. Es gibt zum einen den Ansatz, durch einen Präprozessor wie CoffeScript und TypeScript die Syntax von JavaScript zu erweitern. Eine Klasse in TypeScript würde z.B. wie folgt ausschauen:</p>
+<pre><code>TODO!</code></pre>
+<p>Wiederrum möglich ist es, eine Konvention einzuführen bei der eines der vielen bekannten Patterns verwendet wird, um den Code mit objektorientierten Prinzipien zu strukturieren. Folgender Quelltext demonstriert die Verwendung des Revealing Module Patterns:</p>
+<pre><code>var hello = (function() {
+
+    var whatToSay = &quot;&quot;World&quot;&quot;
+
+    var sayWorld = function() {
+        window.alert(whatToSay);
+    }
+
+    return {
+        sayWorld: sayWorld
+    }
+
+})</code></pre>
+<p>Ebenso kann man bestehende Bibliotheken nutzen, welche weder die Syntax von JavaScript verändern noch die Einhaltung von Patterns per Konvention verlangen. Jene Bibliotheken stellen lediglich neue JavaScript-Funktionen zur Verfügung und geben die Art ihrer Verwendung fest vor. Ext JS, bzw. der &quot;Ext JS Core&quot; ist eine diese Bibliotheken.</p>
+<!--
+Der Ext JS Core deckt eine großen Funktionsumfang ab. Dies hat den Vorteil, dass alle Bausteine gut zueinander passen. Jedoch wird damit auch die Möglichkeit eingeschränkt, sich aus vielen spezialisierten Bibliotheken (z.B. AMD-Module mit require.js oder MVVM mit Knockout) d
+-->
+
+<p><a name="class"></a></p>
+<h2 id="2-klassen-und-namespaces">2. Klassen und Namespaces</h2>
+<p>Die einfachste Möglichkeit, eine Klasse zu definieren bietet die globale Methode <a href="../extjs/docs/index.html#!/api/Ext-method-define">Ext.define</a>. Hierbei gibt man sowohl den Namespace der Klasse als auch den Namen der Klasse als ersten Paramter (String) an. Es folgt die </p>
+<p>```</p>
 <p><a name="begriffe"></a></p>
 <h2 id="2-begriffe">2. Begriffe</h2>
 <p>Ext JS hat viele Begrifflichkeiten für die unterschiedlichen Klassen.<br>&quot;Components&quot; sind alle Klassen die von Ext.Component [TODO] ableiten, einer Klasse, die sehr nahe an der universalen Eltern-Klasse &quot;Ext.Base&quot; liegen.</p>

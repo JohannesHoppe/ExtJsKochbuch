@@ -349,10 +349,10 @@ blockquote {
 }
 
 figcaption  {
-    padding: 1px 8px 5px 8px;
+    padding: 1px 8px 5px 12px !important;
 }
 
 blockquote p {
-    padding: 5px 8px 5px 8px;
-    margin-top: -25px;
+    padding: 5px 8px 5px 12px !important;
+    margin-top: -15px !important;
 }
