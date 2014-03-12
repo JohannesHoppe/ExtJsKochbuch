@@ -8,6 +8,7 @@ namespace Kochbuch.Controllers
         {
             var example1 = new Node
                                {
+                                   NodeID = "HelloWorld",
                                    Text = "Hello World (Ext JS)",
                                    Href = "/Kapitel1/HelloWorld",
                                    Icon = Icon.World,
@@ -16,6 +17,7 @@ namespace Kochbuch.Controllers
 
             var example2 = new Node
                                {
+                                   NodeID = "HelloWorldNet",
                                    Text = "Hello World (Ext.NET)",
                                    Href = "/Kapitel1/HelloWorldNet",
                                    Icon = Icon.World,
@@ -24,6 +26,7 @@ namespace Kochbuch.Controllers
 
             var example3 = new Node
             {
+                NodeID = "Class",
                 Text = "Ext JS Klasse",
                 Href = "/Kapitel2/Class",
                 Icon = Icon.World,
@@ -32,6 +35,7 @@ namespace Kochbuch.Controllers
 
             var example4 = new Node
             {
+                NodeID = "Inheritence",
                 Text = "Ext JS Vererbung",
                 Href = "/Kapitel2/Inheritence",
                 Icon = Icon.World,

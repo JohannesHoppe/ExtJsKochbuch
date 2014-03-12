@@ -1,4 +1,4 @@
-﻿var exampleTree = (function (Ext, tabManager) {
+﻿var exampleTree = (function (Ext, tabManager, hash) {
       
     var onTreeItemClick = function (record, e) {
         if (record.isLeaf()) {
@@ -10,6 +10,11 @@
                 title: record.get('text'),
                 iconCls: record.get('iconCls')
             });
+
+            hash.add({
+                ex: record.getId()
+            });
+            
         } else {
             record[record.isExpanded() ? 'collapse' : 'expand']();
         }
@@ -33,4 +38,4 @@
         onTreeItemClick: onTreeItemClick
     };
 
-})(window.Ext, window.tabManager);
+})(window.Ext, window.tabManager, window.hash);

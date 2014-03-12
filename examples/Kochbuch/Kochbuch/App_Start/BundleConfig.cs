@@ -15,6 +15,7 @@ namespace Kochbuch.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/Scripts/scripts").Include(
+                        "~/Scripts/hash.js",
                         "~/Scripts/tabManager.js",
                         "~/Scripts/exampleTree.js"));
 

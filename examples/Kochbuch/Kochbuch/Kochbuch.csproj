@@ -22,6 +22,7 @@
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <JSLintSkip>\Scripts\hash.js</JSLintSkip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -150,6 +151,7 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Scripts\exampleTree.js" />
+    <Content Include="Scripts\hash.js" />
     <Content Include="Scripts\tabManager.js" />
     <Content Include="Web.config" />
   </ItemGroup>
