@@ -28,8 +28,9 @@
         Store = { store },
         Listeners =
         {
-            ItemClick = { Handler = "exampleTree.onTreeItemClick(record, e);" },
-            AfterRender = { Fn = "exampleTree.onTreeAfterRender" }
+            ItemClick = { Fn = "exampleTree.onItemClick" },
+            AfterRender = { Fn = "exampleTree.onAfterRender" },
+            Load = { Fn = "exampleTree.onLoad" }
         }
     };
 }
