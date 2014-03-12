@@ -200,6 +200,7 @@
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
     <Content Include="Views\Kapitel1\HelloWorld.cshtml" />
     <Content Include="Views\Kapitel2\Class.cshtml" />
+    <Content Include="Views\Kapitel2\Inheritence.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

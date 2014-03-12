@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+} 
+
+<script>
+
+    Ext.define('MyNamespace.HelloWindow', {
+        extend: 'Ext.window.Window',
+
+        title: 'Test',
+        height: 200,
+        width: 400,
+        
+        whatToSay: 'Hello World ',
+        
+        constructor: function () {
+
+            this.items = [{
+                xtype: 'text',
+                text: this.whatToSay + new Date().getFullYear(),
+            }];
+
+            this.callParent(arguments);
+        }
+    });
+
+    Ext.onReady(function () {
+        
+        var helloWindow = Ext.create('MyNamespace.HelloWindow');
+        helloWindow.show();
+    });
+
+</script>

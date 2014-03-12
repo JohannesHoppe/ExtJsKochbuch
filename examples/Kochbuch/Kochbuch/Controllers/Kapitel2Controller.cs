@@ -8,5 +8,10 @@ namespace Kochbuch.Controllers
         {
             return View();
         }
+
+        public ActionResult Inheritence()
+        {
+            return View();
+        }
     }
 }

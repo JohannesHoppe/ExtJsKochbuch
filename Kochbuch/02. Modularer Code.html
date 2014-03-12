@@ -85,11 +85,12 @@ hello.saySomething();</code></pre>
 </blockquote>
 <p>Es wäre ebenso möglich statt <code>Ext.create</code> einfach</p>
 <pre><code class="lang-javascript">var hello = new MyNamespace.Hello();</code></pre>
-<p>zu verwenden. Dies sollte vermieden werden, da es zu einem JavaScript-&quot;Reference Error&quot; kommen kann, wenn die Klasse im Moment der Verwendung noch nicht durch den Browser geladen wurde. <code>Ext.create</code> ist hingegen in der Lage, fehlende Abhängigkeiten per <a href="../extjs/docs/index.html#!/api/Ext.Loader">Ext.Loader</a> <strong>synchron</strong> nachzuladen. Das synchrone Nachladen von Abhängigkeiten sollte zwar generell vermieden werden, aber etwas Wartezeit ist in der Regel dennoch vertretbarer als eine JavaScript-Exception.  </p>
+<p>zu verwenden. Die direkte Verwendung des Konstruktors sollte vermieden werden, da es zu einem JavaScript-&quot;Reference Error&quot; kommen kann, wenn die Klasse im Moment der Verwendung noch nicht durch den Browser geladen wurde. <code>Ext.create</code> ist hingegen in der Lage, fehlende Abhängigkeiten per <a href="../extjs/docs/index.html#!/api/Ext.Loader">Ext.Loader</a> <strong>synchron</strong> nachzuladen. Das synchrone Nachladen von Abhängigkeiten sollte zwar generell vermieden werden, aber etwas Wartezeit ist in der Regel dennoch vertretbarer als eine JavaScript-Exception.  </p>
 <p>Entsprechend der <a href="../extjs/docs/index.html#!/guide/class_system">Naming Conventions</a> von Ext JS sollten Klassen nur alpha-numerische Zeichen enthalten. Von Unterstriche und Zahlen wird abgeraten. Das Ext JS Frame &quot;CamelCase&quot;-Schreibweise verwendet.</p>
 <p><a name="inheritence"></a></p>
 <h3 id="3-vererbung">3. Vererbung</h3>
-<p>In vielen Fällen wird man nicht mit einer leeren Klasse beginnen. Es bietet sich eher an, von den mehr als 300 Klassen aus dem Ext JS Framework zu erben. So kann man auf der existierenden Funktionalität aufbauen und spezifisch den zu verändernden Aspekt zu überschreiben.</p>
+<p>In vielen Fällen wird man die Entwicklung nicht mit einer leeren Klasse beginnen. Es bietet sich eher an, von den mehr als 300 Klassen aus dem Ext JS Framework zu erben. So kann man auf der existierenden Funktionalität aufbauen und spezifisch den zu verändernden Aspekt zu überschreiben.</p>
+<p>Im folgenden Beispiel erben wir vom bereits bekannten <a href="../extjs/docs/index.html#!/api/Ext.window.Window"><code>Ext.window.Window</code></a>.</p>
 <p><a name="begriffe"></a></p>
 <h2 id="x-begriffe">x. Begriffe</h2>
 <p>Ext JS hat viele Begrifflichkeiten für die unterschiedlichen Klassen.<br>&quot;Components&quot; sind alle Klassen die von Ext.Component [TODO] ableiten, einer Klasse, die sehr nahe an der universalen Eltern-Klasse &quot;Ext.Base&quot; liegen.</p>
