@@ -22,7 +22,7 @@
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <JSLintSkip>\Scripts\hash.js</JSLintSkip>
+    <JSLintSkip>\Scripts\hash.js|\Scripts\highlight.pack.js</JSLintSkip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -152,6 +152,54 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\exampleTree.js" />
     <Content Include="Scripts\hash.js" />
+    <Content Include="Scripts\highlight.pack.js" />
+    <Content Include="Scripts\styles\arta.css" />
+    <Content Include="Scripts\styles\ascetic.css" />
+    <Content Include="Scripts\styles\atelier-dune.dark.css" />
+    <Content Include="Scripts\styles\atelier-dune.light.css" />
+    <Content Include="Scripts\styles\atelier-forest.dark.css" />
+    <Content Include="Scripts\styles\atelier-forest.light.css" />
+    <Content Include="Scripts\styles\atelier-heath.dark.css" />
+    <Content Include="Scripts\styles\atelier-heath.light.css" />
+    <Content Include="Scripts\styles\atelier-lakeside.dark.css" />
+    <Content Include="Scripts\styles\atelier-lakeside.light.css" />
+    <Content Include="Scripts\styles\atelier-seaside.dark.css" />
+    <Content Include="Scripts\styles\atelier-seaside.light.css" />
+    <Content Include="Scripts\styles\brown_paper.css" />
+    <Content Include="Scripts\styles\brown_papersq.png" />
+    <Content Include="Scripts\styles\dark.css" />
+    <Content Include="Scripts\styles\default.css" />
+    <Content Include="Scripts\styles\docco.css" />
+    <Content Include="Scripts\styles\far.css" />
+    <Content Include="Scripts\styles\foundation.css" />
+    <Content Include="Scripts\styles\github.css" />
+    <Content Include="Scripts\styles\googlecode.css" />
+    <Content Include="Scripts\styles\idea.css" />
+    <Content Include="Scripts\styles\ir_black.css" />
+    <Content Include="Scripts\styles\magula.css" />
+    <Content Include="Scripts\styles\mono-blue.css" />
+    <Content Include="Scripts\styles\monokai.css" />
+    <Content Include="Scripts\styles\monokai_sublime.css" />
+    <Content Include="Scripts\styles\obsidian.css" />
+    <Content Include="Scripts\styles\paraiso.dark.css" />
+    <Content Include="Scripts\styles\paraiso.light.css" />
+    <Content Include="Scripts\styles\pojoaque.css" />
+    <Content Include="Scripts\styles\pojoaque.jpg" />
+    <Content Include="Scripts\styles\railscasts.css" />
+    <Content Include="Scripts\styles\rainbow.css" />
+    <Content Include="Scripts\styles\school_book.css" />
+    <Content Include="Scripts\styles\school_book.png" />
+    <Content Include="Scripts\styles\solarized_dark.css" />
+    <Content Include="Scripts\styles\solarized_light.css" />
+    <Content Include="Scripts\styles\sunburst.css" />
+    <Content Include="Scripts\styles\tomorrow-night-blue.css" />
+    <Content Include="Scripts\styles\tomorrow-night-bright.css" />
+    <Content Include="Scripts\styles\tomorrow-night-eighties.css" />
+    <Content Include="Scripts\styles\tomorrow-night.css" />
+    <Content Include="Scripts\styles\tomorrow.css" />
+    <Content Include="Scripts\styles\vs.css" />
+    <Content Include="Scripts\styles\xcode.css" />
+    <Content Include="Scripts\styles\zenburn.css" />
     <Content Include="Scripts\tabManager.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -160,6 +208,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Code\ActionFilterAttribute.cs" />
     <Compile Include="Controllers\Chapters.cs">
       <DependentUpon>HomeController.cs</DependentUpon>
     </Compile>
@@ -167,6 +216,7 @@
     <Compile Include="Controllers\ExtNetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Kapitel1Controller.cs" />
+    <Compile Include="Code\RenderView.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

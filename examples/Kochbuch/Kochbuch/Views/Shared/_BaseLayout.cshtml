@@ -2,9 +2,22 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
+    <link href="~/Scripts/styles/github.css" rel="stylesheet" />
+    <script src="~/Scripts/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>
 <body>
-      @Html.X().ResourceManager()
-      @RenderBody()
+    @Html.X().ResourceManager()
+    
+    <!-- body -->
+    @RenderBody()
+    <!-- /body -->
+        
+<div style="position: absolute; right: 10px; bottom: 10px; width: 600px; height: 350px; overflow: scroll; background: #f5f5f5;">
+<pre><code>@ViewBag.Code</code></pre>        
+</div> 
+
 </body>
 </html>
