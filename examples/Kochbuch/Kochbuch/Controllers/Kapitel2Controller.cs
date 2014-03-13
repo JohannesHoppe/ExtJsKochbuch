@@ -15,5 +15,10 @@ namespace Kochbuch.Controllers
         {
             return View();
         }
+
+        public ActionResult Mixins()
+        {
+            return View();
+        }
     }
 }

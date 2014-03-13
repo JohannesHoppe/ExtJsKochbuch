@@ -42,11 +42,20 @@ namespace Kochbuch.Controllers
                 Leaf = true
             };
 
+            var example5 = new Node
+            {
+                NodeID = "Mixins",
+                Text = "Ext JS Mixins",
+                Href = "/Kapitel2/Mixins",
+                Icon = Icon.World,
+                Leaf = true
+            };
+
             var chapter1 = new Node { Text = "Kapitel 1" };
             var chapter2 = new Node { Text = "Kapitel 2" };
 
             chapter1.Children.AddRange(new[] { example1, example2 });
-            chapter2.Children.AddRange(new[] { example3, example4 });
+            chapter2.Children.AddRange(new[] { example3, example4, example5 });
 
             var nodes = new NodeCollection
                             {

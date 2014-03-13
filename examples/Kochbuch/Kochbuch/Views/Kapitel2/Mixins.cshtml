@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_ExampleLayout.cshtml";
+} 
+
+<script>
+
+    Ext.define('MyNamespace.TheAnswer', {
+
+        whatToSay: 'Hello World ',
+        
+        getText: function() {
+            return this.whatToSay + new Date().getFullYear();
+        }
+    });
+
+    Ext.define('MyNamespace.HelloWindow', {
+        extend: 'Ext.window.Window',
+        require: [],
+        mixins: ['MyNamespace.TheAnswer'],
+
+        title: 'Test',
+        height: 200,
+        width: 400,
+        
+        constructor: function () {
+
+            this.items = [{
+                xtype: 'text',
+                text: this.getText(),
+            }];
+
+            this.callParent(arguments);
+        }
+    });
+
+    Ext.onReady(function () {
+        
+        var helloWindow = Ext.create('MyNamespace.HelloWindow');
+        helloWindow.show();
+    });
+
+</script>

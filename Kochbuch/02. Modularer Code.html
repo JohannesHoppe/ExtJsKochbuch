@@ -21,7 +21,7 @@
 <h1 id="ext-js-kochbuch-kapitel-2-modularer-code">Ext JS Kochbuch - Kapitel 2: Modularer Code</h1>
 <p><a name="toc"></a></p>
 <h5 id="inhalt">Inhalt</h5>
-<p><a href="#js">1. JavaScript</a><br><a href="#class">2. Klassen und Namespaces</a><br><a href="#inheritence">3. Vererbung</a><br><a href="#begriffe">X. Begriffe</a></p>
+<p><a href="#js">1. JavaScript</a><br><a href="#class">2. Klassen und Namespaces</a><br><a href="#inheritence">3. Vererbung</a><br><a href="#bestPractices">4. Best Practices für Ext JS Klassen</a><br><a href="#mixin">5. Mixins</a><br><a href="#begriffe">X. Begriffe</a></p>
 <hr>
 
 <p><a name="js"></a></p>
@@ -81,7 +81,7 @@ Der Ext JS Core deckt eine großen Funktionsumfang ab. Dies hat den Vorteil, das
 var hello = Ext.create(&#39;MyNamespace.Hello&#39;); 
 hello.saySomething();</code></pre>
 <blockquote>
-<p>Hello World mit dem Ext JS Klassensystem<br>Beispiel: <a href="http://localhost:7777/#!ex/Class">Class</a></p>
+<p>Hello World mit dem Ext JS Klassensystem<br>Beispiel: <a href="http://localhost:7777/Kapitel2/Class">Class</a></p>
 </blockquote>
 <p>Es wäre ebenso möglich statt <a href="../extjs/docs/index.html#!/api/Ext-method-create"><code>Ext.create</code></a> einfach</p>
 <pre><code class="lang-javascript">var hello = new MyNamespace.Hello();</code></pre>
@@ -93,6 +93,7 @@ hello.saySomething();</code></pre>
 <p>Im folgenden Beispiel erben wir vom bereits bekannten <a href="../extjs/docs/index.html#!/api/Ext.window.Window"><code>Ext.window.Window</code></a>. Statt bei der Initialisierung das Property <code>html</code> zu setzen, integrieren wir uns dieses mal besser in die Ext JS Welt und geben Explizit an, welche Kind-Elemente das Window haben soll (mehr zu den Items später).</p>
 <pre><code class="lang-javascript">Ext.define(&#39;MyNamespace.HelloWindow&#39;, {
     extend: &#39;Ext.window.Window&#39;,
+    require: [],
 
     title: &#39;Test&#39;,
     height: 200,
@@ -117,11 +118,85 @@ Ext.onReady(function () {
     helloWindow.show();
 });</code></pre>
 <blockquote>
-<p>Beispiel: <a href="http://localhost:7777/#!ex/Inheritence">Inheritence</a></p>
+<p>Beispiel: <a href="http://localhost:7777/Kapitel2/Inheritence">Inheritence</a></p>
 </blockquote>
-<p>Wichtig ist das Schlüsselwort <strong>extend</strong>, welches angibt, von welcher Klasse geerbt werden soll. Es gibt viele Möglichkeiten, eine erbende Klasse in Ext JS zu definieren. Dies sind einige persönliche Best Practices von Johannes Hoppe</p>
+<p>Wichtig ist das Schlüsselwort <strong>extend</strong>, welches angibt, von welcher Klasse geerbt werden soll. Es gibt viele Möglichkeiten, eine erbende Klasse in Ext JS zu definieren, die Nachfolgenden Best Practices können Ihnen als Orientierung dienen. </p>
+<p><a name="bestPractices"></a></p>
+<h3 id="4-best-practices-f-r-ext-js-klassen">4. Best Practices für Ext JS Klassen</h3>
+<p>Dies sind einige persönliche Best Practices von Johannes Hoppe:</p>
+<ol>
+<li>Für eigene Klassen sollte von Anfang an ein eigener Namespace verwendet werden. Der Pfad, wo Dateien für den Namespace zu finden sind, sollten beim <a href="../extjs/docs/index.html#!/api/Ext.Loader"><code>Ext.Loader</code></a> wie folgt registriert sein:<pre><code class="lang-javascript">Ext.Loader.setConfig({
+    enabled: true,
+    paths: { &#39;MyNamespace&#39;: &#39;my_own_path&#39; }
+});</code></pre>
+</li>
+<li><p>Abhängigkeiten sollten stets mit <code>require</code> definiert werden. Dies versetzt Ext JS in die Lage, die fehlenden Dateien asynchron nachzuladen, sofern diese nicht bereits bekannt sind. Die fehlende Definition kann unter Umständen während der Entwicklung gar nicht aufwallen, wenn bereits eine vorherige Klasse diese geladen hat. Da ein solcher Fehler schnell geschehen ist, sollte <code>require</code> auch dann angebgeben werden, wenn der Wert nur ein leeres Array ist. Als Entwickler gibt man so ein Statement ab, dass man zum einen Kenntnis von der Existenz des <code>Ext.Loader</code> hat und dass man selbst eindeutig keine weiteren Abhängigkeiten verwendet.</p>
+</li>
+<li><p>Der Konstruktor der Eltern-Klasse sollte immer mit <code>this.callParent(arguments);</code> aufgerufen werden.<br>Man könnte auch </p>
+<pre><code class="lang-javascript">constructor: function (config) {
+    this.callParent(config);
+}</code></pre>
+<p>verwenden. Aber mit <code>arguments</code> kann man auch dann das Konfigurations-Objekt übergeben, wenn man selbst das Konfigurations-Objekt im eigenen Code nicht benötigt.   </p>
+</li>
+<li><p>Das setzen von Default-Werten geht sehr einfach durch die Schreibweise als Properties. (hier z.B. <code>title</code>, <code>height</code> und <code>width</code>) Dies funktioniert problemlos für einfache Datentypen wie <code>bool</code>, <code>int</code> und <code>string</code>. Unter keinen Umständen sollte den Properties ein Objekt zugewiesen werden. (z.B. <code>store: new Ext.data.Store()</code>) Die erzeugte Objekt wird in diesem Fall zwischen <strong>allen</strong> zukünftigen Instanzen der Klasse geteilt. Verwendet man zwei Instanzen einer solchen fehlerhaften Klasse auf ein und der selben Seite, so führt dies unweigerlich zu schwer identifizierbaren Seiteneffekten.</p>
+</li>
+<li><p>Im Hinblick auf Seiteneffekten bei Default-Werten für Objekte (siehe vorheriger Punkt), sollten Objekte am besten im Konstruktor initialisiert werden.</p>
+</li>
+</ol>
+<p><a name="mixin"></a></p>
+<h2 id="5-mixins">5. Mixins</h2>
+<p>In JavaScript kann man jederzeit eine Objekt um weitere Eigenschaften oder Methoden ergänzen. Mann kann sich hierbei einfach von den Eigenschaften oder Methoden eines anderen Objektes bedienen. Bei Funktionen, die als Konstruktor verwendet werden, weist man einfach die auszuleihenden Properties dem Prototype-Property des leihenden Objektes zu. </p>
+<pre><code class="lang-javascipt">var verleiher = function();
+    foo: function() {
+        return &quot;bar&quot;;
+    }
+}
+
+var leiher = function() { };
+leiher.prototype.foo = verleiher.foo;
+
+var instanz = new leiher();
+instanz.foo();</code></pre>
+<p>Eine vergleichbare (aber ausgefeiltere) Funktionalität bieten so genante &quot;Mixins&quot; in Ext Js. Alle Methoden und Eigenschaften werden dabei dem Prototyp-Objekt der neuen Klasse zugewiesen.</p>
+<pre><code class="lang-javascript">Ext.define(&#39;MyNamespace.TheAnswer&#39;, {
+
+    whatToSay: &#39;Hello World &#39;,
+
+    getText: function() {
+        return this.whatToSay + new Date().getFullYear();
+    }
+});
+
+Ext.define(&#39;MyNamespace.HelloWindow&#39;, {
+    extend: &#39;Ext.window.Window&#39;,
+    require: [],
+    mixins: [&#39;MyNamespace.TheAnswer&#39;],
+
+    title: &#39;Test&#39;,
+    height: 200,
+    width: 400,
+
+    constructor: function () {
+
+        this.items = [{
+            xtype: &#39;text&#39;,
+            text: this.getText(),
+        }];
+
+        this.callParent(arguments);
+    }
+});
+
+Ext.onReady(function () {
+
+    var helloWindow = Ext.create(&#39;MyNamespace.HelloWindow&#39;);
+    helloWindow.show();
+});</code></pre>
+<blockquote>
+<p>Beispiel: <a href="http://localhost:7777/Kapitel2/Mixins">Mixins</a></p>
+</blockquote>
 <p><a name="begriffe"></a></p>
-<h2 id="x-begriffe">x. Begriffe</h2>
+<h2 id="x-begriffe">X. Begriffe</h2>
 <p>Ext JS hat viele Begrifflichkeiten für die unterschiedlichen Klassen.<br>&quot;Components&quot; sind alle Klassen die von Ext.Component [TODO] ableiten, einer Klasse, die sehr nahe an der universalen Eltern-Klasse &quot;Ext.Base&quot; liegen.</p>
 <p>Alle Komponenten, die  </p>
 <p><a href="index.html">&laquo; zurück</a></p>
