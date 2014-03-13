@@ -90,10 +90,27 @@ Ext.onReady(function () {
     .Title(&quot;Test&quot;)
     .Height(200)
     .Width(400)
-    .Html(&quot;Hello World&quot;).Show())</code></pre>
+    .Html(&quot;Hello World&quot;))</code></pre>
 <blockquote>
-<p>Beispiel: <a href="http://localhost:7777/#!ex/HelloWorldNet">HelloWorldNet</a> </p>
+<p>Beispiel: <a href="http://localhost:7777/#!ex/HelloWorldNet">HelloWorldNet</a></p>
 </blockquote>
+<p>Der Befehl <code>.show()</code> ist nicht notwendig, da im Gegensatz zu Ext JS in Ext.NET das erzeugte Window bereits standardmäßig sichtbar ist. Der von Ext.NET generierte JavaScript-Quelltext ähnelt allerdings immer noch stark dem von Hand geschriebenem:</p>
+<pre><code class="lang-javascript">Ext.net.ResourceMgr.init({
+  isMVC: true,
+  theme: &quot;gray&quot;
+});
+
+Ext.onReady(function(){
+    Ext.create(&quot;Ext.window.Window&quot;,{
+      id: &quot;Window1&quot;,
+      height: 200,
+      hidden: false,
+      html: &quot;Hello World&quot;,
+      renderTo: Ext.getBody(),
+      width: 400,
+      title: &quot;Test&quot;
+    });
+});</code></pre>
 <p><a href="index.html">&laquo; zurück</a></p>
 
 </body>
