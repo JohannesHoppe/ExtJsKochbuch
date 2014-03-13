@@ -14,8 +14,23 @@
     <!-- body -->
     @RenderBody()
     <!-- /body -->
-        
-<div style="position: absolute; right: 10px; bottom: 10px; width: 600px; height: 350px; overflow: scroll; background: #f5f5f5;">
+                
+    
+@(Html.X().Panel()
+    .ID("WindowSource")
+    .Title("Source Code")
+    .Height(300)
+    .Width(600)
+    .AutoScroll(true)
+    .Config("contentEl", "myCode") 
+    .Draggable(true)
+    .Closable(true)
+    .Resizable(true)
+    .StyleSpec("opacity: 0.6")
+    .Show()) 
+    
+
+<div id="myCode">
 <pre><code>@ViewBag.Code</code></pre>        
 </div> 
 
