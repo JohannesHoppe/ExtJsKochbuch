@@ -16,10 +16,12 @@ namespace Kochbuch.App_Start
         {
             bundles.Add(new ScriptBundle("~/Scripts/scripts").Include(
                         "~/Scripts/hash.js",
+                        "~/Scripts/highlight.pack.js",
                         "~/Scripts/tabManager.js",
                         "~/Scripts/exampleTree.js"));
 
             bundles.Add(new StyleBundle("~/Content/styles").Include(
+                        "~/Scripts/styles/github.css",
                         "~/Content/fonts.css",
                         "~/Content/main.css"));
         }

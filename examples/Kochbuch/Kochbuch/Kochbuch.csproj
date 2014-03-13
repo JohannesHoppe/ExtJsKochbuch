@@ -248,8 +248,7 @@
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.eot" />
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.ttf" />
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.woff" />
-    <Content Include="Views\Home\Start.cshtml" />
-    <Content Include="Views\Shared\_BaseLayout.cshtml" />
+    <Content Include="Views\Shared\_ExampleLayout.cshtml" />
     <Content Include="Views\Kapitel1\HelloWorld.cshtml" />
     <Content Include="Views\Kapitel2\Class.cshtml" />
     <Content Include="Views\Kapitel2\Inheritence.cshtml" />

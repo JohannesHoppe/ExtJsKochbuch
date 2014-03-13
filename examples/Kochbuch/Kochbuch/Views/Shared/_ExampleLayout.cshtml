@@ -2,19 +2,14 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <link href="~/Scripts/styles/github.css" rel="stylesheet" />
-    <script src="~/Scripts/highlight.pack.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
+    @Styles.Render("~/Content/styles")
 </head>
 <body>
     @Html.X().ResourceManager()
     
     <!-- body -->
     @RenderBody()
-    <!-- /body -->
-                
+    <!-- /body -->     
     
 @(Html.X().Panel()
     .ID("WindowSource")
@@ -30,7 +25,14 @@
 
 <div id="myCode">
 <pre><code>@ViewBag.Code</code></pre>        
-</div> 
+</div>   
+       
+    @Scripts.Render("~/Scripts/scripts")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 
 </body>
 </html>
