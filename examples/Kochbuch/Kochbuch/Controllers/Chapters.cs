@@ -51,6 +51,17 @@ namespace Kochbuch.Controllers
                 Leaf = true
             };
 
+            /*
+            var example5b = new Node
+            {
+                NodeID = "Mixins2",
+                Text = "Ext JS Mixins - Labelable",
+                Href = "/Kapitel2/Mixins2",
+                Icon = Icon.World,
+                Leaf = true
+            };
+            */
+
             var chapter1 = new Node { Text = "Kapitel 1" };
             var chapter2 = new Node { Text = "Kapitel 2" };
 

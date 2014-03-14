@@ -253,6 +253,7 @@
     <Content Include="Views\Kapitel2\Class.cshtml" />
     <Content Include="Views\Kapitel2\Inheritence.cshtml" />
     <Content Include="Views\Kapitel2\Mixins.cshtml" />
+    <Content Include="Views\Kapitel2\Mixins2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

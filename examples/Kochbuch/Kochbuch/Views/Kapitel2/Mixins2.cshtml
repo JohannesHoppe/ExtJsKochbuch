@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_ExampleLayout.cshtml";
+} 
+
+<script>
+
+    Ext.define('MyNamespace.HelloWindow', {
+        extend: 'Ext.window.Window',
+        require: [],
+        mixins: ['Ext.form.Labelable'],
+
+        whatToSay: 'Hello World ',
+
+        constructor: function () {
+
+            this.items = [{
+                xtype: 'text',
+                text: this.whatToSay + new Date().getFullYear(),
+            }];
+
+            this.callParent(arguments);
+        },
+        
+        initComponent : function() {
+            this.callParent(arguments);
+
+            // from mixing
+            this.initLabelable();
+            this.setFieldLabel("Hello Label");
+        }
+    });
+
+    Ext.onReady(function () {
+
+        var helloWindow = Ext.create('MyNamespace.HelloWindow');
+        helloWindow.show();
+    });
+
+</script>
