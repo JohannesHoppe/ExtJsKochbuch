@@ -21,7 +21,7 @@
 <h1 id="ext-js-kochbuch-kapitel-2-modularer-code">Ext JS Kochbuch - Kapitel 2: Modularer Code</h1>
 <p><a name="toc"></a></p>
 <h5 id="inhalt">Inhalt</h5>
-<p><a href="#js">1. JavaScript</a><br><a href="#class">2. Klassen und Namespaces</a><br><a href="#inheritence">3. Vererbung</a><br><a href="#bestPractices">4. Best Practices für Ext JS Klassen</a><br><a href="#mixin">5. Mixins</a><br><a href="#begriffe">X. Begriffe</a></p>
+<p><a href="#js">1. JavaScript</a><br><a href="#class">2. Klassen und Namespaces</a><br><a href="#inheritence">3. Vererbung</a><br><a href="#bestPractices">4. Best Practices für Ext JS Klassen</a><br><a href="#mixins">5. Mixins</a></p>
 <hr>
 
 <p><a name="js"></a></p>
@@ -62,10 +62,6 @@ hello.saySomething();</code></pre>
 <p>Hello World mit purem JavaScript</p>
 </blockquote>
 <p>Ebenso kann man bestehende Bibliotheken nutzen, welche weder die Syntax von JavaScript verändern noch die Einhaltung von Patterns per Konvention verlangen. Jene Bibliotheken stellen lediglich neue JavaScript-Funktionen zur Verfügung und geben die Art ihrer Verwendung fest vor. Ext JS, bzw. der &quot;Ext JS Core&quot; ist eine diese Bibliotheken.</p>
-<!--
-Der Ext JS Core deckt eine großen Funktionsumfang ab. Dies hat den Vorteil, dass alle Bausteine gut zueinander passen. Jedoch wird damit auch die Möglichkeit eingeschränkt, sich aus vielen spezialisierten Bibliotheken (z.B. AMD-Module mit require.js oder MVVM mit Knockout) d
--->
-
 <p><a name="class"></a></p>
 <h2 id="2-klassen-und-namespaces">2. Klassen und Namespaces</h2>
 <p>Die einfachste Möglichkeit, eine Klasse zu definieren bietet die globale Methode <a href="../extjs/docs/index.html#!/api/Ext-method-define">Ext.define</a>. Hierbei gibt man sowohl den Namespace der Klasse als auch den Namen der Klasse als ersten Parameter (String) an. Es folgt die Definition der Klasse als JavaScript-Objekt.</p>
@@ -81,12 +77,12 @@ Der Ext JS Core deckt eine großen Funktionsumfang ab. Dies hat den Vorteil, das
 var hello = Ext.create(&#39;MyNamespace.Hello&#39;); 
 hello.saySomething();</code></pre>
 <blockquote>
-<p>Hello World mit dem Ext JS Klassensystem<br>Beispiel: <a href="http://localhost:7777/Kapitel2/Class">Class</a></p>
+<p>Hello World mit dem Ext JS Klassensystem<br>Beispiel: <a href="http://ex.extjs-kochbuch.de/Kapitel2/Class">Class</a></p>
 </blockquote>
-<p>Es wäre ebenso möglich statt <a href="../extjs/docs/index.html#!/api/Ext-method-create"><code>Ext.create</code></a> einfach</p>
+<p>Statt <a href="../extjs/docs/index.html#!/api/Ext-method-create"><code>Ext.create</code></a> könnte man auch folgende Schreibweise verwenden:</p>
 <pre><code class="lang-javascript">var hello = new MyNamespace.Hello();</code></pre>
-<p>zu verwenden. Die direkte Verwendung des Konstruktors sollte vermieden werden, da es zu einem JavaScript-&quot;Reference Error&quot; kommen kann, wenn die Klasse im Moment der Verwendung noch nicht durch den Browser geladen wurde. <a href="../extjs/docs/index.html#!/api/Ext-method-create"><code>Ext.create</code></a> ist hingegen in der Lage, im Fall der Fälle fehlende Abhängigkeiten mithilfe des <a href="../extjs/docs/index.html#!/api/Ext.Loader"><code>Ext.Loader</code></a> <strong>synchron</strong> nachzuladen. Das synchrone Nachladen von Abhängigkeiten sollte zwar generell vermieden werden, aber etwas Wartezeit während der Ausführung ist in der Regel dennoch vertretbarer als eine JavaScript-Exception.  </p>
-<p>Entsprechend der <a href="../extjs/docs/index.html#!/guide/class_system">Naming Conventions</a> von Ext JS sollten Klassen nur alpha-numerische Zeichen enthalten. Von Unterstriche und Zahlen wird abgeraten. Das Ext JS Frame &quot;CamelCase&quot;-Schreibweise verwendet.</p>
+<p>Man muss sich bei der direkten Verwendung des Konstruktors bewusst sein, dass es zu einem JavaScript-&quot;Reference Error&quot; kommen kann, wenn die Klasse im Moment der Verwendung noch nicht durch den Browser geladen wurde. <a href="../extjs/docs/index.html#!/api/Ext-method-create"><code>Ext.create</code></a> ist hingegen in der Lage, im Fall der Fälle fehlende Abhängigkeiten mithilfe des <a href="../extjs/docs/index.html#!/api/Ext.Loader"><code>Ext.Loader</code></a> <strong>synchron</strong> nachzuladen. Das synchrone Nachladen von Abhängigkeiten sollte zwar generell vermieden werden, aber etwas Wartezeit während der Ausführung ist in der Regel dennoch vertretbarer als eine JavaScript-Exception.  </p>
+<p>Entsprechend der <a href="../extjs/docs/index.html#!/guide/class_system">Naming Conventions</a> von Ext JS sollten Klassen nur alpha-numerische Zeichen enthalten. Von Unterstriche und Zahlen wird abgeraten. Das Ext JS Framework setzt auf die &quot;CamelCase&quot;-Schreibweise.</p>
 <p><a name="inheritence"></a></p>
 <h3 id="3-vererbung">3. Vererbung</h3>
 <p>In vielen Fällen wird man die Entwicklung nicht mit einer leeren Klasse beginnen. Es bietet sich eher an, von den mehr als 300 Klassen aus dem Ext JS Framework zu erben. So kann man auf der existierenden Funktionalität aufbauen und spezifisch den zu verändernden Aspekt zu überschreiben.</p>
@@ -118,7 +114,7 @@ Ext.onReady(function () {
     helloWindow.show();
 });</code></pre>
 <blockquote>
-<p>Beispiel: <a href="http://localhost:7777/Kapitel2/Inheritence">Inheritence</a></p>
+<p>Beispiel: <a href="http://ex.extjs-kochbuch.de/Kapitel2/Inheritence">Inheritence</a></p>
 </blockquote>
 <p>Wichtig ist das Schlüsselwort <strong>extend</strong>, welches angibt, von welcher Klasse geerbt werden soll. Es gibt viele Möglichkeiten, eine erbende Klasse in Ext JS zu definieren, die Nachfolgenden Best Practices können Ihnen als Orientierung dienen. </p>
 <p><a name="bestPractices"></a></p>
@@ -132,18 +128,24 @@ Ext.onReady(function () {
 </li>
 <li><p>Abhängigkeiten sollten stets mit <code>require</code> definiert werden. Dies versetzt Ext JS in die Lage, die fehlenden Dateien asynchron nachzuladen, sofern diese nicht bereits bekannt sind. Die fehlende Definition kann unter Umständen während der Entwicklung gar nicht aufwallen, wenn bereits eine vorherige Klasse diese geladen hat. Da ein solcher Fehler schnell geschehen ist, sollte <code>require</code> auch dann angebgeben werden, wenn der Wert nur ein leeres Array ist. Als Entwickler gibt man so ein Statement ab, dass man zum einen Kenntnis von der Existenz des <code>Ext.Loader</code> hat und dass man selbst eindeutig keine weiteren Abhängigkeiten verwendet.</p>
 </li>
-<li><p>Der Konstruktor der Eltern-Klasse sollte immer mit <code>this.callParent(arguments);</code> aufgerufen werden.<br>Man könnte auch </p>
+<li><p>Der Konstruktor der Eltern-Klasse muss immer mit <code>this.callParent(arguments);</code> aufgerufen werden. Der Aufruf des Eltern-Konstruktors findet ansonsten nicht statt.<br>Man könnte auch </p>
 <pre><code class="lang-javascript">constructor: function (config) {
     this.callParent(config);
 }</code></pre>
 <p>verwenden. Aber mit <code>arguments</code> kann man auch dann das Konfigurations-Objekt übergeben, wenn man selbst das Konfigurations-Objekt im eigenen Code nicht benötigt.   </p>
 </li>
-<li><p>Das setzen von Default-Werten geht sehr einfach durch die Schreibweise als Properties. (hier z.B. <code>title</code>, <code>height</code> und <code>width</code>) Dies funktioniert problemlos für einfache Datentypen wie <code>bool</code>, <code>int</code> und <code>string</code>. Unter keinen Umständen sollte den Properties ein Objekt zugewiesen werden. (z.B. <code>store: new Ext.data.Store()</code>) Die erzeugte Objekt wird in diesem Fall zwischen <strong>allen</strong> zukünftigen Instanzen der Klasse geteilt. Verwendet man zwei Instanzen einer solchen fehlerhaften Klasse auf ein und der selben Seite, so führt dies unweigerlich zu schwer identifizierbaren Seiteneffekten.</p>
+<li><p>Das setzen von Default-Werten geht sehr einfach durch die Schreibweise als Properties. Im vorigen Beispiel sind dies <code>title</code>, <code>height</code> und <code>width</code>. Das Setzen funktioniert problemlos für einfache Datentypen wie <code>bool</code>, <code>int</code> und <code>string</code>. Unter keinen Umständen sollte den Properties ein Objekt zugewiesen werden. (z.B. <code>store: new Ext.data.Store()</code>) Die erzeugte Objekt wird in diesem Fall zwischen <strong>allen</strong> zukünftigen Instanzen der Klasse geteilt. Verwendet man zwei Instanzen einer solchen fehlerhaften Klasse auf ein und der selben Seite, so führt dies unweigerlich zu schwer identifizierbaren Seiteneffekten.</p>
 </li>
-<li><p>Im Hinblick auf Seiteneffekten bei Default-Werten für Objekte (siehe vorheriger Punkt), sollten Objekte am besten im Konstruktor initialisiert werden.</p>
+<li><p>Im Hinblick auf Seiteneffekten bei Default-Werten für Objekte (siehe vorheriger Punkt), sollten Objekte am besten im Konstruktor initialisiert werden. Wenn Sie sich unsicher sind, dann verwenden Sie ganz einfach ausschließlich den Konstruktor:</p>
+<pre><code class="lang-javascript">constructor: function () {
+    this.title = &#39;Test&#39;;
+    this.height = 200;
+    this.width = 400;
+    this.callParent(arguments);
+}</code></pre>
 </li>
 </ol>
-<p><a name="mixin"></a></p>
+<p><a name="mixins"></a></p>
 <h2 id="5-mixins">5. Mixins</h2>
 <p>In JavaScript kann man jederzeit eine Objekt um weitere Eigenschaften oder Methoden ergänzen. Mann kann sich hierbei einfach von den Eigenschaften oder Methoden eines anderen Objektes bedienen. Bei Funktionen, die als Konstruktor verwendet werden, weist man einfach die auszuleihenden Properties dem Prototype-Property des leihenden Objektes zu. </p>
 <pre><code class="lang-javascipt">var verleiher = function();
@@ -193,12 +195,9 @@ Ext.onReady(function () {
     helloWindow.show();
 });</code></pre>
 <blockquote>
-<p>Beispiel: <a href="http://localhost:7777/Kapitel2/Mixins">Mixins</a></p>
+<p>Beispiel: <a href="http://ex.extjs-kochbuch.de/Kapitel2/Mixins">Mixins</a></p>
 </blockquote>
-<p><a name="begriffe"></a></p>
-<h2 id="x-begriffe">X. Begriffe</h2>
-<p>Ext JS hat viele Begrifflichkeiten für die unterschiedlichen Klassen.<br>&quot;Components&quot; sind alle Klassen die von Ext.Component [TODO] ableiten, einer Klasse, die sehr nahe an der universalen Eltern-Klasse &quot;Ext.Base&quot; liegen.</p>
-<p>Alle Komponenten, die  </p>
+<p>Ein Mixin mit denen man während der Entwicklung von Ext JS Komponenten unweigerlich in Kontakt treten wird ist übrigens <a href="../extjs/docs/index.html#!/api/Ext.util.Observable"><code>Ext.util.Observable</code></a>. Es bietet Methoden zum senden von Events und wird von allen Komponenten verwendet.</p>
 <p><a href="index.html">&laquo; zurück</a></p>
 
 </body>
