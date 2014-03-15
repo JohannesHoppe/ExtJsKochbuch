@@ -4,6 +4,52 @@
     font-family: 'OpenSansRegular';
     font-size: 16px;
     line-height: 1.5;
+
+    &.index {
+        padding: 0 10px 10px 10px;
+        background-image: url(images/background-pattern.svg);
+        background-repeat: repeat;
+        background-color: #ddd;
+        background-position: 3px 25px;
+        
+        /* once transparent for pattern to shine through */
+        .x-panel-body {
+            background-color: transparent;
+            /* and then normal again! */
+            .x-panel-body {
+                background-color: white;
+            }
+        }
+
+        /* transparent for pattern to shine through */
+        #exampleTree {
+
+            padding: 0 5px 0 0;
+
+            .x-grid-header-ct {
+                border: none;
+            }
+
+            .x-panel-body {
+
+                background-color: transparent;
+                border: none;
+
+                .x-grid-cell {
+                    background-color: #346369;
+                }
+            }
+
+            a, span {
+                color: white;
+            }
+        }
+
+        #ExampleTabs > .x-tab-bar {
+            background: none;
+            border: none;
+        }
+    }
 }
 
 /*  Header
@@ -15,34 +61,48 @@ div.header {
     padding-left: 18px;
     float: left;
     color: #222222;
-    background: #F2F2F2;
 
     .logo {
+         position: absolute;
          display: block;
          margin-top: 5px;
          margin-left: -280px;
          height: 310px;
+         z-index: 2;
     }
 
     h1 {
         position: absolute;
-        top: 21px;
-        left: 330px;
+        
+        width: 495px;
+        height: 56px;
+        
+        top: 17px;
+        left: 0px;
+
         margin: 0;
-        font-family: 'OpenSansSemibold';
-        color: #346369;
-        font-size: 33px;
+        padding: 6px 3px 3px 330px;
+
+        font-family: 'OpenSansRegular';
+
+        color: white;
+        font-size: 28px;
+        background-color: #5BA5AE;
+        z-index: 1;
     }
 
     a {
         position: absolute;
         top: 54px;
-        left: 164px;
-        color: white;
-        text-decoration: underline;
+        left: 24px;
+        color: #84BBC2;
+        z-index: 3;
+        text-decoration: none;
+
 
          &:hover { 
-             text-decoration: none; 
+             text-decoration: underline;
+             color: white; 
          }
     }
 }

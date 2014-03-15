@@ -5,6 +5,43 @@ body {
   font-size: 16px;
   line-height: 1.5;
 }
+body.index {
+  padding: 0 10px 10px 10px;
+  background-image: url(images/background-pattern.svg);
+  background-repeat: repeat;
+  background-color: #ddd;
+  background-position: 3px 25px;
+  /* once transparent for pattern to shine through */
+  /* transparent for pattern to shine through */
+}
+body.index .x-panel-body {
+  background-color: transparent;
+  /* and then normal again! */
+}
+body.index .x-panel-body .x-panel-body {
+  background-color: white;
+}
+body.index #exampleTree {
+  padding: 0 5px 0 0;
+}
+body.index #exampleTree .x-grid-header-ct {
+  border: none;
+}
+body.index #exampleTree .x-panel-body {
+  background-color: transparent;
+  border: none;
+}
+body.index #exampleTree .x-panel-body .x-grid-cell {
+  background-color: #346369;
+}
+body.index #exampleTree a,
+body.index #exampleTree span {
+  color: white;
+}
+body.index #ExampleTabs > .x-tab-bar {
+  background: none;
+  border: none;
+}
 /*  Header
     -----------------------------------------------------------------------------------------------*/
 div.header {
@@ -13,32 +50,40 @@ div.header {
   padding-left: 18px;
   float: left;
   color: #222222;
-  background: #F2F2F2;
 }
 div.header .logo {
+  position: absolute;
   display: block;
   margin-top: 5px;
   margin-left: -280px;
   height: 310px;
+  z-index: 2;
 }
 div.header h1 {
   position: absolute;
-  top: 21px;
-  left: 330px;
+  width: 495px;
+  height: 56px;
+  top: 17px;
+  left: 0px;
   margin: 0;
-  font-family: 'OpenSansSemibold';
-  color: #346369;
-  font-size: 33px;
+  padding: 6px 3px 3px 330px;
+  font-family: 'OpenSansRegular';
+  color: white;
+  font-size: 28px;
+  background-color: #5BA5AE;
+  z-index: 1;
 }
 div.header a {
   position: absolute;
   top: 54px;
-  left: 164px;
-  color: white;
-  text-decoration: underline;
+  left: 24px;
+  color: #84BBC2;
+  z-index: 3;
+  text-decoration: none;
 }
 div.header a:hover {
-  text-decoration: none;
+  text-decoration: underline;
+  color: white;
 }
 #exampleTree .x-tree-view {
   margin-top: 5px;

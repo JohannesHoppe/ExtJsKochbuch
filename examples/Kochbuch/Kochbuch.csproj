@@ -142,6 +142,7 @@
     <Content Include="Content\fonts\OpenSans-Regular-webfont.svg" />
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.svg" />
     <None Include="Content\main.less" />
+    <Content Include="Content\images\background-pattern.svg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\main.css">
