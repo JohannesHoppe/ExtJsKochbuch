@@ -7,26 +7,27 @@
     <title>@ViewBag.Title</title>
 
     <link rel="shortcut icon" href="~/Content/images/favicon.ico" />    
-    @Styles.Render("~/Content/styles")
+    @Styles.Render("~/Content/styles")   
+    
+    @Html.X().ResourceManager()
 </head>
 <body>
-    @Html.X().ResourceManager()
     
     <!-- body -->
     @RenderBody()
     <!-- /body -->     
     
-@(Html.X().Panel()
-    .ID("WindowSource")
-    .Title("Source Code")
-    .Height(300)
-    .Width(600)
-    .AutoScroll(true)
-    .Config("contentEl", "myCode") 
-    .Draggable(true)
-    .Closable(true)
-    .Resizable(true)
-    .StyleSpec("opacity: 0.8")) 
+    @(Html.X().Panel()
+        .ID("WindowSource")
+        .Title("Source Code")
+        .Height(300)
+        .Width(600)
+        .AutoScroll(true)
+        .Config("contentEl", "myCode") 
+        .Draggable(true)
+        .Closable(true)
+        .Resizable(true)
+        .StyleSpec("opacity: 0.8")) 
 
 <div id="myCode">
 <pre><code>@ViewBag.Code</code></pre>        
