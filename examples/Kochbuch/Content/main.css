@@ -15,15 +15,30 @@ div.header {
   color: #222222;
   background: #F2F2F2;
 }
-h1.title {
-  font-size: 30px;
-  font-family: 'OpenSansSemibold';
-}
-.logo {
+div.header .logo {
   display: block;
   margin-top: 5px;
-  margin-left: -270px;
-  height: 300px;
+  margin-left: -280px;
+  height: 310px;
+}
+div.header h1 {
+  position: absolute;
+  top: 21px;
+  left: 330px;
+  margin: 0;
+  font-family: 'OpenSansSemibold';
+  color: #346369;
+  font-size: 33px;
+}
+div.header a {
+  position: absolute;
+  top: 54px;
+  left: 164px;
+  color: white;
+  text-decoration: underline;
+}
+div.header a:hover {
+  text-decoration: none;
 }
 #exampleTree .x-tree-view {
   margin-top: 5px;

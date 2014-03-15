@@ -16,20 +16,37 @@ div.header {
     float: left;
     color: #222222;
     background: #F2F2F2;
+
+    .logo {
+         display: block;
+         margin-top: 5px;
+         margin-left: -280px;
+         height: 310px;
+    }
+
+    h1 {
+        position: absolute;
+        top: 21px;
+        left: 330px;
+        margin: 0;
+        font-family: 'OpenSansSemibold';
+        color: #346369;
+        font-size: 33px;
+    }
+
+    a {
+        position: absolute;
+        top: 54px;
+        left: 164px;
+        color: white;
+        text-decoration: underline;
+
+         &:hover { 
+             text-decoration: none; 
+         }
+    }
 }
 
-h1.title {
-    font-size: 30px;
-    font-family: 'OpenSansSemibold';
-}
-
-.logo {
-     display: block;
-     margin-top: 5px;
-     margin-left: -270px;
-     height: 300px;
-
-}
 
 #exampleTree {
     
