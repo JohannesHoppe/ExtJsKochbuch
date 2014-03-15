@@ -4,6 +4,7 @@ In diesem Repository finden Sie alle Unterlagen, welche die Ext JS / EXT.NET Wor
 
 * [Kochbuch](http://extjs-kochbuch.de/Kochbuch/) von Johannes Hoppe
 * [Slides](http://extjs-kochbuch.de/Slides/) von Johannes Hoppe
+* [Beispiele](http://ex.extjs-kochbuch.de) von Johannes Hoppe
 * **Mirror**: [Offizielle Ext JS Dokumentation (v4)](http://extjs-kochbuch.de/extjs/docs/) von Senscha
 * **Mirror**: [Ext Core Manual (v3)](http://extjs-kochbuch.de/extjs-old/core-manual/) von Senscha (veraltet!)
 
