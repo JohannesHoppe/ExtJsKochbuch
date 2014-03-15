@@ -247,7 +247,6 @@
     <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.ttf" />
     <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.woff" />
     <None Include="LICENSE" />
-    <None Include="README.md" />
     <Content Include="web.config" />
   </ItemGroup>
   <PropertyGroup>
