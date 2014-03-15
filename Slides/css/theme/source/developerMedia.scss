@@ -1,0 +1,92 @@
+/**
+ * A theme for reveal.js presentations with JS flavour
+ * 
+ * Color sheme aligns to the "community defined" logo for JS which is:
+ * #f3df49 (yellow) and #2e2e2c (gray)
+ *
+ * The JS logo uses the Neutraface font, which is not allowed to be used as a webfont.
+ * I have chosen the Ubuntu Font Family as a free and well-designed alternative.
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+@mixin font-face($font-family, $font-url, $font-name) {
+    @font-face {
+        font: {
+            family: $font-family;
+            style: normal;
+            weight: normal;
+        }
+        src: url($font-url + '/' + $font-name + '.eot') format('eot'), 
+             url($font-url + '/' + $font-name + '.woff') format('woff'), 
+             url($font-url + '/' + $font-name + '.ttf')  format('truetype'), 
+             url($font-url + '/' + $font-name + '.svg#' + $font-name) format('svg');
+    }
+}
+
+
+//@include font-face(UbuntuRegular,          '../../lib/font/ubuntu', Ubuntu-R-webfont);
+@include font-face(UbuntuItalic,           '../../lib/font/ubuntu', Ubuntu-RI-webfont);
+@include font-face(UbuntuBold,             '../../lib/font/ubuntu', Ubuntu-B-webfont);
+//@include font-face(UbuntuBoldItalic,       '../../lib/font/ubuntu', Ubuntu-BI-webfont);
+@include font-face(UbuntuLight,            '../../lib/font/ubuntu', Ubuntu-L-webfont);
+//@include font-face(UbuntuLightItalic,      '../../lib/font/ubuntu', Ubuntu-LI-webfont);
+//@include font-face(UbuntuMedium,           '../../lib/font/ubuntu', Ubuntu-M-webfont);
+//@include font-face(UbuntuMediumItalic,     '../../lib/font/ubuntu', Ubuntu-MI-webfont);
+//@include font-face(UbuntuCondensedRegular, '../../lib/font/ubuntu', Ubuntu-C-webfont);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: UbuntuLight, sans-serif;
+$mainColor: #2a2b2c;
+
+$headingFont: UbuntuBold, sans-serif;
+$headingColor: #537078;
+$headingTextShadow: none;
+$headingTextTransform: none;
+
+$backgroundColor: white;
+
+$linkColor: #0b72b5;
+$linkColorHover: darken( $linkColor, 20% );
+$selectionBackgroundColor: #26351C;
+
+
+// Background generator
+// @mixin bodyBackground() {
+//    @include radial-gradient(#8bb2bc, #FFFFFF);
+//}
+
+em, em * {
+    font-family: UbuntuLightItalic, sans-serif;
+}   
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+
+/* styles that will make the design cleaner */
+
+body { 
+    font-family: UbuntuLight, sans-serif;
+}
+
+img 
+{
+    border: none !important;
+
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    
+    background-color: transparent !important;
+}
+
+.reveal ul {
+    list-style-type: none;
+}

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47418707-A462-44D1-90FD-A6578D53F506}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeveloperMediaSlides</RootNamespace>
+    <AssemblyName>DeveloperMediaSlides</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <JSLintSkip>\js\reveal.min.js|\js\jquery.js|\js\require.js|\js\reveal.js|\js\1_jasmine-demo_fail\saveFormat.js|\js\1_jasmine-demo_fail\saveFormat.spec.js|\js\2_jasmine-demo_pass\saveFormat.js|\js\2_jasmine-demo_pass\saveFormat.spec.js|\js\3_jasmine-demo_refactor\saveFormat.js|\js\3_jasmine-demo_refactor\saveFormat.spec.js|\js\4_jasmine-demo_repeat\saveFormat.js|\js\4_jasmine-demo_repeat\saveFormat.spec.js|\js\5_jasmine-demo_jquery\jquery.myPlugin.js|\js\5_jasmine-demo_jquery\jquery.myPlugin.spec.js|\js\6_jasmine-demo_spies\garfield.js|\js\6_jasmine-demo_spies\garfield.spec.js|\lib\js\classList.js|\lib\js\head.min.js|\lib\js\html5shiv.js|\plugin\highlight\highlight.js|\plugin\markdown\markdown.js|\plugin\markdown\showdown.js|\plugin\notes\notes.js|\plugin\notes-server\client.js|\plugin\notes-server\index.js|\plugin\postmessage\postmessage.js|\plugin\remotes\remotes.js|\plugin\zoom-js\zoom.js|\js\jasmine\lib\jasmine-1.3.1\jasmine.js|\js\jasmine\lib\jasmine-1.3.1\jasmine-html.js|\js\jasmine\lib\jasmine-1.3.1\jasmine.console_reporter.js|\js\jasmine\spec\PlayerSpec.js|\js\jasmine\spec\SpecHelper.js|\js\jasmine\lib\jasmine-jquery.js|\js\jquery-1.9.1.js|\plugin\print-pdf\print-pdf.js|\js\notifier.js|\js\purl.js|\js\cookie.js|\js\knockout-2.2.1.js|\js\knockout.mapping-latest.debug.js|\js\knockout.mapping-latest.js|\js\knockout-2.2.1.debug.js|\examples\jasmine-demo\saveFormat.js|\examples\jasmine-demo\saveFormat.spec.js|\examples\jasmine-demo2\saveFormat.js|\examples\jasmine-demo2\saveFormat.spec.js|\examples\jasmine\lib\jasmine-1.3.1\jasmine.js|\examples\jasmine\lib\jasmine-1.3.1\jasmine-html.js|\examples\jasmine\lib\jasmine-1.3.1\jasmine.console_reporter.js|\examples\jasmine\lib\jasmine-jquery.js|\examples\jasmine\spec\PlayerSpec.js|\examples\jasmine\spec\SpecHelper.js|\js\jquery-2.0.3.min.js|\js\jquery-2.0.3.intellisense.js|\js\jquery-2.0.3.js|\examples\05_jasmine\jquery.myPlugin.spec.js|\examples\05_jasmine\jquery.myPlugin.js</JSLintSkip>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="images\bg_wiesn.png" />
+    <Content Include="images\cordova_bootstrap_knockout.png" />
+    <Content Include="images\cordova_jQueryMobile.png" />
+    <Content Include="images\cordova_KendoUiMobile.png" />
+    <Content Include="images\icon_apps.png" />
+    <Content Include="images\icon_calendar.png" />
+    <Content Include="images\icon_calendar_orange.png" />
+    <Content Include="images\icon_repeat.png" />
+    <Content Include="images\icon_repeat_orange.png" />
+    <Content Include="images\jasmine_logo.png" />
+    <Content Include="index_require.js.html" />
+    <Content Include="examples\01_getElementsByClassName.html" />
+    <Content Include="examples\02_getElementsByClassName2.html" />
+    <Content Include="examples\03_getElementsByClassName3.html" />
+    <Content Include="examples\04_jQuery_object.html" />
+    <Content Include="examples\05_jasmine\jquery.myPlugin.js" />
+    <Content Include="examples\05_jasmine\jquery.myPlugin.spec.html" />
+    <Content Include="examples\05_jasmine\jquery.myPlugin.spec.js" />
+    <Content Include="examples\05_jasmine\SpecRunner.html" />
+    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine-html.js" />
+    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine.console_reporter.js" />
+    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine.css" />
+    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine.js" />
+    <Content Include="examples\jasmine\lib\jasmine-jquery.js" />
+    <Content Include="examples\jasmine\SpecRunner.html" />
+    <Content Include="examples\jasmine\spec\PlayerSpec.js" />
+    <Content Include="examples\jasmine\spec\SpecHelper.js" />
+    <Content Include="examples\jasmine\src\Player.js" />
+    <Content Include="examples\jasmine\src\Song.js" />
+    <Content Include="examples\smilie.html" />
+    <Content Include="images\events_dom.png" />
+    <Content Include="images\events_jquery.png" />
+    <Content Include="images\hypermedia0.png" />
+    <Content Include="images\hypermedia1.png" />
+    <Content Include="images\hypermedia2.png" />
+    <Content Include="images\hypermedia3.png" />
+    <Content Include="images\icon_flash.png" />
+    <Content Include="images\internet_explorer.png" />
+    <Content Include="images\logo_big_plain.png" />
+    <Content Include="images\logo_developer_media.png" />
+    <Content Include="images\icon_mustache.png" />
+    <Content Include="images\sizzel_logo.png" />
+    <Content Include="index_jQuery.html" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\print\paper.css" />
+    <Content Include="css\print\pdf.css" />
+    <Content Include="css\reveal.css" />
+    <Content Include="css\reveal.min.css" />
+    <Content Include="css\theme\beige.css" />
+    <Content Include="css\theme\default.css" />
+    <Content Include="css\theme\night.css" />
+    <Content Include="css\theme\serif.css" />
+    <Content Include="css\theme\simple.css" />
+    <Content Include="css\theme\sky.css" />
+    <Content Include="css\theme\developerMedia.css" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\icon.png" />
+    <Content Include="images\icon_bug.png" />
+    <Content Include="images\icon_communication.png" />
+    <Content Include="images\icon_file.png" />
+    <Content Include="images\icon_storage.png" />
+    <Content Include="images\icon_tool.png" />
+    <Content Include="images\jasmine_logo_bg.png" />
+    <Content Include="images\johannes.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_big.png" />
+    <Content Include="images\pixel.png" />
+    <Content Include="index.html" />
+    <Content Include="index_knockoutjs.html" />
+    <Content Include="index_webapi.html" />
+    <Content Include="js\1_jasmine-demo_fail\saveFormat.js" />
+    <Content Include="js\1_jasmine-demo_fail\saveFormat.spec.js" />
+    <Content Include="js\1_jasmine-demo_fail\SpecRunner.html" />
+    <Content Include="js\2_jasmine-demo_pass\saveFormat.js" />
+    <Content Include="js\2_jasmine-demo_pass\saveFormat.spec.js" />
+    <Content Include="js\2_jasmine-demo_pass\SpecRunner.html" />
+    <Content Include="js\3_jasmine-demo_refactor\saveFormat.js" />
+    <Content Include="js\3_jasmine-demo_refactor\saveFormat.spec.js" />
+    <Content Include="js\3_jasmine-demo_refactor\SpecRunner.html" />
+    <Content Include="js\4_jasmine-demo_repeat\saveFormat.js" />
+    <Content Include="js\4_jasmine-demo_repeat\saveFormat.spec.js" />
+    <Content Include="js\4_jasmine-demo_repeat\SpecRunner.html" />
+    <Content Include="js\5_jasmine-demo_jquery\jquery.myPlugin.js" />
+    <Content Include="js\5_jasmine-demo_jquery\jquery.myPlugin.spec.html" />
+    <Content Include="js\5_jasmine-demo_jquery\jquery.myPlugin.spec.js" />
+    <Content Include="js\5_jasmine-demo_jquery\SpecRunner.html" />
+    <Content Include="js\6_jasmine-demo_spies\garfield.js" />
+    <Content Include="js\6_jasmine-demo_spies\garfield.spec.js" />
+    <Content Include="js\6_jasmine-demo_spies\SpecRunner.html" />
+    <Content Include="js\domReady.js">
+      <DependentUpon>require.js</DependentUpon>
+    </Content>
+    <Content Include="examples\jasmine\lib\jasmine-1.3.1\MIT.LICENSE" />
+    <None Include="examples\webinar.json" />
+    <Content Include="js\jasmine\lib\jasmine-1.3.1\MIT.LICENSE" />
+    <None Include="js\jquery-2.0.3.intellisense.js">
+      <DependentUpon>jquery-2.0.3.js</DependentUpon>
+    </None>
+    <Content Include="js\jasmine\lib\jasmine-1.3.1\jasmine-html.js" />
+    <Content Include="js\jasmine\lib\jasmine-1.3.1\jasmine.console_reporter.js" />
+    <Content Include="js\jasmine\lib\jasmine-1.3.1\jasmine.css" />
+    <Content Include="js\jasmine\lib\jasmine-1.3.1\jasmine.js" />
+    <Content Include="js\jasmine\lib\jasmine-jquery.js" />
+    <Content Include="js\jasmine\SpecRunner.html" />
+    <Content Include="js\jasmine\spec\PlayerSpec.js" />
+    <Content Include="js\jasmine\spec\SpecHelper.js" />
+    <Content Include="js\jasmine\src\Player.js" />
+    <Content Include="js\jasmine\src\Song.js" />
+    <Content Include="js\jquery-2.0.3.js" />
+    <Content Include="js\jquery-2.0.3.min.js">
+      <DependentUpon>jquery-2.0.3.js</DependentUpon>
+    </Content>
+    <Content Include="js\purl.js" />
+    <Content Include="js\require.config.js">
+      <DependentUpon>require.js</DependentUpon>
+    </Content>
+    <Content Include="js\require.js" />
+    <Content Include="js\reveal.js" />
+    <Content Include="js\reveal.min.js">
+      <DependentUpon>reveal.js</DependentUpon>
+    </Content>
+    <Content Include="lib\css\default.css" />
+    <Content Include="lib\css\github.css" />
+    <Content Include="plugin\showSource\showSource.js" />
+    <Content Include="lib\css\zenburn.css" />
+    <Content Include="lib\font\league_gothic-webfont.svg" />
+    <Content Include="lib\font\ubuntu\demo.html" />
+    <Content Include="lib\font\ubuntu\stylesheet.css" />
+    <Content Include="lib\font\ubuntu\Ubuntu Font License 1.0.txt" />
+    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.svg" />
+    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.svg" />
+    <Content Include="lib\js\classList.js" />
+    <Content Include="lib\js\head.min.js" />
+    <Content Include="lib\js\html5shiv.js" />
+    <Content Include="plugin\highlight\highlight.js" />
+    <Content Include="plugin\markdown\markdown.js" />
+    <Content Include="plugin\markdown\showdown.js" />
+    <Content Include="plugin\notes-server\client.js" />
+    <Content Include="plugin\notes-server\index.js" />
+    <Content Include="plugin\notes-server\notes.html" />
+    <Content Include="plugin\notes\notes.html" />
+    <Content Include="plugin\notes\notes.js" />
+    <Content Include="plugin\postmessage\example.html" />
+    <Content Include="plugin\postmessage\postmessage.js" />
+    <Content Include="plugin\print-pdf\print-pdf.js" />
+    <Content Include="plugin\remotes\remotes.js" />
+    <Content Include="plugin\zoom-js\zoom.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="! compile sass themes.cmd" />
+    <None Include="css\shaders\tile-flip.fs" />
+    <None Include="css\shaders\tile-flip.vs" />
+    <None Include="css\theme\README.md" />
+    <None Include="css\theme\source\beige.scss" />
+    <None Include="css\theme\source\default.scss" />
+    <None Include="css\theme\source\night.scss" />
+    <None Include="css\theme\source\serif.scss" />
+    <None Include="css\theme\source\simple.scss" />
+    <None Include="css\theme\source\sky.scss" />
+    <Content Include="css\theme\source\developerMedia.scss" />
+    <None Include="css\theme\template\mixins.scss" />
+    <None Include="css\theme\template\settings.scss" />
+    <None Include="css\theme\template\theme.scss" />
+    <Content Include="js\jquery-2.0.3.min.map">
+      <DependentUpon>jquery-2.0.3.js</DependentUpon>
+    </Content>
+    <None Include="lib\font\league_gothic-webfont.eot" />
+    <None Include="lib\font\league_gothic-webfont.ttf" />
+    <None Include="lib\font\league_gothic-webfont.woff" />
+    <None Include="lib\font\league_gothic_license" />
+    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.woff" />
+    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.eot" />
+    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.ttf" />
+    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.woff" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50508</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1333/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

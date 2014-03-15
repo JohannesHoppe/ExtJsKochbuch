@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TDD: 2. Watch them fail</title>
+
+    <link rel="stylesheet" href="../jasmine/lib/jasmine-1.3.1/jasmine.css" />
+    <script src="../jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+    <script src="../jasmine/lib/jasmine-1.3.1/jasmine-html.js"></script>
+
+    <script src="saveFormat.js"></script>
+    <script src="saveFormat.spec.js"></script>
+
+    <script>
+
+        (function () {
+
+            var htmlReporter = new jasmine.HtmlReporter();
+            var jasmineEnv = jasmine.getEnv();
+
+            jasmineEnv.addReporter(htmlReporter);
+            jasmineEnv.specFilter = function (spec) {
+                return htmlReporter.specFilter(spec);
+            };
+
+            var currentWindowOnload = window.onload;
+
+            window.onload = function () {
+                if (currentWindowOnload) { currentWindowOnload(); }
+                jasmineEnv.execute();
+            };
+        })();
+    </script>
+
+</head>
+
+<body>
+</body>
+</html>
