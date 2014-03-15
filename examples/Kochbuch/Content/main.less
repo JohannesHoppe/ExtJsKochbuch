@@ -5,8 +5,9 @@
     font-size: 16px;
     line-height: 1.5;
 
+    /* Index Page Only */
     &.index {
-        padding: 0 10px 10px 10px;
+        padding: 0 20px 20px 10px;
         background-image: url(images/background-pattern.svg);
         background-repeat: repeat;
         background-color: #ddd;
@@ -21,30 +22,121 @@
             }
         }
 
-        /* transparent for pattern to shine through */
-        #exampleTree {
+        /* North Header */
+        div.header {
+            width: 100%;
+            height: 90px;
+            padding-left: 18px;
+            float: left;
+            color: #222222;
 
+            .logo {
+                 position: absolute;
+                 display: block;
+                 margin-top: 5px;
+                 margin-left: -280px;
+                 height: 310px;
+                 z-index: 2;
+            }
+
+            h1 {
+                position: absolute;
+        
+                width: 495px;
+                height: 56px;
+        
+                top: 17px;
+                left: 0px;
+
+                margin: 0;
+                padding: 6px 3px 3px 330px;
+
+                font-family: 'OpenSansRegular';
+
+                color: white;
+                font-size: 28px;
+                background-color: #5BA5AE;
+                z-index: 1;
+            }
+
+            a {
+                position: absolute;
+                top: 54px;
+                left: 24px;
+                color: #84BBC2;
+                z-index: 3;
+                text-decoration: none;
+
+
+                 &:hover { 
+                     text-decoration: underline;
+                     color: white; 
+                 }
+            }
+        }
+
+        /* West Tree */
+        #exampleTree {
+    
             padding: 0 5px 0 0;
+
+            .x-tree-view {
+                margin-top: 5px;
+
+                .x-grid-table {
+                    background-color: #346369;
+                    padding: 6px 3px 3px 3px;
+                }
+            }
 
             .x-grid-header-ct {
                 border: none;
             }
-
+    
+            /* transparent for pattern to shine through */
             .x-panel-body {
 
                 background-color: transparent;
                 border: none;
 
                 .x-grid-cell {
-                    background-color: #346369;
+                    background-color:transparent;
+                }
+
+                .x-grid-cell-inner {
+                    height: 26px;
+                }
+
+                .x-tree-node-text {
+                    font-family: 'OpenSansRegular';
+                    font-size: 16px;
+                    line-height: 1.1;
+                    margin: 2px;
+                    text-decoration: none;
+                    color: white;
+                }
+
+                .x-tree-view:after
+                { 
+                    content: "";
+                    display: block;
+                    width: 86px;
+                    height: 252px;
+                    background-image: url(images/beater.svg);
+                    background-repeat: no-repeat;
+                    background-position: 0px -15px;
                 }
             }
 
-            a, span {
-                color: white;
+            .x-tree-arrows .x-tree-elbow-plus, 
+            .x-tree-arrows .x-tree-elbow-minus, 
+            .x-tree-arrows .x-tree-elbow-end-plus,
+            .x-tree-arrows .x-tree-elbow-end-minus {
+                background-image : none;
             }
         }
 
+        /* Center Tabs */
         #ExampleTabs > .x-tab-bar {
             background: none;
             border: none;
@@ -52,88 +144,8 @@
     }
 }
 
-/*  Header
-    -----------------------------------------------------------------------------------------------*/
-
-div.header {
-    width: 100%;
-    height: 90px;
-    padding-left: 18px;
-    float: left;
-    color: #222222;
-
-    .logo {
-         position: absolute;
-         display: block;
-         margin-top: 5px;
-         margin-left: -280px;
-         height: 310px;
-         z-index: 2;
-    }
-
-    h1 {
-        position: absolute;
-        
-        width: 495px;
-        height: 56px;
-        
-        top: 17px;
-        left: 0px;
-
-        margin: 0;
-        padding: 6px 3px 3px 330px;
-
-        font-family: 'OpenSansRegular';
-
-        color: white;
-        font-size: 28px;
-        background-color: #5BA5AE;
-        z-index: 1;
-    }
-
-    a {
-        position: absolute;
-        top: 54px;
-        left: 24px;
-        color: #84BBC2;
-        z-index: 3;
-        text-decoration: none;
 
 
-         &:hover { 
-             text-decoration: underline;
-             color: white; 
-         }
-    }
-}
-
-
-#exampleTree {
-    
-    .x-tree-view {
-        margin-top: 5px;
-    }
-
-    .x-tree-node-text {
-        font-family: 'OpenSansRegular';
-        font-size: 16px;
-        line-height: 1.1;
-        margin: 2px;
-        text-decoration: none;
-        color: black;
-    }
-
-    .x-grid-cell-inner {
-        height: 26px;
-    }
-
-    .x-tree-arrows .x-tree-elbow-plus, 
-    .x-tree-arrows .x-tree-elbow-minus, 
-    .x-tree-arrows .x-tree-elbow-end-plus,
-    .x-tree-arrows .x-tree-elbow-end-minus {
-        background-image : none;
-    }
-}
 
 /* TODO: get a licence! */
 #unlicensed {

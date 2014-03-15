@@ -4,15 +4,18 @@ body {
   font-family: 'OpenSansRegular';
   font-size: 16px;
   line-height: 1.5;
+  /* Index Page Only */
 }
 body.index {
-  padding: 0 10px 10px 10px;
+  padding: 0 20px 20px 10px;
   background-image: url(images/background-pattern.svg);
   background-repeat: repeat;
   background-color: #ddd;
   background-position: 3px 25px;
   /* once transparent for pattern to shine through */
-  /* transparent for pattern to shine through */
+  /* North Header */
+  /* West Tree */
+  /* Center Tabs */
 }
 body.index .x-panel-body {
   background-color: transparent;
@@ -21,37 +24,14 @@ body.index .x-panel-body {
 body.index .x-panel-body .x-panel-body {
   background-color: white;
 }
-body.index #exampleTree {
-  padding: 0 5px 0 0;
-}
-body.index #exampleTree .x-grid-header-ct {
-  border: none;
-}
-body.index #exampleTree .x-panel-body {
-  background-color: transparent;
-  border: none;
-}
-body.index #exampleTree .x-panel-body .x-grid-cell {
-  background-color: #346369;
-}
-body.index #exampleTree a,
-body.index #exampleTree span {
-  color: white;
-}
-body.index #ExampleTabs > .x-tab-bar {
-  background: none;
-  border: none;
-}
-/*  Header
-    -----------------------------------------------------------------------------------------------*/
-div.header {
+body.index div.header {
   width: 100%;
   height: 90px;
   padding-left: 18px;
   float: left;
   color: #222222;
 }
-div.header .logo {
+body.index div.header .logo {
   position: absolute;
   display: block;
   margin-top: 5px;
@@ -59,7 +39,7 @@ div.header .logo {
   height: 310px;
   z-index: 2;
 }
-div.header h1 {
+body.index div.header h1 {
   position: absolute;
   width: 495px;
   height: 56px;
@@ -73,7 +53,7 @@ div.header h1 {
   background-color: #5BA5AE;
   z-index: 1;
 }
-div.header a {
+body.index div.header a {
   position: absolute;
   top: 54px;
   left: 24px;
@@ -81,29 +61,60 @@ div.header a {
   z-index: 3;
   text-decoration: none;
 }
-div.header a:hover {
+body.index div.header a:hover {
   text-decoration: underline;
   color: white;
 }
-#exampleTree .x-tree-view {
+body.index #exampleTree {
+  padding: 0 5px 0 0;
+  /* transparent for pattern to shine through */
+}
+body.index #exampleTree .x-tree-view {
   margin-top: 5px;
 }
-#exampleTree .x-tree-node-text {
+body.index #exampleTree .x-tree-view .x-grid-table {
+  background-color: #346369;
+  padding: 6px 3px 3px 3px;
+}
+body.index #exampleTree .x-grid-header-ct {
+  border: none;
+}
+body.index #exampleTree .x-panel-body {
+  background-color: transparent;
+  border: none;
+}
+body.index #exampleTree .x-panel-body .x-grid-cell {
+  background-color: transparent;
+}
+body.index #exampleTree .x-panel-body .x-grid-cell-inner {
+  height: 26px;
+}
+body.index #exampleTree .x-panel-body .x-tree-node-text {
   font-family: 'OpenSansRegular';
   font-size: 16px;
   line-height: 1.1;
   margin: 2px;
   text-decoration: none;
-  color: black;
+  color: white;
 }
-#exampleTree .x-grid-cell-inner {
-  height: 26px;
+body.index #exampleTree .x-panel-body .x-tree-view:after {
+  content: "";
+  display: block;
+  width: 86px;
+  height: 252px;
+  background-image: url(images/beater.svg);
+  background-repeat: no-repeat;
+  background-position: 0px -15px;
 }
-#exampleTree .x-tree-arrows .x-tree-elbow-plus,
-#exampleTree .x-tree-arrows .x-tree-elbow-minus,
-#exampleTree .x-tree-arrows .x-tree-elbow-end-plus,
-#exampleTree .x-tree-arrows .x-tree-elbow-end-minus {
+body.index #exampleTree .x-tree-arrows .x-tree-elbow-plus,
+body.index #exampleTree .x-tree-arrows .x-tree-elbow-minus,
+body.index #exampleTree .x-tree-arrows .x-tree-elbow-end-plus,
+body.index #exampleTree .x-tree-arrows .x-tree-elbow-end-minus {
   background-image: none;
+}
+body.index #ExampleTabs > .x-tab-bar {
+  background: none;
+  border: none;
 }
 /* TODO: get a licence! */
 #unlicensed {
