@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,15 +9,11 @@ namespace Kochbuch.Code
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            ControllerBase controller = filterContext.Controller;
-            string actionName = filterContext.ActionDescriptor.ActionName;
-            object model = filterContext.Controller.ViewData.Model;
-
-
-            string code = RenderView.RenderRazorViewToString(controller, actionName, model);
-            code = code.ExtractBetween("<!-- body -->", "<!-- /body -->", false);
-            code = code.Trim();
-            SetViewData(filterContext, "Code", code);
+            string controllerName = (string)filterContext.RouteData.Values["controller"];
+            string actionName = (string)filterContext.RouteData.Values["action"];
+            string viewPath = HttpContext.Current.Server.MapPath(String.Format("~/Views/{0}/{1}.cshtml", controllerName, actionName));
+            string viewContent = File.ReadAllText(viewPath).Trim();
+            SetViewData(filterContext, "Code", viewContent);
         }
 
         public static void SetViewData(ActionExecutedContext filterContext, string key, object value)
