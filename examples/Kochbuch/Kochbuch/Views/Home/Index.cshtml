@@ -1,18 +1,22 @@
 ﻿<!DOCTYPE html>
-
 <html>
-<head>
-    <title>EXT JS Kochbuch</title> 
-    @Html.X().ResourceManager()
-</head>
-<body>
+    <head>
+        <meta charset="utf-8" />  
+        <meta name="viewport" content="width=device-width" />
+        <title>EXT JS Kochbuch</title> 
+        @Styles.Render("~/Content/styles")
 
-    @(
-    Html.X().Viewport().Layout(LayoutType.Border)
-        .ItemsFromPage(this, "~/Views/Home/_North.cshtml")
-        .ItemsFromPage(this, "~/Views/Home/_West.cshtml")
-        .ItemsFromPage(this, "~/Views/Home/_Center.cshtml")
-    )
-    
-</body>
+        @Html.X().ResourceManager()
+    </head>
+    <body>
+
+        @(
+        Html.X().Viewport().Layout(LayoutType.Border)
+            .ItemsFromPage(this, "~/Views/Home/_North.cshtml")
+            .ItemsFromPage(this, "~/Views/Home/_West.cshtml")
+            .ItemsFromPage(this, "~/Views/Home/_Center.cshtml")
+        )
+       
+        @Scripts.Render("~/Scripts/scripts")
+    </body>
 </html>
