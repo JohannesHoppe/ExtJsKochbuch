@@ -45,3 +45,7 @@ h1.title {
 #exampleTree .x-tree-arrows .x-tree-elbow-end-minus {
   background-image: none;
 }
+/* TODO: get a licence! */
+#unlicensed {
+  display: none !important;
+}
