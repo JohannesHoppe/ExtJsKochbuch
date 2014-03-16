@@ -4,7 +4,5 @@ name: Ext JS Kochbuch Playground
 description: Ext JS Grid Demo
 authors:
   - Johannes Hoppe
-resources:
-  - http://cdn.sencha.io/ext-4.2.0-gpl/resources/css/ext-all.css
 ...
 */
