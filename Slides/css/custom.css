@@ -111,18 +111,6 @@ ul.model span {
     transition: background-image 0.8s linear;
 }
 
-.bg_wiesn .reveal .state-background {
-    background-image: url('../images/bg_wiesn.png');
-    
-    background-position: right bottom;
-    background-size: 400px 400px;
-
-    -webkit-transition: background-image 0.8s linear;
-    -moz-transition: background-image 0.8s linear;
-    -o-transition: background-image 0.8s linear;
-    transition: background-image 0.8s linear;
-}
-
 code.small {
     font-size: 14px;
     line-height: 16px;
@@ -140,6 +128,16 @@ iframe.spec {
 
 .showPrint {
     display: none !important;
+}
+
+/* TODO  */
+.iphone {
+    background: url(../images/iphone-screen.gif), url(../images/iphone-hand.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 122px 99px, 0 0;
+    width: 704px;
+    height: 889px;
+    margin-left: 200px !important;
 }
 
 /* ReSharper restore UnknownHtmlTag */
