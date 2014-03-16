@@ -116,6 +116,10 @@ body.index #ExampleTabs > .x-tab-bar {
   background: none;
   border: none;
 }
+#myCode pre {
+  margin: 0;
+  padding: 0;
+}
 /* TODO: get a licence! */
 #unlicensed {
   display: none !important;
