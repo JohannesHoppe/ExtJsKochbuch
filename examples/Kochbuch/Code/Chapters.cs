@@ -1,6 +1,6 @@
 ﻿using Ext.Net;
 
-namespace Kochbuch.Controllers
+namespace Kochbuch.Code
 {
     public class Chapters
     {
@@ -62,16 +62,28 @@ namespace Kochbuch.Controllers
             };
             */
 
+            var jsFiddle = new Node
+            {
+                NodeID = "jsFiddle_grid",
+                Text = "jsFiddle: Grid ",
+                Href = "http://jsfiddle.net/gh/get/extjs/4.2/JohannesHoppe/ExtJsKochbuch/ExtJsKochbuch/tree/gh-pages/examples/jsFiddle/Grid",
+                Icon = Icon.WeatherCloud,
+                Leaf = true
+            };
+
             var chapter1 = new Node { Text = "Kapitel 1" };
             var chapter2 = new Node { Text = "Kapitel 2" };
+            var chapterX = new Node { Text = "Playground" };
 
             chapter1.Children.AddRange(new[] { example1, example2 });
             chapter2.Children.AddRange(new[] { example3, example4, example5 });
+            chapterX.Children.AddRange(new[] { jsFiddle });
 
             var nodes = new NodeCollection
                             {
                                 chapter1,
-                                chapter2
+                                chapter2,
+                                chapterX
                             };
             return nodes;
         }

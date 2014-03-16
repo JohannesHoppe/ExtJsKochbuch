@@ -212,9 +212,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\ActionFilterAttribute.cs" />
-    <Compile Include="Controllers\Chapters.cs">
-      <DependentUpon>HomeController.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Code\Chapters.cs" />
     <Compile Include="Controllers\Kapitel2Controller.cs" />
     <Compile Include="Controllers\ExtNetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
