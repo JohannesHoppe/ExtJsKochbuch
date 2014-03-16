@@ -39,17 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="images\bg_wiesn.png" />
-    <Content Include="images\cordova_bootstrap_knockout.png" />
-    <Content Include="images\cordova_jQueryMobile.png" />
-    <Content Include="images\cordova_KendoUiMobile.png" />
-    <Content Include="images\icon_apps.png" />
     <Content Include="images\icon_calendar.png" />
-    <Content Include="images\icon_calendar_orange.png" />
     <Content Include="images\icon_repeat.png" />
-    <Content Include="images\icon_repeat_orange.png" />
     <Content Include="images\jasmine_logo.png" />
-    <Content Include="index_require.js.html" />
     <Content Include="examples\01_getElementsByClassName.html" />
     <Content Include="examples\02_getElementsByClassName2.html" />
     <Content Include="examples\03_getElementsByClassName3.html" />
@@ -71,17 +63,10 @@
     <Content Include="examples\smilie.html" />
     <Content Include="images\events_dom.png" />
     <Content Include="images\events_jquery.png" />
-    <Content Include="images\hypermedia0.png" />
-    <Content Include="images\hypermedia1.png" />
-    <Content Include="images\hypermedia2.png" />
-    <Content Include="images\hypermedia3.png" />
     <Content Include="images\icon_flash.png" />
-    <Content Include="images\internet_explorer.png" />
-    <Content Include="images\logo_big_plain.png" />
-    <Content Include="images\logo_developer_media.png" />
     <Content Include="images\icon_mustache.png" />
-    <Content Include="images\sizzel_logo.png" />
-    <Content Include="index_jQuery.html" />
+    <Content Include="images\logo.svg" />
+    <Content Include="index.html" />
     <Content Include="css\custom.css" />
     <Content Include="css\print\paper.css" />
     <Content Include="css\print\pdf.css" />
@@ -95,7 +80,6 @@
     <Content Include="css\theme\sky.css" />
     <Content Include="css\theme\developerMedia.css" />
     <Content Include="images\favicon.ico" />
-    <Content Include="images\icon.png" />
     <Content Include="images\icon_bug.png" />
     <Content Include="images\icon_communication.png" />
     <Content Include="images\icon_file.png" />
@@ -104,11 +88,7 @@
     <Content Include="images\jasmine_logo_bg.png" />
     <Content Include="images\johannes.png" />
     <Content Include="images\logo.png" />
-    <Content Include="images\logo_big.png" />
     <Content Include="images\pixel.png" />
-    <Content Include="index.html" />
-    <Content Include="index_knockoutjs.html" />
-    <Content Include="index_webapi.html" />
     <Content Include="js\1_jasmine-demo_fail\saveFormat.js" />
     <Content Include="js\1_jasmine-demo_fail\saveFormat.spec.js" />
     <Content Include="js\1_jasmine-demo_fail\SpecRunner.html" />

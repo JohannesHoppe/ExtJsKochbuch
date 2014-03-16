@@ -8,12 +8,6 @@ CD "%~dp0"
 SET PATH=%PATH%;%systemdrive%\chocolatey\bin
 
 @echo Downloading Ruby
-CALL cinst ruby
-
-@echo Downloading Sass
-CALL gem install sass
-
-@echo Starting Sass
-sass --watch css/theme/source/:css/theme --style expanded
+CALL cinst ruby -Version 1.9.3.48400
 
 pause

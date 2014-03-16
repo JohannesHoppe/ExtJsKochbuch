@@ -13,21 +13,18 @@
   font-weight: normal;
   src: url("../../lib/font/ubuntu/Ubuntu-RI-webfont.eot") format("eot"), url("../../lib/font/ubuntu/Ubuntu-RI-webfont.woff") format("woff"), url("../../lib/font/ubuntu/Ubuntu-RI-webfont.ttf") format("truetype"), url("../../lib/font/ubuntu/Ubuntu-RI-webfont.svg#Ubuntu-RI-webfont") format("svg");
 }
-
 @font-face {
   font-family: UbuntuBold;
   font-style: normal;
   font-weight: normal;
   src: url("../../lib/font/ubuntu/Ubuntu-B-webfont.eot") format("eot"), url("../../lib/font/ubuntu/Ubuntu-B-webfont.woff") format("woff"), url("../../lib/font/ubuntu/Ubuntu-B-webfont.ttf") format("truetype"), url("../../lib/font/ubuntu/Ubuntu-B-webfont.svg#Ubuntu-B-webfont") format("svg");
 }
-
 @font-face {
   font-family: UbuntuLight;
   font-style: normal;
   font-weight: normal;
   src: url("../../lib/font/ubuntu/Ubuntu-L-webfont.eot") format("eot"), url("../../lib/font/ubuntu/Ubuntu-L-webfont.woff") format("woff"), url("../../lib/font/ubuntu/Ubuntu-L-webfont.ttf") format("truetype"), url("../../lib/font/ubuntu/Ubuntu-L-webfont.svg#Ubuntu-L-webfont") format("svg");
 }
-
 em, em * {
   font-family: UbuntuLightItalic, sans-serif;
 }
