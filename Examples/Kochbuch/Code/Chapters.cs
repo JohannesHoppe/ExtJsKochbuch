@@ -66,7 +66,7 @@ namespace Kochbuch.Code
             {
                 NodeID = "jsFiddle_grid",
                 Text = "jsFiddle: Grid ",
-                Href = "http://jsfiddle.net/gh/get/extjs/4.2/JohannesHoppe/ExtJsKochbuch/tree/master/Examples/jsFiddle/Grid/",
+                Href = "http://jsfiddle.net/gh/get/extjs/4.2/JohannesHoppe/ExtJsKochbuch/tree/master/Examples/FiddleGrid",
                 Icon = Icon.WeatherCloud,
                 Leaf = true
             };
