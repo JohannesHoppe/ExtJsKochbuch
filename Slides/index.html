@@ -1,10 +1,10 @@
-﻿<!--<!doctype html>-->
+﻿<!doctype html>
 <html lang="de">
 
     <head>
         <meta charset="utf-8">
 
-        <title>Webinar Slides</title>
+        <title>Vortrag: Ext JS</title>
 
         <meta name="description" content="DeveloperMediaSlides">
         <meta name="author" content="Johannes Hoppe">
@@ -21,7 +21,8 @@
         <link rel="stylesheet" href="css/custom.css">
 
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+        <link href="lib/css/github.css" rel="stylesheet" />
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
         <script>
@@ -34,45 +35,787 @@
     </head>
 
     <body>
-
         <div class="reveal">
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
 
-                <section style="text-align: left;">
-                    <section data-markdown style="font-size: 0.6em;">
-                        <h2 style="background-image: url('images/logo_developer_media.png'); background-repeat: no-repeat; padding: 5px 10px 15px 140px;border-bottom: 3px solid #537078; width: 50%;">Slides</h2>
-                          
-                        &nbsp;
-                          
-                        [Knockout.js für .NET Entwickler](index_knockoutjs.html)  
+                <section>
+                    <img src="images/logo_big_plain.png" width="75%" style=""/>
+                    <h1 class="nowrap hidePrint" style="font-size: 2.5em;">&nbsp;jQuery 2013</h1>
+                    <h1 class="nowrap showPrint" style="font-size: 1.8em;">&nbsp;jQuery 2013</h1>
+                    <br class="hidePrint" />
+                    <br class="hidePrint" />
+                    <small class="hidePrint">Navigation mit <span class="key">Esc</span>, <span class="key">→</span> und <span class="key">↓</span></small>
+                    <h4 class="showPrint"><a style="font-size: 0.5em;color:#E47A0D" href="http://johanneshoppe.github.io/DeveloperMediaSlides/index_jQuery.html">bit.ly/devMedia - Interaktive Version der Präsentation!</a></h4>
+                </section>
+                
+                <section>
+                    <section data-markdown>
+                        ![tools](images/johannes.png)
+                     
+                        ### [JohannesHoppe.de](http://www.johanneshoppe.de/) 
                         
-                        * 27.05.2013
-                        * 11.06.2013
+                        <h4 class="showPrint"><a style="font-size: 0.5em;color:#E47A0D" href="http://johanneshoppe.github.io/DeveloperMediaSlides/index_jQuery.html">bit.ly/devMedia - Interaktive Version der Präsentation!</a></h4>
+                    </section>
+                      
+                    <!--
+                    <section data-markdown>
+                        ## Ziele
+                        <small>1. Teil</small>
+                    
+                        * ???
+                        * ???
+                    </section>
+                    
+                    <section data-markdown>
+                        ## Ziele
+                        <small>2. Teil</small>
+                         
+                        * ???
+                        * ???
+                    </section> 
+                    -->
+                    
+                </section> 
+                     
+                <!--
+                <section>
+                    <section data-markdown>
+                        # Tools
                         
-                        &nbsp;
-                        
-                        [ASP.NET Web API](index_webapi.html)  
-                        
-                        * 13.08.2013
-                        * 27.08.2013
-                        
-                        &nbsp;
-
-                        [jQuery 2013](index_jQuery.html) 
-                        
-                        * 12.09.2013
-                        * 26.09.2013
-                        
-                        &nbsp;
-                        
-                        [Require.js & Prinzipien für modulares JavaScript](index_require.js.html)
-                        
-                        * 19.09.2013
-                        * 02.10.2013
+                        ![tools](images/icon_tool.png)
+                    </section>
+                    
+                    <section  data-markdown>
+                        # Tools
+                            
+                        * Visual Studio 2012
+                        * [&raquo; Visual Studio 2013 Preview](http://www.microsoft.com/visualstudio/eng/2013-downloads)
+                        * [&raquo; Fiddler](http://fiddler2.com/)
                     </section>
                 </section>
+                -->
+
+                <section>
+                    <section data-markdown>
+                        ## jQuery Core
+                        
+                        ![tools](images/icon_tool.png)
+                    </section>
+  
+                    <section data-markdown>
+                        ### getElementsByClassName         
+
+                        ```html contenteditable data-show-source="examples/01_getElementsByClassName.html"
+                        loading source...
+                        ```
+                        
+                        <small class="mini">[&raquo; Demo](examples/01_getElementsByClassName.html)</small>
+                    </section>       
+
+                    <section data-markdown>
+                        <img src="images/internet_explorer.png" width="25%" style=""/>      
+
+                        ```html contenteditable data-show-source="examples/02_getElementsByClassName2.html"
+                        loading source...
+                        ```
+                        
+                        <small class="mini">[&raquo; Demo](examples/02_getElementsByClassName2.html)</small>
+                    </section> 
+                    
+                    <section data-markdown>
+                        ### jQuery!
+
+                        ```html contenteditable data-show-source="examples/03_getElementsByClassName3.html"
+                        loading source...
+                        ```
+                        
+                        <small class="mini">[&raquo; Demo](examples/03_getElementsByClassName3.html)</small>
+                    </section>      
+                    
+                    
+                    <section data-markdown>
+                        ## The jQuery way
+
+                        1. **Select** some HTML <small>(Sizzle Selector Engine)</small>
+                        2. Do something with it
+                    </section>      
+                    
+                    <section data-markdown>
+                        ## jQuery core
+
+                        <ul>
+                            <li class="fragment">DOM manipulation<span class="fragment" style="margin-left: 20px; color:green; font-size: 2em;">&#10003;</span></li>
+                            <li class="fragment">event handling<span class="fragment" style="margin-left: 20px; color:green; font-size: 2em;">&#10003;</span></li>
+                            <li class="fragment">animations</li>
+                            <li class="fragment">AJAX<span class="fragment" style="margin-left: 20px; color:green; font-size: 2em;">&#10003;</span></li>
+                            <li class="fragment">plugins<span class="fragment" style="margin-left: 20px; color:orange; font-size: 2em;">&#10003;<small style="font-size: 0.3em;">(next webinar)</small></span></li>
+                        </ul>
+                    </section>        
+
+                                  
+                    
+                    <section data-markdown>
+                        <img src="images/sizzel_logo.png" width="25%" style=""/>
+
+                        ```js fragment
+                        $("#myId")       // selects (one) element with the id "myId" 
+                        $(".myClass")    // selects all elements with the class name "myClass"
+                        $("div")         // selects all elements of type "div"
+                        $("div:first")   // selects the first element of type "div"
+                        $("div:odd")     // selects odd "div" elements, zero-indexed
+                        $("input:not(:checked)") // equals to
+                        $("input").not(":checked")
+                        ```
+                    </section>              
+                    
+                    <section data-markdown>
+                        ### Selector Performance
+                           
+                        <ul>
+                            <li class="fragment">Use IDs where possible</li>
+                            <li class="fragment">Avoid selecting by class only</li>
+                            <li class="fragment">KISS</li>
+                            <li class="fragment">Increase Specificity from Left to Right</li>
+                            <li class="fragment"><b>Avoid touching the DOM</b></li>
+                        </ul>
+                    </section>    
+                    
+                    <section data-markdown>
+                        ### Do something with it
+
+                        <ul>
+                            <li class="fragment"><a href="http://api.jquery.com/category/manipulation/">Manipulation of elements</a></li>
+                            <li class="fragment"><a href="http://api.jquery.com/category/attributes/">Change of element attributes</a></li>
+                            <li class="fragment"><a href="http://api.jquery.com/category/traversing/">Traversing</a></li>
+                            <li class="fragment"><a href="http://api.jquery.com/category/events/">Events</a></li>
+                            <li class="fragment"><a href="http://api.jquery.com/category/effects/">Effects</a></li>
+                            <li class="fragment"><a href="http://api.jquery.com/category/ajax/">AJAX</a></li>
+                        </ul>
+                    </section>  
+
+                    <section data-markdown>
+                        ### Example
+
+                        ```html contenteditable data-show-source="examples/04_jQuery_object.html"
+                        loading source...
+                        ```
+                        
+                        <small class="mini">[&raquo; Demo](examples/04_jQuery_object.html)</small>
+                    </section> 
+
+                </section>
+                
+                <section>
+                    
+                    <section data-markdown>
+                        ## Event Model
+                        
+                        ![tools](images/icon_flash.png)
+                    </section>
+                                           
+                    <section data-markdown>
+                        DOM Level 3 Event Model
+                        
+                        ![W3C: level 3 event](images/events_dom.png)
+                    </section>  
+                    
+                    <section data-markdown>
+                        DOM Level 3 Event Model
+                                  
+                        ```js contenteditable
+                        document.getElementsByTagName('a')[0]
+                            .addEventListener("click", function() {
+                                alert(this.text);
+                        });
+                        ```
+                    </section>  
+                    
+                    <section data-markdown>
+                        jQuery Event Model
+                        
+                        ![jQuery Event Model](images/events_jquery.png)
+                    </section>
+                    
+                    <section data-markdown>
+                        jQuery Event Model
+
+                        <a style="font-size: 0.5em">Demo Link</a>
+
+                        ```js fragment contenteditable
+                        $('a').on('click', function() {
+                            alert(this.text);
+                        });
+                        ```
+                        ```js fragment
+                        $('a').click(function() {
+                            alert(this.text);
+                        });
+                        ```
+                    </section>
+                           
+                    <section data-markdown>
+                        ### Some Ajax
+                        
+                        ```js contenteditable
+                        $(function() {
+                            $('#example').dataTable({
+                                sAjaxSource: "/api/Note/"
+                            });
+                        });
+                        ```
+                    </section>  
+
+                    <section data-markdown>
+                        ### First try
+                        
+                        ```js contenteditable
+                        $(function() {
+                            $('td').click(function() {
+                                alert($(this).text());
+                            });
+                        });
+                        ```                        
+                    </section>                     
+
+                    <section data-markdown>
+                        ### Delegated events
+                        
+                        ```js contenteditable
+                        $(function() {
+                            $('table').on('click', 'td', function() {
+                                alert($(this).text());
+                            });
+                        });
+                        ```                        
+                    </section>
+
+                    <section data-markdown>
+                        ### API changes!
+                        
+                        ```js fragment contenteditable
+                        $(selector).live(events, data, handler);               // jQuery 1.3+
+                        $(document).delegate(selector, events, data, handler); // jQuery 1.4.3+
+                        $(document).on(events, selector, data, handler);       // jQuery 1.7+
+                        ```                        
+                    </section> 
+                   
+                </section>
+                
+                <section>
+                    
+                    <section data-markdown>
+                        ## Asynchronous Communication
+                        
+                        ![tools](images/icon_communication.png)
+                    </section>  
+                    
+                    <section data-markdown>
+                        ### before jQuery 1.5
+                        
+                        ```js fragment contenteditable
+                        $.ajax({
+                            url: "/examples/webinar.json",
+                            success: function(result) {
+                                $.each(result, function(index, value) {
+                                  console.log(value.Title);
+                                });
+                            }
+                        });
+                        ```                        
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Deferred object
+                        
+                        ```js fragment contenteditable
+                        $.ajax("/examples/webinar.json")
+                        .done(function(result) {
+                            $.each(result, function(i, value) {
+                                console.log(value.Title);
+                            });
+                        });
+                        ```                        
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Deferred object - Promisses
+                        
+                        ```js fragment contenteditable
+                        $.when(
+                            $.ajax("/examples/webinar.json"),
+                            $.ajax("/examples/webinar.json"))
+                        .done(function(result1, result2) {
+                            var bothResults =  result1[0].concat(result2[0]);
+                            $.each(bothResults, function(i, value) {
+                                console.log(value.Title);
+                            });
+                        });
+                        ```
+                    </section>
+                </section>
+
+                <section>
+                    
+                    <section data-markdown>
+                        ## Best Practices
+                        
+                        ![tools](images/icon_mustache.png)
+                    </section> 
+                    
+                    <section data-markdown>
+                        ## Modul loaders
+                        <small>use AMD (require.js)</small>
+                        
+                        ```js contenteditable fragment
+                        define('myFirstModule', ['jquery'], function() {
+                        
+                            return {
+                                saySomething : function() { alert("hello!"); }
+                            }
+                        });
+                        
+                        require(['myFirstModule'], function(t) {
+                            t.saySomething();
+                        });
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ## Own Events
+                        <small>Publish/Subscribe Pattern</small>
+                        
+                        ```js contenteditable fragment
+                        var $events = $({});
+                        
+                        $events.bind('somethingHappens', function() {
+                            alert("Something happened!");
+                        });
+                        
+                        $events.trigger('somethingHappens');
+                        ```
+                    </section> 
+                                    
+                    <section data-markdown>
+                        ## ASP.NET MVC
+                        #### Bundling and Minification
+                    </section>
+                               
+                </section>
+
+                <section>                    
+
+                    <section data-markdown>
+                        ## Plugins
+                        
+                        ![tools](images/icon_tool.png)
+                    </section>                     
+                    
+                    <section data-markdown>
+                        ## 1. Utility functions
+                        <small>similar to global functions</small>
+                        
+                        ```js contenteditable fragment
+                        (function($) {
+                            $.say = function(what) {
+                                alert('I say ' + what); 
+                            };
+                        })(window.jQuery);
+                        ```
+                    </section>                     
+                    
+                    <section data-markdown>
+                        ## 2. Wrapper methods
+                        <small>operate on a jQuery wrapped set</small>
+                        
+                        ```js contenteditable fragment
+                        (function($){
+                            $.fn.changeColor = function() {
+                                return this.css('color', 'green');
+                            };
+                        })(window.jQuery);
+                        ```
+                    </section>             
+                    
+                    <section data-markdown>
+                        ## Default options
+                        
+                        ```js contenteditable fragment
+                        (function($){
+                            $.fn.changeColor = function(options) {
+                        
+                                var settings = $.extend({
+                                    color: "green"
+                                }, options );
+                        
+                                return this.css('color', settings.color);
+                            };
+                        })(window.jQuery);
+                        ```
+                    </section>   
+                    
+                    <section data-markdown>
+                        ## Chaining!
+                        <small>Always return this</small>
+                        
+                        ```js contenteditable fragment
+                        (function($){
+                            $.fn.someNewMethod = function() {
+                                return this.each(function(){
+
+
+                                });
+                            };
+                        })(jQuery);
+                        ```
+                    </section>                                                   
+
+                </section>
+
+                
+                <section data-state="jasmine">
+                    
+                    <section data-markdown>
+                        ![Jasmine](images/jasmine_logo.png")
+                        _TDD with [Jasmine](http://pivotal.github.com/jasmine/)_
+                    </section>
+                    
+                    <section data-markdown>
+                        ## Why Jasmine?
+                        
+                        <ul class="model jasmine">
+                            <li class="fragment">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;BDD-style&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <small>similar to JSpec or RSpec,<br>created by authors of jsUnit and Screw.Unit</small>
+                            </li>
+                            <li class="fragment">
+                                <span>&nbsp;independent&nbsp;</span>
+                                <small>from any browser, DOM,<br>framework or host language</small>
+                            </li>
+                            <li class="fragment">
+                                <span>&nbsp;&nbsp;&nbsp;integrates&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <small>into continuous build systems</small>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section data-markdown>
+                        ## Jasmine Bootstrap
+                        
+                        ```html contenteditable small
+                        _LT_!DOCTYPE html_GT_
+                        _LT_html_GT_
+                        _LT_head_GT_
+                            _LT_title_GT_Jasmine Spec Runner_LT_/title_GT_
+
+                            _LT_link rel=_QUOT_stylesheet_QUOT_ href=_QUOT_lib/jasmine-1.3.1/jasmine.css_QUOT_ /_GT_
+                            _LT_script src=_QUOT_lib/jasmine-1.3.1/jasmine.js_QUOT__GT__LT_/script_GT_
+                            _LT_script src=_QUOT_lib/jasmine-1.3.1/jasmine-html.js_QUOT__GT__LT_/script_GT_
+
+                            _LT_!-- include source files here... --_GT_
+                            _LT_script src=_QUOT_src/Player.js_QUOT__GT__LT_/script_GT_
+                            _LT_script src=_QUOT_src/Song.js_QUOT__GT__LT_/script_GT_
+
+                            _LT_!-- include spec files here... --_GT_
+                            _LT_script src=_QUOT_spec/SpecHelper.js_QUOT__GT__LT_/script_GT_
+                            _LT_script src=_QUOT_spec/PlayerSpec.js_QUOT__GT__LT_/script_GT_
+
+                            _LT_script_GT_
+
+                                (function () {
+
+                                    var htmlReporter = new jasmine.HtmlReporter();
+                                    var jasmineEnv = jasmine.getEnv();
+
+                                    jasmineEnv.addReporter(htmlReporter);
+                                    jasmineEnv.specFilter = function (spec) {
+                                        return htmlReporter.specFilter(spec);
+                                    };
+
+                                    var currentWindowOnload = window.onload;
+
+                                    window.onload = function () {
+                                        if (currentWindowOnload) { currentWindowOnload(); }
+                                        jasmineEnv.execute();
+                                    };
+                                })();
+                            _LT_/script_GT_
+
+                        _LT_/head_GT_
+
+                        _LT_body_GT_
+                        _LT_/body_GT_
+                        _LT_/html_GT_
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ## Output
+                        
+                        <iframe src="js/jasmine/SpecRunner.html" class="spec" scrolling="no"></iframe>
+                    </section>
+
+                    <section data-markdown>
+                        ## Hello World
+                        
+                        ```javascript contenteditable
+                        var helloWorld = function() {
+                            return "Hello World!"; 
+                        };
+
+                        describe('helloWorld', function() {
+                            it('says hello', function() {
+                            
+                                expect(helloWorld()).toEqual("Hello World!");
+                            });
+                        });
+                               
+                        jasmine.getEnv().execute();
+                        ```
+                        <small class="miniR">hint: press F12 and paste this code!</small>
+                    </section>
+                     
+                    <!--
+                    <section data-markdown>
+                        ## Matchers
+                        
+                        ```javascript contenteditable
+                        expect(x).toEqual(y);
+                        expect(x).toBe(y);
+                        expect(x).toMatch(pattern);
+                        expect(x).toBeDefined();
+                        expect(x).toBeUndefined();
+                        expect(x).toBeNull();
+                        expect(x).toBeTruthy();
+                        expect(x).toBeFalsy();
+                        expect(x).toContain(y);
+                        expect(x).toBeLessThan(y);
+                        expect(x).toBeGreaterThan(y);
+                        expect(function(){fn();}).toThrow(e);
+                        ```
+                    </section> 
+                    -->
+                    
+                    <!--
+                    <section data-markdown>
+                        ## Own matchers
+                        
+                        ```javascript contenteditable
+                        beforeEach(function () {
+                            this.addMatchers({
+                                isACat: function () {
+                                    return this.actual.isFluffy() _AMP__AMP_ this.actual.isLazy();
+                                }
+                            });
+                        });
+
+                        describe('Garfield', function () {
+                            it('is a cat', function () {
+                                expect(new Garfield()).isACat();
+                            });
+                        });
+                        ```
+                        <small class="mini">[&raquo; Documentation](https://github.com/pivotal/jasmine/wiki/Matchers)</small>
+                    </section>
+                    -->
+                    
+                    <section data-markdown>
+                        ## Test-Driven Development
+                        
+                        1. Write your tests
+                        1. Watch them fail
+                        1. Make them pass
+                        1. Refactor
+                        1. Repeat
+                        
+                        <br><br>
+                        <small class="mini">
+                            see [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.de/dp/0321503627), page 6<br>
+                            see [Working Effectively with Legacy Code](http://www.amazon.de/dp/0131177052), page 62 or many other</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 1. Write your tests
+
+                        ```javascript contenteditable data-show-source="js/1_jasmine-demo_fail/saveFormat.spec.js"
+                        loading source...
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 2. Watch them fail
+                        
+                        ```javascript contenteditable data-show-source="js/1_jasmine-demo_fail/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini">jasmine.getEnv().execute(); <a href="js/1_jasmine-demo_fail/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 3. Make them pass
+                        
+                        ```javascript contenteditable  data-show-source="js/2_jasmine-demo_pass/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini">jasmine.getEnv().execute(); <a href="js/2_jasmine-demo_pass/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 4. Refactor
+                        
+                        ```javascript  contenteditable data-show-source="js/3_jasmine-demo_refactor/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini"><a href="js/3_jasmine-demo_refactor/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+
+                    <section data-markdown>
+                        ## 5. Repeat
+                        
+                        ```javascript contenteditable  data-show-source="js/4_jasmine-demo_repeat/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini"><a href="js/4_jasmine-demo_repeat/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## Testing HTML
+                        
+                        &nbsp;  
+                        Jasmine is DOM agnostic  
+                        comes without tools to set up HTML fixtures
+                        
+                        <br><br>
+                        <small class="miniR">Definition:  
+                        A test fixture is a fixed state of a set of  
+                        objects used as a baseline for running tests.</small>
+                    </section>
+
+                    <section data-markdown>
+                        ## First Solution
+                        <small>in memory fixture with jQuery</small>
+                        
+                        ```javascript contenteditable
+                        describe('trivial jQuery plugin', function () {
+                        
+                            var fixture;
+                            beforeEach(function () {
+                                fixture = $('_LT_div_GT_some HTML code here_LT_/div_GT_');
+                            });
+                        
+                            it('should do something', function () {
+                                fixture.myPlugin();
+                                expect(fixture).toHaveClass("newClass");
+                            });
+                        });
+                        jasmine.getEnv().execute();
+                        ```
+                        <small>... only works for trivial plugins!</small>
+                    </section>
+
+                    <section data-markdown>
+                        ## Clumsy Solution
+                        <small>directly append to/remove from DOM</small>
+                            
+                        ```javascript contenteditable
+                        describe('my jQuery plugin', function () {
+                        
+                            beforeEach(function () {
+                                $('#fixture').remove();
+                                $('body').append('_LT_div id=_QUOT_fixture_QUOT__GT_HTML_LT_/div_GT_');
+                            });
+                        
+                            it('should do something', function () {
+                                $('#fixture').myPlugin();
+                                expect($('#fixture')).toHaveClass("newClass");
+                            });
+                        });
+                        jasmine.getEnv().execute();
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ## jasmine-jquery
+                        <small>[custom matchers](https://github.com/velesin/jasmine-jquery#jquery-matchers), HTML/style/JSON fixtures, event spies</small>
+                        
+                        ```javascript contenteditable
+                        describe('my jQuery plugin', function () {
+
+                           beforeEach(function() {
+                               jasmine.getFixtures().fixturesPath='js/5_jasmine-demo_jquery';
+                               jasmine.getFixtures().load('jquery.myPlugin.spec.html');
+                           });
+
+                           it('should do something', function() {
+                        
+                               var $div = $('#helloWorld').myPlugin();
+                               expect($div).toHaveClass("newClass");
+                           });
+                        });
+                        jasmine.getEnv().execute();
+                        ```
+                        <small class="mini"><a href="js/5_jasmine-demo_jquery/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                
+                </section>                
+                
+                <section>
+                    
+                    <section data-markdown>
+                        ## Mobile Apps
+                        
+                        ![tools](images/icon_apps.png)
+                    </section> 
+                    
+                    <section data-markdown>
+                        ## Mobile Apps
+                        
+                        1. Native apps
+                        2. Mobile optimized Websites
+                        3. Hybrid apps
+                    </section>
+                    
+                    <section data-markdown>
+                        ![Screenshot](images/cordova_bootstrap_knockout.png)
+                    </section>      
+                                   
+                    <section data-markdown>
+                        ![Screenshot](images/cordova_jQueryMobile.png)
+                    </section>    
+                                     
+                    <section data-markdown>
+                        ![Screenshot](images/cordova_KendoUiMobile.png)
+                    </section> 
+                </section>
+
+                <section>
+                    
+                    <section data-markdown>
+                        ## Downloads
+                        
+                        ![tools](images/icon_file.png)
+
+                        ### [bit.ly/devMedia](http://bit.ly/devMedia)                        
+                        ### [bit.ly/devMediaCode](http://bit.ly/devMediaCode)
+                    </section> 
+                   
+                </section>
+                   
+                <section  data-state="bg_wiesn" data-markdown>
+                    ## 02.10.
+                    [Webinar: require.js & modulares JS - Teil 2](http://developer-media.de/portfolioentry/require-js-prinzipien-fur-modulares-javascript-2/)
+                    
+                    <br/>
+                    50% Wiesn-Rabatt!  
+                    <small>Code: Requirejs_JohannesHoppe</small>
+                </section> 
+
+
+                <section data-markdown>
+                    # Danke!
+                </section> 
             </div>
 
         </div>
@@ -80,7 +823,7 @@
         <div class="pesentation-details">
             <p>
                 Created by <a href="http://johanneshoppe.de" target="_blank">Johannes Hoppe</a>
-                <span class="hidePrint">| <a href="?print-pdf" tooltip="activates PDF print stylesheet" target="_blank">Print PDF</a></span>
+                <span >| <a href="?print-pdf" tooltip="activates PDF print stylesheet" target="_blank">Print PDF</a></span>
                 <span class="hidePrint">| <a href="https://github.com/JohannesHoppe/DeveloperMediaSlides" target="_blank">GitHub</a></span>
 
             </p>
@@ -88,7 +831,28 @@
         </div>
 
         <script src="js/require.js"></script> 
-        <script src="js/require.config.js"></script>
+        <script src="js/require.config.js"></script> 
+
+        <script src="js/jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+        <script src="js/jasmine/lib/jasmine-1.3.1/jasmine.console_reporter.js"></script>
+        <script src="js/jasmine/lib/jasmine-jquery.js"></script>
+        <script src="js/1_jasmine-demo_fail/saveFormat.spec.js"></script>   
+
+        <script>        
+            require(['jquery'], function (jquery) {
+
+                // tasty hack to get back the old global $
+                window.$ = window.jquery = window.jQuery = jquery;
+
+                // setup jasmine for console demos
+                var consoleReporter = new jasmine.ConsoleReporter();
+                jasmine.getEnv().addReporter(consoleReporter);
+
+                // start with:
+                // jasmine.getEnv().execute();
+            });
+        </script>        
+
 
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.min.js"></script> 
