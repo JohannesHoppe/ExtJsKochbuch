@@ -140,4 +140,30 @@ iframe.spec {
     margin-left: 200px !important;
 }
 
+/* fix font aweseome */
+.fa {
+    display: inline-block !important;
+    font-family: FontAwesome !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    font-style: normal !important;
+
+    color: #346369
+}
+
+/* fix font aweseome */
+.fa-2x {
+  font-size: 2em !important;
+}
+.fa-3x {
+  font-size: 3em !important;
+}
+.fa-4x {
+  font-size: 4em !important;
+}
+.fa-5x {
+  font-size: 5em !important;
+}
+
 /* ReSharper restore UnknownHtmlTag */
