@@ -1,32 +1,29 @@
 /**
  * A theme for reveal.js presentations with JS flavour
- * 
- * Color sheme aligns to the "community defined" logo for JS which is:
- * #f3df49 (yellow) and #2e2e2c (gray)
- *
- * The JS logo uses the Neutraface font, which is not allowed to be used as a webfont.
- * I have chosen the Ubuntu Font Family as a free and well-designed alternative.
  */
 @font-face {
-  font-family: UbuntuItalic;
-  font-style: normal;
+  font-family: "OpenSansRegular";
+  src: url("../../lib/font/OpenSans/OpenSans-Regular-webfont.eot");
+  src: url("../../lib/font/OpenSans/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/OpenSans/OpenSans-Regular-webfont.woff") format("woff"), url("../../lib/font/OpenSans/OpenSans-Regular-webfont.ttf") format("truetype"), url("../../lib/font/OpenSans/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
   font-weight: normal;
-  src: url("../../lib/font/ubuntu/Ubuntu-RI-webfont.eot") format("eot"), url("../../lib/font/ubuntu/Ubuntu-RI-webfont.woff") format("woff"), url("../../lib/font/ubuntu/Ubuntu-RI-webfont.ttf") format("truetype"), url("../../lib/font/ubuntu/Ubuntu-RI-webfont.svg#Ubuntu-RI-webfont") format("svg");
+  font-style: normal;
 }
 @font-face {
-  font-family: UbuntuBold;
-  font-style: normal;
+  font-family: "OpenSansItalic";
+  src: url("../../lib/font/OpenSans/OpenSans-Italic-webfont.eot");
+  src: url("../../lib/font/OpenSans/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/OpenSans/OpenSans-Italic-webfont.woff") format("woff"), url("../../lib/font/OpenSans/OpenSans-Italic-webfont.ttf") format("truetype"), url("../../lib/font/OpenSans/OpenSans-Italic-webfont.svg#OpenSansItalic") format("svg");
   font-weight: normal;
-  src: url("../../lib/font/ubuntu/Ubuntu-B-webfont.eot") format("eot"), url("../../lib/font/ubuntu/Ubuntu-B-webfont.woff") format("woff"), url("../../lib/font/ubuntu/Ubuntu-B-webfont.ttf") format("truetype"), url("../../lib/font/ubuntu/Ubuntu-B-webfont.svg#Ubuntu-B-webfont") format("svg");
+  font-style: normal;
 }
 @font-face {
-  font-family: UbuntuLight;
-  font-style: normal;
+  font-family: "OpenSansBold";
+  src: url("../../lib/font/OpenSans/OpenSans-Bold-webfont.eot");
+  src: url("../../lib/font/OpenSans/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/OpenSans/OpenSans-Bold-webfont.woff") format("woff"), url("../../lib/font/OpenSans/OpenSans-Bold-webfont.ttf") format("truetype"), url("../../lib/font/OpenSans/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
   font-weight: normal;
-  src: url("../../lib/font/ubuntu/Ubuntu-L-webfont.eot") format("eot"), url("../../lib/font/ubuntu/Ubuntu-L-webfont.woff") format("woff"), url("../../lib/font/ubuntu/Ubuntu-L-webfont.ttf") format("truetype"), url("../../lib/font/ubuntu/Ubuntu-L-webfont.svg#Ubuntu-L-webfont") format("svg");
+  font-style: normal;
 }
 em, em * {
-  font-family: UbuntuLightItalic, sans-serif;
+  font-family: 'OpenSansItalic', sans-serif;
 }
 
 /*********************************************
@@ -38,7 +35,7 @@ body {
 }
 
 .reveal {
-  font-family: UbuntuLight, sans-serif;
+  font-family: "OpenSansRegular", sans-serif;
   font-size: 36px;
   font-weight: 200;
   letter-spacing: -0.02em;
@@ -62,7 +59,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #346369;
-  font-family: UbuntuBold, sans-serif;
+  font-family: "OpenSansBold", sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -175,7 +172,7 @@ body {
 
 /* styles that will make the design cleaner */
 body {
-  font-family: UbuntuLight, sans-serif;
+  font-family: 'OpenSansRegular', sans-serif;
 }
 
 img {

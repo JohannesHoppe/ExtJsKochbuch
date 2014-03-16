@@ -39,8 +39,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="images\grid_01_normal.png" />
+    <Content Include="images\grid_02_grouped.png" />
+    <Content Include="images\grid_03_locking.png" />
+    <Content Include="images\grid_04_multiple_sort.png" />
+    <Content Include="images\grid_05_cell_editing.png" />
+    <Content Include="images\iceberg.png" />
     <Content Include="images\icon_calendar.png" />
     <Content Include="images\icon_repeat.png" />
+    <Content Include="images\iphone-hand.png" />
+    <Content Include="images\iphone-screen.gif" />
     <Content Include="images\jasmine_logo.png" />
     <Content Include="examples\01_getElementsByClassName.html" />
     <Content Include="examples\02_getElementsByClassName2.html" />
@@ -78,7 +86,7 @@
     <Content Include="css\theme\serif.css" />
     <Content Include="css\theme\simple.css" />
     <Content Include="css\theme\sky.css" />
-    <Content Include="css\theme\developerMedia.css" />
+    <Content Include="css\theme\kochbuch.css" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\icon_bug.png" />
     <Content Include="images\icon_communication.png" />
@@ -142,21 +150,25 @@
     </Content>
     <Content Include="lib\css\default.css" />
     <Content Include="lib\css\github.css" />
+    <Content Include="lib\font\font-awesome\css\font-awesome.css" />
+    <Content Include="lib\font\font-awesome\css\font-awesome.min.css" />
+    <Content Include="lib\font\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="lib\font\OpenSans\Apache License Version 2.txt" />
+    <Content Include="lib\font\OpenSans\demo.html" />
+    <Content Include="lib\font\OpenSans\OpenSans-Bold-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-BoldItalic-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBold-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBoldItalic-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-Italic-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-Light-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-LightItalic-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-Regular-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-Semibold-webfont.svg" />
+    <Content Include="lib\font\OpenSans\OpenSans-SemiboldItalic-webfont.svg" />
+    <Content Include="lib\font\OpenSans\stylesheet.css" />
     <Content Include="plugin\showSource\showSource.js" />
     <Content Include="lib\css\zenburn.css" />
     <Content Include="lib\font\league_gothic-webfont.svg" />
-    <Content Include="lib\font\ubuntu\demo.html" />
-    <Content Include="lib\font\ubuntu\stylesheet.css" />
-    <Content Include="lib\font\ubuntu\Ubuntu Font License 1.0.txt" />
-    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.svg" />
-    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.svg" />
     <Content Include="lib\js\classList.js" />
     <Content Include="lib\js\head.min.js" />
     <Content Include="lib\js\html5shiv.js" />
@@ -173,12 +185,41 @@
     <Content Include="plugin\print-pdf\print-pdf.js" />
     <Content Include="plugin\remotes\remotes.js" />
     <Content Include="plugin\zoom-js\zoom.js" />
+    <Content Include="lib\font\OpenSans\OpenSans-Italic-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-Italic-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-Italic-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-Light-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-Light-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-Light-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-Regular-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-Regular-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-Regular-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-Semibold-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-Semibold-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-Semibold-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-SemiboldItalic-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-SemiboldItalic-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-SemiboldItalic-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-LightItalic-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-LightItalic-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-LightItalic-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-Bold-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-Bold-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-Bold-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-BoldItalic-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-BoldItalic-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-BoldItalic-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBold-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBold-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBold-webfont.woff" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBoldItalic-webfont.eot" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBoldItalic-webfont.ttf" />
+    <Content Include="lib\font\OpenSans\OpenSans-ExtraBoldItalic-webfont.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="! compile sass themes.cmd" />
     <None Include="css\shaders\tile-flip.fs" />
     <None Include="css\shaders\tile-flip.vs" />
     <None Include="css\theme\README.md" />
@@ -188,44 +229,21 @@
     <None Include="css\theme\source\serif.scss" />
     <None Include="css\theme\source\simple.scss" />
     <None Include="css\theme\source\sky.scss" />
-    <Content Include="css\theme\source\developerMedia.scss" />
+    <Content Include="css\theme\source\kochbuch.scss" />
     <None Include="css\theme\template\mixins.scss" />
     <None Include="css\theme\template\settings.scss" />
     <None Include="css\theme\template\theme.scss" />
     <Content Include="js\jquery-2.0.3.min.map">
       <DependentUpon>jquery-2.0.3.js</DependentUpon>
     </Content>
+    <Content Include="lib\font\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="lib\font\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="lib\font\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="lib\font\font-awesome\fonts\FontAwesome.otf" />
     <None Include="lib\font\league_gothic-webfont.eot" />
     <None Include="lib\font\league_gothic-webfont.ttf" />
     <None Include="lib\font\league_gothic-webfont.woff" />
     <None Include="lib\font\league_gothic_license" />
-    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-B-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-BI-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-C-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-L-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-LI-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-M-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-MI-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-R-webfont.woff" />
-    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.eot" />
-    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.ttf" />
-    <Content Include="lib\font\ubuntu\Ubuntu-RI-webfont.woff" />
     <Content Include="web.config" />
   </ItemGroup>
   <PropertyGroup>
