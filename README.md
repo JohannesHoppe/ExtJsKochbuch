@@ -6,8 +6,8 @@ In diesem Repository finden Sie alle Unterlagen, welche die Ext JS / EXT.NET Wor
 * [Slides](http://extjs-kochbuch.de/Slides/) von Johannes Hoppe
 * [Beispiele](http://ex.extjs-kochbuch.de) von Johannes Hoppe
 * **Mirror**: [Offizielle Ext JS Dokumentation (v4)](http://extjs-kochbuch.de/extjs/docs/) von Senscha
+* **Mirror**: [Ext JS Examples](http://extjs-kochbuch.de/extjs/examples/) von Senscha
 * **Mirror**: [Ext Core Manual (v3)](http://extjs-kochbuch.de/extjs-old/core-manual/) von Senscha (veraltet!)
-* More: [Ext JS Kitchen Sink](http://docs.sencha.com/extjs/4.2.2/extjs-build/examples/build/KitchenSink/ext-theme-neptune/) von Senscha
 
 -----
 

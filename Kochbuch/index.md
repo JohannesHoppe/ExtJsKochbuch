@@ -10,3 +10,5 @@
 * [Vortrag](../Slides)
 
 <copy>&copy; 2014, Johannes Hoppe</copy>
+
+<span id="forkongithub"><a href="https://github.com/JohannesHoppe/ExtJsKochbuch">Fork me on GitHub</a></span>
