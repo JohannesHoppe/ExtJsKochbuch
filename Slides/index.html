@@ -61,7 +61,8 @@
                      
                 <section>
                     <section data-markdown>
-                        # ?
+                        <i class="fa fa-question-circle fa-5x"></i>
+
                         ### Enterprise-<br />Webanwendungen
                     </section>
   
@@ -101,10 +102,6 @@
                             <li class="fragment">HTML5, CSS3: Flat Design</li> 
                             <li class="fragment">...</li>
                         </ul>                                
-                    </section>  
-
-                    <section data-markdown>
-                        ## Klar, aber...
                     </section>  
                     
                     <section data-markdown>
@@ -157,10 +154,82 @@
                         ![Grid](images/grid_06_charts.png)   
                         
                         <small>[Demo](http://extjs-kochbuch.de/extjs/examples/charts/FormDashboard.html?theme=gray)</small>
+                    </section>    
+                    
+                    <section data-markdown>
+                        ## Klar, aber...
                     </section> 
 
                 </section>
-                              
+                                         
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-exclamation-circle fa-5x"></i>
+
+                        ### Komplexität
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Leichtgewichtige<br/>Frameworks
+                                                       
+                        <br/>
+                        <ul>
+                            <li class="fragment">jQuery<span class="fragment"> / Backbone.js</span><span class="fragment"> / AngularJS</span><span class="fragment"> / Knockout</span><span class="fragment"> / ember</span></li>
+                            <li class="fragment">+ Plugins</li>
+                            <li class="fragment">+ CSS-Framework (z.B. Bootstrap)</li>
+                            <li class="fragment">+ HTML + CSS</li>
+                            <li class="fragment">+ Klebstoff (z.B. require.js)</li>
+                            <li class="fragment"><br/><b>+ Drittanbieter: UI Elemente</b></li>
+                        </ul>
+                    
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Universelles<br/>Framework
+                                                       
+                        <br/>
+                        <span class="fragment">Sencha Ext JS</span><br/>
+                        <span class="fragment"><small>(das war's)</small></span>
+   
+                    </section> 
+                    
+                    <section data-markdown>
+                        ### Klassen
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            text: null,
+                            constructor: function() {
+                                this.text = "Hello!";
+                            }
+                        })
+                        var hello = new HelloWorld();
+                        ```
+                    </section> 
+                    
+                    <section data-markdown>
+                        ### Vererbung
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            extend: "Ext.window.Window",
+                            /* ... */
+                        });
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Loader
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            requires: ["foo.Bar"],
+                            /* ... */
+                        });
+                        ```
+                    </section>                      
+                </section>
+
                 <section data-state="jasmine">
                     
                     <section data-markdown>
