@@ -227,20 +227,60 @@
                             /* ... */
                         });
                         ```
-                    </section>    
+                    </section>
                     
                     <section data-markdown>
-                        ### Low-Level DOM API
-                                                       
-                        <div class="box">Ext.dom.CompositeElement
-                            <div class="box">Ext.dom.Element  
-                                <div class="box float-left">HTML</div>
-                                <div class="box float-right">Inline Styles</div>
+                        ### Low-Level DOM API 
+                        
+                        <br/>                               
+                        <div class="box gray">Ext.dom.CompositeElement
+                            <div class="box">Ext.dom.Element
+                                <div class="clearfix"> 
+                                    <div class="box float-left one_half">HTML</div>
+                                    <div class="box float-right one_half">Inline Styles</div>
+                                </div> 
                             </div>
                         </div>
-                    </section>  
-                                        
+                    </section>
+                    
+                    <section data-markdown>
+                        ### DOM API Beispiel
+                          
+                        <br/>
+                        &lt;img alt=&quot;text&quot;&gt;  
+                        <i class="fa fa-arrow-down"></i>  
+                        <div class="float-right" style="text-align: left; width: 600px; margin-right: 50px;">&lt;figure&gt;<br/>
+                        &nbsp; &nbsp; &nbsp;  &lt;img alt=&quot;text&quot;&gt;<br/>
+                        &nbsp; &nbsp; &nbsp;  &lt;figcation&gt;Text&lt;/figcation&gt;<br/>
+                            &lt;/figure&gt;
+                        </div><br style="clear: both;"/>
+                    </section> 
+                 
+                    <section data-markdown>
+                        ### DOM API Beispiel
+                            
+                        <br/>                           
+                        ```js contenteditable
+                        Ext.select('img').each(function(value) {
+
+                            var text = value.getAttribute('alt');
+        
+                            if (text) {
+                                value.wrap({
+                                        tag: 'figure',
+                                    }).parent().createChild({
+                                        tag: 'figcaption',
+                                        html: text
+                                    });
+                            }        
+                        });
+                        ``` 
+                        <small>[Demo](http://extjs-kochbuch.de/Kochbuch/01. Quickstart.html)</small>
+
+                    </section>                                       
+                
                 </section>
+
                 
                 <!--
                 <section data-state="jasmine">

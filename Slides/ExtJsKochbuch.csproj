@@ -39,7 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="images\codingHorror.png" />
     <Content Include="images\grid_01_normal.png" />
     <Content Include="images\grid_02_grouped.png" />
     <Content Include="images\grid_03_locking.png" />

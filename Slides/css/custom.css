@@ -168,24 +168,30 @@ iframe.spec {
 
 /* boxes */
 .box {
-    background-color: #4d4d4d !important;
+    background-color: rgba(52, 99, 105, 0.5) !important;
     color: white !important;
     padding: 20px !important;
-    border: 1px solid red;
+    margin: 20px !important;
+}
+
+.box.gray {
+    background-color: rgba(77, 77, 77, 0.5) !important;
 }
 
 .box .box {
-    background-color: #4d4d4d !important;
-    color: white !important;
-    padding: 20px !important;
-    border: 1px solid green;
+    background-color: rgba(40, 77, 82, 0.5) !important;
+}
+
+.box.gray .box {
+    background-color: rgba(52, 52, 52, 0.5) !important;
 }
 
 .box .box .box {
-    background-color: #191919 !important;
-    color: white !important;
-    padding: 20px !important;
-    border: 1px solid blue;
+    background-color: rgba(27, 51, 55, 0.5) !important;
+}
+
+.box.gray .box .box {                                  
+    background-color: rgba(25, 25, 25, 0.5) !important;
 }
 
 .float-right {
@@ -194,5 +200,24 @@ iframe.spec {
 .float-left {
   float: left;
 }
+
+.box .one_half {
+    width: 40%  
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+} 
+
+/* IE-Patch für IE 7*/
+*:first-child+html .clearfix { min-height: 0; }
+
+/* IE-Patch für IE 6*/
+* html .clearfix { height: 1%; }
 
 /* ReSharper restore UnknownHtmlTag */
