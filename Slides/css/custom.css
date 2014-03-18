@@ -166,4 +166,33 @@ iframe.spec {
   font-size: 5em !important;
 }
 
+/* boxes */
+.box {
+    background-color: #4d4d4d !important;
+    color: white !important;
+    padding: 20px !important;
+    border: 1px solid red;
+}
+
+.box .box {
+    background-color: #4d4d4d !important;
+    color: white !important;
+    padding: 20px !important;
+    border: 1px solid green;
+}
+
+.box .box .box {
+    background-color: #191919 !important;
+    color: white !important;
+    padding: 20px !important;
+    border: 1px solid blue;
+}
+
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+
 /* ReSharper restore UnknownHtmlTag */

@@ -39,11 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="images\codingHorror.png" />
     <Content Include="images\grid_01_normal.png" />
     <Content Include="images\grid_02_grouped.png" />
     <Content Include="images\grid_03_locking.png" />
     <Content Include="images\grid_04_multiple_sort.png" />
     <Content Include="images\grid_05_cell_editing.png" />
+    <Content Include="images\grid_06_charts.png" />
     <Content Include="images\iceberg.png" />
     <Content Include="images\icon_calendar.png" />
     <Content Include="images\icon_repeat.png" />
