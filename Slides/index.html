@@ -56,7 +56,6 @@
                      
                         ### JohannesHoppe.de
                     </section>
-                   
                 </section> 
                      
                 <section>
@@ -160,9 +159,6 @@
                         ## Klar, aber...
                     </section> 
 
-                </section>
-                                         
-                <section>
                     <section data-markdown>
                         <i class="fa fa-exclamation-circle fa-5x"></i>
 
@@ -191,7 +187,16 @@
                         <span class="fragment">Sencha Ext JS</span><br/>
                         <span class="fragment"><small>(das war's)</small></span>
    
-                    </section> 
+                    </section>                     
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-globe fa-5x"></i> 
+
+                        ### Hello World
+                    </section>
                     
                     <section data-markdown>
                         ### Klassen
@@ -278,9 +283,87 @@
                         <small>[Demo](http://extjs-kochbuch.de/Kochbuch/01. Quickstart.html)</small>
 
                     </section>                                       
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-puzzle-piece fa-circle fa-5x"></i> 
+
+                        ### Components
+                    </section>
+                    
+                    <section data-markdown>
+                        ### High-Level API 
+                        
+                        <br/>                               
+                        <div class="box gray">Ext.container.Container
+                            <div class="box">Ext.Component [ ]
+                                <div class="clearfix"> 
+                                    <div class="box">Ext.dom.Element [ ]</div>
+                                </div> 
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-markdown>
+                        ### items: []
+                                                       
+                        ```js contenteditable
+                        Ext.define("App.view.Viewport", {
+                            extend: "Ext.container.Viewport",
+                            
+                            layout: "border",
+                            
+                            items: [{
+                                region: "west",
+                                xtype: "panel",
+                                title: "West",
+                                width: 150,
+                            }, {
+                                region: "center",
+                                html: "Hello, World!"
+                            }]
+                        });
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Wichtige Container
+                         
+                        <br/>                              
+                        * Ext.panel.Panel
+                        * Ext.container.Viewport
+                        * Ext.grid.Panel
+                        * Ext.menu.Menu
+                        * Ext.form.Panel
+                    </section>
+
+                    <section data-markdown>
+                        ### Wichtige Komponenten
+                         
+                        <br/>                              
+                        * Ext.button.Button
+                        * Ext.Img
+                        * Ext.LoadMask
+                        * Ext.menu.Item
+                        * Ext.form.Label
+                    </section>        
+                    
+                    <section data-markdown>
+                        # Events
+                        <small>Observer-Pattern</small> 
+                    </section>
+
+                    <section data-markdown>
+                        ### el.on()
+                        <small>Observer-Pattern</small> 
+
+                    </section>
                 
                 </section>
 
+                
                 
                 <!--
                 <section data-state="jasmine">
