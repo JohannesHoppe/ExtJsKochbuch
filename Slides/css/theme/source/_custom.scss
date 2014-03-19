@@ -1,29 +1,28 @@
 ﻿/* styles that are specific for this presentation */
 /* ReSharper disable UnknownHtmlTag */
 
-/*
-    
-*/
+$neutralColor: #a6a6a6;
 
 .nowrap {
     white-space: nowrap;
 }
 
+/* 'Created' by area */
 .pesentation-details {
     position: absolute;
     left: 10px;
     bottom: 5px;
     color: gray;
     font-size: 0.8em;
-}
 
-.pesentation-details a {
-    color: #51483D;
-    text-decoration: none;
-}
+    a {
+        color: #51483D;
+        text-decoration: none;
+    }
 
-.pesentation-details a:hover {
-    color: #8B7C69;
+    a:hover {
+        color: #8B7C69;
+    }
 }
 
 .key {
@@ -43,13 +42,6 @@
     vertical-align: sub !important;
     margin: 0 7px !important;
 }
-
-/*
-.alert .reveal .state-background {
-    background: #c8321e;
-    background: rgba( 200, 50, 30, .7 );
-}
-*/
 
 blockquote {
     margin-top: 40px !important;
@@ -74,40 +66,37 @@ small.miniR {
     width: 70%;
 }
 
-red {
-    color: brown;
-}
-
 ul.model {
     margin-top: 30px;
-}
-ul.model li {
-    margin-bottom: 30px;
-    color: #494D4D
-}
 
-ul.model span {
-    padding: 5px !important;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: #000000 0 2px 5px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px;
+    li {
+        margin-bottom: 30px;
+        color: #494D4D
+    }
+
+     span {
+        padding: 5px !important;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: #000000 0 2px 5px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px;
     
-    margin: 7px;
-    background-color: #3aa9db;
-    color: white;
-    width: 300px;
+        margin: 7px;
+        background-color: darken($neutralColor, 20%);
+        color: white;
+        width: 300px;
+    }
 }
 
 .reveal .state-background {
-    background-image: url('../images/pixel.png');
+    background-image: url('../../images/pixel.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 454px 454px;
 }
 
 .jasmine .reveal .state-background {
-    background-image: url('../images/jasmine_logo_bg.png');
+    background-image: url('../../images/jasmine_logo_bg.png');
     
     -webkit-transition: background-image 0.8s linear;
     -moz-transition: background-image 0.8s linear;
@@ -134,9 +123,9 @@ iframe.spec {
     display: none !important;
 }
 
-/* TODO  */
+/* iphone-example slide */
 .iphone {
-    background: url(../images/iphone-screen.gif), url(../images/iphone-hand.png);
+    background: url(../../images/iphone-screen.gif), url(../../images/iphone-hand.png);
     background-repeat: no-repeat, no-repeat;
     background-position: 122px 99px, 0 0;
     width: 704px;
@@ -172,30 +161,18 @@ iframe.spec {
 
 /* boxes */
 .box {
-    background-color: rgba(52, 99, 105, 0.5) !important;
+    background-color: $neutralColor !important;
     color: white !important;
     padding: 20px !important;
     margin: 20px !important;
-}
 
-.box.gray {
-    background-color: rgba(77, 77, 77, 0.5) !important;
-}
+    .box {
+        background-color: darken($neutralColor, 20%) !important;
 
-.box .box {
-    background-color: rgba(40, 77, 82, 0.5) !important;
-}
-
-.box.gray .box {
-    background-color: rgba(52, 52, 52, 0.5) !important;
-}
-
-.box .box .box {
-    background-color: rgba(27, 51, 55, 0.5) !important;
-}
-
-.box.gray .box .box {                                  
-    background-color: rgba(25, 25, 25, 0.5) !important;
+        .box {
+            background-color: darken($neutralColor, 40%) !important;
+        }
+    }
 }
 
 .float-right {

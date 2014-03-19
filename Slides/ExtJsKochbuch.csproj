@@ -78,7 +78,6 @@
     <Content Include="images\icon_mustache.png" />
     <Content Include="images\logo.svg" />
     <Content Include="index.html" />
-    <Content Include="css\custom.css" />
     <Content Include="css\print\paper.css" />
     <Content Include="css\print\pdf.css" />
     <Content Include="css\reveal.css" />
