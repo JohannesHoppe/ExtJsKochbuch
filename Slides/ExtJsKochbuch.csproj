@@ -39,6 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="images\extjs_layout.svg" />
+    <Content Include="images\extjs_layout2.svg" />
     <Content Include="images\grid_01_normal.png" />
     <Content Include="images\grid_02_grouped.png" />
     <Content Include="images\grid_03_locking.png" />

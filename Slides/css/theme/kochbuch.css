@@ -8,6 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "OpenSansItalic";
   src: url("../../lib/font/OpenSans/OpenSans-Italic-webfont.eot");
@@ -15,6 +16,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "OpenSansBold";
   src: url("../../lib/font/OpenSans/OpenSans-Bold-webfont.eot");
@@ -22,6 +24,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 em, em * {
   font-family: 'OpenSansItalic', sans-serif;
 }
@@ -74,7 +77,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #0b72b5;
+  color: #346369;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -84,14 +87,14 @@ body {
 }
 
 .reveal a:not(.image):hover {
-  color: #053555;
+  color: #122325;
   text-shadow: none;
   border: none;
 }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #07456d;
+  background: #1b3336;
 }
 
 /*********************************************
@@ -111,7 +114,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #0b72b5;
+  border-color: #346369;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
 
@@ -120,38 +123,38 @@ body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #0b72b5;
+  border-right-color: #346369;
 }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #0b72b5;
+  border-left-color: #346369;
 }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #0b72b5;
+  border-bottom-color: #346369;
 }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #0b72b5;
+  border-top-color: #346369;
 }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #053555;
+  border-right-color: #122325;
 }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #053555;
+  border-left-color: #122325;
 }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #053555;
+  border-bottom-color: #122325;
 }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #053555;
+  border-top-color: #122325;
 }
 
 /*********************************************
@@ -162,7 +165,7 @@ body {
 }
 
 .reveal .progress span {
-  background: #0b72b5;
+  background: #346369;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);

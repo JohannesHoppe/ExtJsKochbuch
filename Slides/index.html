@@ -201,6 +201,7 @@
                         <i class="fa fa-globe fa-5x"></i> 
 
                         ### Hello World
+                        <small>Ext Core</small>
                     </section>
                     
                     <section data-markdown>
@@ -293,9 +294,10 @@
                      
                 <section>
                     <section data-markdown>
-                        <i class="fa fa-puzzle-piece fa-5x"></i> 
+                        <i class="fa fa-gear fa-5x"></i> 
 
-                        ### Components
+                        ### Widgets
+                        <small>Components & Container</small>
                     </section>
                     
                     <section data-markdown>
@@ -310,6 +312,29 @@
                             </div>
                         </div>
                     </section>
+                    
+                    
+                    <section data-markdown>
+                        ## Components
+                          
+                        <br />
+
+                        * Erben von Ext.AbstractComponent
+                        * Life Cylce (Initialization -> Render -> Destruction)
+                        * <strong>z.B. Button</strong>
+                    </section> 
+                    
+                    
+                    <section data-markdown>
+                        ## Container 
+                            
+                        <br /> 
+
+                        * Erben von Components
+                        * items-Property
+                        * [layout](http://extjs-kochbuch.de/extjs/docs/#!/api/Ext.layout.container.Container)-Property
+                        * z.B Panel
+                    </section>    
 
                     <section data-markdown>
                         ### items: []
@@ -332,6 +357,18 @@
                         });
                         ```
                     </section>
+
+                    <section data-markdown>
+                        ### Wichtige Components
+                         
+                        <br/>                              
+                        * Ext.button.Button
+                        * Ext.Img
+                        * Ext.LoadMask
+                        * Ext.menu.Item
+                        * Ext.form.Label
+                        * [...]
+                    </section>   
                     
                     <section data-markdown>
                         ### Wichtige Container
@@ -343,17 +380,6 @@
                         * Ext.menu.Menu
                         * Ext.form.Panel
                     </section>
-
-                    <section data-markdown>
-                        ### Wichtige Komponenten
-                         
-                        <br/>                              
-                        * Ext.button.Button
-                        * Ext.Img
-                        * Ext.LoadMask
-                        * Ext.menu.Item
-                        * Ext.form.Label
-                    </section>        
 
                 </section>
                      
@@ -455,34 +481,44 @@
                         <i class="fa fa-columns fa-5x"></i> 
 
                         ### Layouts
+                        <small>wie Container ihre Components anordnen</small>
                     </section>  
                     
-                    <section data-markdown>
-                        ## Components
-                          
-                        <br />
-                        alles was von Ext.AbstractComponent erbt  
-                        Life Cylce (Initialization -> Render -> Destruction)  
-
-                        z.B. Button  
-                    </section>     
-                    
-                    <section data-markdown>
-                        ## Container 
-                            
-                        <br />
-                        erbt von Container
-                        Properties: items & [layout](http://extjs-kochbuch.de/extjs/docs/#!/api/Ext.layout.container.Container) 
-                        
-                        z.B Panel
-                    </section>
-                    
-                    <section data-markdown>
+                    <section>
                         <img src="images/extjs_layout.svg" style="max-height: 110%; max-width: 110%; margin-top: -80px;"/>
                     </section>     
                     
-                    <section data-markdown>
+                    <section>
                         <img src="images/extjs_layout2.svg" style="max-height: 110%; max-width: 110%; margin-top: -80px;"/>
+                    </section>
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-gears fa-5x"></i> 
+
+                        ### Single Page
+                        <small>Cliend-side MVC Pattern</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ### MVC
+
+                        <ul class="model jasmine">
+                            <li class="fragment">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;BDD-style&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <small>similar to JSpec or RSpec,<br>created by authors of jsUnit and Screw.Unit</small>
+                            </li>
+                            <li class="fragment">
+                                <span>&nbsp;independent&nbsp;</span>
+                                <small>from any browser, DOM,<br>framework or host language</small>
+                            </li>
+                            <li class="fragment">
+                                <span>&nbsp;&nbsp;&nbsp;integrates&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <small>into continuous build systems</small>
+                            </li>
+                        </ul>
                     </section>
                                    
                 </section>
