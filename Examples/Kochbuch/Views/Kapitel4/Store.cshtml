@@ -1,0 +1,26 @@
+﻿<script>
+
+Ext.define('CustomerModel', {
+        extend: 'Ext.data.Model',
+        fields: [
+            { name: 'Number',    type: 'int' },
+            { name: 'FirstName', type: 'string' },
+            { name: 'LastName',  type: 'string' },
+            { name: 'Mail',      type: 'string' }
+        ]
+    });
+
+    var myStore = Ext.create('Ext.data.Store', {
+        model: 'CustomerModel',
+        proxy: {
+            type: 'ajax',
+            url: '/api/CustomerData',
+            reader: {
+                type: 'json',
+                root: 'users'
+            }
+        },
+        autoLoad: true
+    });
+
+</script>

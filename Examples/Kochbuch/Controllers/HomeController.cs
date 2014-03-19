@@ -22,7 +22,7 @@ namespace Kochbuch.Controllers
         {
             return node != "Root" ?
                 new StoreResult(new NodeCollection()) :
-                new StoreResult(Chapters.GetChapters());
+                new StoreResult(Kapitel.GetChapters());
         }
     }
 }

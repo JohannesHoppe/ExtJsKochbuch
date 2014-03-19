@@ -45,6 +45,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="AutoPoco">
+      <HintPath>..\packages\AutoPoco.1.0.0.0\lib\AutoPoco.dll</HintPath>
+    </Reference>
     <Reference Include="Ext.Net">
       <HintPath>..\packages\Ext.NET.MVC5.2.4.0\lib\net45\Ext.Net.dll</HintPath>
     </Reference>
@@ -153,6 +156,7 @@
       <DependentUpon>main.less</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Models\DynamicLibraryDoku.ie.html" />
     <Content Include="Scripts\exampleTree.js" />
     <Content Include="Scripts\hash.js" />
     <Content Include="Scripts\highlight.pack.js" />
@@ -212,7 +216,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\ActionFilterAttribute.cs" />
-    <Compile Include="Code\Chapters.cs" />
+    <Compile Include="Code\Kapitel.cs" />
+    <Compile Include="Controllers\CustomerDataController.cs" />
+    <Compile Include="Controllers\Kapitel4Controller.cs" />
     <Compile Include="Controllers\Kapitel2Controller.cs" />
     <Compile Include="Controllers\ExtNetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -220,7 +226,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DynamicLibrary.cs" />
     <Compile Include="Models\ExtNetModel.cs" />
+    <Compile Include="Models\CustomerData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +261,7 @@
     <Content Include="Views\Kapitel2\Inheritence.cshtml" />
     <Content Include="Views\Kapitel2\Mixins.cshtml" />
     <Content Include="Views\Kapitel2\Mixins2.cshtml" />
+    <Content Include="Views\Kapitel4\Store.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

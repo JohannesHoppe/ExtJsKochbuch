@@ -2,7 +2,7 @@
 
 namespace Kochbuch.Code
 {
-    public class Chapters
+    public class Kapitel
     {
         public static NodeCollection GetChapters()
         {
@@ -51,6 +51,16 @@ namespace Kochbuch.Code
                 Leaf = true
             };
 
+            var example6 = new Node
+            {
+                NodeID = "Store",
+                Text = "Store",
+                Href = "/Kapitel4/Store",
+                Icon = Icon.World,
+                Leaf = true
+            };
+
+
             /*
             var example5b = new Node
             {
@@ -71,18 +81,21 @@ namespace Kochbuch.Code
                 Leaf = true
             };
 
-            var chapter1 = new Node { Text = "Kapitel 1" };
-            var chapter2 = new Node { Text = "Kapitel 2" };
+            var kapitel1 = new Node { Text = "Kapitel 1" };
+            var kapitel2 = new Node { Text = "Kapitel 2" };
+            var kapitel4 = new Node { Text = "Kapitel 4" };
             var chapterX = new Node { Text = "Playground" };
 
-            chapter1.Children.AddRange(new[] { example1, example2 });
-            chapter2.Children.AddRange(new[] { example3, example4, example5 });
+            kapitel1.Children.AddRange(new[] { example1, example2 });
+            kapitel2.Children.AddRange(new[] { example3, example4, example5 });
+            kapitel4.Children.AddRange(new[] { example6 });
             chapterX.Children.AddRange(new[] { jsFiddle });
 
             var nodes = new NodeCollection
                             {
-                                chapter1,
-                                chapter2,
+                                kapitel1,
+                                kapitel2,
+                                kapitel4,
                                 chapterX
                             };
             return nodes;

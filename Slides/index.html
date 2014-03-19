@@ -488,7 +488,28 @@
                     
                     <section>
                         <img src="images/extjs_layout2.svg" style="max-height: 110%; max-width: 110%; margin-top: -80px;"/>
+                    </section> 
+                    
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-table fa-5x"></i> 
+
+                        ### Stores
+                        <small>wie Data Stores - nur richtig</small>
                     </section>
+                    
+                    <section data-markdown>
+                        Reader  
+                        <i class="fa fa-arrow-down"></i>   
+                        Proxy                            
+                        <i class="fa fa-arrow-down"></i>   
+                        Store                            
+                        <i class="fa fa-arrow-down"></i>   
+                        Container  
+                        <small>(z.B. Grid)</small>
+                    </section> 
 
                 </section>
                      
@@ -505,20 +526,48 @@
 
                         <ul class="model jasmine">
                             <li class="fragment">
-                                <span>&nbsp;&nbsp;&nbsp;&nbsp;BDD-style&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                <small>similar to JSpec or RSpec,<br>created by authors of jsUnit and Screw.Unit</small>
+                                <span> &nbsp; &nbsp; &nbsp; Model &nbsp; &nbsp; &nbsp;</span>
+                                <small>Definiert Daten, häufig mit Store</small>
                             </li>
                             <li class="fragment">
-                                <span>&nbsp;independent&nbsp;</span>
-                                <small>from any browser, DOM,<br>framework or host language</small>
+                                <span> &nbsp; &nbsp; &nbsp; View &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+                                <small>Widgets (Components & Containers)</small>
                             </li>
                             <li class="fragment">
-                                <span>&nbsp;&nbsp;&nbsp;integrates&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                <small>into continuous build systems</small>
+                                <span> &nbsp; Controller &nbsp;&nbsp;</span>
+                                <small>Applikations-Logik</small>
                             </li>
                         </ul>
+                        
+                        <br/>
+                        <small>[Doku](http://extjs-kochbuch.de/extjs/docs/#!/guide/application_architecture)</small>
                     </section>
-                                   
+
+                    <section data-markdown>
+                        ### MVC
+
+                        <br/>
+                        ```js contenteditable 
+                            Ext.define("App.controller.FooGrid", {
+                                extend: "Ext.app.Controller",
+                                init: function() {
+                                this.control({
+                                    "#fooGrid": { "load": this.onGridLoad }
+                                });
+                            },
+                            onGridLoad: function(gridCmp) {
+                                
+                            }
+                        });
+                        ```
+                    </section> 
+                    
+                    <section data-markdown>
+                        <i class="fa fa-gears fa-5x"></i> 
+
+                        ### Ext.NET
+                        <small>Mehr wie "klassische" ASP.NET Controlls</small>
+                    </section>
                 </section>
 
                 
