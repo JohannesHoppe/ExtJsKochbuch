@@ -53,10 +53,6 @@
     <Content Include="images\iphone-hand.png" />
     <Content Include="images\iphone-screen.gif" />
     <Content Include="images\jasmine_logo.png" />
-    <Content Include="examples\01_getElementsByClassName.html" />
-    <Content Include="examples\02_getElementsByClassName2.html" />
-    <Content Include="examples\03_getElementsByClassName3.html" />
-    <Content Include="examples\04_jQuery_object.html" />
     <Content Include="examples\05_jasmine\jquery.myPlugin.js" />
     <Content Include="examples\05_jasmine\jquery.myPlugin.spec.html" />
     <Content Include="examples\05_jasmine\jquery.myPlugin.spec.js" />
@@ -71,7 +67,6 @@
     <Content Include="examples\jasmine\spec\SpecHelper.js" />
     <Content Include="examples\jasmine\src\Player.js" />
     <Content Include="examples\jasmine\src\Song.js" />
-    <Content Include="examples\smilie.html" />
     <Content Include="images\events_dom.png" />
     <Content Include="images\events_jquery.png" />
     <Content Include="images\icon_flash.png" />
