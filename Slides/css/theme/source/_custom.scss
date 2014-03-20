@@ -88,13 +88,21 @@ ul.model {
     }
 }
 
+/*
 .reveal .state-background {
     background-image: url('../../images/pixel.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 454px 454px;
 }
+*/
 
+.pattern .reveal .state-background {
+  background-image: url("../../images/background-pattern.svg");
+  background-repeat: repeat;
+}
+
+/*
 .jasmine .reveal .state-background {
     background-image: url('../../images/jasmine_logo_bg.png');
     
@@ -103,6 +111,7 @@ ul.model {
     -o-transition: background-image 0.8s linear;
     transition: background-image 0.8s linear;
 }
+*/
 
 code.small {
     font-size: 14px;
