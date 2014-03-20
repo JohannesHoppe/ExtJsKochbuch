@@ -9,7 +9,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "OpenSansItalic";
   src: url("../../lib/font/OpenSans/OpenSans-Italic-webfont.eot");
@@ -17,7 +16,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "OpenSansBold";
   src: url("../../lib/font/OpenSans/OpenSans-Bold-webfont.eot");
@@ -25,7 +23,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 em, em * {
   font-family: 'OpenSansItalic', sans-serif;
 }
@@ -33,9 +30,10 @@ em, em * {
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
-body {
-  background: #48b0d1;
-  background-color: #48b0d1;
+body,
+body.x-body {
+  background: white;
+  background-color: white;
 }
 
 .reveal {

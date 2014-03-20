@@ -4,7 +4,8 @@
  * GLOBAL STYLES
  *********************************************/
 
-body {
+body,
+body.x-body {
 	@include bodyBackground();
 	background-color: $backgroundColor;
 }

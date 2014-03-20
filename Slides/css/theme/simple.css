@@ -10,7 +10,8 @@
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
-body {
+body,
+body.x-body {
   background: white;
   background-color: white;
 }
