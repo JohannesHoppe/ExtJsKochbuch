@@ -1,7 +1,4 @@
 ﻿using System.Web.Optimization;
-using Kochbuch.App_Start;
-
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BundleConfig), "Start")]
 
 namespace Kochbuch.App_Start
 {

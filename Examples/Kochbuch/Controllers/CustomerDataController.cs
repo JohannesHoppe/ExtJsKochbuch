@@ -18,19 +18,22 @@ namespace Kochbuch.Controllers
     {
         public static IList<CustomerData> DemoData { get; private set; }
 
-        public StoreResult GetDemoData(StoreRequestParameters parameters)
+        public object GetDemoData(StoreRequestParameters parameters)
         {
             if (DemoData == null) 
             {
                 DemoData = GenerateDemoData();
             }
 
-
-            List<CustomerData> reducedData = DemoData
-                .AsQueryable()
-                .OrderBy(string.Concat(parameters.SimpleSort, " ", parameters.SimpleSortDirection.ToString()))
-                .Skip(parameters.Start).Take(parameters.Limit)
-                .ToList();
+            var reducedData = (parameters != null) ? 
+                DemoData
+                    .AsQueryable()
+                    .OrderBy(string.Concat(parameters.SimpleSort, " ", parameters.SimpleSortDirection.ToString()))
+                    .Skip(parameters.Start).Take(parameters.Limit)
+                    .ToList() : 
+                DemoData
+                    .OrderBy(c => c.Id)
+                    .ToList();
 
             return new StoreResult(reducedData, DemoData.Count);
         }
