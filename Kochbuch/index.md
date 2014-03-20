@@ -14,6 +14,7 @@
 
 <span id="forkongithub"><a href="https://github.com/JohannesHoppe/ExtJsKochbuch">Fork me on GitHub</a></span>
 
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'extjs-kochbuch';
     var disqus_identifier = 'Index';
