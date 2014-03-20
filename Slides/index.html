@@ -548,16 +548,17 @@
 
                         <br/>
                         ```js contenteditable 
-                            Ext.define("App.controller.FooGrid", {
-                                extend: "Ext.app.Controller",
-                                init: function() {
+                        Ext.define("App.controller.FooGrid", {
+                            extend: "Ext.app.Controller",
+                        
+                            init: function() {
                                 this.control({
                                     "#fooGrid": { "load": this.onGridLoad }
                                 });
                             },
                             onGridLoad: function(gridCmp) {
                                 
-                            }
+                            }   
                         });
                         ```
                     </section> 
@@ -882,7 +883,6 @@
         <script src="js/jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
         <script src="js/jasmine/lib/jasmine-1.3.1/jasmine.console_reporter.js"></script>
         <script src="js/jasmine/lib/jasmine-jquery.js"></script>
-        <script src="js/1_jasmine-demo_fail/saveFormat.spec.js"></script>   
     
         <script>        
             require(['jquery'], function (jquery) {
