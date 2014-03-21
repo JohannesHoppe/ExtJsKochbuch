@@ -21,7 +21,7 @@ Ext.define('CM.controller.Customers', {
         }
     ],
 
-    init: function() {
+    init: function () {
         this.control({
             'viewport > customerlist': {
                 itemdblclick: this.editCustomer
@@ -32,13 +32,13 @@ Ext.define('CM.controller.Customers', {
         });
     },
 
-    editCustomer: function(grid, record) {
+    editCustomer: function (grid, record) {
         var edit = Ext.create('CM.view.customer.Edit').show();
 
         edit.down('form').loadRecord(record);
     },
 
-    updateCustomer: function(button) {
+    updateCustomer: function (button) {
         var win    = button.up('window'),
             form   = win.down('form'),
             record = form.getRecord(),

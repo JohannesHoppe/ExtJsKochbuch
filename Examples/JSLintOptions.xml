@@ -690,6 +690,9 @@
     <MaxParams xsi:nil="true" />
     <SelectedLinter>JSHint</SelectedLinter>
     <FindTodos>false</FindTodos>
+    <PreDefined>
+      <string>Ext</string>
+    </PreDefined>
   </JSLintOptions>
   <BuildFileTypes>JS</BuildFileTypes>
   <SaveFileTypes>JS</SaveFileTypes>

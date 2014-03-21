@@ -1,4 +1,4 @@
-Ext.define('CM.view.customer.List' ,{
+Ext.define('CM.view.customer.List', {
     extend: 'Ext.grid.Panel',
     alias : 'widget.customerlist',
 

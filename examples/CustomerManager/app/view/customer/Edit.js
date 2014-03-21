@@ -9,7 +9,7 @@ Ext.define('CM.view.customer.Edit', {
     autoShow: true,
     width: 280,
 
-    initComponent: function() {
+    initComponent: function () {
         this.items = [
             {
                 xtype: 'form',
