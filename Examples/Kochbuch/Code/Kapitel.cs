@@ -133,6 +133,14 @@ namespace Kochbuch.Code
                 Icon = Icon.Information,
                 Leaf = true
             };
+            var chat = new Node
+            {
+                NodeID = "chat",
+                Text = "Teilnehmer-Chat",
+                Href = "http://chatroll.com/embed/chat/ext-js-kochbuch?id=i3JL4RMYjAJ&platform=html&w=$0",
+                Icon = Icon.Information,
+                Leaf = true
+            };
 
             var kapitel1 = new Node { Text = "Kapitel 1" };
             var kapitel2 = new Node { Text = "Kapitel 2" };
@@ -142,7 +150,7 @@ namespace Kochbuch.Code
             kapitel1.Children.AddRange(new[] { example1, example2 });
             kapitel2.Children.AddRange(new[] { example3, example4, example5, exampleHelp });
             kapitel4.Children.AddRange(new[] { example6, example7, example8, example9 });
-            chapterX.Children.AddRange(new[] { jsFiddleHelloWorld, jsFiddleNet, extNetDemo });
+            chapterX.Children.AddRange(new[] { jsFiddleHelloWorld, jsFiddleNet, extNetDemo, chat });
 
             var nodes = new NodeCollection
                             {
