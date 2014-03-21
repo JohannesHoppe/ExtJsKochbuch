@@ -9,6 +9,6 @@ Ext.define('CM.view.customer.List', {
         { header: 'Id',  dataIndex: 'Id', width: 100 },
         { header: 'Vorname',  dataIndex: 'FirstName'  },
         { header: 'Nachname', dataIndex: 'LastName'  },
-        { header: 'E-Mail',   dataIndex: 'E-Mail', flex: 1}
+        { header: 'E-Mail',   dataIndex: 'Mail', flex: 1}
     ]
 });
