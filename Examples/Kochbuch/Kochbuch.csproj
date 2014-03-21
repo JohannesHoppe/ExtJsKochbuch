@@ -218,6 +218,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\ActionFilterAttribute.cs" />
     <Compile Include="Code\Kapitel.cs" />
+    <Compile Include="Code\StoreRequestParametersForGrid.cs" />
     <Compile Include="Controllers\CustomerDataController.cs" />
     <Compile Include="Controllers\Kapitel4Controller.cs" />
     <Compile Include="Controllers\Kapitel2Controller.cs" />

@@ -12,7 +12,7 @@
         ]
     });
 
-    var myStore = Ext.create('Ext.data.Store', {
+    var store = Ext.create('Ext.data.Store', {
         model: 'CustomerModel',
         proxy: {
             type: 'ajax',
@@ -28,11 +28,22 @@
     Ext.onReady(function () {
 
         Ext.create('Ext.grid.Panel', {
-            store: myStore,
+            title: 'Kunden',
+            store: store,
             columns: [
-                { text: "Id", dataIndex: 'Id' },
-                { text: "FirstName", dataIndex: 'FirstName' }
+                { text: "Id", dataIndex: 'Id', width: 50 },
+                { text: "First Name", dataIndex: 'FirstName' },
+                { text: "Last Name", dataIndex: 'LastName' },
+                { text: "E-Mail", dataIndex: 'Mail', flex: 1 }
             ],
+            height: 400,
+            width: 600,
+            dockedItems: [{
+                xtype: 'pagingtoolbar',
+                store: store,
+                dock: 'bottom',
+                displayInfo: true
+            }],
             renderTo: 'gridDiv'
         });
     });

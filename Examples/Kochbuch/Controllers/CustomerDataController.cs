@@ -9,6 +9,7 @@ using AutoPoco.DataSources;
 using AutoPoco.Engine;
 using Ext.Net;
 using Ext.Net.MVC;
+using Kochbuch.Code;
 using Kochbuch.Models;
 using System.Linq.Dynamic;
 
@@ -18,24 +19,23 @@ namespace Kochbuch.Controllers
     {
         public static IList<CustomerData> DemoData { get; private set; }
 
-        public object GetDemoData(StoreRequestParameters parameters)
+        public object GetDemoData([FromUri]StoreRequestParametersForGrid parameters)
         {
             if (DemoData == null) 
             {
                 DemoData = GenerateDemoData();
             }
 
-            var reducedData = (parameters != null) ? 
-                DemoData
-                    .AsQueryable()
-                    .OrderBy(string.Concat(parameters.SimpleSort, " ", parameters.SimpleSortDirection.ToString()))
-                    .Skip(parameters.Start).Take(parameters.Limit)
-                    .ToList() : 
-                DemoData
-                    .OrderBy(c => c.Id)
-                    .ToList();
+            List<CustomerData> result = (parameters.SortProp == null)
+                ? DemoData.AsQueryable()
+                            .Skip(parameters.Start)
+                            .Take(parameters.Limit).ToList()
+                : DemoData.AsQueryable()
+                            .OrderBy(parameters.SortProp + " " + parameters.SortDir)
+                            .Skip(parameters.Start)
+                            .Take(parameters.Limit).ToList();
 
-            return new StoreResult(reducedData, DemoData.Count);
+            return new StoreResult(result, DemoData.Count);
         }
 
         private static IList<CustomerData> GenerateDemoData()
