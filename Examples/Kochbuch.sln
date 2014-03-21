@@ -15,6 +15,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		JSLintOptions.xml = JSLintOptions.xml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fiddles", "Fiddles", "{7B760377-ABA9-4B2D-B5E6-D982CB81B4F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FiddleHelloWorld", "FiddleHelloWorld", "{61B2AE29-92D3-46AF-8ACC-8557B25AAF3B}"
+	ProjectSection(SolutionItems) = preProject
+		FiddleHelloWorld\demo.css = FiddleHelloWorld\demo.css
+		FiddleHelloWorld\demo.details = FiddleHelloWorld\demo.details
+		FiddleHelloWorld\demo.html = FiddleHelloWorld\demo.html
+		FiddleHelloWorld\demo.js = FiddleHelloWorld\demo.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FiddleGrid", "FiddleGrid", "{D6E05E8E-809F-4426-A3A8-00B26B3E0AFD}"
+	ProjectSection(SolutionItems) = preProject
+		FiddleGrid\demo.css = FiddleGrid\demo.css
+		FiddleGrid\demo.details = FiddleGrid\demo.details
+		FiddleGrid\demo.html = FiddleGrid\demo.html
+		FiddleGrid\demo.js = FiddleGrid\demo.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml
@@ -31,5 +49,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61B2AE29-92D3-46AF-8ACC-8557B25AAF3B} = {7B760377-ABA9-4B2D-B5E6-D982CB81B4F3}
+		{D6E05E8E-809F-4426-A3A8-00B26B3E0AFD} = {7B760377-ABA9-4B2D-B5E6-D982CB81B4F3}
 	EndGlobalSection
 EndGlobal

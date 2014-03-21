@@ -1,7 +1,39 @@
-Ext.application({
-    name: 'Ext JS Fiddle',
+Ext.require([
+    'Ext.data.*',
+    'Ext.grid.*'
+]);
 
-    launch: function() {
-        Ext.Msg.alert('Fiddle', 'Welcome to the Ext Js Fiddle!');
-    }
+Ext.define('CustomerModel', {
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'Id', type: 'int' },
+        { name: 'FirstName', type: 'string' },
+        { name: 'LastName', type: 'string' },
+        { name: 'Mail', type: 'string' }
+    ]
+});
+
+var myStore = Ext.create('Ext.data.Store', {
+    model: 'CustomerModel',
+    proxy: {
+        type: 'ajax',
+        url: '/api/CustomerData',
+        reader: {
+            type: 'json',
+            root: 'Data'
+        }
+    },
+    autoLoad: true
+});
+
+Ext.onReady(function () {
+
+    Ext.create('Ext.grid.Panel', {
+        store: myStore,
+        columns: [
+            { text: "Id", dataIndex: 'Id' },
+            { text: "FirstName", dataIndex: 'FirstName' }
+        ],
+        renderTo: 'gridDiv'
+    });
 });
