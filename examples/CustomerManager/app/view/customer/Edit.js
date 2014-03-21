@@ -4,7 +4,7 @@ Ext.define('CM.view.customer.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title : 'Edit Customer',
+    title : 'Kunden Bearbeiten',
     layout: 'fit',
     autoShow: true,
     width: 280,
@@ -20,13 +20,18 @@ Ext.define('CM.view.customer.Edit', {
                 items: [
                     {
                         xtype: 'textfield',
-                        name : 'name',
-                        fieldLabel: 'Name'
+                        name : 'FirstName',
+                        fieldLabel: 'Vorname'
                     },
                     {
                         xtype: 'textfield',
-                        name : 'email',
-                        fieldLabel: 'Email'
+                        name : 'LastName',
+                        fieldLabel: 'Nachname'
+                    },
+                    {
+                        xtype: 'textfield',
+                        name: 'Mail',
+                        fieldLabel: 'E-Mail'
                     }
                 ]
             }

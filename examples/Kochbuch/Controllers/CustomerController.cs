@@ -14,7 +14,6 @@ using System.Linq.Dynamic;
 
 namespace Kochbuch.Controllers
 {
-    [EnableCors("*", "*", "*")]
     public class CustomerController : ApiController
     {
         public static IList<Customer> DemoData { get; private set; }

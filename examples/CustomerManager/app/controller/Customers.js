@@ -1,25 +1,14 @@
 Ext.define('CM.controller.Customers', {
     extend: 'Ext.app.Controller',
 
-    stores: [
-        'Customers@CM.store'
-    ],
+    stores: ['Customers@CM.store'],
+    models: ['Customer@CM.model'],
+    views: ['Edit@CM.view.customer','List@CM.view.customer'],
 
-    models: [
-        'Customer@CM.model'
-    ],
-
-    views: [
-        'Edit@CM.view.customer',
-        'List@CM.view.customer'
-    ],
-
-    refs: [
-        {
-            ref: 'customersPanel',
-            selector: 'panel'
-        }
-    ],
+    refs: [{
+        ref: 'customersPanel',
+        selector: 'panel'
+    }],
 
     init: function () {
         this.control({
@@ -34,7 +23,6 @@ Ext.define('CM.controller.Customers', {
 
     editCustomer: function (grid, record) {
         var edit = Ext.create('CM.view.customer.Edit').show();
-
         edit.down('form').loadRecord(record);
     },
 

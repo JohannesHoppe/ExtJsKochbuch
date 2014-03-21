@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Kochbuch.App_Start
 {
@@ -13,6 +14,9 @@ namespace Kochbuch.App_Start
 
         public static void Register(HttpConfiguration config)
         {
+            // enable CORS for all Web API controllers
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
             // Attribute routing.
             config.MapHttpAttributeRoutes();
 

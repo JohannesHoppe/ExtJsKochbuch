@@ -1,7 +1,11 @@
 {
     success: true,
-    users: [
-        {id: 1, name: 'Ed',    email: 'ed@sencha.com'},
-        {id: 2, name: 'Tommy', email: 'tommy@sencha.com'}
-    ]
+    Data: [
+        { Id: 0, "FirstName": "James",    "LastName": "Red",     "Mail": "0@example.com" },
+        { Id: 1, "FirstName": "Harry",    "LastName": "Black",   "Mail": "1@example.com" },
+        { Id: 2, "FirstName": "Joseph",   "LastName": "Magenta", "Mail": "2@example.com" },
+        { Id: 3, "FirstName": "Mohammed", "LastName": "Yellow",  "Mail": "3@example.com" },
+        { Id: 4, "FirstName": "Katie",    "LastName": "Carmine", "Mail": "4@example.com" }
+    ],
+    Total: 5
 }

@@ -8,8 +8,8 @@ Ext.define('CM.store.Customers', {
         api: {
 
             // CHANGME !!
-            read: 'http://localhost:7777/api/customer',
-            update: 'http://localhost:7777/api/customer'
+            read: 'http://ex.extjs-kochbuch.de/api/customer',
+            update: 'http://ex.extjs-kochbuch.de/api/customer'
         },
         reader: {
             type: 'json',

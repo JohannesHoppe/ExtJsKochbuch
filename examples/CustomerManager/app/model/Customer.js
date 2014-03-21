@@ -5,5 +5,5 @@ Ext.define('CM.model.Customer', {
         'Ext.data.reader.Json'
     ],
 
-    fields: ['id', 'name', 'email']
+    fields: ['Id', 'FirstName', 'LastName', 'Mail']
 });

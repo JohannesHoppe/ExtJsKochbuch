@@ -2,11 +2,13 @@ Ext.define('CM.view.customer.List', {
     extend: 'Ext.grid.Panel',
     alias : 'widget.customerlist',
 
-    title : 'All Customers',
+    title : 'Alle Kunden',
     store: 'Customers',
 
     columns: [
-        {header: 'Name',  dataIndex: 'name',  flex: 1},
-        {header: 'Email', dataIndex: 'email', flex: 1}
+        { header: 'Id',  dataIndex: 'Id', width: 100 },
+        { header: 'Vorname',  dataIndex: 'FirstName'  },
+        { header: 'Nachname', dataIndex: 'LastName'  },
+        { header: 'E-Mail',   dataIndex: 'E-Mail', flex: 1}
     ]
 });
