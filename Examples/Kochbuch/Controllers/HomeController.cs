@@ -14,8 +14,7 @@ namespace Kochbuch.Controllers
 
         public ActionResult Start()
         {
-            //return View();
-            return RedirectToAction("Index", "ExtNet");
+            return View();
         }
 
         public StoreResult GetChapters(string node)

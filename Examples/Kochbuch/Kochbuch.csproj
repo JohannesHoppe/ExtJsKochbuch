@@ -267,6 +267,7 @@
     <Content Include="Views\Kapitel4\StoreNet.cshtml" />
     <Content Include="Views\Kapitel4\Grid.cshtml" />
     <Content Include="Views\Kapitel4\GridNet.cshtml" />
+    <Content Include="Views\Home\Start.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

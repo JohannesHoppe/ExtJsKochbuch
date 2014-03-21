@@ -116,6 +116,15 @@ namespace Kochbuch.Code
                 Leaf = true
             };
 
+            var extNetDemo = new Node
+            {
+                NodeID = "extNetDemo",
+                Text = "Ext.Net Demo ",
+                Href = "/ExtNet",
+                Icon = Icon.World,
+                Leaf = true
+            };
+
             var kapitel1 = new Node { Text = "Kapitel 1" };
             var kapitel2 = new Node { Text = "Kapitel 2" };
             var kapitel4 = new Node { Text = "Kapitel 4" };
@@ -124,7 +133,7 @@ namespace Kochbuch.Code
             kapitel1.Children.AddRange(new[] { example1, example2 });
             kapitel2.Children.AddRange(new[] { example3, example4, example5 });
             kapitel4.Children.AddRange(new[] { example6, example7, example8, example9 });
-            chapterX.Children.AddRange(new[] { jsFiddleHelloWorld, jsFiddleNet });
+            chapterX.Children.AddRange(new[] { jsFiddleHelloWorld, jsFiddleNet, extNetDemo });
 
             var nodes = new NodeCollection
                             {
