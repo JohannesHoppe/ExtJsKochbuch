@@ -20,5 +20,10 @@ namespace Kochbuch.Controllers
         {
             return View();
         }
+
+        public ActionResult GridNet()
+        {
+            return View();
+        }
     }
 }

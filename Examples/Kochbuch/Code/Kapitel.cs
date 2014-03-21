@@ -51,6 +51,17 @@ namespace Kochbuch.Code
                 Leaf = true
             };
 
+            /*
+            var example5b = new Node
+            {
+                NodeID = "Mixins2",
+                Text = "Ext JS Mixins - Labelable",
+                Href = "/Kapitel2/Mixins2",
+                Icon = Icon.World,
+                Leaf = true
+            };
+            */
+
             var example6 = new Node
             {
                 NodeID = "Store",
@@ -78,16 +89,14 @@ namespace Kochbuch.Code
                 Leaf = true
             };
 
-            /*
-            var example5b = new Node
+            var example9 = new Node
             {
-                NodeID = "Mixins2",
-                Text = "Ext JS Mixins - Labelable",
-                Href = "/Kapitel2/Mixins2",
+                NodeID = "GridNet",
+                Text = "Grid (Ext.NET)",
+                Href = "/Kapitel4/GridNet",
                 Icon = Icon.World,
                 Leaf = true
-            };
-            */
+            }; 
 
             var jsFiddleHelloWorld = new Node
             {
@@ -114,7 +123,7 @@ namespace Kochbuch.Code
 
             kapitel1.Children.AddRange(new[] { example1, example2 });
             kapitel2.Children.AddRange(new[] { example3, example4, example5 });
-            kapitel4.Children.AddRange(new[] { example6, example7, example8 });
+            kapitel4.Children.AddRange(new[] { example6, example7, example8, example9 });
             chapterX.Children.AddRange(new[] { jsFiddleHelloWorld, jsFiddleNet });
 
             var nodes = new NodeCollection

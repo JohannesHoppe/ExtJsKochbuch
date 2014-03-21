@@ -19,10 +19,13 @@
             url: '/api/CustomerData',
             reader: {
                 type: 'json',
-                root: 'Data'
+                root: 'Data',
+                totalProperty: 'Total'
             }
         },
-        autoLoad: true
+        autoLoad: true,
+        remoteSort: true,
+        pageSize: 15
     });
 
     Ext.onReady(function () {
@@ -32,12 +35,12 @@
             store: store,
             columns: [
                 { text: "Id", dataIndex: 'Id', width: 50 },
-                { text: "First Name", dataIndex: 'FirstName' },
-                { text: "Last Name", dataIndex: 'LastName' },
+                { text: "Vorname", dataIndex: 'FirstName' },
+                { text: "Nachname", dataIndex: 'LastName' },
                 { text: "E-Mail", dataIndex: 'Mail', flex: 1 }
             ],
-            height: 400,
             width: 600,
+            height: 410,
             dockedItems: [{
                 xtype: 'pagingtoolbar',
                 store: store,

@@ -1,0 +1,35 @@
+﻿@model Kochbuch.Models.CustomerData
+
+@{
+    var reader = Html.X().JsonReader()
+        .Root("Data")
+        .TotalProperty("Total");
+
+    var proxy = Html.X()
+        .AjaxProxy()
+        .Url("/api/CustomerData")
+        .Reader(reader);
+
+    var store = Html.X().StoreForModel()
+        .Proxy(proxy)
+        .AutoLoad(true)
+        .RemotePaging(true)
+        .RemoteSort(true)
+        .PageSize(15);
+}
+
+@(Html.X().GridPanel()
+        .ID("GridPanel")
+        .Title("Kunden")
+        .Width(600)
+        .Height(410)
+        .Store(store)
+        .ColumnModel(
+            Html.X().ColumnFor(m=>m.Id).ToBuilder<Column.Builder>().Width(50),
+            Html.X().ColumnFor(m => m.FirstName).ToBuilder<Column.Builder>().Text("Vorname"),
+            Html.X().ColumnFor(m => m.LastName).ToBuilder<Column.Builder>().Text("Nachname"),
+            Html.X().ColumnFor(m => m.Mail).ToBuilder<Column.Builder>().Text("E-Mail").Flex(1)
+        ).BottomBar(
+            Html.X().PagingToolbar()
+        )
+)
