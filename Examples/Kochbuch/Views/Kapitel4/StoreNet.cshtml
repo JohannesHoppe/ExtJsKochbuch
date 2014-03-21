@@ -1,0 +1,20 @@
+﻿@model Kochbuch.Models.CustomerData
+
+@{
+    var reader = Html.X().JsonReader()
+        .Root("Data");
+
+    var proxy = Html.X()
+        .AjaxProxy()
+        .Url("/api/CustomerData")
+        .Reader(reader);
+}
+
+@(Html.X().StoreForModel()
+    .Proxy(proxy)
+    .AutoLoad(true)
+    .Listeners(e => e.Load.Handler = 
+        @"Ext.Array.each(records, function (record, index) {
+              console.log(record.data);
+        })")
+)

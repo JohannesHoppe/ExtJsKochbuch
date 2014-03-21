@@ -54,12 +54,29 @@ namespace Kochbuch.Code
             var example6 = new Node
             {
                 NodeID = "Store",
-                Text = "Store",
+                Text = "Store (Ext JS)",
                 Href = "/Kapitel4/Store",
                 Icon = Icon.World,
                 Leaf = true
             };
 
+            var example7 = new Node
+            {
+                NodeID = "StoreNet",
+                Text = "Store (Ext.NET)",
+                Href = "/Kapitel4/StoreNet",
+                Icon = Icon.World,
+                Leaf = true
+            };
+
+            var example8 = new Node
+            {
+                NodeID = "Grid",
+                Text = "Grid (Ext JS)",
+                Href = "/Kapitel4/Grid",
+                Icon = Icon.World,
+                Leaf = true
+            };
 
             /*
             var example5b = new Node
@@ -72,7 +89,16 @@ namespace Kochbuch.Code
             };
             */
 
-            var jsFiddle = new Node
+            var jsFiddleHelloWorld = new Node
+            {
+                NodeID = "jsFiddle_helloWorld",
+                Text = "jsFiddle: Hello World ",
+                Href = "http://jsfiddle.net/gh/get/extjs/4.2/JohannesHoppe/ExtJsKochbuch/tree/master/Examples/FiddleHelloWorld",
+                Icon = Icon.WeatherCloud,
+                Leaf = true
+            };
+
+            var jsFiddleNet = new Node
             {
                 NodeID = "jsFiddle_grid",
                 Text = "jsFiddle: Grid ",
@@ -88,8 +114,8 @@ namespace Kochbuch.Code
 
             kapitel1.Children.AddRange(new[] { example1, example2 });
             kapitel2.Children.AddRange(new[] { example3, example4, example5 });
-            kapitel4.Children.AddRange(new[] { example6 });
-            chapterX.Children.AddRange(new[] { jsFiddle });
+            kapitel4.Children.AddRange(new[] { example6, example7, example8 });
+            chapterX.Children.AddRange(new[] { jsFiddleHelloWorld, jsFiddleNet });
 
             var nodes = new NodeCollection
                             {

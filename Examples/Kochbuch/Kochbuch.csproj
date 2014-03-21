@@ -263,6 +263,8 @@
     <Content Include="Views\Kapitel2\Mixins.cshtml" />
     <Content Include="Views\Kapitel2\Mixins2.cshtml" />
     <Content Include="Views\Kapitel4\Store.cshtml" />
+    <Content Include="Views\Kapitel4\StoreNet.cshtml" />
+    <Content Include="Views\Kapitel4\Grid.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

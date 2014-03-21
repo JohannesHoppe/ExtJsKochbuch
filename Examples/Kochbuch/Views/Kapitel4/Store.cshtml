@@ -1,9 +1,9 @@
 ﻿<script>
 
-Ext.define('CustomerModel', {
+    Ext.define('CustomerModel', {
         extend: 'Ext.data.Model',
         fields: [
-            { name: 'Number',    type: 'int' },
+            { name: 'Id',        type: 'int' },
             { name: 'FirstName', type: 'string' },
             { name: 'LastName',  type: 'string' },
             { name: 'Mail',      type: 'string' }
@@ -17,10 +17,19 @@ Ext.define('CustomerModel', {
             url: '/api/CustomerData',
             reader: {
                 type: 'json',
-                root: 'users'
+                root: 'Data'
             }
-        },
-        autoLoad: true
+        }
+        //,autoLoad: true
+    });
+
+    myStore.load({
+        callback: function (records, operation, success) {
+            
+            Ext.Array.each(records, function (record, index) {
+                console.log(record.data);
+            });
+        }
     });
 
 </script>

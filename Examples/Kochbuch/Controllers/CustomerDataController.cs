@@ -53,7 +53,7 @@ namespace Kochbuch.Controllers
                 });
 
             IGenerationSession session = factory.CreateSession();
-            return session.List<CustomerData>(1000).Get();
+            return session.List<CustomerData>(100).Get();
         }
     }
 }

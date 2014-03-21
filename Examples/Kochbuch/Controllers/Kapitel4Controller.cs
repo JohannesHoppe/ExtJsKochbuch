@@ -10,5 +10,15 @@ namespace Kochbuch.Controllers
         {
             return View();
         }
+
+        public ActionResult StoreNet()
+        {
+            return View();
+        }
+
+        public ActionResult Grid()
+        {
+            return View();
+        }
     }
 }
