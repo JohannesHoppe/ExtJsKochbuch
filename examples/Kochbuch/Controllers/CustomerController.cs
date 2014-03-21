@@ -141,7 +141,9 @@ namespace Kochbuch.Controllers
                 });
 
             IGenerationSession session = factory.CreateSession();
-            return session.List<Customer>(100).Get();
+            IList<Customer> customers = session.List<Customer>(101).Get();
+            customers.RemoveAt(0);
+            return customers;
         }
     }
 }

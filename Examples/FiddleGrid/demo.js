@@ -1,8 +1,3 @@
-Ext.require([
-    'Ext.data.*',
-    'Ext.grid.*'
-]);
-
 Ext.define('CustomerModel', {
     extend: 'Ext.data.Model',
     fields: [
@@ -17,10 +12,11 @@ var myStore = Ext.create('Ext.data.Store', {
     model: 'CustomerModel',
     proxy: {
         type: 'ajax',
-        url: '/api/Customer',
+        url: 'http://ex.extjs-kochbuch.de/api/customer',
         reader: {
             type: 'json',
-            root: 'Data'
+            root: 'Data',
+            totalProperty: 'Total'
         }
     },
     autoLoad: true
@@ -34,6 +30,6 @@ Ext.onReady(function () {
             { text: "Id", dataIndex: 'Id' },
             { text: "FirstName", dataIndex: 'FirstName' }
         ],
-        renderTo: 'gridDiv'
+        renderTo: Ext.getBody()
     });
 });
