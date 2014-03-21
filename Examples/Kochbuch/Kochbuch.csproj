@@ -219,7 +219,7 @@
     <Compile Include="Code\ActionFilterAttribute.cs" />
     <Compile Include="Code\Kapitel.cs" />
     <Compile Include="Code\StoreRequestParametersForGrid.cs" />
-    <Compile Include="Controllers\CustomerDataController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\Kapitel4Controller.cs" />
     <Compile Include="Controllers\Kapitel2Controller.cs" />
     <Compile Include="Controllers\ExtNetController.cs" />
@@ -230,7 +230,7 @@
     </Compile>
     <Compile Include="Models\DynamicLibrary.cs" />
     <Compile Include="Models\ExtNetModel.cs" />
-    <Compile Include="Models\CustomerData.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

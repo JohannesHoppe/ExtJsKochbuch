@@ -17,7 +17,7 @@ var myStore = Ext.create('Ext.data.Store', {
     model: 'CustomerModel',
     proxy: {
         type: 'ajax',
-        url: '/api/CustomerData',
+        url: '/api/Customer',
         reader: {
             type: 'json',
             root: 'Data'

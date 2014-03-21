@@ -1,4 +1,4 @@
-﻿@model Kochbuch.Models.CustomerData
+﻿@model Kochbuch.Models.Customer
 
 @{
     var reader = Html.X().JsonReader()
@@ -6,7 +6,7 @@
 
     var proxy = Html.X()
         .AjaxProxy()
-        .Url("/api/CustomerData")
+        .Url("/api/Customer")
         .Reader(reader);
 }
 
