@@ -31,6 +31,12 @@ namespace Kochbuch.Controllers
         // GET api/customer
         public object GetCustomers([FromUri]StoreRequestParametersForGrid parameters)
         {
+            // Fallback
+            if (parameters.Start == -1 || parameters.Limit == -1)
+            {
+                return new StoreResult(DemoData, DemoData.Count);
+            }
+
             List<Customer> result = (parameters.SortProp == null)
                 ? DemoData.AsQueryable()
                             .Skip(parameters.Start)
