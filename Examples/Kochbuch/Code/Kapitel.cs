@@ -80,6 +80,15 @@ namespace Kochbuch.Code
                 Leaf = true
             };
 
+            var exampleHelp = new Node
+            {
+                NodeID = "Help",
+                Text = "WebApi Help Page",
+                Href = "/help",
+                Icon = Icon.Information,
+                Leaf = true
+            };
+
             var example8 = new Node
             {
                 NodeID = "Grid",
@@ -121,7 +130,7 @@ namespace Kochbuch.Code
                 NodeID = "extNetDemo",
                 Text = "Ext.Net Demo ",
                 Href = "/ExtNet",
-                Icon = Icon.World,
+                Icon = Icon.Information,
                 Leaf = true
             };
 
@@ -131,7 +140,7 @@ namespace Kochbuch.Code
             var chapterX = new Node { Text = "Playground" };
 
             kapitel1.Children.AddRange(new[] { example1, example2 });
-            kapitel2.Children.AddRange(new[] { example3, example4, example5 });
+            kapitel2.Children.AddRange(new[] { example3, example4, example5, exampleHelp });
             kapitel4.Children.AddRange(new[] { example6, example7, example8, example9 });
             chapterX.Children.AddRange(new[] { jsFiddleHelloWorld, jsFiddleNet, extNetDemo });
 

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using AutoPoco;
 using AutoPoco.DataSources;
 using AutoPoco.Engine;
@@ -14,6 +13,9 @@ using System.Linq.Dynamic;
 
 namespace Kochbuch.Controllers
 {
+    /// <summary>
+    /// An Ext JS grid-compatible resource of customers
+    /// </summary>
     public class CustomerController : ApiController
     {
         public static IList<Customer> DemoData { get; private set; }
@@ -24,12 +26,20 @@ namespace Kochbuch.Controllers
         }
 
         // GET api/customer/5
+        /// <summary>
+        /// Gets one customer by its Id
+        /// </summary>
+        /// <returns>One customer</returns>
         public Customer GetCustomer(int id)
         {
             return DemoData.FirstOrDefault(c => c.Id == id);
         }
 
         // GET api/customer
+        /// <summary>
+        /// Gets a list of customers, accepts parameters for sorting and paging
+        /// </summary>
+        /// <returns>A list of customers and additional details about the query</returns>
         public object GetCustomers([FromUri]StoreRequestParametersForGrid parameters)
         {
             // Fallback
@@ -51,6 +61,11 @@ namespace Kochbuch.Controllers
         }
 
         // POST api/customer
+        /// <summary>
+        /// Creates a new customer
+        /// </summary>
+        /// <param name="customer">Customer data</param>
+        /// <returns>All the data of the customer</returns>
         public HttpResponseMessage Post([FromBody]Customer customer)
         {
             int newId = DemoData.Max(c => c.Id);
@@ -61,6 +76,12 @@ namespace Kochbuch.Controllers
         }
 
         // PUT api/customer/5
+        /// <summary>
+        /// Updates an existing customer
+        /// </summary>
+        /// <param name="id">The Id of the customer</param>
+        /// <param name="customer">Customer object</param>
+        /// <returns>200 and customer data OR 404 and id</returns>
         public HttpResponseMessage Put(int id, [FromBody]Customer customer)
         {
             var foundCustomer = DemoData.FirstOrDefault(c => c.Id == id);
@@ -77,6 +98,11 @@ namespace Kochbuch.Controllers
         }                  
 
         // DELETE api/<controller>/5
+        /// <summary>
+        /// Deletes one customer by id
+        /// </summary>
+        /// <param name="id">The id of the costomer</param>
+        /// <returns>404 or 200</returns>
         public HttpResponseMessage Delete(int id)
         {
             var foundCustomer = DemoData.FirstOrDefault(c => c.Id == id);
@@ -89,6 +115,10 @@ namespace Kochbuch.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, id);
         }
 
+        /// <summary>
+        /// Resets the in-memory demo data to its initial state
+        /// </summary>
+        /// <returns>200 and a text</returns>
         [Route("api/customer/reset")]
         public HttpResponseMessage GetReset()
         {

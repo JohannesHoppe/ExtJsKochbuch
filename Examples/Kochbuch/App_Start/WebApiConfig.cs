@@ -29,6 +29,12 @@ namespace Kochbuch.App_Start
             // removes Xml Formater from WebApi for easy debugging
             MediaTypeFormatterCollection formatters = GlobalConfiguration.Configuration.Formatters;
             formatters.Remove(formatters.XmlFormatter);
+            
+            // more readable output
+            config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+
+            // ParentNode is causing a self referencing loop
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; 
         }
     }
 }
