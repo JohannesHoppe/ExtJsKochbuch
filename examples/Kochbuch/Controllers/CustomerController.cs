@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using AutoPoco;
 using AutoPoco.DataSources;
@@ -15,13 +17,20 @@ namespace Kochbuch.Controllers
     {
         public static IList<Customer> DemoData { get; private set; }
 
-        public object GetDemoData([FromUri]StoreRequestParametersForGrid parameters)
+        static CustomerController()
         {
-            if (DemoData == null) 
-            {
-                DemoData = GenerateDemoData();
-            }
+            DemoData = GenerateDemoData();
+        }
 
+        // GET api/customer/5
+        public Customer GetCustomer(int id)
+        {
+            return DemoData.FirstOrDefault(c => c.Id == id);
+        }
+
+        // GET api/customer
+        public object GetCustomers([FromUri]StoreRequestParametersForGrid parameters)
+        {
             List<Customer> result = (parameters.SortProp == null)
                 ? DemoData.AsQueryable()
                             .Skip(parameters.Start)
@@ -33,6 +42,52 @@ namespace Kochbuch.Controllers
 
             return new StoreResult(result, DemoData.Count);
         }
+
+        // POST api/customer
+        public HttpResponseMessage Post([FromBody]Customer customer)
+        {
+            int newId = DemoData.Max(c => c.Id);
+            customer.Id = newId;
+            DemoData.Add(customer);
+
+            return Request.CreateResponse(HttpStatusCode.Created, customer);
+        }
+
+        // PUT api/customer/5
+        public HttpResponseMessage Put(int id, [FromBody]Customer customer)
+        {
+            var foundCustomer = DemoData.FirstOrDefault(c => c.Id == id);
+            if (foundCustomer == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, id);
+            }
+
+            foundCustomer.FirstName = customer.FirstName;
+            foundCustomer.LastName = customer.LastName;
+            foundCustomer.Mail = customer.Mail;
+
+            return Request.CreateResponse(HttpStatusCode.OK, foundCustomer);
+        }                  
+
+        // DELETE api/<controller>/5
+        public HttpResponseMessage Delete(int id)
+        {
+            var foundCustomer = DemoData.FirstOrDefault(c => c.Id == id);
+            if (foundCustomer == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, id);
+            }
+
+            DemoData.Remove(foundCustomer);
+            return Request.CreateResponse(HttpStatusCode.OK, id);
+        }
+
+        [Route("api/customer/reset")]
+        public HttpResponseMessage GetReset()
+        {
+            DemoData = GenerateDemoData();
+            return Request.CreateResponse(HttpStatusCode.OK, "Demo Data was resetted!");
+        }  
 
         private static IList<Customer> GenerateDemoData()
         {

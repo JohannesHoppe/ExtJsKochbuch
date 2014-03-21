@@ -8,11 +8,14 @@ namespace Kochbuch.App_Start
     {
         public static void Start()
         {
-            Register(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configure(Register);
         }
 
         public static void Register(HttpConfiguration config)
         {
+            // Attribute routing.
+            config.MapHttpAttributeRoutes();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
