@@ -197,9 +197,6 @@
     <Content Include="Scripts\exampleTree.js" />
     <Content Include="Scripts\hash.js" />
     <Content Include="Scripts\highlight.pack.js" />
-    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.0.js" />
-    <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\styles\arta.css" />
     <Content Include="Scripts\styles\ascetic.css" />
     <Content Include="Scripts\styles\atelier-dune.dark.css" />
@@ -336,7 +333,6 @@
     <Content Include="Views\Kapitel4\Grid.cshtml" />
     <Content Include="Views\Kapitel4\GridNet.cshtml" />
     <Content Include="Views\Home\Start.cshtml" />
-    <Content Include="Scripts\jquery-2.1.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
