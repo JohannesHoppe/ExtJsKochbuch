@@ -7,9 +7,13 @@ Ext.define('CM.store.Customers', {
         type: 'ajax',
         api: {
 
-            // CHANGME !!
-            read: 'http://ex.extjs-kochbuch.de/api/customer',
-            update: 'http://ex.extjs-kochbuch.de/api/customer'
+            /* Real REST API (on remote server) */
+            // read: 'http://ex.extjs-kochbuch.de/api/customer',
+            // update: 'http://ex.extjs-kochbuch.de/api/customer'
+
+            /* Static files (on local server) */
+            read: 'data/customers.json',
+            update: 'data/updateCustomers.json'
         },
         reader: {
             type: 'json',
