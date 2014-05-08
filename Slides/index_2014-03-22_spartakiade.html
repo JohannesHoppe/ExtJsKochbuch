@@ -1,0 +1,962 @@
+﻿<!doctype html>
+<html lang="de">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Vortrag: Ext JS Kochbuch</title>
+
+        <meta name="description" content="Vortrag Ext JS Kochbuch">
+        <meta name="author" content="Johannes Hoppe">
+        
+        <link rel="shortcut icon" href="images/favicon.ico" >
+        <meta property="og:image" content="images/logo.png" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="lib/font/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/theme/kochbuch.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+        <link href="lib/css/github.css" rel="stylesheet" />   
+        
+        <!--<link href="http://cdn.sencha.io/ext-4.2.0-gpl/resources/css/ext-all-neptune.css" rel="stylesheet" />-->   
+        <link href="js/extjs/resources/css/ext-all-neptune.css" rel="stylesheet" />
+        
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-state="pattern">
+                    <img src="images/logo.svg" width="60%" />
+                    <br class="hidePrint" />
+                    <br class="hidePrint" />
+                    <small class="hidePrint">Navigation mit <span class="key">Esc</span>, <span class="key">→</span> und <span class="key">↓</span></small>
+                    <h4 class="showPrint"><a style="font-size: 0.5em;color:#E47A0D" href="http://extjs-kochbuch.de/Slides">http://extjs-kochbuch.de/Slides - Interaktive Version der Präsentation!</a></h4>
+                </section>
+                
+                <section>
+                    <section data-markdown>
+                        ![tools](images/johannes.png)
+                     
+                        ### [Johannes Hoppe](http://johanneshoppe.de)
+                    </section>
+                </section> 
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-question-circle fa-5x"></i>
+
+                        ### Enterprise-<br />Webanwendungen
+                    </section>
+  
+                    <section data-markdown>
+                        # B2C
+                        ## Anforderungen
+                    </section>       
+                                 
+                    <section data-markdown>
+                        ## B2C
+                        
+                        <div class="iphone"></div>
+                    </section>    
+                    
+                    <section data-markdown>
+                        # B2B
+                        ## Anforderungen
+                    </section>  
+                    
+                    <section data-markdown>
+                        ## B2B
+                        
+                        &nbsp; &nbsp; &nbsp; &nbsp; <i class="fa fa-file-text-o fa-5x"></i> <i class="fa fa-file-text-o fa-4x"></i> <i class="fa fa-file-text-o fa-3x"></i> <i class="fa fa-file-text-o fa-2x"></i> <i class="fa fa-file-text-o"></i>
+                    </section>    
+                    
+                    <section data-markdown>
+                        ## B2B
+                           
+                        <ul>
+                            <li class="fragment">Mandantenfähigkeit</li>
+                            <li class="fragment">Mehrsprachigkeit</li>
+                            <li class="fragment">White-Label-fähig</li>
+                            <li class="fragment">Komplexes User/Rollen-Konzept</li>
+                            <li class="fragment">Komplexe Grids, Trees und Charts</li>
+                            <li class="fragment">Statuspersistenz der Benutzeroberfläche</li>
+                            <li class="fragment">Responsive Design</li>
+                            <li class="fragment">HTML5, CSS3: Flat Design</li> 
+                            <li class="fragment">...</li>
+                        </ul>                                
+                    </section>  
+                    
+                    <section data-markdown>
+                        ## Beispiel: Grids
+                        
+                        ![Grid](images/grid_01_normal.png)
+                         
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#array-grid)</small>
+                    </section>     
+                    
+                    <section data-markdown>
+                        ![Iceberg](images/iceberg.png)   
+                    </section> 
+                    
+                    <section data-markdown>
+                        ## Grid - Grouping
+                        
+                        ![Grid](images/grid_02_grouped.png)  
+
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#grouped-grid)</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## Grid - Locking
+                        
+                        ![Grid](images/grid_03_locking.png) 
+                        
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#locking-grid)</small>
+                    </section>     
+                    
+                    <section data-markdown>
+                        ## Grid - Multiple Sort
+                        
+                        ![Grid](images/grid_04_multiple_sort.png)   
+                        
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#multi-sort-grid)</small>
+                    </section>   
+                    
+                    <section data-markdown>
+                        ## Grid - Cell Editing
+                        
+                        ![Grid](images/grid_05_cell_editing.png)   
+                        
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#cell-editing)</small>
+                    </section>  
+
+                    <section data-markdown>
+                        ## Grid - Charts
+                        
+                        ![Grid](images/grid_06_charts.png)   
+                        
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/charts/FormDashboard.html?theme=gray)</small>
+                    </section>    
+                    
+                    <section data-markdown>
+                        ## Klar, aber...
+                    </section> 
+
+                    <section data-markdown>
+                        <i class="fa fa-exclamation-circle fa-5x"></i>
+
+                        ### Komplexität
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Leichtgewichtige<br/>Frameworks
+                                                       
+                        <br/>
+                        <ul>
+                            <li class="fragment">jQuery<span class="fragment"> / Backbone.js</span><span class="fragment"> / AngularJS</span><span class="fragment"> / Knockout</span><span class="fragment"> / ember</span></li>
+                            <li class="fragment">+ Plugins</li>
+                            <li class="fragment">+ CSS-Framework<br/>&nbsp; &nbsp; <small>(z.B. Bootstrap)</small></li>
+                            <li class="fragment">+ HTML5 + CSS3<br/>&nbsp; &nbsp; <small>(z.B. Less, Sass)</small></li>
+                            <li class="fragment">+ Klebstoff<br/>&nbsp; &nbsp; <small>(z.B. require.js)</small></li>
+                            <li class="fragment"><b>+ Drittanbieter: UI Elemente</b><br/>&nbsp; &nbsp; <small>(z.B. TinyMCE, jqGrid, jsTree...)</small></li>
+                        </ul>
+                    
+                    </section>  
+                    
+                    <section data-markdown>
+                        ### Universelles<br/>Framework
+                                                       
+                        <br/>
+                        <span class="fragment">Sencha Ext JS</span><br/>
+                        <span class="fragment"><small>(das war's)</small></span>
+   
+                    </section>                     
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-globe fa-5x"></i> 
+
+                        ### Hello World
+                        <small>Ext Core</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Klassen
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            text: null,
+                            constructor: function() {
+                                this.text = "Hello!";
+                            }
+                        })
+                        var hello = new HelloWorld();
+                        ```
+                    </section> 
+                    
+                    <section data-markdown>
+                        ### Vererbung
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            extend: "Ext.window.Window",
+                            /* ... */
+                        });
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Loader
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            requires: ["foo.Bar"],
+                            /* ... */
+                        });
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Low-Level DOM API 
+                        
+                        <br/>                               
+                        <div class="box gray">Ext.dom.CompositeElement
+                            <div class="box">Ext.dom.Element
+                                <div class="clearfix"> 
+                                    <div class="box float-left one_half">HTML</div>
+                                    <div class="box float-right one_half">Inline Styles</div>
+                                </div> 
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section data-markdown>
+                        ### DOM API Beispiel
+                          
+                        <br/>
+                        &lt;img alt=&quot;text&quot;&gt;  
+                        <i class="fa fa-arrow-down"></i>  
+                        <div class="float-right" style="text-align: left; width: 600px; margin-right: 50px;">&lt;figure&gt;<br/>
+                        &nbsp; &nbsp; &nbsp;  &lt;img alt=&quot;text&quot;&gt;<br/>
+                        &nbsp; &nbsp; &nbsp;  &lt;figcation&gt;Text&lt;/figcation&gt;<br/>
+                            &lt;/figure&gt;
+                        </div><br style="clear: both;"/>
+                    </section> 
+                 
+                    <section data-markdown>
+                        ### DOM API Beispiel
+                            
+                        <br/>                           
+                        ```js contenteditable
+                        Ext.select('img').each(function(value) {
+
+                            var text = value.getAttribute('alt');
+        
+                            if (text) {
+                                value.wrap({
+                                        tag: 'figure',
+                                    }).parent().createChild({
+                                        tag: 'figcaption',
+                                        html: text
+                                    });
+                            }        
+                        });
+                        ``` 
+                        <small>[Demo](http://extjs-kochbuch.de/Kochbuch/01. Quickstart.html)</small>
+
+                    </section>                                       
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-gear fa-5x"></i> 
+
+                        ### Widgets
+                        <small>Components & Container</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ### High-Level API 
+                        
+                        <br/>                               
+                        <div class="box gray">Ext.container.Container
+                            <div class="box">Ext.Component [ ]
+                                <div class="clearfix"> 
+                                    <div class="box">Ext.dom.Element [ ]</div>
+                                </div> 
+                            </div>
+                        </div>
+                    </section>
+                    
+                    
+                    <section data-markdown>
+                        ## Components
+                          
+                        <br />
+
+                        * Erben von Ext.AbstractComponent
+                        * Life Cylce (Initialization -> Render -> Destruction)
+                        * <strong>z.B. Button</strong>
+                    </section> 
+                    
+                    
+                    <section data-markdown>
+                        ## Container 
+                            
+                        <br /> 
+
+                        * Erben von Components
+                        * items-Property
+                        * [layout](http://extjs-kochbuch.de/extjs/docs/#!/api/Ext.layout.container.Container)-Property
+                        * z.B Panel
+                    </section>    
+
+                    <section data-markdown>
+                        ### items: []
+                                                       
+                        ```js contenteditable
+                        Ext.define("App.view.Viewport", {
+                            extend: "Ext.container.Viewport",
+                            
+                            layout: "border",
+                            
+                            items: [{
+                                region: "west",
+                                xtype: "panel",
+                                title: "West",
+                                width: 150,
+                            }, {
+                                region: "center",
+                                html: "Hello, World!"
+                            }]
+                        });
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Wichtige Components
+                         
+                        <br/>                              
+                        * Ext.button.Button
+                        * Ext.Img
+                        * Ext.LoadMask
+                        * Ext.menu.Item
+                        * Ext.form.Label
+                        * [...]
+                    </section>   
+                    
+                    <section data-markdown>
+                        ### Wichtige Container
+                         
+                        <br/>                              
+                        * Ext.panel.Panel
+                        * Ext.container.Viewport
+                        * Ext.grid.Panel
+                        * Ext.menu.Menu
+                        * Ext.form.Panel
+                    </section>
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-bullhorn fa-5x"></i> 
+
+                        ### Events
+                        <small>Observer-Pattern</small> 
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Events: el.on()
+                        <div id="myDiv1"></div>
+
+                        <br/>
+                        ```js contenteditable
+                        var myButton = Ext.create('Ext.button.Button', {
+                            text: 'Test button',
+                            renderTo: 'myDiv1'
+                        });     
+
+                        myButton.on('click', function(btn, e, eOpts) {
+                            console.log(btn, e, eOpts);
+                        }); 
+                        ```
+                    </section>   
+                    
+                    <section data-markdown>
+                        ### Events: el.listeners   
+                        <div id="myDiv2"></div>
+
+                        <br/>
+                        ```js contenteditable
+                        var myButton = Ext.create('Ext.button.Button', {
+                            text: 'Test button',
+                            renderTo: 'myDiv2'
+                            listeners : {
+                                click: function(btn, e, eOpts) {
+                                    console.log(btn, e, eOpts);
+                                }
+                            }
+                        });
+                        ```
+                    </section>
+                
+                    <section data-markdown>
+                        ### Custom events
+                        <div id="myDiv3"></div>
+
+                        <br/>
+                        ```js contenteditable 
+                        var myButton = Ext.create('Ext.button.Button', {
+                            text: 'Test button',
+                            renderTo: 'myDiv3'
+                        });
+
+                        myButton.addEvents('myEvent'); // optional
+                        myButton.enableBubble('myEvent');
+
+                        myButton.on('myEvent', function(arg1, arg2, arg3) {
+                            alert(arg1);
+                        });
+
+                        myButton.fireEvent('myEvent', "test");
+                        ```
+                    </section>      
+                    
+                    <section data-markdown>
+                        ### Custom events
+                        <div id="myDiv4"></div>
+
+                        <br/>
+                        ```js contenteditable 
+                        var myButton = Ext.create('Ext.panel.Panel', {
+                            renderTo: 'myDiv4',
+
+                            items: [{
+                                xtype: 'button', 
+                                text: 'Click me',   
+                                bubbleEvents: 'myEvent',
+                                listeners: {
+                                    click: function() {
+                                        this.fireEvent('myEvent', "test");
+                                    }
+                                }
+                            }],
+                            listeners: {
+                                myEvent: function() { alert('Child Button was pressed'); }
+                            }
+                        });                        
+                        ```
+                    </section>   
+                                                 
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-columns fa-5x"></i> 
+
+                        ### Layouts
+                        <small>wie Container ihre Components anordnen</small>
+                    </section>  
+                    
+                    <section>
+                        <img src="images/extjs_layout.svg" style="max-height: 110%; max-width: 110%; margin-top: -80px;"/>
+                    </section>     
+                    
+                    <section>
+                        <img src="images/extjs_layout2.svg" style="max-height: 110%; max-width: 110%; margin-top: -80px;"/>
+                    </section> 
+                    
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-table fa-5x"></i> 
+
+                        ### Stores
+                        <small>wie Data Stores - nur richtig</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        Reader  
+                        <i class="fa fa-arrow-down"></i>   
+                        Proxy                            
+                        <i class="fa fa-arrow-down"></i>   
+                        Store                            
+                        <i class="fa fa-arrow-down"></i>   
+                        Container  
+                        <small>(z.B. Grid)</small>
+                    </section> 
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-gears fa-5x"></i> 
+
+                        ### Single Page
+                        <small>Cliend-side MVC Pattern</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ### MVC
+
+                        <ul class="model jasmine">
+                            <li class="fragment">
+                                <span> &nbsp; &nbsp; &nbsp; Model &nbsp; &nbsp; &nbsp;</span>
+                                <small>Definiert Daten, häufig mit Store</small>
+                            </li>
+                            <li class="fragment">
+                                <span> &nbsp; &nbsp; &nbsp; View &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+                                <small>Widgets (Components & Containers)</small>
+                            </li>
+                            <li class="fragment">
+                                <span> &nbsp; Controller &nbsp;&nbsp;</span>
+                                <small>Applikations-Logik</small>
+                            </li>
+                        </ul>
+                        
+                        <br/>
+                        <small>[Doku](http://extjs-kochbuch.de/extjs/docs/#!/guide/application_architecture)</small>
+                    </section>
+
+                    <section data-markdown>
+                        ### MVC
+
+                        <br/>
+                        ```js contenteditable 
+                        Ext.define("App.controller.FooGrid", {
+                            extend: "Ext.app.Controller",
+                        
+                            init: function() {
+                                this.control({
+                                    "#fooGrid": { "load": this.onGridLoad }
+                                });
+                            },
+                            onGridLoad: function(gridCmp) {
+                                
+                            }   
+                        });
+                        ```
+                    </section> 
+                    
+                    <section data-markdown>
+                        <i class="fa fa-gears fa-5x"></i> 
+
+                        ### Ext.NET
+                        <small>Mehr wie "klassische" ASP.NET Controlls</small>
+                    </section>
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-money fa-5x"></i> 
+
+                        ### Lizensierung 
+                    </section>
+
+                    <section data-markdown>
+                        ### Ext JS
+                        * <b>Community:</b>&nbsp; Free (GPLv3)
+                        * <b>Commercial:</b> per Developer/Major version 
+                         
+                        <br />
+                        ### Sencha Touch
+                        * Commercial Free
+                    </section> 
+                    
+                </section>
+
+                
+                
+                <!--
+                <section data-state="jasmine">
+                    
+                    <section data-markdown>
+                        ![Jasmine](images/jasmine_logo.png")
+                        _TDD with [Jasmine](http://pivotal.github.com/jasmine/)_
+                    </section>
+                    
+                    <section data-markdown>
+                        ## Why Jasmine?
+                        
+                        <ul class="model jasmine">
+                            <li class="fragment">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;BDD-style&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <small>similar to JSpec or RSpec,<br>created by authors of jsUnit and Screw.Unit</small>
+                            </li>
+                            <li class="fragment">
+                                <span>&nbsp;independent&nbsp;</span>
+                                <small>from any browser, DOM,<br>framework or host language</small>
+                            </li>
+                            <li class="fragment">
+                                <span>&nbsp;&nbsp;&nbsp;integrates&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <small>into continuous build systems</small>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section data-markdown>
+                        ## Jasmine Bootstrap
+                        
+                        ```html contenteditable small
+                        _LT_!DOCTYPE html_GT_
+                        _LT_html_GT_
+                        _LT_head_GT_
+                            _LT_title_GT_Jasmine Spec Runner_LT_/title_GT_
+
+                            _LT_link rel=_QUOT_stylesheet_QUOT_ href=_QUOT_lib/jasmine-1.3.1/jasmine.css_QUOT_ /_GT_
+                            _LT_script src=_QUOT_lib/jasmine-1.3.1/jasmine.js_QUOT__GT__LT_/script_GT_
+                            _LT_script src=_QUOT_lib/jasmine-1.3.1/jasmine-html.js_QUOT__GT__LT_/script_GT_
+
+                            _LT_!-- include source files here... --_GT_
+                            _LT_script src=_QUOT_src/Player.js_QUOT__GT__LT_/script_GT_
+                            _LT_script src=_QUOT_src/Song.js_QUOT__GT__LT_/script_GT_
+
+                            _LT_!-- include spec files here... --_GT_
+                            _LT_script src=_QUOT_spec/SpecHelper.js_QUOT__GT__LT_/script_GT_
+                            _LT_script src=_QUOT_spec/PlayerSpec.js_QUOT__GT__LT_/script_GT_
+
+                            _LT_script_GT_
+
+                                (function () {
+
+                                    var htmlReporter = new jasmine.HtmlReporter();
+                                    var jasmineEnv = jasmine.getEnv();
+
+                                    jasmineEnv.addReporter(htmlReporter);
+                                    jasmineEnv.specFilter = function (spec) {
+                                        return htmlReporter.specFilter(spec);
+                                    };
+
+                                    var currentWindowOnload = window.onload;
+
+                                    window.onload = function () {
+                                        if (currentWindowOnload) { currentWindowOnload(); }
+                                        jasmineEnv.execute();
+                                    };
+                                })();
+                            _LT_/script_GT_
+
+                        _LT_/head_GT_
+
+                        _LT_body_GT_
+                        _LT_/body_GT_
+                        _LT_/html_GT_
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ## Output
+                        
+                        <iframe src="js/jasmine/SpecRunner.html" class="spec" scrolling="no"></iframe>
+                    </section>
+
+                    <section data-markdown>
+                        ## Hello World
+                        
+                        ```javascript contenteditable
+                        var helloWorld = function() {
+                            return "Hello World!"; 
+                        };
+
+                        describe('helloWorld', function() {
+                            it('says hello', function() {
+                            
+                                expect(helloWorld()).toEqual("Hello World!");
+                            });
+                        });
+                               
+                        jasmine.getEnv().execute();
+                        ```
+                        <small class="miniR">hint: press F12 and paste this code!</small>
+                    </section>
+                     
+                    <section data-markdown>
+                        ## Matchers
+                        
+                        ```javascript contenteditable
+                        expect(x).toEqual(y);
+                        expect(x).toBe(y);
+                        expect(x).toMatch(pattern);
+                        expect(x).toBeDefined();
+                        expect(x).toBeUndefined();
+                        expect(x).toBeNull();
+                        expect(x).toBeTruthy();
+                        expect(x).toBeFalsy();
+                        expect(x).toContain(y);
+                        expect(x).toBeLessThan(y);
+                        expect(x).toBeGreaterThan(y);
+                        expect(function(){fn();}).toThrow(e);
+                        ```
+                    </section> 
+                    
+                    <section data-markdown>
+                        ## Own matchers
+                        
+                        ```javascript contenteditable
+                        beforeEach(function () {
+                            this.addMatchers({
+                                isACat: function () {
+                                    return this.actual.isFluffy() _AMP__AMP_ this.actual.isLazy();
+                                }
+                            });
+                        });
+
+                        describe('Garfield', function () {
+                            it('is a cat', function () {
+                                expect(new Garfield()).isACat();
+                            });
+                        });
+                        ```
+                        <small class="mini">[&raquo; Documentation](https://github.com/pivotal/jasmine/wiki/Matchers)</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## Test-Driven Development
+                        
+                        1. Write your tests
+                        1. Watch them fail
+                        1. Make them pass
+                        1. Refactor
+                        1. Repeat
+                        
+                        <br><br>
+                        <small class="mini">
+                            see [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.de/dp/0321503627), page 6<br>
+                            see [Working Effectively with Legacy Code](http://www.amazon.de/dp/0131177052), page 62 or many other</small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 1. Write your tests
+
+                        ```javascript contenteditable data-show-source="js/1_jasmine-demo_fail/saveFormat.spec.js"
+                        loading source...
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 2. Watch them fail
+                        
+                        ```javascript contenteditable data-show-source="js/1_jasmine-demo_fail/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini">jasmine.getEnv().execute(); <a href="js/1_jasmine-demo_fail/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 3. Make them pass
+                        
+                        ```javascript contenteditable  data-show-source="js/2_jasmine-demo_pass/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini">jasmine.getEnv().execute(); <a href="js/2_jasmine-demo_pass/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## 4. Refactor
+                        
+                        ```javascript  contenteditable data-show-source="js/3_jasmine-demo_refactor/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini"><a href="js/3_jasmine-demo_refactor/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+
+                    <section data-markdown>
+                        ## 5. Repeat
+                        
+                        ```javascript contenteditable  data-show-source="js/4_jasmine-demo_repeat/saveFormat.js"
+                        loading source...
+                        ```
+                        <small class="mini"><a href="js/4_jasmine-demo_repeat/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                    
+                    <section data-markdown>
+                        ## Testing HTML
+                        
+                        &nbsp;  
+                        Jasmine is DOM agnostic  
+                        comes without tools to set up HTML fixtures
+                        
+                        <br><br>
+                        <small class="miniR">Definition:  
+                        A test fixture is a fixed state of a set of  
+                        objects used as a baseline for running tests.</small>
+                    </section>
+
+                    <section data-markdown>
+                        ## First Solution
+                        <small>in memory fixture with jQuery</small>
+                        
+                        ```javascript contenteditable
+                        describe('trivial jQuery plugin', function () {
+                        
+                            var fixture;
+                            beforeEach(function () {
+                                fixture = $('_LT_div_GT_some HTML code here_LT_/div_GT_');
+                            });
+                        
+                            it('should do something', function () {
+                                fixture.myPlugin();
+                                expect(fixture).toHaveClass("newClass");
+                            });
+                        });
+                        jasmine.getEnv().execute();
+                        ```
+                        <small>... only works for trivial plugins!</small>
+                    </section>
+
+                    <section data-markdown>
+                        ## Clumsy Solution
+                        <small>directly append to/remove from DOM</small>
+                            
+                        ```javascript contenteditable
+                        describe('my jQuery plugin', function () {
+                        
+                            beforeEach(function () {
+                                $('#fixture').remove();
+                                $('body').append('_LT_div id=_QUOT_fixture_QUOT__GT_HTML_LT_/div_GT_');
+                            });
+                        
+                            it('should do something', function () {
+                                $('#fixture').myPlugin();
+                                expect($('#fixture')).toHaveClass("newClass");
+                            });
+                        });
+                        jasmine.getEnv().execute();
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ## jasmine-jquery
+                        <small>[custom matchers](https://github.com/velesin/jasmine-jquery#jquery-matchers), HTML/style/JSON fixtures, event spies</small>
+                        
+                        ```javascript contenteditable
+                        describe('my jQuery plugin', function () {
+
+                           beforeEach(function() {
+                               jasmine.getFixtures().fixturesPath='js/5_jasmine-demo_jquery';
+                               jasmine.getFixtures().load('jquery.myPlugin.spec.html');
+                           });
+
+                           it('should do something', function() {
+                        
+                               var $div = $('#helloWorld').myPlugin();
+                               expect($div).toHaveClass("newClass");
+                           });
+                        });
+                        jasmine.getEnv().execute();
+                        ```
+                        <small class="mini"><a href="js/5_jasmine-demo_jquery/SpecRunner.html" target="blank">Demo</a></small>
+                    </section>
+                
+                </section>                
+                -->       
+
+                <section data-markdown data-state="pattern">
+                    # Danke!
+                    
+                    <br/>
+                    #### [extjs-kochbuch.de](http://extjs-kochbuch.de)
+                </section> 
+            </div>
+
+        </div>
+        
+        <div class="pesentation-details">
+            <p>
+                Created by <a href="http://johanneshoppe.de" target="_blank">Johannes Hoppe</a>
+                <span >| <a href="?print-pdf" tooltip="activates PDF print stylesheet" target="_blank">Print PDF</a></span>
+                <span class="hidePrint">| <a href="http://extjs-kochbuch.de" target="_blank">Kochboch Website</a></span>
+            </p>
+        </div>
+
+
+        <script src="js/require.js"></script> 
+        <script src="js/require.config.js"></script> 
+           
+        <!--<script src="http://cdn.sencha.io/ext-4.2.0-gpl/ext-all.js"></script>--> 
+        <script src="js/extjs/ext-all.js"></script> 
+
+        <!--
+        <script src="js/jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+        <script src="js/jasmine/lib/jasmine-1.3.1/jasmine.console_reporter.js"></script>
+        <script src="js/jasmine/lib/jasmine-jquery.js"></script>
+    
+        <script>        
+            require(['jquery'], function (jquery) {
+
+                // tasty hack to get back the old global $
+                window.$ = window.jquery = window.jQuery = jquery;
+
+                // setup jasmine for console demos
+                var consoleReporter = new jasmine.ConsoleReporter();
+                jasmine.getEnv().addReporter(consoleReporter);
+
+                // start with:
+                // jasmine.getEnv().execute();
+            });
+        </script>     
+        -->            
+
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script> 
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                //minScale: 0.2,
+                //maxScale: 1.0,
+                controls: true,
+                progress: true,
+                history: true,
+                keyboard: true,
+                overview: true,
+                center: true,
+                rollingLinks: false,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } },
+                    { src: 'plugin/showSource/showSource.js' }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>
