@@ -64,27 +64,18 @@
                         <i class="fa fa-question-circle fa-5x"></i>
 
                         ### Enterprise-<br />Webanwendungen
-                    </section>
-  
-                    <section data-markdown>
-                        # B2C
-                        ## Anforderungen
-                    </section>       
+                    </section>     
                                  
                     <section data-markdown>
                         ## B2C
                         
                         <div class="iphone"></div>
                     </section>    
-                    
-                    <section data-markdown>
-                        # B2B
-                        ## Anforderungen
-                    </section>  
-                    
+                                      
                     <section data-markdown>
                         ## B2B
                         
+                        ## = B2C +
                         &nbsp; &nbsp; &nbsp; &nbsp; <i class="fa fa-file-text-o fa-5x"></i> <i class="fa fa-file-text-o fa-4x"></i> <i class="fa fa-file-text-o fa-3x"></i> <i class="fa fa-file-text-o fa-2x"></i> <i class="fa fa-file-text-o"></i>
                     </section>    
                     
@@ -92,14 +83,14 @@
                         ## B2B
                            
                         <ul>
+                            <li class="fragment">HTML5, CSS3</li>
+                            <li class="fragment">Responsive / Flat Design</li>    
+                            <li class="fragment">Statuspersistenz der Benutzeroberfläche</li>
+                            <li class="fragment">Mehrsprachigkeit<br/><br/></li>
                             <li class="fragment">Mandantenfähigkeit</li>
-                            <li class="fragment">Mehrsprachigkeit</li>
                             <li class="fragment">White-Label-fähig</li>
                             <li class="fragment">Komplexes User/Rollen-Konzept</li>
                             <li class="fragment">Komplexe Grids, Trees und Charts</li>
-                            <li class="fragment">Statuspersistenz der Benutzeroberfläche</li>
-                            <li class="fragment">Responsive Design</li>
-                            <li class="fragment">HTML5, CSS3: Flat Design</li> 
                             <li class="fragment">...</li>
                         </ul>                                
                     </section>  
@@ -115,39 +106,7 @@
                     <section data-markdown>
                         ![Iceberg](images/iceberg.png)   
                     </section> 
-                    
-                    <section data-markdown>
-                        ## Grid - Grouping
-                        
-                        ![Grid](images/grid_02_grouped.png)  
-
-                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#grouped-grid)</small>
-                    </section>
-                    
-                    <section data-markdown>
-                        ## Grid - Locking
-                        
-                        ![Grid](images/grid_03_locking.png) 
-                        
-                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#locking-grid)</small>
-                    </section>     
-                    
-                    <section data-markdown>
-                        ## Grid - Multiple Sort
-                        
-                        ![Grid](images/grid_04_multiple_sort.png)   
-                        
-                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#multi-sort-grid)</small>
-                    </section>   
-                    
-                    <section data-markdown>
-                        ## Grid - Cell Editing
-                        
-                        ![Grid](images/grid_05_cell_editing.png)   
-                        
-                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#cell-editing)</small>
-                    </section>  
-
+                     
                     <section data-markdown>
                         ## Grid - Charts
                         
@@ -155,10 +114,6 @@
                         
                         <small>[Demo](http://extjs-kochbuch.de/extjs/examples/charts/FormDashboard.html?theme=gray)</small>
                     </section>    
-                    
-                    <section data-markdown>
-                        ## Klar, aber...
-                    </section> 
 
                     <section data-markdown>
                         <i class="fa fa-exclamation-circle fa-5x"></i>
@@ -198,7 +153,12 @@
 
                         ### Hello World
                         <small>Ext Core</small>
-                    </section>
+                    </section>       
+                    
+                    <section data-markdown>
+                        # 1. 
+                        ### pures Ext.Js
+                    </section> 
                     
                     <section data-markdown>
                         ### Klassen
@@ -234,8 +194,25 @@
                             /* ... */
                         });
                         ```
-                    </section>
+                    </section>   
                     
+                    <section data-markdown>
+                        ### Hello World
+                                                       
+                        ```js contenteditable
+                        Ext.onReady(function () {
+                            Ext.create('Ext.window.Window', {
+                                title: 'Test',
+                                height: 200,
+                                width: 400,
+                                html: "Hello World"
+                            }).show();
+                        });
+                        ```
+                        <small>Beispiel: [HelloWorld](http://ex.extjs-kochbuch.de/#!ex/HelloWorld)</small>
+                    </section>
+                                  
+                    <!--
                     <section data-markdown>
                         ### Low-Level DOM API 
                         
@@ -285,7 +262,30 @@
                         <small>[Demo](http://extjs-kochbuch.de/Kochbuch/01. Quickstart.html)</small>
 
                     </section>                                       
+                    -->      
+                
+                    <section data-markdown>
+                        # 2. 
+                        ### Ext.NET
+                    </section> 
 
+                    <section data-markdown>
+                        ### Hello World
+                                                       
+                        ```csharp contenteditable
+                        @Html.X().ResourceManager()
+
+                        @(Html.X().Window()
+                            .ID("Window1")
+                            .Title("Test")
+                            .Height(200)
+                            .Width(400)
+                            .Html("Hello World")) 
+                        ```
+                        <small>Beispiel: [HelloWorldNet](http://ex.extjs-kochbuch.de/#!ex/HelloWorldNet)</small> 
+                    </section>                
+                
+                
                 </section>
                      
                 <section>
@@ -295,7 +295,8 @@
                         ### Widgets
                         <small>Components & Container</small>
                     </section>
-                    
+                       
+                    <!--
                     <section data-markdown>
                         ### High-Level API 
                         
@@ -308,7 +309,7 @@
                             </div>
                         </div>
                     </section>
-                    
+                    -->
                     
                     <section data-markdown>
                         ## Components
@@ -377,6 +378,16 @@
                         * Ext.form.Panel
                     </section>
 
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-columns fa-5x"></i> 
+
+                        ### Layouts & Themes
+                        <small>wie Container ihre Components anordnen</small>
+                    </section>   
+                    
                 </section>
                      
                 <section>
@@ -474,28 +485,9 @@
                      
                 <section>
                     <section data-markdown>
-                        <i class="fa fa-columns fa-5x"></i> 
-
-                        ### Layouts
-                        <small>wie Container ihre Components anordnen</small>
-                    </section>  
-                    
-                    <section>
-                        <img src="images/extjs_layout.svg" style="max-height: 110%; max-width: 110%; margin-top: -80px;"/>
-                    </section>     
-                    
-                    <section>
-                        <img src="images/extjs_layout2.svg" style="max-height: 110%; max-width: 110%; margin-top: -80px;"/>
-                    </section> 
-                    
-                </section>
-                     
-                <section>
-                    <section data-markdown>
                         <i class="fa fa-table fa-5x"></i> 
 
                         ### Stores
-                        <small>wie Data Stores - nur richtig</small>
                     </section>
                     
                     <section data-markdown>
@@ -515,10 +507,11 @@
                     <section data-markdown>
                         <i class="fa fa-gears fa-5x"></i> 
 
-                        ### Single Page
-                        <small>Cliend-side MVC Pattern</small>
+                        ### Architektur
+                        <small>Cliend-side Patterns</small>
                     </section>
-                    
+                                
+                    <!--
                     <section data-markdown>
                         ### MVC
 
@@ -540,6 +533,7 @@
                         <br/>
                         <small>[Doku](http://extjs-kochbuch.de/extjs/docs/#!/guide/application_architecture)</small>
                     </section>
+                    -->
 
                     <section data-markdown>
                         ### MVC
@@ -560,13 +554,14 @@
                         });
                         ```
                     </section> 
-                    
-                    <section data-markdown>
-                        <i class="fa fa-gears fa-5x"></i> 
 
-                        ### Ext.NET
-                        <small>Mehr wie "klassische" ASP.NET Controlls</small>
-                    </section>
+                    <section data-markdown>
+                        ## MVVM
+
+                        #### Ext Js 5 (public beta)
+                        <small>[Doku](http://docs.sencha.com/extjs/5.0.0/whats_new/5.0/whats_new.html)</small>
+                    </section>                     
+                    
 
                 </section>
                      
