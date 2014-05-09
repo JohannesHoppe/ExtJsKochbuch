@@ -7,6 +7,8 @@ Ext.define('CM.view.customer.List', {
     title : 'Alle Kunden',
     store: 'Customers',
 
+    ui: 'green-panel',
+
     columns: [
         { header: 'Id',  dataIndex: 'Id', flex: 10 },
         { header: 'Vorname', dataIndex: 'FirstName', flex: 20 },

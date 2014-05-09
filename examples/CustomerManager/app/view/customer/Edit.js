@@ -9,6 +9,8 @@ Ext.define('CM.view.customer.Edit', {
     autoShow: true,
     width: 280,
 
+    //ui: 'green-window',
+
     initComponent: function () {
         this.items = [
             {
