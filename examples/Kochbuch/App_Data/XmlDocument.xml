@@ -488,6 +488,24 @@
             <param name="collection">NodeCollection</param>
             <returns>parsed tree</returns>
         </member>
+        <member name="T:Kochbuch.Controllers.ChapterController">
+            <summary>
+            An Ext JS treeview compatible resource of chapters
+            </summary>
+        </member>
+        <member name="M:Kochbuch.Controllers.ChapterController.Get">
+            <summary>
+            Gets the root of the tree
+            </summary>
+            <returns>The tree</returns>
+        </member>
+        <member name="M:Kochbuch.Controllers.ChapterController.Get(System.String)">
+            <summary>
+            Gets the root of the tree OR an empty tree node
+            </summary>
+            <param name="node">Node to be expanded, topmost node is called 'Root'</param>
+            <returns>The tree</returns>
+        </member>
         <member name="T:Kochbuch.Controllers.CustomerController">
             <summary>
             An Ext JS grid-compatible resource of customers
