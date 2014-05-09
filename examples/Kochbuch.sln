@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FiddleGrid", "FiddleGrid", 
 		FiddleGrid\demo.js = FiddleGrid\demo.js
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManager", "CustomerManager\CustomerManager.csproj", "{AB0530DA-8DB9-4290-A180-9E5A87D809B9}"
+EndProject
 Global
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml
@@ -46,6 +48,10 @@ Global
 		{326C4FB7-19D4-48FD-9A7F-50BE95DC3003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{326C4FB7-19D4-48FD-9A7F-50BE95DC3003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{326C4FB7-19D4-48FD-9A7F-50BE95DC3003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB0530DA-8DB9-4290-A180-9E5A87D809B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB0530DA-8DB9-4290-A180-9E5A87D809B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB0530DA-8DB9-4290-A180-9E5A87D809B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB0530DA-8DB9-4290-A180-9E5A87D809B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
