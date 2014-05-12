@@ -9,8 +9,7 @@ SET PATH=%PATH%;C:\Program Files\nodejs\
 echo *** Checking node.js version ***
 node -v 2> NUL
 if %ERRORLEVEL%==9009 (
-  echo *** Error: node.js executable does not exists in path! Going to install it via chocolatey! ***
-  CALL "bundle with require optimizer - installation.cmd"
+  echo *** Please install node.js! ***
 )
 
 echo *** Going to search and replace ***
