@@ -5,6 +5,10 @@
 * [Kapitel 3: Widgets](03. Widgets.html)
 * [TODO!]
 
+# Vortrag
+
+<iframe src="http://player.vimeo.com/video/96427544?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="960" height="768" frameborder="0" allowfullscreen stye></iframe>
+
 # Begleitmaterial
 
 * [Beispiele](http://ex.extjs-kochbuch.de/)
