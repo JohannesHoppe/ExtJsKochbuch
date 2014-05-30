@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DeveloperMediaSlides</RootNamespace>
-    <AssemblyName>DeveloperMediaSlides</AssemblyName>
+    <RootNamespace>ExtJsKochbuchSlides</RootNamespace>
+    <AssemblyName>ExtJsKochbuchSlides</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -55,20 +55,6 @@
     <Content Include="images\iphone-hand.png" />
     <Content Include="images\iphone-screen.gif" />
     <Content Include="images\jasmine_logo.png" />
-    <Content Include="examples\05_jasmine\jquery.myPlugin.js" />
-    <Content Include="examples\05_jasmine\jquery.myPlugin.spec.html" />
-    <Content Include="examples\05_jasmine\jquery.myPlugin.spec.js" />
-    <Content Include="examples\05_jasmine\SpecRunner.html" />
-    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine-html.js" />
-    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine.console_reporter.js" />
-    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine.css" />
-    <Content Include="examples\jasmine\lib\jasmine-1.3.1\jasmine.js" />
-    <Content Include="examples\jasmine\lib\jasmine-jquery.js" />
-    <Content Include="examples\jasmine\SpecRunner.html" />
-    <Content Include="examples\jasmine\spec\PlayerSpec.js" />
-    <Content Include="examples\jasmine\spec\SpecHelper.js" />
-    <Content Include="examples\jasmine\src\Player.js" />
-    <Content Include="examples\jasmine\src\Song.js" />
     <Content Include="images\events_dom.png" />
     <Content Include="images\events_jquery.png" />
     <Content Include="images\icon_flash.png" />
@@ -99,7 +85,6 @@
     <Content Include="js\domReady.js">
       <DependentUpon>require.js</DependentUpon>
     </Content>
-    <Content Include="examples\jasmine\lib\jasmine-1.3.1\MIT.LICENSE" />
     <None Include="examples\webinar.json" />
     <Content Include="js\extjs\resources\ext-theme-access\Readme.md" />
     <Content Include="js\extjs\resources\ext-theme-classic-sandbox\Readme.md" />
@@ -3072,7 +3057,6 @@
     <Content Include="js\jquery-2.0.3.min.js">
       <DependentUpon>jquery-2.0.3.js</DependentUpon>
     </Content>
-    <Content Include="js\purl.js" />
     <Content Include="js\require.config.js">
       <DependentUpon>require.js</DependentUpon>
     </Content>
