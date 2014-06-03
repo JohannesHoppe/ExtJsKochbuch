@@ -39,6 +39,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="index_2014-05-10-DotNetDayFranken.html" />
     <Content Include="index.html" />
     <Content Include="images\background-pattern.svg" />
     <Content Include="images\extjs_layout.svg" />
