@@ -1,0 +1,557 @@
+﻿<!doctype html>
+<html lang="de">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Vortrag: Ext JS Kochbuch</title>
+
+        <meta name="description" content="Vortrag Ext JS Kochbuch">
+        <meta name="author" content="Johannes Hoppe">
+        
+        <link rel="shortcut icon" href="images/favicon.ico" >
+        <meta property="og:image" content="images/logo.png" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="lib/font/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/theme/kochbuch.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+        <link href="lib/css/github.css" rel="stylesheet" />   
+        
+        <!--<link href="http://cdn.sencha.io/ext-4.2.0-gpl/resources/css/ext-all-neptune.css" rel="stylesheet" />-->   
+        <link href="js/extjs/resources/css/ext-all-neptune.css" rel="stylesheet" />
+        
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-state="pattern">
+                    <img src="images/logo.svg" width="60%" />
+                    <br class="hidePrint" />
+                    <br class="hidePrint" />
+                    <small class="hidePrint">Navigation mit <span class="key">Esc</span>, <span class="key">→</span> und <span class="key">↓</span></small>
+                    <h4 class="showPrint"><a style="font-size: 0.5em;color:#E47A0D" href="http://extjs-kochbuch.de/Slides">http://extjs-kochbuch.de/Slides - Interaktive Version der Präsentation!</a></h4>
+                </section>
+                
+                <section>
+                    <section data-markdown>
+                        ![tools](images/johannes.png)
+                     
+                        ### [Johannes Hoppe](http://johanneshoppe.de)
+                    </section>
+                </section> 
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-question-circle fa-5x"></i>
+
+                        ### Enterprise-<br />Webanwendungen
+                    </section>     
+                                 
+                    <section data-markdown>
+                        ## B2C
+                        
+                        <div class="iphone"></div>
+                    </section>    
+                                      
+                    <section data-markdown>
+                        ## B2B
+                        
+                        ## = B2C +
+                        &nbsp; &nbsp; &nbsp; &nbsp; <i class="fa fa-file-text-o fa-5x"></i> <i class="fa fa-file-text-o fa-4x"></i> <i class="fa fa-file-text-o fa-3x"></i> <i class="fa fa-file-text-o fa-2x"></i> <i class="fa fa-file-text-o"></i>
+                    </section>    
+                    
+                    <section data-markdown>
+                        ## B2B
+                           
+                        <ul>
+                            <li class="fragment">HTML5, CSS3</li>
+                            <li class="fragment">Responsive / Flat Design</li>    
+                            <li class="fragment">Statuspersistenz der Benutzeroberfläche</li>
+                            <li class="fragment">Mehrsprachigkeit<br/><br/></li>
+                            <li class="fragment">Mandantenfähigkeit</li>
+                            <li class="fragment">White-Label-fähig</li>
+                            <li class="fragment">Komplexes User/Rollen-Konzept</li>
+                            <li class="fragment">Komplexe Grids, Trees und Charts</li>
+                            <li class="fragment">...</li>
+                        </ul>                                
+                    </section>  
+                    
+                    <section data-markdown>
+                        ## Beispiel: Grids
+                        
+                        ![Grid](images/grid_01_normal.png)
+                         
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/build/KitchenSink/ext-theme-gray/#array-grid)</small>
+                    </section>     
+                    
+                    <section data-markdown>
+                        ![Iceberg](images/iceberg.png)   
+                    </section> 
+                     
+                    <section data-markdown>
+                        ## Grid - Charts
+                        
+                        ![Grid](images/grid_06_charts.png)   
+                        
+                        <small>[Demo](http://extjs-kochbuch.de/extjs/examples/charts/FormDashboard.html?theme=gray)</small>
+                    </section>    
+
+                    <section data-markdown>
+                        <i class="fa fa-exclamation-circle fa-5x"></i>
+
+                        ### Komplexität
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Leichtgewichtige<br/>Frameworks
+                                                       
+                        <br/>
+                        <ul>
+                            <li class="fragment">jQuery<span class="fragment"> / Backbone.js</span><span class="fragment"> / AngularJS</span><span class="fragment"> / Knockout</span><span class="fragment"> / ember</span></li>
+                            <li class="fragment">+ Plugins</li>
+                            <li class="fragment">+ CSS-Framework<br/>&nbsp; &nbsp; <small>(z.B. Bootstrap)</small></li>
+                            <li class="fragment">+ HTML5 + CSS3<br/>&nbsp; &nbsp; <small>(z.B. Less, Sass)</small></li>
+                            <li class="fragment">+ Klebstoff<br/>&nbsp; &nbsp; <small>(z.B. require.js)</small></li>
+                            <li class="fragment"><b>+ Drittanbieter: UI Elemente</b><br/>&nbsp; &nbsp; <small>(z.B. TinyMCE, jqGrid, jsTree...)</small></li>
+                        </ul>
+                    
+                    </section>  
+                    
+                    <section data-markdown>
+                        ### Universelles<br/>Framework
+                                                       
+                        <br/>
+                        <span class="fragment">Sencha Ext JS</span><br/>
+                        <span class="fragment"><small>(das war's)</small></span>
+   
+                    </section>                     
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-globe fa-5x"></i> 
+
+                        ### Hello World
+                        <small>Ext Core</small>
+                    </section>       
+                    
+                    <section data-markdown>
+                        # 1. 
+                        ### pures Ext.Js
+                    </section> 
+                    
+                    <section data-markdown>
+                        ### Klassen
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            text: null,
+                            constructor: function() {
+                                this.text = "Hello!";
+                            }
+                        })
+                        var hello = new HelloWorld();
+                        ```
+                    </section> 
+                    
+                    <section data-markdown>
+                        ### Vererbung
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            extend: "Ext.window.Window",
+                            /* ... */
+                        });
+                        ```
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Loader
+                                                       
+                        ```js contenteditable
+                        Ext.define("MyNamespace.HelloWorld", {
+                            requires: ["foo.Bar"],
+                            /* ... */
+                        });
+                        ```
+                    </section>   
+                    
+                    <section data-markdown>
+                        ### Hello World
+                                                       
+                        ```js contenteditable
+                        Ext.onReady(function () {
+                            Ext.create('Ext.window.Window', {
+                                title: 'Test',
+                                height: 200,
+                                width: 400,
+                                html: "Hello World"
+                            }).show();
+                        });
+                        ```
+                        <small>Beispiel: [HelloWorld](http://ex.extjs-kochbuch.de/#!ex/HelloWorld)</small>
+                    </section>
+                
+                    <section data-markdown>
+                        # 2. 
+                        ### Ext.NET
+                    </section> 
+
+                    <section data-markdown>
+                        ### Hello World
+                                                       
+                        ```csharp contenteditable
+                        @Html.X().ResourceManager()
+
+                        @(Html.X().Window()
+                            .ID("Window1")
+                            .Title("Test")
+                            .Height(200)
+                            .Width(400)
+                            .Html("Hello World")) 
+                        ```
+                        <small>Beispiel: [HelloWorldNet](http://ex.extjs-kochbuch.de/#!ex/HelloWorldNet)</small> 
+                    </section>                
+                
+                
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-gear fa-5x"></i> 
+
+                        ### Widgets
+                        <small>Components & Container</small>
+                    </section>
+                       
+                    <section data-markdown>
+                        ## Components
+                          
+                        <br />
+
+                        * Erben von Ext.AbstractComponent
+                        * Life Cylce (Initialization -> Render -> Destruction)
+                        * <strong>z.B. Button</strong>
+                    </section> 
+                    
+                    
+                    <section data-markdown>
+                        ## Container 
+                            
+                        <br /> 
+
+                        * Erben von Components
+                        * items-Property
+                        * [layout](http://extjs-kochbuch.de/extjs/docs/#!/api/Ext.layout.container.Container)-Property
+                        * z.B Panel
+                    </section>    
+
+                    <section data-markdown>
+                        ### items: []
+                                                       
+                        ```js contenteditable
+                        Ext.define("App.view.Viewport", {
+                            extend: "Ext.container.Viewport",
+                            
+                            layout: "border",
+                            
+                            items: [{
+                                region: "west",
+                                xtype: "panel",
+                                title: "West",
+                                width: 150,
+                            }, {
+                                region: "center",
+                                html: "Hello, World!"
+                            }]
+                        });
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Wichtige Components
+                         
+                        <br/>                              
+                        * Ext.button.Button
+                        * Ext.Img
+                        * Ext.LoadMask
+                        * Ext.menu.Item
+                        * Ext.form.Label
+                        * [...]
+                    </section>   
+                    
+                    <section data-markdown>
+                        ### Wichtige Container
+                         
+                        <br/>                              
+                        * Ext.panel.Panel
+                        * Ext.container.Viewport
+                        * Ext.grid.Panel
+                        * Ext.menu.Menu
+                        * Ext.form.Panel
+                    </section>
+
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-columns fa-5x"></i> 
+
+                        ### Layouts & Themes
+                        <small>wie Container ihre Components anordnen</small>
+                    </section>   
+                    
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-bullhorn fa-5x"></i> 
+
+                        ### Events
+                        <small>Observer-Pattern</small> 
+                    </section>
+                    
+                    <section data-markdown>
+                        ### Events: el.on()
+                        <div id="myDiv1"></div>
+
+                        <br/>
+                        ```js contenteditable
+                        var myButton = Ext.create('Ext.button.Button', {
+                            text: 'Test button',
+                            renderTo: 'myDiv1'
+                        });     
+
+                        myButton.on('click', function(btn, e, eOpts) {
+                            console.log(btn, e, eOpts);
+                        }); 
+                        ```
+                    </section>   
+                    
+                    <section data-markdown>
+                        ### Events: el.listeners   
+                        <div id="myDiv2"></div>
+
+                        <br/>
+                        ```js contenteditable
+                        var myButton = Ext.create('Ext.button.Button', {
+                            text: 'Test button',
+                            renderTo: 'myDiv2'
+                            listeners : {
+                                click: function(btn, e, eOpts) {
+                                    console.log(btn, e, eOpts);
+                                }
+                            }
+                        });
+                        ```
+                    </section>
+                
+                    <section data-markdown>
+                        ### Custom events
+                        <div id="myDiv3"></div>
+
+                        <br/>
+                        ```js contenteditable 
+                        var myButton = Ext.create('Ext.button.Button', {
+                            text: 'Test button',
+                            renderTo: 'myDiv3'
+                        });
+
+                        myButton.addEvents('myEvent'); // optional
+                        myButton.enableBubble('myEvent');
+
+                        myButton.on('myEvent', function(arg1, arg2, arg3) {
+                            alert(arg1);
+                        });
+
+                        myButton.fireEvent('myEvent', "test");
+                        ```
+                    </section>      
+                    
+                    <section data-markdown>
+                        ### Custom events
+                        <div id="myDiv4"></div>
+
+                        <br/>
+                        ```js contenteditable 
+                        var myButton = Ext.create('Ext.panel.Panel', {
+                            renderTo: 'myDiv4',
+
+                            items: [{
+                                xtype: 'button', 
+                                text: 'Click me',   
+                                bubbleEvents: 'myEvent',
+                                listeners: {
+                                    click: function() {
+                                        this.fireEvent('myEvent', "test");
+                                    }
+                                }
+                            }],
+                            listeners: {
+                                myEvent: function() { alert('Child Button was pressed'); }
+                            }
+                        });                        
+                        ```
+                    </section>   
+                                                 
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-table fa-5x"></i> 
+
+                        ### Stores
+                    </section>
+                    
+                    <section data-markdown>
+                        Reader  
+                        <i class="fa fa-arrow-down"></i>   
+                        Proxy                            
+                        <i class="fa fa-arrow-down"></i>   
+                        Store                            
+                        <i class="fa fa-arrow-down"></i>   
+                        Container  
+                        <small>(z.B. Grid)</small>
+                    </section> 
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-gears fa-5x"></i> 
+
+                        ### Architektur
+                        <small>Cliend-side Patterns</small>
+                    </section>
+                                
+                    <section data-markdown>
+                        ### MVC
+
+                        <br/>
+                        ```js contenteditable 
+                        Ext.define("App.controller.FooGrid", {
+                            extend: "Ext.app.Controller",
+                        
+                            init: function() {
+                                this.control({
+                                    "#fooGrid": { "load": this.onGridLoad }
+                                });
+                            },
+                            onGridLoad: function(gridCmp) {
+                                
+                            }   
+                        });
+                        ```
+                    </section> 
+
+                    <section data-markdown>
+                        ## MVVM
+
+                        #### Ext Js 5 (public beta)
+                        <small>[Doku](http://docs.sencha.com/extjs/5.0.0/whats_new/5.0/whats_new.html)</small>
+                    </section>                     
+                    
+
+                </section>
+                     
+                <section>
+                    <section data-markdown>
+                        <i class="fa fa-money fa-5x"></i> 
+
+                        ### Lizensierung 
+                    </section>
+
+                    <section data-markdown>
+                        ### Ext JS
+                        * <b>Community:</b>&nbsp; Free (GPLv3)
+                        * <b>Commercial:</b> per Developer/Major version 
+                         
+                        <br />
+                        ### Sencha Touch
+                        * Commercial Free
+                    </section> 
+                    
+                </section>
+
+                <section data-markdown data-state="pattern">
+                    # Danke!
+                    
+                    <br/>
+                    #### [extjs-kochbuch.de](http://extjs-kochbuch.de)
+                </section> 
+            </div>
+
+        </div>
+        
+        <div class="pesentation-details">
+            <p>
+                Created by <a href="http://johanneshoppe.de" target="_blank">Johannes Hoppe</a>
+                <span >| <a href="?print-pdf" tooltip="activates PDF print stylesheet" target="_blank">Print PDF</a></span>
+                <span class="hidePrint">| <a href="http://extjs-kochbuch.de" target="_blank">Kochboch Website</a></span>
+            </p>
+        </div>
+
+
+        <script src="js/require.js"></script> 
+        <script src="js/require.config.js"></script> 
+           
+        <!--<script src="http://cdn.sencha.io/ext-4.2.0-gpl/ext-all.js"></script>--> 
+        <script src="js/extjs/ext-all.js"></script> 
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script> 
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                //minScale: 0.2,
+                //maxScale: 1.0,
+                controls: true,
+                progress: true,
+                history: true,
+                keyboard: true,
+                overview: true,
+                center: true,
+                rollingLinks: false,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } },
+                    { src: 'plugin/showSource/showSource.js' }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>
